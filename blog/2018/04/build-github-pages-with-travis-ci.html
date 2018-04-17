@@ -25,7 +25,7 @@
 		<meta name="theme-color" content="#157878">
 		<!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
 		<link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/assets/css/style.css?v=1275f325a6d8b2f1b2f7a0dae2b3620a183ec872">
+		<link rel="stylesheet" href="/assets/css/style.css?v=011d109d9425165ac33d1c612c66f37fce7a40a5">
 		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 	</head>
 	<body>
@@ -107,11 +107,28 @@
 
 <h1 id="setup-travis">2. Setting up Travis CI build</h1>
 
+<h2 id="set-up-travis-ci">Set up Travis CI</h2>
+
 <p>To set up Travis CI, we need to first register, and then tell Travis what to do. If you have already set up Travis CI for your other projects, you can skip the registering part.</p>
 
-<p>Open <a href="https://travis-ci.org">https://travis-ci.org</a> and click on the top-right corner. Select <em>Sign in with GitHub</em>.</p>
+<p>Open <a href="https://travis-ci.org">https://travis-ci.org</a> and click on the top-right corner. Select <em>Sign in with GitHub</em>. Grant permissions to Travis CI and you’ll be redirected back to Travis. Flip the switch beside your repository name.</p>
 
-<p>To be continued…</p>
+<p>You can also go to the settings page of your repo and try them out. It’s recommended that you turn on the option <em>Build only if .travis.yml is present</em>.</p>
+
+<h2 id="set-up-build-settings">Set up build settings</h2>
+
+<p>Now you’ve set up Travis CI. You need to tell Travis how to build your site. Create a file named <code class="highlighter-rouge">.travis.yml</code> with the following content. Note the file name starts with a dot.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">sudo</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">cache</span><span class="pi">:</span> <span class="s">bundler</span>
+<span class="na">script</span><span class="pi">:</span> <span class="s">bundle exec jekyll build</span>
+</code></pre></div></div>
+
+<p>Commit and push the file to GitHub, and go to Travis CI. You’ll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don’t haste.</p>
+
+<p>You’ll see Travis’s build log, including Jekyll’s output. That’s it. The site is built.</p>
+
+<h1 id="3-use-travis-to-deploy-to-github">3. Use Travis to deploy to GitHub</h1>
 
 
 
