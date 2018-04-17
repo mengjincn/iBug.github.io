@@ -25,7 +25,7 @@
 		<meta name="theme-color" content="#157878">
 		<!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
 		<link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/assets/css/style.css?v=d9cb5f3b1c0b7603421e8cbc13fb62191293522b">
+		<link rel="stylesheet" href="/assets/css/style.css?v=aeca4dda8985ce6364565011d2c176489ffb5cf6">
 		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 	</head>
 	<body>
@@ -95,7 +95,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>After that, run <code class="highlighter-rouge">bundle install</code> to set up your GitHub Pages build environment. Bundler should not require root privileges so you don’t need to prefix the command with <code class="highlighter-rouge">sudo</code>.</p>
+<p>If you use another gem-based Jekyll theme for your site, add it in the <code class="highlighter-rouge">group</code> block as a gem. After that, run <code class="highlighter-rouge">bundle install</code> to set up your GitHub Pages build environment. Bundler should not require root privileges so you don’t need to prefix the command with <code class="highlighter-rouge">sudo</code>.</p>
 
 <p>Done? Done. Now run <code class="highlighter-rouge">bundle exec jekyll build</code> and have some coffee. Jekyll should generate your site under the <code class="highlighter-rouge">_site</code> folder. You can also try it live with <code class="highlighter-rouge">bundle exec jekyll serve</code> and open <code class="highlighter-rouge">http://localhost:4000</code> in a browser. It’s really simple, isn’t it?</p>
 
@@ -115,7 +115,7 @@
 
 <p>You can also go to the settings page of your repo and try them out. It’s recommended that you turn on the option <em>Build only if .travis.yml is present</em>. Make sure <em>Build pushed branches</em> is turned on.</p>
 
-<h2 id="set-up-build-settings">Set up build settings</h2>
+<h2 id="setup-build">Set up build settings</h2>
 
 <p>Now you’ve set up Travis CI. You need to tell Travis how to build your site. Create a file named <code class="highlighter-rouge">.travis.yml</code> with the following content. Note the file name starts with a dot.</p>
 
@@ -124,11 +124,13 @@
 <span class="na">script</span><span class="pi">:</span> <span class="s">bundle exec jekyll build</span>
 </code></pre></div></div>
 
+<p>The first line tells Travis that building the site does not require root privileges. The second line tells Travis to cache Ruby Bundler’s installation, so your subsequents builds will be faster as Bundler won’t have to actually install anything - everything is correctly cached. The third line is your site’s build script.</p>
+
 <p>Commit and push the file to GitHub, and go to Travis CI. You’ll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don’t haste.</p>
 
 <p>You’ll see Travis’s build log, including Jekyll’s output. That’s it. The site is built.</p>
 
-<h1 id="3-use-travis-to-deploy-to-github">3. Use Travis to deploy to GitHub</h1>
+<h1 id="deploy-travis">3. Use Travis to deploy to GitHub</h1>
 
 <h2 id="generating-access-token-for-travis-ci">Generating access token for Travis CI</h2>
 
@@ -142,7 +144,7 @@
 
 <p>Go to your build settings page on Travis CI. Scroll down and look for “Environment variables” section. Enter <code class="highlighter-rouge">GH_TOKEN</code> as the name, and your token as the value. Do <strong>not</strong> turn on “display value in build log”.</p>
 
-<h2 id="setting-up-deployment">Setting up deployment</h2>
+<h2 id="setup-deployment">Setting up deployment</h2>
 
 <p>We need a deploy script. It can be as simple as following:</p>
 
@@ -171,9 +173,11 @@ git push <span class="nt">--force</span> deploy master <span class="o">&gt;</spa
 
 <p>Voila! You can now push changes to your sources to GitHub, and let Travis CI build it and deploy it for you.</p>
 
-<h1 id="4-miscellaneous">4. Miscellaneous</h1>
+<h1 id="miscellaneous">4. Miscellaneous</h1>
 
 <p>When building with Travis CI, it’s much like a local environment. You are no longer restricted to use only <a href="https://help.github.com/articles/configuring-jekyll-plugins/">the supported plugins</a> on GitHub Pages. You can use an arbitrary RubyGems-based plugin by adding <code class="highlighter-rouge">gem "plugin-name"</code> into your Gemfile, in <code class="highlighter-rouge">group :jekyll_plugins</code>. Travis will fetch the plugins and build your site for you.</p>
+
+<p><a href="https://github.com/planetjekyll/awesome-jekyll-plugins">Here</a>’s a list of awesome gem-based Jekyll plugins that you can try.</p>
 
 
 
