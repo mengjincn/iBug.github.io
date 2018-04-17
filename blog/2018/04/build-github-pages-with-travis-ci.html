@@ -25,7 +25,7 @@
 		<meta name="theme-color" content="#157878">
 		<!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
 		<link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/assets/css/style.css?v=dffeb698c4b15fe7563898ffbf2e0269eb3fb21b">
+		<link rel="stylesheet" href="/assets/css/style.css?v=7feabbe1b766ad44be1d55f1fd3b1b940e37b769">
 		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 	</head>
 	<body>
@@ -119,12 +119,14 @@
 
 <p>Now you’ve set up Travis CI. You need to tell Travis how to build your site. Create a file named <code class="highlighter-rouge">.travis.yml</code> with the following content. Note the file name starts with a dot.</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">sudo</span><span class="pi">:</span> <span class="no">false</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">language</span><span class="pi">:</span> <span class="s">ruby</span>
 <span class="na">cache</span><span class="pi">:</span> <span class="s">bundler</span>
+<span class="na">sudo</span><span class="pi">:</span> <span class="no">false</span>
+
 <span class="na">script</span><span class="pi">:</span> <span class="s">bundle exec jekyll build</span>
 </code></pre></div></div>
 
-<p>The first line tells Travis that building the site does not require root privileges. The second line tells Travis to cache Ruby Bundler’s installation, so your subsequents builds will be faster as Bundler won’t have to actually install anything - everything is correctly cached. The third line is your site’s build script.</p>
+<p>The first two lines tell Travis that the project uses Ruby, and cache Ruby Bundler’s installation, so your subsequents builds will be faster as Bundler won’t have to actually install anything - everything is correctly cached. The third line tells Travis that building the site does not require root privileges. The last line is your site’s build script.</p>
 
 <p>Commit and push the file to GitHub, and go to Travis CI. You’ll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don’t haste.</p>
 
