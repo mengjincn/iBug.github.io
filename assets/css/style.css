@@ -285,6 +285,7 @@ td, th { padding: 0; }
 
 @media screen and (max-width: 38em) { .post-list { -webkit-margin-end: 10px; -webkit-padding-start: 10px; } }
 .post-meta { font-size: 14px; color: #828282; }
+.post-meta .post-meta-tag { display: inline-block; border-width: 0.8px; }
 
 .post-link { display: block; font-size: 24px; }
 
@@ -311,9 +312,12 @@ a:hover { text-decoration: underline; }
 @media screen and (min-width: 42em) and (max-width: 64em) { .btn-inline { padding: 0.15rem 0.4rem; font-size: 0.9rem; } }
 @media screen and (max-width: 42em) { .btn-inline { display: block; width: 100%; padding: 0.1rem 0.3rem; font-size: 0.85rem; } }
 
-.post-tags { margin-top: 1em; text-align: center; font-size: 0.9em; font-weight: normal; }
+.post-tags { margin-top: 1.2em; text-align: center; font-size: 0.9em; font-weight: normal; }
 .post-tags .post-tag { display: inline-block; padding: 0.2em 0.5em; margin: 0 0.5em; color: rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 2em; }
 .post-tags .post-tag:hover { text-decoration: none; background-color: rgba(255, 255, 255, 0.2); }
+
+.tag { display: inline-block; padding: 0.2em 0.5em; color: #1E6BB8; border: 1px solid #155799; border-radius: 1em; background-color: rgba(31, 153, 87, 0.1); }
+.tag:hover { text-decoration: none; background-color: rgba(31, 153, 87, 0.2); }
 
 .tag-cloud { margin: auto; text-align: center; }
 .tag-cloud .set-1, .tag-cloud .set-2, .tag-cloud .set-3, .tag-cloud .set-4, .tag-cloud .set-5, .tag-cloud .set-6, .tag-cloud .set-7, .tag-cloud .set-8, .tag-cloud .set-9 { display: inline-block; padding: 0.2em 0.5em; color: #1E6BB8; border: 1px solid #155799; border-radius: 1em; background-color: rgba(31, 153, 87, 0.1); }
