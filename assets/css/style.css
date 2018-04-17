@@ -1029,6 +1029,14 @@ a {
     background-color: #eff0f1;
     border: 0; }
 
+.site-footer-owner {
+  display: block;
+  font-weight: bold; }
+
+.site-footer-credits {
+  color: #819198;
+  font-size: 0.9em; }
+
 .site-footer {
   padding-top: 2rem;
   margin-top: 2rem;
@@ -1041,49 +1049,41 @@ a {
       font-size: 1rem; } }
   @media screen and (max-width: 42em) {
     .site-footer {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       margin-bottom: 0.5rem; } }
-
-.site-footer-owner {
-  display: block;
-  font-weight: bold; }
-
-.site-footer-credits {
-  color: #819198; }
-
-.site-footer .my-span-icon a {
-  text-decoration: none; }
-.site-footer .my-span-icon a:hover {
-  text-decoration: none; }
-@media screen and (min-width: 64em) {
-  .site-footer .my-span-icon {
-    padding: 0px 5px 0px 5px; } }
-@media screen and (min-width: 42em) and (max-width: 64em) {
-  .site-footer .my-span-icon {
-    padding: 0px 10px 10px 10px; } }
-@media screen and (max-width: 42em) {
-  .site-footer .my-span-icon {
-    padding: 0px 10px 10px 10px; } }
-.site-footer .my-svg-icon {
-  color: #606c71;
-  fill: #606c71;
-  width: 24px;
-  height: 24px; }
-  .site-footer .my-svg-icon:hover {
-    text-decoration: none;
-    color: #159957;
-    fill: #159957;
-    transform: scale(1.25);
-    transition: color 0.5s, transform 0.2s ease-out; }
+  .site-footer .my-span-icon a {
+    text-decoration: none; }
+  .site-footer .my-span-icon a:hover {
+    text-decoration: none; }
   @media screen and (min-width: 64em) {
-    .site-footer .my-svg-icon {
-      width: 28px;
-      height: 28px; } }
+    .site-footer .my-span-icon {
+      padding: 0px 5px 0px 5px; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
-    .site-footer .my-svg-icon {
-      width: 32px;
-      height: 32px; } }
+    .site-footer .my-span-icon {
+      padding: 0px 10px 10px 10px; } }
   @media screen and (max-width: 42em) {
-    .site-footer .my-svg-icon {
-      width: 36px;
-      height: 36px; } }
+    .site-footer .my-span-icon {
+      padding: 0px 10px 10px 10px; } }
+  .site-footer .my-svg-icon {
+    color: #606c71;
+    fill: #606c71;
+    width: 24px;
+    height: 24px; }
+    .site-footer .my-svg-icon:hover {
+      text-decoration: none;
+      color: #159957;
+      fill: #159957;
+      transform: scale(1.25);
+      transition: color 0.5s, transform 0.2s ease-out; }
+    @media screen and (min-width: 64em) {
+      .site-footer .my-svg-icon {
+        width: 28px;
+        height: 28px; } }
+    @media screen and (min-width: 42em) and (max-width: 64em) {
+      .site-footer .my-svg-icon {
+        width: 32px;
+        height: 32px; } }
+    @media screen and (max-width: 42em) {
+      .site-footer .my-svg-icon {
+        width: 36px;
+        height: 36px; } }
