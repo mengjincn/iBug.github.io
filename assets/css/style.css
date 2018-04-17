@@ -808,6 +808,7 @@ a {
   .tag-cloud .set-7, .tag-cloud .set-8, .tag-cloud .set-9 {
     display: inline-block;
     padding: 0.2em 0.5em;
+    margin: 0.2em;
     color: #1E6BB8;
     border: 1px solid #155799;
     border-radius: 1em;
