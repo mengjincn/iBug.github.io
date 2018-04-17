@@ -285,7 +285,7 @@ td, th { padding: 0; }
 
 @media screen and (max-width: 38em) { .post-list { -webkit-margin-end: 10px; -webkit-padding-start: 10px; } }
 .post-meta { font-size: 14px; color: #828282; }
-.post-meta .post-meta-tag { display: inline-block; border-width: 0.8px; }
+.post-meta .post-meta-tag { padding: 0.15em 0.4em; border-width: 0.8px; font-size: 0.9em; }
 
 .post-link { display: block; font-size: 24px; }
 
