@@ -802,6 +802,10 @@ th {
   .tag-cloud .set-7:hover, .tag-cloud .set-8:hover, .tag-cloud .set-9:hover {
   text-decoration: none;
   background-color: rgba(31, 153, 87, 0.2); }
+  .blog-post img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
   .page-header {
   color: #fff;
   text-align: center;
