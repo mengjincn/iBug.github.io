@@ -694,8 +694,8 @@ th {
   line-height: 1.5;
   color: #606c71;
   background-color: #FCFCFC;
-  background-image: linear-gradient(0, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) url(/image/body-bg.png);
-  background-repeat: repeat repeat; }
+  background-image: linear-gradient(0, rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
+  background-repeat: repeat; }
   a {
   color: #1e6bb8;
   text-decoration: none; }
