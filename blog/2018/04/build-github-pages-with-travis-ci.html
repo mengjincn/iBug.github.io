@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#157878">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=488ddb79dcfc062c5f672209310623c93e9d9194">
+    <link rel="stylesheet" href="/assets/css/style.css?v=effcc6a67598037180f67bf88553ab055a69a31a">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
   </head>
   <body>
@@ -108,7 +108,7 @@
 </code></pre>
         </div>
       </div>
-      <p>The first two lines tell Travis that the project uses Ruby, and cache Ruby Bundler’s installation, so your subsequents builds will be faster as Bundler won’t have to actually install anything - everything is correctly cached. The third line tells Travis that building the site does not require root privileges. The last line is your site’s build script.</p>
+      <p>The first two lines tell Travis that the project uses Ruby, and cache Ruby Bundler’s installation, so your subsequent builds will be faster as Bundler won’t have to actually install anything - it is correctly cached. The third line tells Travis that building the site does not require root privileges. The last line is your site’s build script.</p>
       <p>Commit and push the file to GitHub, and go to Travis CI. You’ll see your site is being built by Travis. There may be a delay of up to half a minute before Travis detects your commit and builds it, so don’t haste.</p>
       <p>You’ll see Travis’s build log, including Jekyll’s output. That’s it. The site is built.</p>
       <h1 id="deploy-travis">3. Use Travis to deploy to GitHub</h1>
