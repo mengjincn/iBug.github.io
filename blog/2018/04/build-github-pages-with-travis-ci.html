@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#157878">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=effcc6a67598037180f67bf88553ab055a69a31a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ca4cf119be0ec5b886bcf1a0c50d067b78d7be67">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
   </head>
   <body>
@@ -116,7 +116,7 @@
       <p>Before you use Travis to deploy built site to GitHub directly, there’s one thing to note: For user/organization pages, GitHub Pages can only be built from the <code class="highlighter-rouge">master</code> branch. Because of that, you need to push your sources to another branch like <code class="highlighter-rouge">source</code>, or another repository.</p>
       <p>If you’ve pushed your sources to another branch of the same repository, you don’t need to change anything on Travis CI. If you’ve pushed your sources to another repository, go to Travis CI and turn on the switch for that repo (and probably turn off the switch for your GH Pages repo).</p>
       <p>To allow Travis to push to your repositories, we need to generate an access token for it. Go to <a href="https://github.com/settings/tokens">Personal Access Tokens</a> settings page and click <em>Generate new token</em>. Enter an identifiable name like “Travis CI”, and tick the box beside <code class="highlighter-rouge">public_repo</code>. You can also tick other boxes but they won’t be useful.</p>
-      <p>Click <em>Generate Token</em> below and you’ll get your token. <strong>Be careful not to expose it</strong> because anyont will have push access to all your public repositories (and other privileges, if you checked the boxes) with that token. You can revoke it at any time.</p>
+      <p>Click <em>Generate Token</em> below and you’ll get your token. <strong>Be careful not to expose it</strong> because anyone will have push access to all your public repositories (and other privileges, if you checked the boxes) with that token. You can revoke it at any time.</p>
       <p>Go to your build settings page on Travis CI. Scroll down and look for “Environment variables” section. Enter <code class="highlighter-rouge">GH_TOKEN</code> as the name, and your token as the value. Do <strong>not</strong> turn on “display value in build log”.</p>
       <h2 id="setup-deployment">Setting up deployment</h2>
       <p>We need a deploy script. It can be as simple as following:</p>
