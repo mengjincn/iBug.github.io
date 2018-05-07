@@ -818,7 +818,8 @@ th {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  filter: blur(3px); }
+  filter: blur(3px);
+  content: ''; }
   @media screen and (min-width: 64em) {
   .page-header {
   padding: 4rem 5rem; } }
