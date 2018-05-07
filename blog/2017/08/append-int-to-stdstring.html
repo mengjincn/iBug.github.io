@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#157878">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=5a2a98884affba53e209d742f0cbb694e184f29d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a2baf26d1cba6d979dc261b4d705b10276b304b4">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -44,63 +44,6 @@
       <h3 class="project-date"><time datetime="2017-08-04T11:35:05+00:00" itemprop="datePublished">Aug 4, 2017</time> &bull; iBug</h3>
     </section>
     <section class="main-content blog-post">
-      <div id="sidenav" class="sidenav">
-        <p>For people new to template resolution and template type deduction in C++, they may have written this code and get confused why it doesn’t compile:</p>
-        <div class="language-c++ highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><span class="cp">#include &lt;string&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span>
-    <span class="n">s</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>     <span class="c1">// compiles correctly
-</span>    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// compiler error
-</span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-          </div>
-        </div>
-        <p>And here’s my answer:</p>
-        <hr />
-        <p><strong>TL;DR</strong> <code class="highlighter-rouge">operator+=()</code> is a class member function in class <code class="highlighter-rouge">string</code>, while <code class="highlighter-rouge">operator+()</code> is a template function.</p>
-        <p>The standard class <code class="highlighter-rouge">template&lt;typename CharT&gt; basic_string&lt;CharT&gt;</code> has an overloaded member function <code class="highlighter-rouge">basic_string&amp; operator+=(CharT)</code>, and string is just <code class="highlighter-rouge">basic_string&lt;char&gt;</code>.</p>
-        <p>As values that fits in a shorter type can be interpreted as that type, in the expression <code class="highlighter-rouge">s += 2</code>, the 2 is <em>not</em> treated as <code class="highlighter-rouge">int</code>, but <code class="highlighter-rouge">char</code> instead. It has <em>exactly</em> the same effect as <code class="highlighter-rouge">s += '\x02'</code>. A char with ASCII code 2 (STX) is appended, instead of the character <code class="highlighter-rouge">'2'</code> (with ASCII value 50, or 0x32).</p>
-        <p>However, string does not have an overloaded member function like <code class="highlighter-rouge">string operator+(int)</code>, so <code class="highlighter-rouge">s + 2</code> is not a valid expression, thus throws an error during compilation. (More below)</p>
-        <p>You can use operator+ function in string in these ways:</p>
-        <div class="language-c++ highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="kt">char</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">// or (char)2
-</span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">// C++11 and above only
-</span></code></pre>
-          </div>
-        </div>
-        <hr />
-        <p>For people concerned about why 2 isn’t automatically cast to <code class="highlighter-rouge">char</code> with <code class="highlighter-rouge">operator+</code>,</p>
-        <div class="language-c++ highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">CharT</span><span class="o">&gt;</span>
-  <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;</span>
-  <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">CharT</span> <span class="n">rhs</span><span class="p">);</span>
-</code></pre>
-          </div>
-        </div>
-        <p>The above is the prototype<sup>[note]</sup> for the plus operator in <code class="highlighter-rouge">s + 2</code>, and because it’s a template function, it is requiring an implementation of both <code class="highlighter-rouge">operator+&lt;char&gt;</code> and <code class="highlighter-rouge">operator+&lt;int&gt;</code>, which is conflicting. For details, see <a href="https://stackoverflow.com/q/45506372/5958455">Why isn’t automatic downcasting applied to template functions?</a></p>
-        <p>Meanwhile, the prototype of <code class="highlighter-rouge">operator+=</code> is:</p>
-        <div class="language-c++ highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">CharT</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">basic_string</span><span class="p">{</span>
-    <span class="n">basic_string</span><span class="o">&amp;</span>
-      <span class="k">operator</span><span class="o">+=</span><span class="p">(</span><span class="n">CharT</span> <span class="n">_c</span><span class="p">);</span>
-<span class="p">};</span>
-</code></pre>
-          </div>
-        </div>
-        <p>You see, no template here (it’s a class member function), so the compiler deduces that type <code class="highlighter-rouge">CharT</code> is <code class="highlighter-rouge">char</code> from class implementation, and <code class="highlighter-rouge">int(2)</code> is automatically cast into <code class="highlighter-rouge">char(2)</code>.</p>
-        <hr />
-        <p><sup><b>Note:</b> Unnecessary code is stripped when copying from C++ standard include source. That includes typename 2 and 3 (Traits and Allocator) for template class “basic_string”, and unnecessary underscores, in order to improve readability.</sup></p>
-      </div>
       <p>For people new to template resolution and template type deduction in C++, they may have written this code and get confused why it doesn’t compile:</p>
       <div class="language-c++ highlighter-rouge">
         <div class="highlight">
