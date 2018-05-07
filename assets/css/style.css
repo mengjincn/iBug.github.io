@@ -819,6 +819,8 @@ th {
   background-size: cover;
   background-attachment: fixed;
   filter: blur(3px);
+  width: 100%;
+  z-index: -1;
   content: ''; }
   @media screen and (min-width: 64em) {
   .page-header {
