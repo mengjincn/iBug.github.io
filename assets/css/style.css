@@ -812,12 +812,13 @@ th {
   .page-header {
   color: #fff;
   text-align: center;
-  background-color: #15CC57;
+  background-color: #15CC57; }
+  .page-header::before {
   background-image: url("/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  filter: blur(5px); }
+  filter: blur(3px); }
   @media screen and (min-width: 64em) {
   .page-header {
   padding: 4rem 5rem; } }
