@@ -819,7 +819,11 @@ th {
   background-size: cover;
   background-attachment: fixed;
   filter: blur(3px);
+  position: fixed;
+  display: block;
   width: 100%;
+  left: 0;
+  right: 0;
   z-index: -1;
   content: ''; }
   @media screen and (min-width: 64em) {
