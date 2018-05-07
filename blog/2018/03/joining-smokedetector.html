@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#157878">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=2bc657a7f5112787f6f5f824d401844660654c16">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5a2a98884affba53e209d742f0cbb694e184f29d">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -43,6 +43,33 @@
       <h3 class="project-date"><time datetime="2018-03-14T10:29:30+00:00" itemprop="datePublished">Mar 14, 2018</time> &bull; iBug</h3>
     </section>
     <section class="main-content blog-post">
+      <div id="sidenav" class="sidenav">
+        <p>After a plain request, an administrator of the SmokeDetector project added me under the <em>Developers</em> section of <a href="https://charcoal-se.org/people">their team member list</a>, which indicates that I am a known personnel for contributing a non-trivial amount of code to the project.</p>
+        <h1 id="starting-off">Starting off</h1>
+        <p>The whole <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector</a> project is written in Python 3, and is currently the #2 starred repository <a href="https://github.com/topics/spam">tagged <code class="highlighter-rouge">spam</code> on GitHub</a>. They use <a href="http://flake8.pycqa.org">flake8</a> for coding convention enforcement, which makes the code pretty readable to anyone new to the project.</p>
+        <p>I started from reading the part of the code that I can understand, and making trivial changes like changing the content of string literals, as I usually do with unfamiliar code or learning a new programming language. <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1441">My first pull request</a> that actually changed some functionality was a not-so-hard bug fix: In the reason <em>mostly dots in {}</em>, it used to attempt to strip <code class="highlighter-rouge">&lt;code&gt;</code> blocks after stripping all HTML tags, when there was no code blocks to strip anymore. This way a lot of dots inside code blocks that should have been stripped were wrongly left intact, and counted towards “total number of dots”. A lot of false positives were generated because in some code blocks, the density of dots was particularly high.</p>
+        <p>It wasn’t hard to copy that function down and try running it locally. I only added a few print statements before I noticed the logical error and made some patch. Then I submitted it as a pull request and luckily, it did not take long for a maintainer to evaluate my patch and merge it.</p>
+        <h1 id="continuing-more">Continuing more</h1>
+        <p>Sure. I kept submitting a steady stream of <a href="https://github.com/Charcoal-SE/SmokeDetector/pulls?q=is%3Apr+author%3AiBug">pull requests</a> since that, and most were small fixes/changes (excluding keyword list changes). They were mostly a few lines’ changes or even only a few characters, yet they made sense. They vary from catching a missing keyword to <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1634">adding a handy new chat command</a>.</p>
+        <p>Some changes that I’m specifically proud of:</p>
+        <ul>
+          <li><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1544">#1544</a>: Whitelist a few common file extensions that are often linked to external code sources like GitHub or Pastebin. They used to be caught for <em>misleading link</em> a lot.</li>
+          <li><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1634">#1634</a>: Add a new command <code class="highlighter-rouge">!!/scan</code> (though it’s originally named <code class="highlighter-rouge">!!/checkpost</code>). This command instructs SmokeDetector to scan a post if it was missed earlier, or if the user isn’t sure if it’s spam and is hesitant to directly <code class="highlighter-rouge">!!/report</code> it. It has become more popular than the original <code class="highlighter-rouge">!!/report</code> command since it was introduced.</li>
+          <li>
+            <p><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1677">#1677</a>: Show analyzed reasons for manually reported posts. The “why” part of a manually reported post used to have only one line like this:</p>
+            <div class="highlighter-rouge">
+              <div class="highlight">
+                <pre class="highlight"><code>Post manually reported by *iBug* in *Charcoal HQ*
+</code></pre>
+              </div>
+                  </div>
+            <p>After my patch, SmokeDetector now runs the post through all the tests and generates an analysis of the post, telling inspectors what reasons the post would have been caught for. See <a href="https://metasmoke.erwaysoftware.com/post/109767">this report</a> for example.</p>
+          </li>
+          <li><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1723">#1723</a>: A bug fix for another long-standing bug in message parsing due to Stack Exchange inserting invisible characters every 80 characters, for the purpose of line breaking (strange why can’t they use CSS). There was <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1554">a previous attempt</a> that failed to fix this bug, and I reverted it by the way. The patch was verified to be working by later tests.</li>
+        </ul>
+        <h1 id="conclusion">Conclusion</h1>
+        <p>There’s no denying that it’s an important skill to continue from others’ code, as it’s a case that every programmer has to face sooner or later. Try starting at some easier tasks like inspecting a small single-file program and understanding it, then advance to trying modifying a multi-file project and make your own comprehension. Every project is a new start and you’ll soon learn your own way of joining another team of coders.</p>
+      </div>
       <p>After a plain request, an administrator of the SmokeDetector project added me under the <em>Developers</em> section of <a href="https://charcoal-se.org/people">their team member list</a>, which indicates that I am a known personnel for contributing a non-trivial amount of code to the project.</p>
       <h1 id="starting-off">Starting off</h1>
       <p>The whole <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector</a> project is written in Python 3, and is currently the #2 starred repository <a href="https://github.com/topics/spam">tagged <code class="highlighter-rouge">spam</code> on GitHub</a>. They use <a href="http://flake8.pycqa.org">flake8</a> for coding convention enforcement, which makes the code pretty readable to anyone new to the project.</p>
