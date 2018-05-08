@@ -1027,7 +1027,7 @@ th {
   .site-footer {
   padding-top: 1rem;
   margin-top: 2rem;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   background-color: #F2F3F2; }
