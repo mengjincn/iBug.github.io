@@ -1029,6 +1029,7 @@ th {
   color: #819198;
   font-size: 0.9em; }
   .site-footer {
+  display: block;
   padding-top: 1rem;
   position: absolute;
   bottom: 0;
