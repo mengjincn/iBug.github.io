@@ -689,7 +689,6 @@ th {
   body {
   padding: 0;
   margin: 0;
-  height: 100%;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -697,9 +696,6 @@ th {
   background-color: #FCFCFC;
   background-image: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
   background-repeat: repeat; }
-  #body-container {
-  min-height: 100%;
-  position: relative; }
   a {
   color: #1e6bb8;
   text-decoration: none; }
@@ -881,26 +877,22 @@ th {
   .project-date {
   font-size: 0.75rem; } }
   .main-content {
-  word-wrap: break-word;
-  padding-bottom: 2rem; }
+  word-wrap: break-word; }
   .main-content :first-child {
   margin-top: 0; }
   @media screen and (min-width: 64em) {
   .main-content {
   max-width: 64rem;
   padding: 3rem 6rem;
-  padding-bottom: 2rem;
   margin: 0 auto;
   font-size: 1.1rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
   .main-content {
   padding: 3rem 4rem;
-  padding-bottom: 2rem;
   font-size: 1rem; } }
   @media screen and (max-width: 42em) {
   .main-content {
   padding: 2rem 1rem;
-  padding-bottom: 2rem;
   font-size: 0.9rem; } }
   .main-content img {
   max-width: 100%; }
@@ -1032,30 +1024,19 @@ th {
   color: #819198;
   font-size: 0.9em; }
   .site-footer {
-  display: block;
-  padding-top: 1rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2rem;
-  background-color: #EFE; }
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: solid 1px #eff0f1; }
   @media screen and (min-width: 64em) {
   .site-footer {
-  max-width: 64rem;
-  padding: 1.5rem 6rem;
-  margin: 0 auto;
-  font-size: 0.8rem; } }
+  font-size: 1rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
   .site-footer {
-  padding: 1.2rem 4rem;
-  font-size: 0.8rem; } }
+  font-size: 1rem; } }
   @media screen and (max-width: 42em) {
   .site-footer {
-  padding: 1rem 1rem;
-  font-size: 0.6rem; } }
-  @media screen and (min-width: 64em) {
-  .site-footer footer {
-  max-width: 64rem; } }
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem; } }
   .site-footer .my-span-icon a {
   text-decoration: none; }
   .site-footer .my-span-icon a:hover {
