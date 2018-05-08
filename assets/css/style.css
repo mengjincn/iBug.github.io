@@ -878,7 +878,8 @@ th {
   .project-date {
   font-size: 0.75rem; } }
   .main-content {
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  padding-bottom: 2rem; }
   .main-content :first-child {
   margin-top: 0; }
   @media screen and (min-width: 64em) {
@@ -1027,10 +1028,11 @@ th {
   .site-footer {
   padding-top: 1rem;
   margin-top: 2rem;
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #F2F3F2; }
+  height: 2rem;
+  background-color: #EFE; }
   @media screen and (min-width: 64em) {
   .site-footer {
   max-width: 64rem;
