@@ -1024,19 +1024,26 @@ th {
   color: #819198;
   font-size: 0.9em; }
   .site-footer {
-  padding-top: 2rem;
+  padding-top: 1rem;
   margin-top: 2rem;
-  border-top: solid 1px #eff0f1; }
+  background-color: #F2F3F2; }
   @media screen and (min-width: 64em) {
   .site-footer {
-  font-size: 1rem; } }
+  max-width: 64rem;
+  padding: 1.5rem 6rem;
+  margin: 0 auto;
+  font-size: 0.8rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
   .site-footer {
-  font-size: 1rem; } }
+  padding: 1.2rem 4rem;
+  font-size: 0.8rem; } }
   @media screen and (max-width: 42em) {
   .site-footer {
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem; } }
+  padding: 1rem 1rem;
+  font-size: 0.6rem; } }
+  @media screen and (min-width: 64em) {
+  .site-footer footer {
+  max-width: 64rem; } }
   .site-footer .my-span-icon a {
   text-decoration: none; }
   .site-footer .my-span-icon a:hover {
