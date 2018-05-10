@@ -720,7 +720,9 @@ th {
   .pagination > li a.active, .pagination > li span.active {
   font-weight: bold;
   color: #FFF;
-  background-color: #155799; }
+  background-color: #155799;
+  border-top-color: #155799;
+  border-bottom-color: #155799; }
   .pagination > li a.active:focus, .pagination > li a.active:hover, .pagination > li span.active:focus, .pagination > li span.active:hover {
   cursor: default; }
   .pagination > li a.disabled, .pagination > li span.disabled {
