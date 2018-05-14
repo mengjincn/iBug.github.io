@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=8ed7d4ed83067ed22730c049607c99c935d683fc">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3455b202ac5304de5ae6fafe4ee041d0e9c15e92">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -46,6 +46,14 @@
     <section class="main-content blog-post">
       <p>As a casual attempt to accomplish a Grand Assignment, I created a Reversi game with Python. The project is open-source on GitHub and you can view it with the link above.</p>
       <p><img src="https://user-images.githubusercontent.com/7273074/39672148-558d8104-5157-11e8-9a48-040459eb8d89.png" alt="Screenshot" /></p>
+      <p>The game implements the following functionality:</p>
+      <ul>
+        <li>Graphical User Interface (GUI), using PyQt5</li>
+        <li>Built-in AI implemented as a heuristic searching (and evaluation) algorithm</li>
+      </ul>
+      <p>The core functionality of the game is pretty simple, and should be easy for anyone familiar with the Reverso game. The code is in <a href="https://github.com/iBug/PyReversi/blob/master/reversi.py"><code class="highlighter-rouge">reversi.py</code></a>.</p>
+      <p>It’s the GUI and the AI part that differentiates implementations of the Reversi game.</p>
+      <p>As a general (and relatively easy) way to create an AI for the game, heuristic searching well balances between coding complexity and the competence of the resulting algorithm. Heuristic searching is basically a complete searching tree at limited depth, equipped with a heuristic evaluation function that determines the situation of the game board.</p>
       <span class="post-tags">
         <b>Tag: </b>
         <a href="/tags/development" class="tag">development</a>
