@@ -418,6 +418,8 @@ th {
 .highlight .kt {
   color: #445588;
   font-weight: bold; }
+.highlight .ow {
+  color: #1589ef; }
 
 .highlight .mf {
   color: #009999; }
@@ -526,13 +528,8 @@ th {
 .highlight .nv {
   color: #008080; }
 
-.highlight .ow {
-  color: #000000;
-  font-weight: bold; }
-
 .highlight .o {
-  color: #000000;
-  font-weight: bold; }
+  color: #000000; }
 
 .highlight .w {
   color: #bbbbbb; }
