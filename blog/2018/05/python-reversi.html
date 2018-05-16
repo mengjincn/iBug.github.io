@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=32bff12c2157db57fca9e3b217684fd1d398135b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8ccfe92c823d34ebe894e9927575ca833a232a1b">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -91,6 +91,48 @@
       </div>
       <p>where <code class="highlighter-rouge">s1</code> is the score for the black side, and <code class="highlighter-rouge">s2</code> is the score for the white side.</p>
       <p>The final part is the side chess check (<a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L110">code</a>). It checks if a corner may be occupied by the opponent (having own chess around), and if it’s occupied, add additional score if there are more chesses of the same color.</p>
+      <h1 id="searching-tree">Searching tree</h1>
+      <p>A plain searching algorithm would be really plain. The black side wants the score to be as high as possible, while the white side wants the exact opposite.</p>
+      <div class="language-javascript highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code><span class="nx">MAX</span> <span class="o">=</span> <span class="mi">999999</span>
+
+<span class="kd">function</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">depth</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">heuristicScore</span><span class="p">(</span><span class="nx">game</span><span class="p">)</span>
+
+  <span class="nx">want_max</span> <span class="o">=</span> <span class="p">(</span><span class="nx">side</span> <span class="o">==</span> <span class="nx">BLACK</span><span class="p">)</span>
+  <span class="nx">bestMove</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="k">if</span> <span class="nx">want_max</span>
+    <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">-</span><span class="nx">MAX</span> <span class="o">-</span> <span class="mi">1</span>
+  <span class="k">else</span>
+    <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">+</span><span class="nx">MAX</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="k">for</span> <span class="nx">move</span> <span class="k">in</span> <span class="nx">game</span><span class="p">.</span><span class="nx">availableMoves</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">perform</span> <span class="nx">move</span>
+    <span class="c1">// Recurse</span>
+    <span class="nx">subMove</span><span class="p">,</span> <span class="nx">subScore</span> <span class="o">=</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">undo</span>
+
+    <span class="k">if</span> <span class="nx">want_max</span>
+      <span class="k">if</span> <span class="nx">subScore</span> <span class="o">&gt;</span> <span class="nx">bestScore</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
+        <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
+    <span class="k">else</span>
+      <span class="k">if</span> <span class="nx">subScore</span> <span class="o">&lt;</span> <span class="nx">bestScore</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
+        <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
+  <span class="k">return</span> <span class="nx">bestMove</span><span class="p">,</span> <span class="nx">bestScore</span>
+</code></pre>
+        </div>
+      </div>
+      <p>That’s the abstract of the searching procedure. There are a few things to do before it’s fully working.</p>
+      <ul>
+        <li>Handle the case where the game has ended already</li>
+        <li>Handle the case where the current player has no moves available</li>
+      </ul>
+      <p>Both cases aren’t too complex to be handled with a few lines of codes. And then, there’s a performance concern: Why bother searching deeper when one move is bad enough that subsequent moves can’t perform any better?</p>
+      <p>Fortunately, with the help of <a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning">the Alpha-Beta Pruning algorithm</a>, this is a solvable problem, which I will describe in a later article.</p>
       <span class="post-tags">
         <b>Tag: </b>
         <a href="/tags/development" class="tag">development</a>
