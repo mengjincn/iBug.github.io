@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=87b0f39ecef81a8d6c7f012fd69bfb08572f601b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2756b073abe79db30e10df671617e2f05912fab4">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -93,6 +93,7 @@
       <p>The final part is the side chess check (<a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L110">code</a>). It checks if a corner may be occupied by the opponent (having own chess around), and if it’s occupied, add additional score if there are more chesses of the same color.</p>
       <h1 id="searching-tree">Searching tree</h1>
       <p>A plain searching algorithm would be really plain. The black side wants the score to be as high as possible, while the white side wants the exact opposite.</p>
+      <p>A pseudo-code of the algorithm is given below:</p>
       <div class="language-javascript highlighter-rouge">
         <div class="highlight">
           <pre class="highlight"><code><span class="nx">MAX</span> <span class="o">=</span> <span class="mi">999999</span>
