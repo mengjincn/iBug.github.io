@@ -919,7 +919,8 @@ th {
   background-image: url("https://ibug.github.io/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  background-position: center; }
   a {
   color: #1e6bb8;
   text-decoration: none; }
