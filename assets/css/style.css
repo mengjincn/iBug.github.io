@@ -1059,7 +1059,7 @@ th {
   .tag-cloud .set-7:hover, .tag-cloud .set-8:hover, .tag-cloud .set-9:hover {
   text-decoration: none;
   background-color: rgba(31, 153, 87, 0.2); }
-  .post-meta time {
+  .post-meta .post-meta-date {
   margin-right: 1em; }
   .blog-post img {
   display: block;
