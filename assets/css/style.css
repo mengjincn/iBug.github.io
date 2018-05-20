@@ -664,7 +664,7 @@ th {
   text-align: center; }
   .home .post-panes {
   display: flex;
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(220, 230, 240, 0.15); }
   .home .post-panes article {
   display: block;
   padding: 1rem;
