@@ -23,7 +23,7 @@
     <meta name="robots" content="noarchive">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=37d2cd213d618196849cdd4b90a6d521d47ca683">
+    <link rel="stylesheet" href="/assets/css/style.css?v=504beb7cec02fcec8a42111166df68a92e7938ba">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -36,12 +36,26 @@
     <section class="main-content">
       <dl>
         <dt>Build time</dt>
-        <dd><time datetime="2018-05-20 03:47:16">May 20, 2018 at 03:47:16Z</time></dd>
+        <dd><time datetime="2018-05-20 04:08:23">May 20, 2018 at 04:08:23Z</time></dd>
+        <dt>Current time</dt>
+        <dd id="current-time"></dd>
         <dt>Source Git revision</dt>
-        <dd><a href="https://github.com/iBug/iBug-source/tree/37d2cd213d618196849cdd4b90a6d521d47ca683"><code>37d2cd2</code> <strong>iBug</strong>: Missed CSS cleanup</a> (<a href="https://github.com/iBug/iBug-source/commit/37d2cd213d618196849cdd4b90a6d521d47ca683">Commit Diff</a>)</dd>
+        <dd><a href="https://github.com/iBug/iBug-source/tree/504beb7cec02fcec8a42111166df68a92e7938ba"><code>504beb7</code> <strong>iBug</strong>: Add a timer to About page</a> (<a href="https://github.com/iBug/iBug-source/commit/504beb7cec02fcec8a42111166df68a92e7938ba">Commit Diff</a>)</dd>
         <dt>Travis CI <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" /></a></dt>
-        <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/381236181">Travis CI build 216</a></dd>
+        <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/381238856">Travis CI build 217</a></dd>
       </dl>
+      <script type="text/javascript">
+        function zeropad(n) {
+        	return n > 9 ? String(n) : "0" + String(n);
+        }
+        var showTimeContainer = document.getElementById("current-time");
+        function showTime() {
+        	let t = new Date();
+        	showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
+        }
+        var showTimeInterval = setInterval(showTime, 200);
+        showTime();
+      </script>
       <footer class="site-footer">
         <span class="site-footer-credits">
           <p>
