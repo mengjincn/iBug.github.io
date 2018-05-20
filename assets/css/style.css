@@ -724,7 +724,7 @@ th {
   word-wrap: normal;
   background-color: #f3f6fa;
   border: solid 1px #dce6f0;
-  border-radius: 0.3rem; }
+  border-radius: 0.5rem; }
   .main-content pre > code {
   padding: 0;
   margin: 0;
@@ -744,7 +744,7 @@ th {
   overflow: auto;
   font-size: 0.95em;
   line-height: 1.45;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   -webkit-overflow-scrolling: touch; }
   .main-content pre code,
   .main-content pre tt {
