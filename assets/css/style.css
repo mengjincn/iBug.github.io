@@ -661,14 +661,17 @@ th {
   display: block;
   font-size: 24px; }
   .main-content {
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  background-color: #FCFCFC;
+  background-image: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
+  background-repeat: repeat; }
   .main-content :first-child {
   margin-top: 0; }
   @media screen and (min-width: 64em) {
   .main-content {
   max-width: 64rem;
   padding: 3rem 6rem;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   font-size: 1.1rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
   .main-content {
@@ -857,9 +860,11 @@ th {
   font-size: 16px;
   line-height: 1.5;
   color: #606c71;
-  background-color: #FCFCFC;
-  background-image: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/image/body-bg.png);
-  background-repeat: repeat; }
+  background-color: #15CC57;
+  background-image: url("/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; }
   a {
   color: #1e6bb8;
   text-decoration: none; }
@@ -992,6 +997,15 @@ th {
   @media screen and (max-width: 42em) {
   .page-header {
   padding: 2rem 1rem; } }
+  @media screen and (min-width: 64em) {
+  .page-header.home {
+  padding: 6rem 5rem; } }
+  @media screen and (min-width: 42em) and (max-width: 64em) {
+  .page-header.home {
+  padding: 4rem 3rem; } }
+  @media screen and (max-width: 42em) {
+  .page-header.home {
+  padding: 3rem 1rem; } }
   @media screen and (min-width: 64em) {
   .page-header-nav {
   margin-top: -2rem;
