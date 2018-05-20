@@ -660,11 +660,84 @@ th {
   .post-link {
   display: block;
   font-size: 24px; }
+  .page-header {
+  color: #fff;
+  text-align: center;
+  background: transparent; }
+  @media screen and (min-width: 63.9em) {
+  .page-header {
+  padding: 4rem 5rem 3rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .page-header {
+  padding: 3rem 3rem 2.5rem; } }
+  @media screen and (max-width: 42em) {
+  .page-header {
+  padding: 2rem 1rem 1.5rem; } }
+  @media screen and (min-width: 63.9em) {
+  .page-header.home {
+  padding: 6rem 5rem 3rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .page-header.home {
+  padding: 4rem 3rem 2.5rem; } }
+  @media screen and (max-width: 42em) {
+  .page-header.home {
+  padding: 3rem 1rem 2rem; } }
+  @media screen and (min-width: 63.9em) {
+  .page-header-nav {
+  margin-top: -2rem;
+  height: 2rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .page-header-nav {
+  margin-top: -1.8rem;
+  height: 1.8rem; } }
+  @media screen and (max-width: 42em) {
+  .page-header-nav {
+  margin-top: -1.5rem;
+  height: 1.5rem; } }
+  .project-name {
+  margin-top: 0;
+  margin-bottom: 0.1rem; }
+  @media screen and (min-width: 63.9em) {
+  .project-name {
+  font-size: 3.25rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .project-name {
+  font-size: 2.25rem; } }
+  @media screen and (max-width: 42em) {
+  .project-name {
+  font-size: 1.75rem; } }
+  .project-tagline {
+  margin-bottom: 2rem;
+  font-weight: normal;
+  opacity: 0.7; }
+  @media screen and (min-width: 63.9em) {
+  .project-tagline {
+  font-size: 1.25rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .project-tagline {
+  font-size: 1.15rem; } }
+  @media screen and (max-width: 42em) {
+  .project-tagline {
+  font-size: 1rem; } }
+  .project-date {
+  margin-bottom: 0rem;
+  font-weight: normal;
+  opacity: 0.7; }
+  @media screen and (min-width: 63.9em) {
+  .project-date {
+  font-size: 1.0rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .project-date {
+  font-size: 0.95rem; } }
+  @media screen and (max-width: 42em) {
+  .project-date {
+  font-size: 0.75rem; } }
   .home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
   text-align: center; }
   .home .post-panes {
   display: flex;
-  background-color: rgba(220, 230, 240, 0.15); }
+  background-color: rgba(220, 230, 240, 0.15);
+  border: 1px solid #dce6f0; }
   .home .post-panes article {
   display: block;
   padding: 1rem;
@@ -1036,7 +1109,7 @@ th {
   padding: 0.2em 0.5em;
   color: #1E6BB8;
   border: 1px solid #155799;
-  border-radius: 1em;
+  border-radius: 3em;
   background-color: rgba(31, 153, 87, 0.1); }
   .tag:hover {
   text-decoration: none;
@@ -1052,7 +1125,7 @@ th {
   margin: 0.2em auto;
   color: #1E6BB8;
   border: 1px solid #155799;
-  border-radius: 1em;
+  border-radius: 3em;
   background-color: rgba(31, 153, 87, 0.1); }
   .tag-cloud .set-1:hover, .tag-cloud .set-2:hover, .tag-cloud .set-3:hover,
   .tag-cloud .set-4:hover, .tag-cloud .set-5:hover, .tag-cloud .set-6:hover,
@@ -1068,75 +1141,3 @@ th {
   .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0.2rem 0.2rem 0.4rem; }
-  .page-header {
-  color: #fff;
-  text-align: center;
-  background: transparent; }
-  @media screen and (min-width: 63.9em) {
-  .page-header {
-  padding: 4rem 5rem 3rem; } }
-  @media screen and (min-width: 42em) and (max-width: 63.9em) {
-  .page-header {
-  padding: 3rem 3rem 2.5rem; } }
-  @media screen and (max-width: 42em) {
-  .page-header {
-  padding: 2rem 1rem 1.5rem; } }
-  @media screen and (min-width: 63.9em) {
-  .page-header.home {
-  padding: 6rem 5rem 3rem; } }
-  @media screen and (min-width: 42em) and (max-width: 63.9em) {
-  .page-header.home {
-  padding: 4rem 3rem 2.5rem; } }
-  @media screen and (max-width: 42em) {
-  .page-header.home {
-  padding: 3rem 1rem 2rem; } }
-  @media screen and (min-width: 63.9em) {
-  .page-header-nav {
-  margin-top: -2rem;
-  height: 2rem; } }
-  @media screen and (min-width: 42em) and (max-width: 63.9em) {
-  .page-header-nav {
-  margin-top: -1.8rem;
-  height: 1.8rem; } }
-  @media screen and (max-width: 42em) {
-  .page-header-nav {
-  margin-top: -1.5rem;
-  height: 1.5rem; } }
-  .project-name {
-  margin-top: 0;
-  margin-bottom: 0.1rem; }
-  @media screen and (min-width: 63.9em) {
-  .project-name {
-  font-size: 3.25rem; } }
-  @media screen and (min-width: 42em) and (max-width: 63.9em) {
-  .project-name {
-  font-size: 2.25rem; } }
-  @media screen and (max-width: 42em) {
-  .project-name {
-  font-size: 1.75rem; } }
-  .project-tagline {
-  margin-bottom: 2rem;
-  font-weight: normal;
-  opacity: 0.7; }
-  @media screen and (min-width: 63.9em) {
-  .project-tagline {
-  font-size: 1.25rem; } }
-  @media screen and (min-width: 42em) and (max-width: 63.9em) {
-  .project-tagline {
-  font-size: 1.15rem; } }
-  @media screen and (max-width: 42em) {
-  .project-tagline {
-  font-size: 1rem; } }
-  .project-date {
-  margin-bottom: 0rem;
-  font-weight: normal;
-  opacity: 0.7; }
-  @media screen and (min-width: 63.9em) {
-  .project-date {
-  font-size: 1.0rem; } }
-  @media screen and (min-width: 42em) and (max-width: 63.9em) {
-  .project-date {
-  font-size: 0.95rem; } }
-  @media screen and (max-width: 42em) {
-  .project-date {
-  font-size: 0.75rem; } }
