@@ -1045,22 +1045,22 @@ th {
   background: transparent; }
   @media screen and (min-width: 64em) {
   .page-header {
-  padding: 4rem 5rem; } }
+  padding: 4rem 5rem 3rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
-  padding: 3rem 3rem; } }
+  padding: 3rem 3rem 2.5rem; } }
   @media screen and (max-width: 42em) {
   .page-header {
-  padding: 2rem 1rem; } }
+  padding: 2rem 1rem 1.5rem; } }
   @media screen and (min-width: 64em) {
   .page-header.home {
-  padding: 6rem 5rem; } }
+  padding: 6rem 5rem 3rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header.home {
-  padding: 4rem 3rem; } }
+  padding: 4rem 3rem 2.5rem; } }
   @media screen and (max-width: 42em) {
   .page-header.home {
-  padding: 3rem 1rem; } }
+  padding: 3rem 1rem 2rem; } }
   @media screen and (min-width: 64em) {
   .page-header-nav {
   margin-top: -2rem;
