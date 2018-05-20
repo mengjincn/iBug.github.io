@@ -660,6 +660,10 @@ th {
   .post-link {
   display: block;
   font-size: 24px; }
+  .home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
+  text-align: center; }
+  .home blockquote h1, .home blockquote h2, .home blockquote h3, .home blockquote h4, .home blockquote h5, .home blockquote h6 {
+  text-align: initial; }
   .main-content {
   word-wrap: break-word;
   background-color: rgba(255, 255, 255, 0.95); }
