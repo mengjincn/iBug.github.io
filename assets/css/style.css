@@ -991,12 +991,12 @@ th {
   color: #337AB7;
   text-decoration: none;
   background-color: #FFF;
-  border: 1px solid #7D8; }
+  border: 1px solid #dce6f0; }
   .pagination > li a:focus, .pagination > li a:hover, .pagination > li span:focus, .pagination > li span:hover {
   z-index: 2;
   color: #237C52;
   background-color: #EEE;
-  border-color: #7D8;
+  border-color: #dce6f0;
   cursor: pointer; }
   .pagination > li a.active, .pagination > li span.active {
   font-weight: bold;
