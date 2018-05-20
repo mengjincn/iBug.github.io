@@ -1043,8 +1043,8 @@ th {
   .tag-cloud .set-7:hover, .tag-cloud .set-8:hover, .tag-cloud .set-9:hover {
   text-decoration: none;
   background-color: rgba(31, 153, 87, 0.2); }
-  .post-meta .post-meta-tags {
-  margin-left: 1em; }
+  .post-meta time {
+  margin-right: 1em; }
   .blog-post img {
   display: block;
   margin-left: auto;
