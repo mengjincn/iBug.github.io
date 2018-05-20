@@ -672,7 +672,12 @@ th {
   padding: 3rem 3rem 2.5rem; } }
   @media screen and (max-width: 42em) {
   .page-header {
-  padding: 2rem 1rem 1.5rem; } }
+  padding: 2rem 1rem 1.5rem;
+  background-image: url("https://ibug.github.io/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; } }
   @media screen and (min-width: 63.9em) {
   .page-header.home {
   padding: 6rem 5rem 3rem; } }
@@ -1016,13 +1021,23 @@ th {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71;
+  color: #606c71; }
+  @media screen and (min-width: 63.9em) {
+  body {
   background-color: #15CC57;
   background-image: url("https://ibug.github.io/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  background-position: center; }
+  background-position: center; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  body {
+  background-color: #15CC57;
+  background-image: url("https://ibug.github.io/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; } }
   a {
   color: #1e6bb8;
   text-decoration: none; }
