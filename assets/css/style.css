@@ -662,7 +662,16 @@ th {
   font-size: 24px; }
   .home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
   text-align: center; }
-  .home blockquote h1, .home blockquote h2, .home blockquote h3, .home blockquote h4, .home blockquote h5, .home blockquote h6 {
+  .home .post-panes {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.5); }
+  .home .post-panes article {
+  display: block;
+  padding: 1rem;
+  width: 49%; }
+  .home .post-panes article:nth-child(2n - 1) {
+  border-right: 1px solid #dce6f0; }
+  .home .post-panes article h1, .home .post-panes article h2, .home .post-panes article h3, .home .post-panes article h4, .home .post-panes article h5, .home .post-panes article h6 {
   text-align: initial; }
   .main-content {
   word-wrap: break-word;
