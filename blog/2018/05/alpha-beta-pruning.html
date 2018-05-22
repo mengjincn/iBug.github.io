@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=c5dd043d5662ff77c8e939ba3d30e8d8382c4491">
+    <link rel="stylesheet" href="/assets/css/style.css?v=63cba5b44c519878a967a0579fd692d8a15f5198">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
     <script type="text/javascript" src="https://ibug.github.io/cdn/MathJax/MathJax.js" ></script>
@@ -52,7 +52,9 @@
       </blockquote>
       <h1 id="alpha-beta-pruning">Alpha-Beta pruning</h1>
       <p>The alpha-beta pruning algorithm is based on the fact that one side wants to maximize the evaluated score, while the other wants to minimize it.</p>
-      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score the maximizing player is assured of, and the maximum score the minimizing player is assured of, respectively. Whenever it goes to a point where \( \alpha \gt \beta \), we know that this branch need not be examined as it will never be reached, given that both sides know that it’s no better (or worse) than a known, assured branch.</p>
+      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score the maximizing player is assured of, and the maximum score the minimizing player is assured of, respectively. Whenever it goes to a point where <script type="math/tex">
+          \alpha \gt \beta
+        </script>, we know that this branch need not be examined as it will never be reached, given that both sides know that it’s no better (or worse) than a known, assured branch.</p>
       <p>This image from Wikipedia demonstrates it well:</p>
       <p><img src="https://ibug.github.io/image/ab-pruning-wikipedia.png" alt="Image sourced from Wikipedia" /></p>
       <p>Let’s call the above tree “Levels 0 to 4”, where Level 0 contains only one node, the root node, and it’s where the searching starts.
