@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- _layout: post -->
+    <!-- Begin Jekyll SEO tag v2.4.0 -->
+    <title>Alpha-Beta Pruning | iBug @ GitHub</title>
+    <meta name="generator" content="Jekyll v3.7.3" />
+    <meta property="og:title" content="Alpha-Beta Pruning" />
+    <meta name="author" content="iBug" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="An easy guide to understanding the alpha-beta pruning algorithm" />
+    <meta property="og:description" content="An easy guide to understanding the alpha-beta pruning algorithm" />
+    <link rel="canonical" href="https://ibug.github.io/blog/2018/05/alpha-beta-pruning.html" />
+    <meta property="og:url" content="https://ibug.github.io/blog/2018/05/alpha-beta-pruning.html" />
+    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2018-05-20T00:00:00+00:00" />
+    <script type="application/ld+json">
+      {"description":"An easy guide to understanding the alpha-beta pruning algorithm","author":{"@type":"Person","name":"iBug"},"@type":"BlogPosting","url":"https://ibug.github.io/blog/2018/05/alpha-beta-pruning.html","headline":"Alpha-Beta Pruning","dateModified":"2018-05-20T00:00:00+00:00","datePublished":"2018-05-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ibug.github.io/blog/2018/05/alpha-beta-pruning.html"},"@context":"http://schema.org"}
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#159A34">
+    <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+    <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=d3bbe41fe60cd83035f9c6747d7134af358d80da">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <script type="text/javascript" src="/assets/js/love.js" ></script>
+  </head>
+  <body>
+    <section class="page-header">
+      <div class="page-header-nav">
+        <span style="float:left;height:0px;">
+          <a href="/blog/2018/05/python-reversi.html" class="btn-inline">&laquo; Previous</a>
+        </span>
+        <span style="float:right;height:0px;">
+          <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+        </span>
+      </div>
+      <h1 class="project-name">Alpha-Beta Pruning</h1>
+      <h2 class="project-tagline">.</h2>
+      <h3 class="project-date"><time datetime="2018-05-20T00:00:00+00:00" itemprop="datePublished">May 20, 2018</time> &bull; iBug</h3>
+    </section>
+    <section class="main-content blog-post">
+      <p><a href="/p/6">As described in a previous article</a>, <em>Alpha-Beta pruning</em> can be used to speed up minimax heuristic searching by pruning branches that will never be reached.</p>
+      <p>A quick glance from <a href="https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">Wikipedia</a>:</p>
+      <blockquote>
+        <p>It is an adversarial search algorithm used commonly for machine playing of two-player games (Tic-tac-toe, Chess, Go, etc.).
+          It stops completely evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move.</p>
+      </blockquote>
+      <h1 id="α-β-pruning">α-β pruning</h1>
+      <p>The α-β pruning algorithm is based on the fact that each side wants to maximize his evaluated score, as well as to minimize the opponent’s score.
+        So whenever one side finds a path with a score better than the worst score the other side can guarantee, we know that the other side will never let the game go to this path.</p>
+      <p>This image from Wikipedia demonstrates it well:</p>
+      <p><img src="/image/ab-pruning-wikipedia.png" alt="Image from Wikipedia" /></p>
+      <p>Let’s call the above tree “Levels 0 to 4”, where Level 0 contains only one node, the root node, and it’s where the searching starts.
+        Levels 1 to 4 contains 3, 5, 7, 9 nodes each.</p>
+      <p>The tree is searched from left to right. It first completes the leftmost two nodes at level 4 and backtracks to the first node at level 2.</p>
+      <p>Greyed-out nodes are pruned by the α-β algorithm.</p>
+      <h1 id="heuristic-searching">Heuristic searching</h1>
+      <p>Here’s the pseudo-code in the previous post that demonstrates a plain heuristic searching algorithm.</p>
+      <div class="language-javascript highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code><span class="kd">function</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">depth</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">heuristicScore</span><span class="p">(</span><span class="nx">game</span><span class="p">)</span>
+
+  <span class="nx">want_max</span> <span class="o">=</span> <span class="p">(</span><span class="nx">side</span> <span class="o">==</span> <span class="nx">BLACK</span><span class="p">)</span>
+  <span class="nx">bestMove</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="k">if</span> <span class="nx">want_max</span>
+    <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">-</span><span class="nx">MAX</span> <span class="o">-</span> <span class="mi">1</span>
+  <span class="k">else</span>
+    <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">+</span><span class="nx">MAX</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="k">for</span> <span class="nx">move</span> <span class="k">in</span> <span class="nx">game</span><span class="p">.</span><span class="nx">availableMoves</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">perform</span> <span class="nx">move</span>
+    <span class="c1">// Recurse</span>
+    <span class="nx">subMove</span><span class="p">,</span> <span class="nx">subScore</span> <span class="o">=</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">undo</span>
+
+    <span class="k">if</span> <span class="nx">want_max</span>
+      <span class="k">if</span> <span class="nx">subScore</span> <span class="o">&gt;</span> <span class="nx">bestScore</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
+        <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
+    <span class="k">else</span>
+      <span class="k">if</span> <span class="nx">subScore</span> <span class="o">&lt;</span> <span class="nx">bestScore</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
+        <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
+  <span class="k">return</span> <span class="nx">bestMove</span><span class="p">,</span> <span class="nx">bestScore</span>
+</code></pre>
+        </div>
+      </div>
+      <span class="post-tags">
+        <b>Tags: </b>
+        <a href="/tags/development" class="tag">development</a>
+        <a href="/tags/study-notes" class="tag">study-notes</a>
+      </span>
+      <footer class="site-footer">
+        <span class="site-footer-credits">
+          <div>
+            <span style="float:left;padding-left:10px;height:0px;">
+              <a href="/blog/2018/05/python-reversi.html">&laquo; Previous</a>
+            </span>
+            <span style="float:right;padding-right:10px;height:0px;">
+              Next &raquo;
+            </span>
+          </div>
+          <div align="center">
+            <p><a href="/blog"><b>Return to index</b></a></p>
+            <p>Link to this article: <a href="https://ibug.github.io/p/7">https://ibug.github.io/p/7</a></p>
+            <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+          </div>
+        </span>
+      </footer>
+    </section>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-115907213-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
