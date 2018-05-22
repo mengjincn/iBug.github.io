@@ -24,9 +24,10 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=d3bbe41fe60cd83035f9c6747d7134af358d80da">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c1db77220ac33aba32b6bb7b3c02e0d744f18c95">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
+    <script type="text/javascript" src="https://ibug.github.io/cdn/MathJax/MathJax.js" ></script>
   </head>
   <body>
     <section class="page-header">
@@ -43,22 +44,21 @@
       <h3 class="project-date"><time datetime="2018-05-20T00:00:00+00:00" itemprop="datePublished">May 20, 2018</time> &bull; iBug</h3>
     </section>
     <section class="main-content blog-post">
-      <p><a href="/p/6">As described in a previous article</a>, <em>Alpha-Beta pruning</em> can be used to speed up minimax heuristic searching by pruning branches that will never be reached.</p>
+      <p><a href="https://ibug.github.io/p/6">As described in a previous article</a>, <em>Alpha-Beta pruning</em> can be used to speed up minimax heuristic searching by pruning branches that will never be reached.</p>
       <p>A quick glance from <a href="https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">Wikipedia</a>:</p>
       <blockquote>
         <p>It is an adversarial search algorithm used commonly for machine playing of two-player games (Tic-tac-toe, Chess, Go, etc.).
           It stops completely evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move.</p>
       </blockquote>
-      <h1 id="α-β-pruning">α-β pruning</h1>
-      <p>The α-β pruning algorithm is based on the fact that each side wants to maximize his evaluated score, as well as to minimize the opponent’s score.
-        So whenever one side finds a path with a score better than the worst score the other side can guarantee, we know that the other side will never let the game go to this path.</p>
+      <h1 id="alpha-beta-pruning">Alpha-Beta pruning</h1>
+      <p>The alpha-beta pruning algorithm is based on the fact that one side wants to maximize the evaluated score, while the other wants to minimize it.</p>
+      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score the maximizing player is assured of, and the maximum score the minimizing player is assured of, respectively. Whenever it goes to a point where \( \alpha \gt \beta \), we know that this branch need not be examined as it will never be reached, given that both sides know that it’s no better (or worse) than a known, assured branch.</p>
       <p>This image from Wikipedia demonstrates it well:</p>
-      <p><img src="/image/ab-pruning-wikipedia.png" alt="Image from Wikipedia" /></p>
+      <p><img src="https://ibug.github.io/image/ab-pruning-wikipedia.png" alt="Image sourced from Wikipedia" /></p>
       <p>Let’s call the above tree “Levels 0 to 4”, where Level 0 contains only one node, the root node, and it’s where the searching starts.
-        Levels 1 to 4 contains 3, 5, 7, 9 nodes each.</p>
-      <p>The tree is searched from left to right. It first completes the leftmost two nodes at level 4 and backtracks to the first node at level 2.</p>
-      <p>Greyed-out nodes are pruned by the α-β algorithm.</p>
-      <h1 id="heuristic-searching">Heuristic searching</h1>
+        Levels 1 to 4 contains 3, 5, 7, 9 white nodes each. Greyed-out nodes are pruned by the alpha-beta algorithm.</p>
+      <p>The tree is searched from left to right. It first completes the leftmost two nodes at level 4 and backtracks to the first node at level 2. The numbers on the nodes are the best (maximum or minimum) score assured at this branch.</p>
+      <h1 id="heuristic-searching-with-alpha-beta-pruning">Heuristic searching with alpha-beta pruning</h1>
       <p>Here’s the pseudo-code in the previous post that demonstrates a plain heuristic searching algorithm.</p>
       <div class="language-javascript highlighter-rouge">
         <div class="highlight">
