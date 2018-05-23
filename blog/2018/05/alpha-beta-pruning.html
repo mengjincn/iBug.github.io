@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=0b5994fdbc06b5f1e5c1a1006d57e79257df7d89">
+    <link rel="stylesheet" href="/assets/css/style.css?v=fe045a110d5c89cf807dd2bd6437c5d9a0551449">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -142,7 +142,7 @@
         <p>As seen in the image from Wikipedia:</p>
         <p><img src="https://ibug.github.io/image/ab-pruning-wikipedia.png" alt="Image from Wikipedia" /></p>
         <p>We can see that if the 2nd node at level 2 is examined earlier, the 1st node would have been pruned. We want to find a way to make pruning occur more often, further improving the performance of the algorithm.</p>
-        <p>In most typical games, a partially good move often leads to better subsequences. This fact implies that we can sort the current steps we’re going deep into, and search better moves first. Worse moves will likely be pruned more often. This leads to a small change in the code:</p>
+        <p>In most typical games, a partially good move often leads to better subsequences, and vice versa. This fact implies that we can sort the current steps we’re going deep into, and search better moves first. Worse moves will likely be pruned more often. This leads to a small change in the code:</p>
         <div class="language-javascript highlighter-rouge">
           <div class="highlight">
             <pre class="highlight"><code><span class="kd">function</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span><span class="p">,</span> <span class="nx">alpha</span><span class="p">,</span> <span class="nx">beta</span><span class="p">)</span>
