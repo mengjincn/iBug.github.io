@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=26cc33a04054229ba39674354b254d9fdf9d3bac">
+    <link rel="stylesheet" href="/assets/css/style.css?v=676d6656ffe3d919d64689f851144f751f8d8e28">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -51,7 +51,7 @@
       </blockquote>
       <h1 id="alpha-beta-pruning">Alpha-Beta pruning</h1>
       <p>The alpha-beta pruning algorithm is based on the fact that one side wants to maximize the evaluated score, while the other wants to minimize it. Both sides are later referred to as Max and Min.</p>
-      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. Whenever it goes to a point where α&gt;β, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it’s no better (or worse) than a known, assured branch.</p>
+      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the “worst state”, i.e., α=-∞ and &amp;beta=+∞. Whenever it goes to a point where α&gt;β, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it’s no better (or worse) than a known, assured branch.</p>
       <p>This image from Wikipedia demonstrates it well:</p>
       <p><img src="https://ibug.github.io/image/ab-pruning-wikipedia.png" alt="Image sourced from Wikipedia" /></p>
       <p>Let’s call the above tree “Levels 0 to 4”, where Level 0 contains only one node, the root node, and it’s where the searching starts.
@@ -89,6 +89,51 @@
         <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
         <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
   <span class="k">return</span> <span class="nx">bestMove</span><span class="p">,</span> <span class="nx">bestScore</span>
+</code></pre>
+        </div>
+      </div>
+      <p>To add alpha-beta pruning, as described above, we need to maintain two values, α and β, and cut off searching when α&gt;β.</p>
+      <div class="language-javascript highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code><span class="kd">function</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span><span class="p">,</span> <span class="nx">alpha</span><span class="p">,</span> <span class="nx">beta</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">depth</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">heuristicScore</span><span class="p">(</span><span class="nx">game</span><span class="p">)</span>
+
+  <span class="nx">want_max</span> <span class="o">=</span> <span class="p">(</span><span class="nx">side</span> <span class="o">==</span> <span class="nx">BLACK</span><span class="p">)</span>
+  <span class="nx">bestMove</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="k">if</span> <span class="nx">want_max</span>
+    <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">-</span><span class="nx">MAX</span> <span class="o">-</span> <span class="mi">1</span>
+  <span class="k">else</span>
+    <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">+</span><span class="nx">MAX</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="k">for</span> <span class="nx">move</span> <span class="k">in</span> <span class="nx">game</span><span class="p">.</span><span class="nx">availableMoves</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">perform</span> <span class="nx">move</span>
+    <span class="c1">// Recurse</span>
+    <span class="nx">subMove</span><span class="p">,</span> <span class="nx">subScore</span> <span class="o">=</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">alpha</span><span class="p">,</span> <span class="nx">beta</span><span class="p">)</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">undo</span>
+
+    <span class="k">if</span> <span class="nx">want_max</span>
+      <span class="k">if</span> <span class="nx">subScore</span> <span class="o">&gt;</span> <span class="nx">bestScore</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
+        <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
+      <span class="nx">alpha</span> <span class="o">=</span> <span class="nx">max</span><span class="p">(</span><span class="nx">alpha</span><span class="p">,</span> <span class="nx">bestScore</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">alpha</span> <span class="o">&gt;=</span> <span class="nx">beta</span>
+        <span class="k">break</span>  <span class="c1">// alpha cut</span>
+    <span class="k">else</span>
+      <span class="k">if</span> <span class="nx">subScore</span> <span class="o">&lt;</span> <span class="nx">bestScore</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
+        <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
+      <span class="nx">beta</span> <span class="o">=</span> <span class="nx">min</span><span class="p">(</span><span class="nx">beta</span><span class="p">,</span> <span class="nx">bestScore</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">alpha</span> <span class="o">&gt;=</span> <span class="nx">beta</span>
+        <span class="k">break</span>  <span class="c1">// beta cut</span>
+  <span class="k">return</span> <span class="nx">bestMove</span><span class="p">,</span> <span class="nx">bestScore</span>
+</code></pre>
+        </div>
+      </div>
+      <p>Since α and β are passed down to deeper recursive searches, they need initial values. The modified function should be called like</p>
+      <div class="language-javascript highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight"><code><span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span><span class="p">,</span> <span class="o">-</span><span class="nx">INF</span><span class="p">,</span> <span class="nx">INF</span><span class="p">)</span>
 </code></pre>
         </div>
       </div>
