@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=676d6656ffe3d919d64689f851144f751f8d8e28">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3dfb48993281a716db451b3b89e9b778ffcb051f">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -51,7 +51,7 @@
       </blockquote>
       <h1 id="alpha-beta-pruning">Alpha-Beta pruning</h1>
       <p>The alpha-beta pruning algorithm is based on the fact that one side wants to maximize the evaluated score, while the other wants to minimize it. Both sides are later referred to as Max and Min.</p>
-      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the “worst state”, i.e., α=-∞ and &amp;beta=+∞. Whenever it goes to a point where α&gt;β, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it’s no better (or worse) than a known, assured branch.</p>
+      <p>The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the “worst state”, i.e., α=-∞ and β=+∞. Whenever it goes to a point where α&gt;β, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it’s no better (or worse) than a known, assured branch.</p>
       <p>This image from Wikipedia demonstrates it well:</p>
       <p><img src="https://ibug.github.io/image/ab-pruning-wikipedia.png" alt="Image sourced from Wikipedia" /></p>
       <p>Let’s call the above tree “Levels 0 to 4”, where Level 0 contains only one node, the root node, and it’s where the searching starts.
