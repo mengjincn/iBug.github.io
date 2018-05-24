@@ -25,9 +25,17 @@
     <meta name="robots" content="noarchive">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=c7b7c3ab70b95932052347f8292c6cbd4dd0ff33">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5a6fe36f1a24b529bca18f0cdef41dd158000f4b">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      	jax: ["input/TeX","output/HTML-CSS"],
+      	displayAlign: "left",
+      	displayIndent: "20px"
+      });
+    </script>
   </head>
   <body>
     <section class="page-header">
@@ -53,7 +61,13 @@
         </blockquote>
         <h1 id="alpha-beta-pruning">Alpha-Beta pruning</h1>
         <p>The alpha-beta pruning algorithm is based on the fact that one side wants to maximize the evaluated score, while the other wants to minimize it. Both sides are later referred to as Max and Min.</p>
-        <p>The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the “worst state”, i.e., α=-∞ and β=+∞. Whenever it goes to a point where α&gt;β, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it’s no better (or worse) than a known, assured branch.</p>
+        <p>The algorithm maintains two values, alpha and beta, which represent the minimum score Max is assured of, and the maximum score Min is assured of, respectively. The values start at the “worst state”, i.e., <script type="math/tex">
+            \alpha=-\infty
+          </script> and <script type="math/tex">
+            \beta=+\infty
+          </script>. Whenever it goes to a point where <script type="math/tex">
+            \alpha\gt\beta
+          </script>, we know that this branch need not be examined as it will never be reached, given that both sides have found out that it’s no better (or worse) than a known, assured branch.</p>
         <p>This image from Wikipedia demonstrates it well:</p>
         <p><img src="https://ibug.github.io/image/ab-pruning-wikipedia.png" alt="Image sourced from Wikipedia" /></p>
         <p>Let’s call the above tree “Levels 0 to 4”, where Level 0 contains only one node, the root node, and it’s where the searching starts.
