@@ -742,14 +742,14 @@ th {
   .home .post-panes {
   display: flex;
   background-color: rgba(220, 230, 240, 0.15);
-  border: 1px solid #dce6f0; }
+  border: 1px solid #dcf0e6; }
   .home .post-panes article {
   display: block;
   padding: 1rem;
   width: 49%; }
   @media screen and (min-width: 63.9em) {
   .home .post-panes article:nth-child(2n - 1) {
-  border-right: 1px solid #dce6f0; } }
+  border-right: 1px solid #dcf0e6; } }
   .home .post-panes article h1, .home .post-panes article h2, .home .post-panes article h3, .home .post-panes article h4, .home .post-panes article h5, .home .post-panes article h6 {
   text-align: initial; }
   @media screen and (min-width: 42em) and (max-width: 63.9em) {
@@ -758,7 +758,7 @@ th {
   .home .post-panes article {
   width: initial; }
   .home .post-panes article:not(:first-child) {
-  border-top: 1px solid #dce6f0; } }
+  border-top: 1px solid #dcf0e6; } }
   @media screen and (max-width: 42em) {
   .home .post-panes {
   display: block; }
@@ -826,7 +826,7 @@ th {
   color: #567482;
   word-wrap: normal;
   background-color: #f3f6fa;
-  border: solid 1px #dce6f0;
+  border: solid 1px #dcf0e6;
   border-radius: 0.5rem; }
   .main-content pre > code {
   padding: 0;
@@ -875,7 +875,7 @@ th {
   padding: 0 1em;
   margin-left: 0;
   color: #819198;
-  border-left: 0.3rem solid #dce6f0; }
+  border-left: 0.3rem solid #dcf0e6; }
   .main-content blockquote > :first-child {
   margin-top: 0; }
   .main-content blockquote > :last-child {
@@ -988,22 +988,22 @@ th {
   padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.4;
-  color: #337AB7;
+  color: #33b77a;
   text-decoration: none;
   background-color: #FFF;
-  border: 1px solid #dce6f0; }
+  border: 1px solid #dcf0e6; }
   .pagination > li a:focus, .pagination > li a:hover, .pagination > li span:focus, .pagination > li span:hover {
   z-index: 2;
   color: #237C52;
   background-color: #EEE;
-  border-color: #dce6f0;
+  border-color: #dcf0e6;
   cursor: pointer; }
   .pagination > li a.active, .pagination > li span.active {
   font-weight: bold;
   color: #FFF;
-  background-color: #155799;
-  border-top-color: #155799;
-  border-bottom-color: #155799; }
+  background-color: #159957;
+  border-top-color: #159957;
+  border-bottom-color: #159957; }
   .pagination > li a.active:focus, .pagination > li a.active:hover, .pagination > li span.active:focus, .pagination > li span.active:hover {
   cursor: default; }
   .pagination > li a.disabled, .pagination > li span.disabled {
