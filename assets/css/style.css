@@ -820,6 +820,7 @@ th {
   background-color: #f3f6fa;
   border-radius: 0.3rem; }
   .main-content pre {
+  overflow: scroll;
   padding: 0.8rem;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -838,6 +839,15 @@ th {
   white-space: pre;
   background: transparent;
   border: 0; }
+  @media screen and (max-width: 42em) {
+  .main-content pre {
+  max-height: 20rem; } }
+  @media screen and (min-width: 42em) and (max-width: 63.9em) {
+  .main-content pre {
+  max-height: 25rem; } }
+  @media screen and (min-width: 63.9em) {
+  .main-content pre {
+  max-height: 30rem; } }
   .main-content .highlight {
   margin-bottom: 1rem; }
   .main-content .highlight pre {
