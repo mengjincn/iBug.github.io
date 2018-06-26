@@ -1013,8 +1013,7 @@ th {
   font-weight: bold;
   color: #FFF;
   background-color: #159957;
-  border-top-color: #159957;
-  border-bottom-color: #159957; }
+  border-color: #159957; }
   .pagination > li a.active:focus, .pagination > li a.active:hover, .pagination > li span.active:focus, .pagination > li span.active:hover {
   cursor: default; }
   .pagination > li a.disabled, .pagination > li span.disabled {
