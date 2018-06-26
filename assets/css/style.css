@@ -1142,9 +1142,7 @@ th {
   .tag-cloud {
   margin: auto;
   text-align: center; }
-  .tag-cloud .set-1, .tag-cloud .set-2, .tag-cloud .set-3,
-  .tag-cloud .set-4, .tag-cloud .set-5, .tag-cloud .set-6,
-  .tag-cloud .set-7, .tag-cloud .set-8, .tag-cloud .set-9 {
+  .tag-cloud .set-1, .tag-cloud .set-2, .tag-cloud .set-3, .tag-cloud .set-4, .tag-cloud .set-5 {
   display: inline-block;
   padding: 0.2em 0.5em;
   margin: 0.2em auto;
@@ -1152,11 +1150,19 @@ th {
   border: 1px solid #155799;
   border-radius: 3em;
   background-color: rgba(31, 153, 87, 0.1); }
-  .tag-cloud .set-1:hover, .tag-cloud .set-2:hover, .tag-cloud .set-3:hover,
-  .tag-cloud .set-4:hover, .tag-cloud .set-5:hover, .tag-cloud .set-6:hover,
-  .tag-cloud .set-7:hover, .tag-cloud .set-8:hover, .tag-cloud .set-9:hover {
+  .tag-cloud .set-1:hover, .tag-cloud .set-2:hover, .tag-cloud .set-3:hover, .tag-cloud .set-4:hover, .tag-cloud .set-5:hover {
   text-decoration: none;
   background-color: rgba(31, 153, 87, 0.2); }
+  .tag-cloud .set-1 {
+  font-size: 1em; }
+  .tag-cloud .set-2 {
+  font-size: 1.3em; }
+  .tag-cloud .set-3 {
+  font-size: 1.5em; }
+  .tag-cloud .set-4 {
+  font-size: 1.7em; }
+  .tag-cloud .set-5 {
+  font-size: 2em; }
   .post-meta .post-meta-date {
   margin-right: 1em; }
   .blog-post img {
