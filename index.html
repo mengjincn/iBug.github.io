@@ -22,7 +22,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=7a614db4dc9824f205f39bde19b3d8c944b53fb2">
+    <link rel="stylesheet" href="/assets/css/style.css?v=bc8c91ed0ce8eabaf3dbef645807697dd56ebb10">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -64,14 +64,13 @@
       <p>See <a href="https://ibug.github.io/TetrisAI">a good console Tetris game with AI playing</a> of mine :)</p>
       <hr />
       <h1 id="about-me">About me</h1>
-      <p>Here are my profiles on other websites:</p>
-      <ul>
-        <li>
-          <p><a href="https://stackoverflow.com/users/5958455/ibug" title="Profile for iBug at Stack Overflow, Q&amp;A for professional and enthusiast programmers"><img src="/image/so-icon.png" width="16" height="16" /> Stack Overflow</a></p>
-          <p><a href="https://stackoverflow.com/users/5958455/ibug" title="Profile for iBug at Stack Overflow, Q&amp;A for professional and enthusiast programmers"><img alt="Profile for iBug at Stack Overflow, Q&amp;A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;" /></a></p>
-          <p>See my <a href="https://stackoverflow.com/users/5958455/ibug?tab=questions" title="iBug's questions on Stack Overflow">questions</a> and <a href="https://stackoverflow.com/users/5958455/ibug?tab=answers" title="iBug's answers on Stack Overflow">answers</a> on Stack Overflow, or view <strong>a selected list</strong> of my <a href="/so/selected-questions">questions</a> and <a href="/so/selected-answers">answers</a>.</p>
-        </li>
-      </ul>
+      <p>My profile on Stack Overflow:</p>
+      <center>
+        <a href="https://stackoverflow.com/users/5958455">
+          <img alt="Profile for iBug at Stack Overflow, Q&amp;A for professional and enthusiast programmers" src="https://stackoverflow.com/users/flair/5958455.png" class="card" style="margin-top: 0.2rem;" />
+        </a>
+      </center>
+      <p>See my <a href="https://stackoverflow.com/users/5958455/ibug?tab=questions" title="iBug's questions on Stack Overflow">questions</a> and <a href="https://stackoverflow.com/users/5958455/ibug?tab=answers" title="iBug's answers on Stack Overflow">answers</a> on Stack Overflow, or view <strong>a selected list</strong> of my <a href="/so/selected-questions">questions</a> and <a href="/so/selected-answers">answers</a>.</p>
       <hr />
       <p>The correct way to handle exceptions in your development:</p>
       <div class="language-javascript highlighter-rouge">
@@ -80,8 +79,7 @@
     <span class="nx">something</span>
 <span class="p">}</span>
 <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span>
-    <span class="s2">"stackoverflow.com/search?q="</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"stackoverflow.com/search?q="</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
         </div>
@@ -96,7 +94,7 @@
         <span class="site-footer-credits">
           Designed by iBug with &hearts;
           <a href="/about.html" style="float: right;">
-            Revision 7a614db, Build 348
+            Revision bc8c91e, Build 349
           </a>
         </span>
       </footer>
