@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- _layout: post -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>Batch convert PowerPoint slideshow to PDF | iBug @ GitHub</title>
+    <meta name="generator" content="Jekyll v3.7.4" />
+    <meta property="og:title" content="Batch convert PowerPoint slideshow to PDF" />
+    <meta name="author" content="iBug" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="It could be a nightmare to process 30+ files by hand, opening each one and then saving as PDF. But that nightmare was bypassed, with a VBScript." />
+    <meta property="og:description" content="It could be a nightmare to process 30+ files by hand, opening each one and then saving as PDF. But that nightmare was bypassed, with a VBScript." />
+    <link rel="canonical" href="https://ibug.github.io/blog/2018/09/batch-convert-with-vbs.html" />
+    <meta property="og:url" content="https://ibug.github.io/blog/2018/09/batch-convert-with-vbs.html" />
+    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2018-09-12T00:00:00+00:00" />
+    <script type="application/ld+json">
+      {"description":"It could be a nightmare to process 30+ files by hand, opening each one and then saving as PDF. But that nightmare was bypassed, with a VBScript.","author":{"@type":"Person","name":"iBug"},"@type":"BlogPosting","url":"https://ibug.github.io/blog/2018/09/batch-convert-with-vbs.html","headline":"Batch convert PowerPoint slideshow to PDF","dateModified":"2018-09-12T00:00:00+00:00","datePublished":"2018-09-12T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ibug.github.io/blog/2018/09/batch-convert-with-vbs.html"},"@context":"http://schema.org"}
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#159A34">
+    <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+    <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=dea70277f6c6a28cc9d0a661e91d8b58ee3de112">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <script type="text/javascript" src="/assets/js/love.js" ></script>
+    <script type="text/javascript" src="/assets/js/line.js" ></script>
+  </head>
+  <body>
+    <section class="page-header">
+      <div class="page-header-nav">
+        <span style="float:left;height:0px;">
+          <a href="/blog/2018/08/crack-advanced-systemcare-11-5.html" class="btn-inline">&laquo; Previous</a>
+        </span>
+        <span style="float:right;height:0px;">
+          <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+        </span>
+      </div>
+      <h1 class="project-name">Batch convert PowerPoint slideshow to PDF</h1>
+      <h2 class="project-tagline">How scripting eases your work</h2>
+      <a href="https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/MassConv_PPTX-PDF.vbs" class="btn">View on GitHub</a>
+      <h3 class="project-date"><time datetime="2018-09-12T00:00:00+00:00" itemprop="datePublished">Sep 12, 2018</time> &bull; iBug</h3>
+    </section>
+    <section class="main-content blog-post">
+      <article>
+        <p>The <strong>TL:DR</strong> line: If you want my script, you can get it <a href="https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs">here</a>.</p>
+        <p>This semester my Physics teacher released all his PowerPoint slideshows at the start of the semester.
+          To make reading easier, I decided to convert all of them into 6-slide handouts and print them.
+          Fortunately, PowerPoint offers this functionality with the “Save as PDF” option, which could very well mean that I should open the 30+ files one-by-one and doing a “Save As” action on each one.
+          How painful!</p>
+        <p>That’s apparently not an amateur programmer’s flavor, so I decided to automate this process. I can write a script that will do all the repeated job for me.
+          Luckily, I wrote <a href="https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs">another script</a> that converts <code class="highlighter-rouge">.ppt</code> to <code class="highlighter-rouge">.pptx</code> in batch. It’s a good news that I can take this script directly, make minimal modification and put it into use.</p>
+        <p>So it begins. First I need to know how to save slideshow as PDF with VBA.
+          Going Googling, <a href="https://www.thespreadsheetguru.com/the-code-vault/powerpoint-vba-save-presentation-as-pdf-in-same-folder">this</a> is the first result that comes to me.
+          Quickly scanning through the post, I decided that this is the line of code that I want:</p>
+        <div class="language-vb highlighter-rouge">
+          <div class="highlight">
+            <pre class="highlight"><code><span class="n">ActivePresentation</span><span class="p">.</span><span class="n">ExportAsFixedFormat</span> <span class="n">CurrentFolder</span> <span class="o">&amp;</span> <span class="n">FileName</span> <span class="o">&amp;</span> <span class="s">".pdf"</span><span class="p">,</span> <span class="n">_</span>
+  <span class="n">ppFixedFormatTypePDF</span><span class="p">,</span> <span class="n">ppFixedFormatIntentPrint</span><span class="p">,</span> <span class="n">msoCTrue</span><span class="p">,</span> <span class="n">ppPrintHandoutHorizontalFirst</span><span class="p">,</span> <span class="n">_</span>
+  <span class="n">ppPrintOutputSlides</span><span class="p">,</span> <span class="n">msoFalse</span><span class="p">,</span> <span class="p">,</span> <span class="n">ppPrintAll</span><span class="p">,</span> <span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span>
+</code></pre>
+          </div>
+        </div>
+        <p>Very good! I copied it, replaced the constants from what I found on Microsoft Office Documentation (VBScript doesn’t have them), and gave the script a try.</p>
+        <p>Well, no. It didn’t work and exited with an error dialog.</p>
+        <p>I spent 3 hours debugging and couldn’t find out what’s wrong. <em>Good documentations, Microsoft!</em> I went on for another hour searching Google for a solution, only to find out that <code class="highlighter-rouge">ExportAsFixedFormat</code> does not accept empty parameters.</p>
+        <p>I then fixed the issue and the script finally worked, converting all the given PowerPoint slideshows into PDF in the desired format and layout (6/page handout).</p>
+        <p>You can find the final script <a href="https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs">here</a>.</p>
+      </article>
+      <span class="post-tags">
+        <b>Tags: </b>
+        <a href="/tags/development" class="tag">development</a>
+        <a href="/tags/microsoft-office" class="tag">microsoft-office</a>
+      </span>
+      <footer class="site-footer">
+        <span class="site-footer-credits">
+          <div>
+            <span style="float:left;padding-left:10px;height:0px;">
+              <a href="/blog/2018/08/crack-advanced-systemcare-11-5.html">&laquo; Previous</a>
+            </span>
+            <span style="float:right;padding-right:10px;height:0px;">
+              Next &raquo;
+            </span>
+          </div>
+          <div align="center">
+            <p><a href="/blog"><b>Return to index</b></a></p>
+            <p>Link to this article: <a href="https://ibug.github.io/p/12">https://ibug.github.io/p/12</a></p>
+            <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+          </div>
+        </span>
+      </footer>
+    </section>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-115907213-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
