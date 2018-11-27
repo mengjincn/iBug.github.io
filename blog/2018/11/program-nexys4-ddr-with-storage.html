@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- _layout: post -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>Programming the On-Board SPI Flash of Digilent Nexys4 DDR | iBug @ GitHub</title>
+    <meta name="generator" content="Jekyll v3.7.4" />
+    <meta property="og:title" content="Programming the On-Board SPI Flash of Digilent Nexys4 DDR" />
+    <meta name="author" content="iBug" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="A way to permanently write your Verilog design to the Nexys4 DDR board, so you can bring it wherever you like, as long as you have power supply. No more need for Vivado software." />
+    <meta property="og:description" content="A way to permanently write your Verilog design to the Nexys4 DDR board, so you can bring it wherever you like, as long as you have power supply. No more need for Vivado software." />
+    <link rel="canonical" href="https://ibug.github.io/blog/2018/11/program-nexys4-ddr-with-storage.html" />
+    <meta property="og:url" content="https://ibug.github.io/blog/2018/11/program-nexys4-ddr-with-storage.html" />
+    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2018-11-16T00:00:00+00:00" />
+    <script type="application/ld+json">
+      {"description":"A way to permanently write your Verilog design to the Nexys4 DDR board, so you can bring it wherever you like, as long as you have power supply. No more need for Vivado software.","author":{"@type":"Person","name":"iBug"},"@type":"BlogPosting","url":"https://ibug.github.io/blog/2018/11/program-nexys4-ddr-with-storage.html","headline":"Programming the On-Board SPI Flash of Digilent Nexys4 DDR","dateModified":"2018-11-16T00:00:00+00:00","datePublished":"2018-11-16T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ibug.github.io/blog/2018/11/program-nexys4-ddr-with-storage.html"},"@context":"http://schema.org"}
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#159A34">
+    <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+    <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=c2fa05b381f4b8dae5a5619bb77f4094e302b0f4">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <script type="text/javascript" src="/assets/js/love.js" ></script>
+    <script type="text/javascript" src="/assets/js/line.js" ></script>
+  </head>
+  <body>
+    <section class="page-header">
+      <div class="page-header-nav">
+        <span style="float:left;height:0px;">
+          <a href="/blog/2018/09/batch-convert-with-vbs.html" class="btn-inline">&laquo; Previous</a>
+        </span>
+        <span style="float:right;height:0px;">
+          <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+        </span>
+      </div>
+      <h1 class="project-name">Programming the On-Board SPI Flash of Digilent Nexys4 DDR</h1>
+      <h2 class="project-tagline">Standalone demo board, yay!</h2>
+      <h3 class="project-date"><time datetime="2018-11-16T00:00:00+00:00" itemprop="datePublished">Nov 16, 2018</time> &bull; iBug</h3>
+    </section>
+    <section class="main-content blog-post">
+      <article>
+        <p>This semester I have the course “Experiments of Digital Circuits”, the content of which is designing digital circuits using Vivado software, and writing Verilog code. Most of the lab papers require generating bitstream for the project and downloading it to Nexys4 DDR board to verify the functionality. Most of the times we just sit in front of the computer, with the board plugged in, and downloading the bitstream.</p>
+        <p>The downloaded bitstream is volatile, so whenever the board loses its power, or the “PROG” button is pressed, the program is lost and instead, the out-of-box demo program is loaded from the SPI flash.</p>
+        <p><a href="https://reference.digilentinc.com/learn/programmable-logic/tutorials/nexys-4-ddr-programming-guide/start#programming_the_nexys4-ddr_using_quad_spi">Here</a> is Digilent’s tutorial about how to program the SPI flash (i.e. replacing the OOB demo program).</p>
+        <!--
+For an easier guide, here's how I did it:
+
+TBA
+-->
+      </article>
+      <span class="post-tags">
+        <b>Tags: </b>
+        <a href="/tags/development" class="tag">development</a>
+        <a href="/tags/study-notes" class="tag">study-notes</a>
+      </span>
+      <footer class="site-footer">
+        <span class="site-footer-credits">
+          <div>
+            <span style="float:left;padding-left:10px;height:0px;">
+              <a href="/blog/2018/09/batch-convert-with-vbs.html">&laquo; Previous</a>
+            </span>
+            <span style="float:right;padding-right:10px;height:0px;">
+              Next &raquo;
+            </span>
+          </div>
+          <div align="center">
+            <p><a href="/blog"><b>Return to index</b></a></p>
+            <p>Link to this article: <a href="https://ibug.github.io/p/13">https://ibug.github.io/p/13</a></p>
+            <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+          </div>
+        </span>
+      </footer>
+    </section>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-115907213-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
