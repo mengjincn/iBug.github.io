@@ -22,7 +22,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=0945bec766a25d441bf25d1ff79d34454ee0abb9">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2c638a86624a0fd77851d44d00b6695d587278ba">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
     <script type="text/javascript" src="/assets/js/line.js" ></script>
@@ -349,7 +349,7 @@ sbt run
 </code></pre>
           </div>
         </div>
-        <p>注意到，由于 Chisel 语言只有 0/1，不支持三态或者高阻态，所以这里对几个寄存器采取了随机初始化的办法。另外也可以看到，尽管模块中没有声明时钟 <code class="highlighter-rouge">clock</code> 和重置 <code class="highlighter-rouge">reset</code> 信号，但是所有编译出来的 Verilog 代码都会包含这两个输入，å¹¶且在有需要的时候向嵌套的模块传递，这可以在下面这个示例中观察到。</p>
+        <p>注意到，由于 Chisel 语言只有 0/1，不支持三态或者高阻态，所以这里对几个寄存器采取了随机初始化的办法。另外也可以看到，尽管模块中没有声明时钟 <code class="highlighter-rouge">clock</code> 和重置 <code class="highlighter-rouge">reset</code> 信号，但是所有编译出来的 Verilog 代码都会包含这两个输入，并且在有需要的时候向嵌套的模块传递，这可以在下面这个示例中观察到。</p>
         <h3 id="23-嵌套模块">2.3 嵌套模块</h3>
         <p>这次我们使用前面编写的 1 位全加器来构建一个多位全加器</p>
         <div class="language-scala highlighter-rouge">
