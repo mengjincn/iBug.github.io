@@ -635,7 +635,7 @@ max-width: 64rem;
 padding: 3rem 6rem;
 font-size: 1.1rem;
 margin: 0 auto 3rem;
-border-radius: 6rem; } }
+border-radius: 4rem; } }
 @media screen and (min-width: 42em) and (max-width: 63.9em) {
 .main-content {
 padding: 3rem 4rem;
