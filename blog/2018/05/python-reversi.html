@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=0d4936398d1e4bcdf92a9315ddb58ae35c0e104f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=d3613bc0e8e88526b6822db5a03cf59e30e73212">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -59,7 +59,20 @@
         <p>From my previous experiences in playing Reversi with others, I’ve learnt that it’s important to occupy side grids and corner grids, while avoiding the opponent to occupy them. With some research and calculation, this boils down to <a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L13">a predefined weight table</a>:</p>
         <div class="language-python highlighter-rouge">
           <div class="highlight">
-            <pre class="highlight"><code><span class="n">SCORE</span> <span class="o">=</span> <span class="p">[</span>
+            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre>
+          </td>
+          <td class="rouge-code">
+            <pre><span class="n">SCORE</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span>  <span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span>  <span class="mi">500</span><span class="p">],</span>
     <span class="p">[</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">],</span>
     <span class="p">[</span>   <span class="mi">30</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>   <span class="mi">30</span><span class="p">],</span>
@@ -69,14 +82,33 @@
     <span class="p">[</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">],</span>
     <span class="p">[</span>  <span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span>  <span class="mi">500</span><span class="p">]</span>
 <span class="p">]</span>
-</code></pre>
-          </div>
-        </div>
-        <p>This is a good start but may not be sufficient in complicated scenarios. While it’s good to try to occupy sides and corners, it’d be of little value when they’re easily captured by the opponent.</p>
-        <p>Given the idea above, I came up with this “chess liberty” solution. The score will be decreased if a chess is “too liberated”.</p>
-        <div class="language-python highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><span class="k">for</span> <span class="n">dx</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+</pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </code></pre>
+</div>
+</div>
+<p>This is a good start but may not be sufficient in complicated scenarios. While it’s good to try to occupy sides and corners, it’d be of little value when they’re easily captured by the opponent.</p>
+<p>Given the idea above, I came up with this “chess liberty” solution. The score will be decreased if a chess is “too liberated”.</p>
+<div class="language-python highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="k">for</span> <span class="n">dx</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">dy</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
         <span class="n">tx</span><span class="p">,</span> <span class="n">ty</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span>
         <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">tx</span> <span class="o">&lt;</span> <span class="n">BS</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">ty</span> <span class="o">&lt;</span> <span class="n">BS</span> <span class="ow">and</span> <span class="n">board</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]</span> <span class="o">==</span> <span class="n">EMPTY</span><span class="p">:</span>
@@ -87,17 +119,53 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="n">c2</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">s2</span> <span class="o">+=</span> <span class="n">SCORE</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">-</span> <span class="n">liberty</span> <span class="o">*</span> <span class="n">LIBERTY</span>
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
 </code></pre>
-          </div>
-        </div>
-        <p>where <code class="highlighter-rouge">s1</code> is the score for the black side, and <code class="highlighter-rouge">s2</code> is the score for the white side.</p>
-        <p>The final part is the side chess check (<a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L110">code</a>). It checks if a corner may be occupied by the opponent (having own chess around), and if it’s occupied, add additional score if there are more chesses of the same color.</p>
-        <h1 id="searching-tree">Searching tree</h1>
-        <p>A plain searching algorithm would be really plain. The black side wants the score to be as high as possible, while the white side wants the exact opposite.</p>
-        <p>A pseudo-code of the algorithm is given below:</p>
-        <div class="language-javascript highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><span class="nx">MAX</span> <span class="o">=</span> <span class="mi">999999</span>
+</div>
+</div>
+<p>where <code class="highlighter-rouge">s1</code> is the score for the black side, and <code class="highlighter-rouge">s2</code> is the score for the white side.</p>
+<p>The final part is the side chess check (<a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L110">code</a>). It checks if a corner may be occupied by the opponent (having own chess around), and if it’s occupied, add additional score if there are more chesses of the same color.</p>
+<h1 id="searching-tree">Searching tree</h1>
+<p>A plain searching algorithm would be really plain. The black side wants the score to be as high as possible, while the white side wants the exact opposite.</p>
+<p>A pseudo-code of the algorithm is given below:</p>
+<div class="language-javascript highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="nx">MAX</span> <span class="o">=</span> <span class="mi">999999</span>
 
 <span class="kd">function</span> <span class="nx">heuristicSearch</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">depth</span><span class="p">)</span>
   <span class="k">if</span> <span class="nx">depth</span> <span class="o">&lt;=</span> <span class="mi">0</span>
@@ -125,49 +193,54 @@
         <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">subScore</span>
         <span class="nx">bestMove</span> <span class="o">=</span> <span class="nx">move</span>
   <span class="k">return</span> <span class="nx">bestMove</span><span class="p">,</span> <span class="nx">bestScore</span>
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
 </code></pre>
-          </div>
-        </div>
-        <p>That’s the abstract of the searching procedure. There are a few things to do before it’s fully working.</p>
-        <ul>
-          <li>Handle the case where the game has ended already</li>
-          <li>Handle the case where the current player has no moves available</li>
-        </ul>
-        <p>Both cases aren’t too complex to be handled with a few lines of codes. And then, there’s a performance concern: Why bother searching deeper when one move is bad enough that subsequent moves can’t perform any better?</p>
-        <p>Fortunately, with the help of <a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning">the Alpha-Beta Pruning algorithm</a>, this is a solvable problem, which ~<del>I will describe in a later article</del>~ I have written <a href="https://ibug.github.io/p/7">here</a>.</p>
-      </article>
-      <span class="post-tags">
-        <b>Tags: </b>
-        <a href="/tags/development" class="tag">development</a>
-        <a href="/tags/study-notes" class="tag">study-notes</a>
+</div>
+</div>
+<p>That’s the abstract of the searching procedure. There are a few things to do before it’s fully working.</p>
+<ul>
+  <li>Handle the case where the game has ended already</li>
+  <li>Handle the case where the current player has no moves available</li>
+</ul>
+<p>Both cases aren’t too complex to be handled with a few lines of codes. And then, there’s a performance concern: Why bother searching deeper when one move is bad enough that subsequent moves can’t perform any better?</p>
+<p>Fortunately, with the help of <a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning">the Alpha-Beta Pruning algorithm</a>, this is a solvable problem, which ~<del>I will describe in a later article</del>~ I have written <a href="https://ibug.github.io/p/7">here</a>.</p>
+</article>
+<span class="post-tags">
+  <b>Tags: </b>
+  <a href="/tags/development" class="tag">development</a>
+  <a href="/tags/study-notes" class="tag">study-notes</a>
+</span>
+<footer class="site-footer">
+  <span class="site-footer-credits">
+    <div>
+      <span style="float:left;padding-left:10px;height:0px;">
+        <a href="/blog/2018/04/build-github-pages-with-travis-ci.html">&laquo; Previous</a>
       </span>
-      <footer class="site-footer">
-        <span class="site-footer-credits">
-          <div>
-            <span style="float:left;padding-left:10px;height:0px;">
-              <a href="/blog/2018/04/build-github-pages-with-travis-ci.html">&laquo; Previous</a>
-            </span>
-            <span style="float:right;padding-right:10px;height:0px;">
-              <a href="/blog/2018/05/alpha-beta-pruning.html">Next &raquo;</a>
-            </span>
-          </div>
-          <div align="center">
-            <p><a href="/blog"><b>Return to index</b></a></p>
-            <p>Link to this article: <a href="https://ibug.github.io/p/6">https://ibug.github.io/p/6</a></p>
-            <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
-          </div>
-        </span>
-      </footer>
-    </section>
-    <script type="text/javascript" src="/assets/js/line.js" ></script>
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-115907213-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
+      <span style="float:right;padding-right:10px;height:0px;">
+        <a href="/blog/2018/05/alpha-beta-pruning.html">Next &raquo;</a>
+      </span>
+    </div>
+    <div align="center">
+      <p><a href="/blog"><b>Return to index</b></a></p>
+      <p>Link to this article: <a href="https://ibug.github.io/p/6">https://ibug.github.io/p/6</a></p>
+      <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+    </div>
+  </span>
+</footer>
+</section>
+<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-115907213-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
 </html>

@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=0d4936398d1e4bcdf92a9315ddb58ae35c0e104f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=d3613bc0e8e88526b6822db5a03cf59e30e73212">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -57,50 +57,61 @@
           Quickly scanning through the post, I decided that this is the line of code that I want:</p>
         <div class="language-vb highlighter-rouge">
           <div class="highlight">
-            <pre class="highlight"><code><span class="n">ActivePresentation</span><span class="p">.</span><span class="n">ExportAsFixedFormat</span> <span class="n">CurrentFolder</span> <span class="o">&amp;</span> <span class="n">FileName</span> <span class="o">&amp;</span> <span class="s">".pdf"</span><span class="p">,</span> <span class="n">_</span>
+            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre>
+          </td>
+          <td class="rouge-code">
+            <pre><span class="n">ActivePresentation</span><span class="p">.</span><span class="n">ExportAsFixedFormat</span> <span class="n">CurrentFolder</span> <span class="o">&amp;</span> <span class="n">FileName</span> <span class="o">&amp;</span> <span class="s">".pdf"</span><span class="p">,</span> <span class="n">_</span>
   <span class="n">ppFixedFormatTypePDF</span><span class="p">,</span> <span class="n">ppFixedFormatIntentPrint</span><span class="p">,</span> <span class="n">msoCTrue</span><span class="p">,</span> <span class="n">ppPrintHandoutHorizontalFirst</span><span class="p">,</span> <span class="n">_</span>
   <span class="n">ppPrintOutputSlides</span><span class="p">,</span> <span class="n">msoFalse</span><span class="p">,</span> <span class="p">,</span> <span class="n">ppPrintAll</span><span class="p">,</span> <span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">False</span>
-</code></pre>
-          </div>
-        </div>
-        <p>Very good! I copied it, replaced the constants from what I found on Microsoft Office Documentation (VBScript doesn’t have them), and gave the script a try.</p>
-        <p>Well, no. It didn’t work and exited with an error dialog.</p>
-        <p>I spent 3 hours debugging and couldn’t find out what’s wrong. <em>Good documentations, Microsoft!</em> I went on for another hour searching Google for a solution, only to find out that <code class="highlighter-rouge">ExportAsFixedFormat</code> does not accept empty parameters.</p>
-        <p>I then fixed the issue and the script finally worked, converting all the given PowerPoint slideshows into PDF in the desired format and layout (6/page handout).</p>
-        <p>You can find the final script <a href="https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs">here</a>.</p>
-      </article>
-      <span class="post-tags">
-        <b>Tags: </b>
-        <a href="/tags/development" class="tag">development</a>
-        <a href="/tags/microsoft-office" class="tag">microsoft-office</a>
+</pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </code></pre>
+</div>
+</div>
+<p>Very good! I copied it, replaced the constants from what I found on Microsoft Office Documentation (VBScript doesn’t have them), and gave the script a try.</p>
+<p>Well, no. It didn’t work and exited with an error dialog.</p>
+<p>I spent 3 hours debugging and couldn’t find out what’s wrong. <em>Good documentations, Microsoft!</em> I went on for another hour searching Google for a solution, only to find out that <code class="highlighter-rouge">ExportAsFixedFormat</code> does not accept empty parameters.</p>
+<p>I then fixed the issue and the script finally worked, converting all the given PowerPoint slideshows into PDF in the desired format and layout (6/page handout).</p>
+<p>You can find the final script <a href="https://github.com/iBug/vbsGadgets/blob/master/AutoConvOffice/AutoConvPPTX.vbs">here</a>.</p>
+</article>
+<span class="post-tags">
+  <b>Tags: </b>
+  <a href="/tags/development" class="tag">development</a>
+  <a href="/tags/microsoft-office" class="tag">microsoft-office</a>
+</span>
+<footer class="site-footer">
+  <span class="site-footer-credits">
+    <div>
+      <span style="float:left;padding-left:10px;height:0px;">
+        <a href="/blog/2018/08/crack-advanced-systemcare-11-5.html">&laquo; Previous</a>
       </span>
-      <footer class="site-footer">
-        <span class="site-footer-credits">
-          <div>
-            <span style="float:left;padding-left:10px;height:0px;">
-              <a href="/blog/2018/08/crack-advanced-systemcare-11-5.html">&laquo; Previous</a>
-            </span>
-            <span style="float:right;padding-right:10px;height:0px;">
-              <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html">Next &raquo;</a>
-            </span>
-          </div>
-          <div align="center">
-            <p><a href="/blog"><b>Return to index</b></a></p>
-            <p>Link to this article: <a href="https://ibug.github.io/p/12">https://ibug.github.io/p/12</a></p>
-            <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
-          </div>
-        </span>
-      </footer>
-    </section>
-    <script type="text/javascript" src="/assets/js/line.js" ></script>
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-115907213-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
+      <span style="float:right;padding-right:10px;height:0px;">
+        <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html">Next &raquo;</a>
+      </span>
+    </div>
+    <div align="center">
+      <p><a href="/blog"><b>Return to index</b></a></p>
+      <p>Link to this article: <a href="https://ibug.github.io/p/12">https://ibug.github.io/p/12</a></p>
+      <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+    </div>
+  </span>
+</footer>
+</section>
+<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-115907213-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
 </html>

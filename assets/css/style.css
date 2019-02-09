@@ -676,18 +676,20 @@ font-size: 0.95em;
 color: #567482;
 background-color: #f3f6fa;
 border-radius: 0.3rem; }
-.main-content pre {
-overflow: scroll;
+.main-content pre:not(.highlight) {
+overflow: auto;
 padding: 0.8rem;
 margin-top: 0;
 margin-bottom: 1rem;
+line-height: 1.45;
 font: 0.95em Consolas, "Liberation Mono", Menlo, Courier, monospace;
 color: #567482;
 word-wrap: normal;
 background-color: #f3f6fa;
 border: solid 1px #dcf0e6;
-border-radius: 0.5rem; }
-.main-content pre > code {
+border-radius: 0.5rem;
+-webkit-overflow-scrolling: touch; }
+.main-content pre:not(.highlight) > code {
 padding: 0;
 margin: 0;
 font-size: inherit;
@@ -696,27 +698,13 @@ word-break: normal;
 white-space: pre;
 background: transparent;
 border: 0; }
-@media screen and (max-width: 42em) {
-.main-content pre {
-max-height: 20rem; } }
-@media screen and (min-width: 42em) and (max-width: 63.9em) {
-.main-content pre {
-max-height: 25rem; } }
-@media screen and (min-width: 63.9em) {
-.main-content pre {
-max-height: 30rem; } }
 .main-content .highlight {
 margin-bottom: 1rem; }
 .main-content .highlight pre {
 margin-bottom: 0;
 word-break: normal; }
-.main-content .highlight pre, .main-content pre {
-padding: 0.8rem;
-overflow: auto;
-font-size: 0.95em;
-line-height: 1.45;
-border-radius: 0.5rem;
--webkit-overflow-scrolling: touch; }
+.main-content pre.highlight {
+white-space: normal; }
 .main-content pre code,
 .main-content pre tt {
 display: inline;
@@ -761,6 +749,17 @@ font-weight: bold; }
 .main-content table td {
 padding: 0.5rem 1rem;
 border: 1px solid #e9ebec; }
+.main-content table.rouge-table {
+border-spacing: 0; }
+@media screen and (max-width: 42em) {
+.main-content table.rouge-table {
+max-height: 20rem; } }
+@media screen and (min-width: 42em) and (max-width: 63.9em) {
+.main-content table.rouge-table {
+max-height: 25rem; } }
+@media screen and (min-width: 63.9em) {
+.main-content table.rouge-table {
+max-height: 30rem; } }
 .main-content dl {
 padding: 0; }
 .main-content dl dt {
@@ -789,6 +788,26 @@ font-size: 11px;
 line-height: 10px;
 padding: 3px 5px;
 vertical-align: middle; }
+.main-content .highlight table th, .main-content .highlight table td {
+padding: 0;
+border: none; }
+.main-content td.rouge-gutter pre {
+padding: 0.8rem 0.4rem;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+border-right: 0;
+text-align: right;
+color: #AADEBF;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none; }
+.main-content td.rouge-code {
+width: 100%; }
+.main-content td.rouge-code pre {
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+border-left-width: 0.5px; }
 .site-footer-owner {
 display: block;
 font-weight: bold; }
