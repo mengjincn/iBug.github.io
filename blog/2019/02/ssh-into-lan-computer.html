@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- _layout: post -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>Access your Raspberry Pi remotely with SSH | iBug @ GitHub</title>
+    <meta name="generator" content="Jekyll v3.7.4" />
+    <meta property="og:title" content="Access your Raspberry Pi remotely with SSH" />
+    <meta name="author" content="iBug" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for." />
+    <meta property="og:description" content="Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for." />
+    <link rel="canonical" href="https://ibug.github.io/blog/2019/02/ssh-into-lan-computer.html" />
+    <meta property="og:url" content="https://ibug.github.io/blog/2019/02/ssh-into-lan-computer.html" />
+    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2019-02-13T00:00:00+00:00" />
+    <script type="application/ld+json">
+      {"description":"Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.","@type":"BlogPosting","url":"https://ibug.github.io/blog/2019/02/ssh-into-lan-computer.html","headline":"Access your Raspberry Pi remotely with SSH","dateModified":"2019-02-13T00:00:00+00:00","datePublished":"2019-02-13T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ibug.github.io/blog/2019/02/ssh-into-lan-computer.html"},"author":{"@type":"Person","name":"iBug"},"@context":"http://schema.org"}
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#159A34">
+    <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+    <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=ba6be42d316b1528e8d7665d77960994f2fb8c90">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <script type="text/javascript" src="/assets/js/love.js" ></script>
+  </head>
+  <body>
+    <section class="page-header">
+      <div class="page-header-nav">
+        <span style="float:left;height:0px;">
+          <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html" class="btn-inline">&laquo; Previous</a>
+        </span>
+        <span style="float:right;height:0px;">
+          <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+        </span>
+      </div>
+      <h1 class="project-name">Access your Raspberry Pi remotely with SSH</h1>
+      <h2 class="project-tagline">Remote control is fun</h2>
+      <h3 class="project-date"><time datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">Feb 13, 2019</time> &bull; iBug</h3>
+    </section>
+    <section class="main-content blog-post">
+      <article>
+        <p>Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.</p>
+        <p>In my case, I have a Raspberry Pi at my home, and I need some remote SSH from outside. And here’s how I made it work.</p>
+        <h1 id="prerequisites">Prerequisites</h1>
+        <p>The server hardware, and a VPS with a public IP (for forwarding)</p>
+        <h1 id="server-setup">Server setup</h1>
+        <p>The software I use is <a href="https://github.com/fatedier/frp">frp</a> (<strong>f</strong>ast <strong>r</strong>everse <strong>p</strong>roxy). It’s written in Go and is designed specifically for port forwarding.</p>
+        <p>To setup the server, grab a release. I use 0.17.0 but you can always prefer the latest release.</p>
+        <div class="language-shell highlighter-rouge">
+          <div class="highlight">
+            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre>
+          </td>
+          <td class="rouge-code">
+            <pre><span class="nb">cd
+</span>wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_amd64.tar.gz
+<span class="nb">tar </span>zxvf frp_0.17.0_linux_amd64.tar.gz
+mv frp_0.17.0_linux_amd64 frp
+<span class="nb">cd </span>frp
+</pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </code></pre>
+</div>
+</div>
+<p>Now open the configuration file <code class="highlighter-rouge">frps.ini</code> with your favorite editor, Vim or Emacs, and put the following content in:</p>
+<div class="language-text highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>[common]
+bind_port = 7000
+privilege_token = your_token
+
+dashboard_port = 8080
+dashboard_user = admin
+dashboard_pwd = password
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>In fact, you only need the top two configuration items, <code class="highlighter-rouge">bind_port</code> and <code class="highlighter-rouge">privilege_token</code>. There’s a <code class="highlighter-rouge">frps_full.ini</code> in the package if you want to dig deeper, but I’ll keep things simple here.</p>
+<ul>
+  <li><code class="highlighter-rouge">bind_port</code>: The port for <code class="highlighter-rouge">frps</code> (FRP Server) to listen for clients.</li>
+  <li><code class="highlighter-rouge">privilege_token</code>: A token for clients to authenticate. Think it as the password of your Wi-Fi AP.</li>
+</ul>
+<p>The following three items together provide a web dashboard for you to monitor status. They’re completely optional and you can leave them out if you don’t need the dashboard, or set it to whatever value you find convenient for you. Their names should be self-explanatory.</p>
+<p>Now, start the server:</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>./frps <span class="nt">-c</span> ./frps.ini
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>If you see logs in your terminal output, then you’re good to go!</p>
+<p>In most cases, it’d be convenient for the server software to start as a daemon, and automatically start at boot. The way I chose is creating a systemd system service, so it’s possible to use commands like <code class="highlighter-rouge">service frps start</code> to manage it.</p>
+<p>Create the file <code class="highlighter-rouge">/etc/systemd/system/frps.service</code> with the following content:</p>
+<div class="language-text highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>[Unit]
+Description=FRP Server
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=/home/ubuntu/frp/frps -c /home/ubuntu/frp/frps.ini
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>Take note of Line 10 and Line 11. You need to set the user to your username and change the paths as your setup goes.</p>
+<p>After creating the service registry file, you can start the FRP server with <code class="highlighter-rouge">service frps start</code> and check its status with <code class="highlighter-rouge">service frps status</code>.</p>
+<p>For insurance, I added <code class="highlighter-rouge">service frps start</code> to <code class="highlighter-rouge">/etc/rc.local</code> so it will start at boot.</p>
+<p>Now the server side is fully set up and ready to use.</p>
+<h1 id="client-setup">Client setup</h1>
+<p>Setting up the client machine is pretty much symmetric to setting up the server and the procedure isn’t much different.</p>
+<p>My client machine is a $35 Raspberry Pi running Raspbian, so I picked the ARM version of prebuilt binary.</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="nb">cd
+</span>wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_arm.tar.gz
+<span class="nb">tar </span>zxvf frp_0.17.0_linux_arm.tar.gz
+mv frp_0.17.0_linux_arm frp
+<span class="nb">cd </span>frp
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>This time, open <code class="highlighter-rouge">frpc.ini</code> with your favorite editor, and put the following content in:</p>
+<div class="language-text highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>[common]
+server_addr = &lt;your server ip&gt;
+server_port = 7000
+privilege_token = your_token
+login_fail_exit = true
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 8022
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>Put the IP address of your server in <code class="highlighter-rouge">server_addr</code>, and your privilege token in the configuration file, then it’s set. You may need to change <code class="highlighter-rouge">remote_port</code> to another value if 8022 is occupied by another program on your server.</p>
+<p>Similar to the server software, I created another systemd service for the client software. Here’s what I have in my <code class="highlighter-rouge">/etc/systemd/system/frpc.service</code>:</p>
+<div class="language-text highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>[Unit]
+Description=FRP Client
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pi
+ExecStart=/home/pi/frp/frpc -c /home/pi/frp/frpc.ini
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>That’s pretty much identical to the server service, no?</p>
+<p>The last thing is to put <code class="highlighter-rouge">service frpc start</code> in an appropriate place in <code class="highlighter-rouge">/etc/rc.local</code> so the FRP client starts at boot.</p>
+<p>Now that both sides are set, let’s try it out.</p>
+<h1 id="running-ssh-remotely">Running SSH remotely</h1>
+<p>You can SSH into your Raspberry Pi as usual, just remember to change the host name to your VPS, and specify the port as set during client setup.</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>ssh pi@&lt;your server ip&gt; <span class="nt">-p</span> 8022
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>See the shell popping up from your RPi? Congratulations! You’re good to go.</p>
+<p>For convenience, you can add the remote SSH configuration to your local SSH config file <code class="highlighter-rouge">~/.ssh/config</code>, so you can access with ease in the future.</p>
+<div class="language-text highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>Host pi-remote
+  HostName &lt;your server ip&gt;
+  Port 8022
+  User pi
+  PubKeyAuthentication yes
+  PasswordAuthentication yes
+  IdentityFile ~/.ssh/id_rsa
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>And then, you can SSH into your Raspberry Pi remotely with <code class="highlighter-rouge">ssh pi-remote</code>, and let SSH handle the rest.</p>
+</article>
+<span class="post-tags">
+  <b>Tag: </b>
+  <a href="/tags/geek" class="tag">geek</a>
+</span>
+<footer class="site-footer">
+  <span class="site-footer-credits">
+    <div>
+      <span style="float:left;padding-left:10px;height:0px;">
+        <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html">&laquo; Previous</a>
+      </span>
+      <span style="float:right;padding-right:10px;height:0px;">
+        Next &raquo;
+      </span>
+    </div>
+    <div align="center">
+      <p><a href="/blog"><b>Return to index</b></a></p>
+      <p>Link to this article: <a href="https://ibug.github.io/p/14">https://ibug.github.io/p/14</a></p>
+      <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+    </div>
+  </span>
+</footer>
+</section>
+<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-115907213-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
