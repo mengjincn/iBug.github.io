@@ -24,42 +24,43 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=a4b58bb00469fe9b66ca9f8cc6b12c43b9deb518">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c609da06d84c77dfadcc46319436daa30e7c8ed6">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
-    <script type="text/javascript" src="/assets/js/love.js" ></script>
-  </head>
-  <body>
-    <section class="page-header">
-      <div class="page-header-nav">
-        <span style="float:left;height:0px;">
-          <a href="/blog/2018/04/build-github-pages-with-travis-ci.html" class="btn-inline">&laquo; Previous</a>
-        </span>
-        <span style="float:right;height:0px;">
-          <a href="/blog/2018/05/alpha-beta-pruning.html" class="btn-inline">Next &raquo;</a>
-        </span>
-      </div>
-      <h1 class="project-name">Making a Reversi game with Python</h1>
-      <h2 class="project-tagline">And creating an AI with heuristic searching</h2>
-      <a href="https://github.com/iBug/PyReversi" class="btn">View on GitHub</a>
-      <h3 class="project-date"><time datetime="2018-05-10T00:00:00+00:00" itemprop="datePublished">May 10, 2018</time> &bull; iBug</h3>
-    </section>
-    <section class="main-content blog-post">
-      <article>
-        <p>As a casual attempt to accomplish a Grand Assignment, I created a Reversi game with Python. The project is open-source on GitHub and you can view it with the link above.</p>
-        <p><img src="https://user-images.githubusercontent.com/7273074/39672148-558d8104-5157-11e8-9a48-040459eb8d89.png" alt="Screenshot" /></p>
-        <p>The game implements the following functionality:</p>
-        <ul>
-          <li>Graphical User Interface (GUI), using PyQt5</li>
-          <li>Built-in AI implemented as a heuristic searching (and evaluation) algorithm</li>
-        </ul>
-        <p>The core functionality of the game is pretty simple, and should be easy for anyone familiar with the Reverso game. The code is in <a href="https://github.com/iBug/PyReversi/blob/master/reversi.py"><code class="highlighter-rouge">reversi.py</code></a>.</p>
-        <p>It’s the GUI and the AI part that differentiates implementations of the Reversi game. Since GUI isn’t very hard to create with Qt, I’ll focus on the AI algorithm here.</p>
-        <p>As a general (and relatively easy) way to create an AI for the game, heuristic searching well balances between coding complexity and the competence of the resulting algorithm. Heuristic searching is basically a complete searching tree at limited depth, equipped with a heuristic evaluation function that determines the situation of the game board.</p>
-        <h1 id="heuristic-evaluation">Heuristic Evaluation</h1>
-        <p>From my previous experiences in playing Reversi with others, I’ve learnt that it’s important to occupy side grids and corner grids, while avoiding the opponent to occupy them. With some research and calculation, this boils down to <a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L13">a predefined weight table</a>:</p>
-        <div class="language-python highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <time class="dt-published" datetime="2018-05-10T00:00:00+00:00" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <section class="page-header">
+        <div class="page-header-nav">
+          <span style="float:left;height:0px;">
+            <a href="/blog/2018/04/build-github-pages-with-travis-ci.html" class="btn-inline">&laquo; Previous</a>
+          </span>
+          <span style="float:right;height:0px;">
+            <a href="/blog/2018/05/alpha-beta-pruning.html" class="btn-inline">Next &raquo;</a>
+          </span>
+        </div>
+        <h1 class="project-name">Making a Reversi game with Python</h1>
+        <h2 class="project-tagline">And creating an AI with heuristic searching</h2>
+        <a href="https://github.com/iBug/PyReversi" class="btn">View on GitHub</a>
+        <h3 class="project-date"><time datetime="2018-05-10T00:00:00+00:00" itemprop="datePublished">May 10, 2018</time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <p>As a casual attempt to accomplish a Grand Assignment, I created a Reversi game with Python. The project is open-source on GitHub and you can view it with the link above.</p>
+          <p><img src="https://user-images.githubusercontent.com/7273074/39672148-558d8104-5157-11e8-9a48-040459eb8d89.png" alt="Screenshot" /></p>
+          <p>The game implements the following functionality:</p>
+          <ul>
+            <li>Graphical User Interface (GUI), using PyQt5</li>
+            <li>Built-in AI implemented as a heuristic searching (and evaluation) algorithm</li>
+          </ul>
+          <p>The core functionality of the game is pretty simple, and should be easy for anyone familiar with the Reverso game. The code is in <a href="https://github.com/iBug/PyReversi/blob/master/reversi.py"><code class="highlighter-rouge">reversi.py</code></a>.</p>
+          <p>It’s the GUI and the AI part that differentiates implementations of the Reversi game. Since GUI isn’t very hard to create with Qt, I’ll focus on the AI algorithm here.</p>
+          <p>As a general (and relatively easy) way to create an AI for the game, heuristic searching well balances between coding complexity and the competence of the resulting algorithm. Heuristic searching is basically a complete searching tree at limited depth, equipped with a heuristic evaluation function that determines the situation of the game board.</p>
+          <h1 id="heuristic-evaluation">Heuristic Evaluation</h1>
+          <p>From my previous experiences in playing Reversi with others, I’ve learnt that it’s important to occupy side grids and corner grids, while avoiding the opponent to occupy them. With some research and calculation, this boils down to <a href="https://github.com/iBug/PyReversi/blob/master/ai.py#L13">a predefined weight table</a>:</p>
+          <div class="language-python highlighter-rouge">
+            <div class="highlight">
+              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -70,9 +71,9 @@
 9
 10
 </pre>
-          </td>
-          <td class="rouge-code">
-            <pre><span class="n">SCORE</span> <span class="o">=</span> <span class="p">[</span>
+            </td>
+            <td class="rouge-code">
+              <pre><span class="n">SCORE</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span>  <span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span>  <span class="mi">500</span><span class="p">],</span>
     <span class="p">[</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">],</span>
     <span class="p">[</span>   <span class="mi">30</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>   <span class="mi">30</span><span class="p">],</span>
@@ -83,11 +84,11 @@
     <span class="p">[</span>  <span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span>  <span class="mi">500</span><span class="p">]</span>
 <span class="p">]</span>
 </pre>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </code></pre>
 </div>
 </div>
 <p>This is a good start but may not be sufficient in complicated scenarios. While it’s good to try to occupy sides and corners, it’d be of little value when they’re easily captured by the opponent.</p>

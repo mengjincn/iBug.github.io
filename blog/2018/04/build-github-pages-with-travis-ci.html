@@ -24,54 +24,55 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=a4b58bb00469fe9b66ca9f8cc6b12c43b9deb518">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c609da06d84c77dfadcc46319436daa30e7c8ed6">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
-    <script type="text/javascript" src="/assets/js/love.js" ></script>
-  </head>
-  <body>
-    <section class="page-header">
-      <div class="page-header-nav">
-        <span style="float:left;height:0px;">
-          <a href="/blog/2018/03/joining-smokedetector.html" class="btn-inline">&laquo; Previous</a>
-        </span>
-        <span style="float:right;height:0px;">
-          <a href="/blog/2018/05/python-reversi.html" class="btn-inline">Next &raquo;</a>
-        </span>
-      </div>
-      <h1 class="project-name">Build GitHub Pages with Travis CI</h1>
-      <h2 class="project-tagline">If you use a dedicated CI service, there'll be no more plugin restrictions.</h2>
-      <h3 class="project-date"><time datetime="2018-04-14T00:00:00+00:00" itemprop="datePublished">Apr 14, 2018</time> &bull; iBug</h3>
-    </section>
-    <section class="main-content blog-post">
-      <article>
-        <p>I just set up my GitHub Pages to be built with Travis CI. It’s amazing. → <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;" /></a></p>
-        <p>This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the <a href="https://github.com/iBug/iBug-source">source repository</a>. Some build information is available on an <a href="https://ibug.github.io/about">About page</a> that I specifically designed for auditing purposes.</p>
-        <p><strong>Previous state</strong>: A site that’s previously hosted on GitHub Pages, with source files directly put in <strong><em>username</em>.github.io</strong>, and uses one of <a href="https://github.com/pages-themes">GitHub’s official themes</a>.</p>
-        <p>If you’re using a gem-based theme, it’s also OK, with only one extra line to add in a file.</p>
-        <h1 id="whats-travis">What’s Travis CI?</h1>
-        <p>From <a href="https://en.wikipedia.org/wiki/Travis_CI">Wikipedia</a>:</p>
-        <blockquote>
-          <p>Travis CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.</p>
-        </blockquote>
-        <p>You really should read the Wikipedia entry. It’s comprehensive.</p>
-        <h1 id="ok-but-why-do-i-need-it">OK, but why do I need it?</h1>
-        <p>If you stand with <a href="https://help.github.com/articles/configuring-jekyll-plugins/">the small set of plugins</a> allowed on GitHub Pages and the limited functionality it provides, as well as the unavailability of any pre- or post-processing scripts put together by yourself, then you probably don’t need this solution at all. <strong>BUT</strong>, if you need additional plugins, or have a custom script that you’d like to run before generating your Jekyll website, this is definitely an improvement over vanilla GitHub Pages.</p>
-        <h1 id="setting-up">1. Setting up your workspace for local building</h1>
-        <p><a href="https://en.wikipedia.org/wiki/Jekyll_(software)">Jekyll</a> is written in Ruby, so of course you need Ruby to run Jekyll. Some dependencies of Jekyll may require other libraries before they can run.</p>
-        <p>To install necessary components for Jekyll to run, type this command in a terminal:</p>
-        <div class="highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <time class="dt-published" datetime="2018-04-14T00:00:00+00:00" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <section class="page-header">
+        <div class="page-header-nav">
+          <span style="float:left;height:0px;">
+            <a href="/blog/2018/03/joining-smokedetector.html" class="btn-inline">&laquo; Previous</a>
+          </span>
+          <span style="float:right;height:0px;">
+            <a href="/blog/2018/05/python-reversi.html" class="btn-inline">Next &raquo;</a>
+          </span>
+        </div>
+        <h1 class="project-name">Build GitHub Pages with Travis CI</h1>
+        <h2 class="project-tagline">If you use a dedicated CI service, there'll be no more plugin restrictions.</h2>
+        <h3 class="project-date"><time datetime="2018-04-14T00:00:00+00:00" itemprop="datePublished">Apr 14, 2018</time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <p>I just set up my GitHub Pages to be built with Travis CI. It’s amazing. → <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;" /></a></p>
+          <p>This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the <a href="https://github.com/iBug/iBug-source">source repository</a>. Some build information is available on an <a href="https://ibug.github.io/about">About page</a> that I specifically designed for auditing purposes.</p>
+          <p><strong>Previous state</strong>: A site that’s previously hosted on GitHub Pages, with source files directly put in <strong><em>username</em>.github.io</strong>, and uses one of <a href="https://github.com/pages-themes">GitHub’s official themes</a>.</p>
+          <p>If you’re using a gem-based theme, it’s also OK, with only one extra line to add in a file.</p>
+          <h1 id="whats-travis">What’s Travis CI?</h1>
+          <p>From <a href="https://en.wikipedia.org/wiki/Travis_CI">Wikipedia</a>:</p>
+          <blockquote>
+            <p>Travis CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.</p>
+          </blockquote>
+          <p>You really should read the Wikipedia entry. It’s comprehensive.</p>
+          <h1 id="ok-but-why-do-i-need-it">OK, but why do I need it?</h1>
+          <p>If you stand with <a href="https://help.github.com/articles/configuring-jekyll-plugins/">the small set of plugins</a> allowed on GitHub Pages and the limited functionality it provides, as well as the unavailability of any pre- or post-processing scripts put together by yourself, then you probably don’t need this solution at all. <strong>BUT</strong>, if you need additional plugins, or have a custom script that you’d like to run before generating your Jekyll website, this is definitely an improvement over vanilla GitHub Pages.</p>
+          <h1 id="setting-up">1. Setting up your workspace for local building</h1>
+          <p><a href="https://en.wikipedia.org/wiki/Jekyll_(software)">Jekyll</a> is written in Ruby, so of course you need Ruby to run Jekyll. Some dependencies of Jekyll may require other libraries before they can run.</p>
+          <p>To install necessary components for Jekyll to run, type this command in a terminal:</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre>
-          </td>
-          <td class="rouge-code">
-            <pre>sudo apt install ruby ruby-dev
+            </td>
+            <td class="rouge-code">
+              <pre>sudo apt install ruby ruby-dev
 </pre>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </code></pre>
 </div>
 </div>
 <p>If you’re running Fedora/RHEL/CentOS etc, replace <code class="highlighter-rouge">apt</code> with <code class="highlighter-rouge">yum</code>, or with <code class="highlighter-rouge">brew</code> if you’re on a Mac that has Homebrew installed.</p>

@@ -24,91 +24,92 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=a4b58bb00469fe9b66ca9f8cc6b12c43b9deb518">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c609da06d84c77dfadcc46319436daa30e7c8ed6">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
-    <script type="text/javascript" src="/assets/js/love.js" ></script>
-  </head>
-  <body>
-    <section class="page-header">
-      <div class="page-header-nav">
-        <span style="float:left;height:0px;">
-          <a href="/blog/2018/05/alpha-beta-pruning.html" class="btn-inline">&laquo; Previous</a>
+    <time class="dt-published" datetime="2018-06-07T00:00:00+00:00" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <section class="page-header">
+        <div class="page-header-nav">
+          <span style="float:left;height:0px;">
+            <a href="/blog/2018/05/alpha-beta-pruning.html" class="btn-inline">&laquo; Previous</a>
+          </span>
+          <span style="float:right;height:0px;">
+            <a href="/blog/2018/06/new-xbox-one-s-controller.html" class="btn-inline">Next &raquo;</a>
+          </span>
+        </div>
+        <h1 class="project-name">Minimal, Complete, Verifiable Example</h1>
+        <h2 class="project-tagline">A Stack Overflow help center article</h2>
+        <a href="https://stackoverflow.com/help/mcve" class="btn">View on Stack Overflow</a>
+        <h3 class="project-date"><time datetime="2018-06-07T00:00:00+00:00" itemprop="datePublished">Jun 7, 2018</time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <h1 id="how-to-create-a-minimal-complete-and-verifiable-example">How to create a Minimal, Complete, and Verifiable example</h1>
+          <p>When asking a question about a problem caused by your code, you will get much better answers if you provide code people can use to reproduce the problem. That code should be…</p>
+          <ul>
+            <li>…Minimal – Use as little code as possible that still produces the same problem</li>
+            <li>…Complete – Provide all parts needed to reproduce the problem</li>
+            <li>…Verifiable – Test the code you’re about to provide to make sure it reproduces the problem</li>
+          </ul>
+          <h2 id="minimal">Minimal</h2>
+          <p>The more code there is to go through, the less likely people can find your problem. Streamline your example in one of two ways:</p>
+          <ol>
+            <li><strong>Restart from scratch.</strong> Create a new program, adding in only what is needed to see the problem.  This can be faster for vast systems where you think you already know the source of the problem. Also useful if you can’t post the original code publicly for legal or ethical reasons.</li>
+            <li><strong>Divide and conquer.</strong> When you have a small amount of code, but the source of the problem is entirely unclear, start removing code a bit at a time until the problem disappears – then add the last part back.</li>
+          </ol>
+          <h3 id="minimal-and-readable">Minimal <em>and</em> readable</h3>
+          <p>Minimal does not mean <em>terse</em> – don’t sacrifice communication to brevity. Use consistent naming and indentation, and include comments if needed to explain portions of the code.  Most code editors have a shortcut for formatting code – find it, and <em>use it!</em> ~<del>Also, <strong>don’t use tabs</strong> – they may look good in your editor, but they’ll just make a mess on Stack Overflow.</del>~</p>
+          <h2 id="complete">Complete</h2>
+          <p>Make sure all information necessary to reproduce the problem is included:</p>
+          <ul>
+            <li>Some people might be prepared to load the parts up, and actually try them to test the answer they’re about to post.</li>
+            <li>The problem might not be in the part you suspect it is, but another part entirely.</li>
+          </ul>
+          <p>If the problem requires some server-side code as well as an XML-based configuration file, include them both. If a web page problem requires HTML, some JavaScript and a stylesheet, include all three.</p>
+          <h2 id="verifiable">Verifiable</h2>
+          <p>To help you solve your problem, others will need to verify that it <em>exists:</em></p>
+          <ul>
+            <li><strong>Describe the problem.</strong> “It doesn’t work” is not a problem statement.  Tell us what the expected behavior should be.  Tell us what the exact wording of the error message is, and which line of code is producing it.  Put a brief summary of the problem in the title of your question.</li>
+            <li><strong>Eliminate any issues that aren’t relevant to the problem.</strong> If your question isn’t <em>about</em> a compiler error, ensure that there are no compile-time errors. Use a program such as <a href="https://www.jslint.com/">JSLint</a> to validate interpreted languages. <a href="https://validator.w3.org/">Validate</a> any HTML or XML.</li>
+            <li><strong>Ensure that the example actually reproduces the problem!</strong> If you inadvertently fixed the problem while composing the example but didn’t test it again, you’d want to know that before asking someone else to help.</li>
+          </ul>
+          <p>It might help to shut the system down and restart it, or transport the example to a fresh machine to confirm it really does provide an example of the problem.</p>
+          <p>For more information on how to debug your program so you can create a minimal example, <a href="https://stackoverflow.com/users/88656/eric-lippert">Eric Lippert</a> has a fantastic blog post on the subject: <em><a href="https://ericlippert.com/2014/03/05/how-to-debug-small-programs/">How to debug small programs</a></em>.</p>
+          <p><sub>You may have been told to include an MCVE by some helpful commentary, or perhaps even an MVCE if they were rushed; sorry for the initialisms, this is what they were referring to.</sub></p>
+        </article>
+        <span class="post-tags">
+          <b>Tag: </b>
+          <a href="/tags/stack-overflow" class="tag">stack-overflow</a>
         </span>
-        <span style="float:right;height:0px;">
-          <a href="/blog/2018/06/new-xbox-one-s-controller.html" class="btn-inline">Next &raquo;</a>
-        </span>
-      </div>
-      <h1 class="project-name">Minimal, Complete, Verifiable Example</h1>
-      <h2 class="project-tagline">A Stack Overflow help center article</h2>
-      <a href="https://stackoverflow.com/help/mcve" class="btn">View on Stack Overflow</a>
-      <h3 class="project-date"><time datetime="2018-06-07T00:00:00+00:00" itemprop="datePublished">Jun 7, 2018</time> &bull; iBug</h3>
-    </section>
-    <section class="main-content blog-post">
-      <article>
-        <h1 id="how-to-create-a-minimal-complete-and-verifiable-example">How to create a Minimal, Complete, and Verifiable example</h1>
-        <p>When asking a question about a problem caused by your code, you will get much better answers if you provide code people can use to reproduce the problem. That code should be…</p>
-        <ul>
-          <li>…Minimal – Use as little code as possible that still produces the same problem</li>
-          <li>…Complete – Provide all parts needed to reproduce the problem</li>
-          <li>…Verifiable – Test the code you’re about to provide to make sure it reproduces the problem</li>
-        </ul>
-        <h2 id="minimal">Minimal</h2>
-        <p>The more code there is to go through, the less likely people can find your problem. Streamline your example in one of two ways:</p>
-        <ol>
-          <li><strong>Restart from scratch.</strong> Create a new program, adding in only what is needed to see the problem.  This can be faster for vast systems where you think you already know the source of the problem. Also useful if you can’t post the original code publicly for legal or ethical reasons.</li>
-          <li><strong>Divide and conquer.</strong> When you have a small amount of code, but the source of the problem is entirely unclear, start removing code a bit at a time until the problem disappears – then add the last part back.</li>
-        </ol>
-        <h3 id="minimal-and-readable">Minimal <em>and</em> readable</h3>
-        <p>Minimal does not mean <em>terse</em> – don’t sacrifice communication to brevity. Use consistent naming and indentation, and include comments if needed to explain portions of the code.  Most code editors have a shortcut for formatting code – find it, and <em>use it!</em> ~<del>Also, <strong>don’t use tabs</strong> – they may look good in your editor, but they’ll just make a mess on Stack Overflow.</del>~</p>
-        <h2 id="complete">Complete</h2>
-        <p>Make sure all information necessary to reproduce the problem is included:</p>
-        <ul>
-          <li>Some people might be prepared to load the parts up, and actually try them to test the answer they’re about to post.</li>
-          <li>The problem might not be in the part you suspect it is, but another part entirely.</li>
-        </ul>
-        <p>If the problem requires some server-side code as well as an XML-based configuration file, include them both. If a web page problem requires HTML, some JavaScript and a stylesheet, include all three.</p>
-        <h2 id="verifiable">Verifiable</h2>
-        <p>To help you solve your problem, others will need to verify that it <em>exists:</em></p>
-        <ul>
-          <li><strong>Describe the problem.</strong> “It doesn’t work” is not a problem statement.  Tell us what the expected behavior should be.  Tell us what the exact wording of the error message is, and which line of code is producing it.  Put a brief summary of the problem in the title of your question.</li>
-          <li><strong>Eliminate any issues that aren’t relevant to the problem.</strong> If your question isn’t <em>about</em> a compiler error, ensure that there are no compile-time errors. Use a program such as <a href="https://www.jslint.com/">JSLint</a> to validate interpreted languages. <a href="https://validator.w3.org/">Validate</a> any HTML or XML.</li>
-          <li><strong>Ensure that the example actually reproduces the problem!</strong> If you inadvertently fixed the problem while composing the example but didn’t test it again, you’d want to know that before asking someone else to help.</li>
-        </ul>
-        <p>It might help to shut the system down and restart it, or transport the example to a fresh machine to confirm it really does provide an example of the problem.</p>
-        <p>For more information on how to debug your program so you can create a minimal example, <a href="https://stackoverflow.com/users/88656/eric-lippert">Eric Lippert</a> has a fantastic blog post on the subject: <em><a href="https://ericlippert.com/2014/03/05/how-to-debug-small-programs/">How to debug small programs</a></em>.</p>
-        <p><sub>You may have been told to include an MCVE by some helpful commentary, or perhaps even an MVCE if they were rushed; sorry for the initialisms, this is what they were referring to.</sub></p>
-      </article>
-      <span class="post-tags">
-        <b>Tag: </b>
-        <a href="/tags/stack-overflow" class="tag">stack-overflow</a>
-      </span>
-      <footer class="site-footer">
-        <span class="site-footer-credits">
-          <div>
-            <span style="float:left;padding-left:10px;height:0px;">
-              <a href="/blog/2018/05/alpha-beta-pruning.html">&laquo; Previous</a>
-            </span>
-            <span style="float:right;padding-right:10px;height:0px;">
-              <a href="/blog/2018/06/new-xbox-one-s-controller.html">Next &raquo;</a>
-            </span>
-          </div>
-          <div align="center">
-            <p><a href="/blog"><b>Return to index</b></a></p>
-            <p>Link to this article: <a href="https://ibug.github.io/p/8">https://ibug.github.io/p/8</a></p>
-            <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
-          </div>
-        </span>
-      </footer>
-    </section>
-    <script type="text/javascript" src="/assets/js/line.js" ></script>
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-115907213-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
-</html>
+        <footer class="site-footer">
+          <span class="site-footer-credits">
+            <div>
+              <span style="float:left;padding-left:10px;height:0px;">
+                <a href="/blog/2018/05/alpha-beta-pruning.html">&laquo; Previous</a>
+              </span>
+              <span style="float:right;padding-right:10px;height:0px;">
+                <a href="/blog/2018/06/new-xbox-one-s-controller.html">Next &raquo;</a>
+              </span>
+            </div>
+            <div align="center">
+              <p><a href="/blog"><b>Return to index</b></a></p>
+              <p>Link to this article: <a href="https://ibug.github.io/p/8">https://ibug.github.io/p/8</a></p>
+              <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+            </div>
+          </span>
+        </footer>
+      </section>
+      <script type="text/javascript" src="/assets/js/line.js" ></script>
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-115907213-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    </body>
+  </html>

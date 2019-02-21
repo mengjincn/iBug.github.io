@@ -24,54 +24,55 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=a4b58bb00469fe9b66ca9f8cc6b12c43b9deb518">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c609da06d84c77dfadcc46319436daa30e7c8ed6">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
-    <script type="text/javascript" src="/assets/js/love.js" ></script>
-  </head>
-  <body>
-    <section class="page-header">
-      <div class="page-header-nav">
-        <span style="float:left;height:0px;">
-          <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html" class="btn-inline">&laquo; Previous</a>
-        </span>
-        <span style="float:right;height:0px;">
-          <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
-        </span>
-      </div>
-      <h1 class="project-name">Access your Raspberry Pi remotely with SSH</h1>
-      <h2 class="project-tagline">Remote control is fun</h2>
-      <h3 class="project-date"><time datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">Feb 13, 2019</time> &bull; iBug</h3>
-    </section>
-    <section class="main-content blog-post">
-      <article>
-        <p>Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.</p>
-        <p>In my case, I have a Raspberry Pi at my home, and I need some remote SSH from outside. And here’s how I made it work.</p>
-        <h1 id="prerequisites">Prerequisites</h1>
-        <p>The server hardware, and a VPS with a public IP (for forwarding)</p>
-        <h1 id="server-setup">Server setup</h1>
-        <p>The software I use is <a href="https://github.com/fatedier/frp">frp</a> (<strong>f</strong>ast <strong>r</strong>everse <strong>p</strong>roxy). It’s written in Go and is designed specifically for port forwarding.</p>
-        <p>To setup the server, grab a release. I use 0.17.0 but you can always prefer the latest release.</p>
-        <div class="language-shell highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <time class="dt-published" datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <section class="page-header">
+        <div class="page-header-nav">
+          <span style="float:left;height:0px;">
+            <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html" class="btn-inline">&laquo; Previous</a>
+          </span>
+          <span style="float:right;height:0px;">
+            <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+          </span>
+        </div>
+        <h1 class="project-name">Access your Raspberry Pi remotely with SSH</h1>
+        <h2 class="project-tagline">Remote control is fun</h2>
+        <h3 class="project-date"><time datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">Feb 13, 2019</time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <p>Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.</p>
+          <p>In my case, I have a Raspberry Pi at my home, and I need some remote SSH from outside. And here’s how I made it work.</p>
+          <h1 id="prerequisites">Prerequisites</h1>
+          <p>The server hardware, and a VPS with a public IP (for forwarding)</p>
+          <h1 id="server-setup">Server setup</h1>
+          <p>The software I use is <a href="https://github.com/fatedier/frp">frp</a> (<strong>f</strong>ast <strong>r</strong>everse <strong>p</strong>roxy). It’s written in Go and is designed specifically for port forwarding.</p>
+          <p>To setup the server, grab a release. I use 0.17.0 but you can always prefer the latest release.</p>
+          <div class="language-shell highlighter-rouge">
+            <div class="highlight">
+              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 </pre>
-          </td>
-          <td class="rouge-code">
-            <pre><span class="nb">cd
+            </td>
+            <td class="rouge-code">
+              <pre><span class="nb">cd
 </span>wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_amd64.tar.gz
 <span class="nb">tar </span>zxvf frp_0.17.0_linux_amd64.tar.gz
 mv frp_0.17.0_linux_amd64 frp
 <span class="nb">cd </span>frp
 </pre>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </code></pre>
 </div>
 </div>
 <p>Now open the configuration file <code class="highlighter-rouge">frps.ini</code> with your favorite editor, Vim or Emacs, and put the following content in:</p>

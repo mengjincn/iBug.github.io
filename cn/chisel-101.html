@@ -22,85 +22,86 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=a4b58bb00469fe9b66ca9f8cc6b12c43b9deb518">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c609da06d84c77dfadcc46319436daa30e7c8ed6">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
-    <script type="text/javascript" src="/assets/js/love.js" ></script>
-  </head>
-  <body>
-    <section class="page-header">
-      <div class="page-header-nav">
-        <span style="float:left;height:0px;">
-          <!-- <a class="btn-inline disabled">&laquo; Previous</a> -->
-        </span>
-        <span style="float:right;height:0px;">
-          <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
-        </span>
-      </div>
-      <h1 class="project-name">Chisel 配置及入门</h1>
-      <h2 class="project-tagline">从配置到生成 Verilog</h2>
-      <h3 class="project-date"><time datetime="" itemprop="datePublished"></time> &bull; iBug</h3>
-    </section>
-    <section class="main-content blog-post">
-      <article>
-        <p>Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。</p>
-        <h2 id="1-系统需求">1. 系统需求</h2>
-        <ul>
-          <li>Java 运行环境</li>
-          <li>Scala
-            <ul>
-              <li>SBT (Simple Build Tool)</li>
-            </ul>
-          </li>
-          <li>(可选) Verilator
-            <ul>
-              <li>(仅 Windows) Cygwin 环境</li>
-            </ul>
-          </li>
-        </ul>
-        <h2 id="1a-windows-环境配置">1.A Windows 环境配置</h2>
-        <p>如果系统为 Windows 10 v1607 或新版本，推荐在 Windows Subsystem for Linux 环境中配置，过程参见章节 1.B。尽管 WSL 的运行效率不如原生 Linux （在某些配置中，甚至比虚拟机还差一点），但是在原生 Windows 环境下的配置较为复杂，尤其是 Cygwin 部分。当然，一些方式可以让你摆脱 Verilator 的依赖，从而跳过 Cygwin 这个难题。</p>
-        <h3 id="1a1-安装-java">1.A.1 安装 Java</h3>
-        <p>Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 191。</p>
-        <ul>
-          <li><a href="https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-i586.exe">下载 JDK 8u191 Windows 32位</a></li>
-          <li><a href="https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-x64.exe">下载 JDK 8u191 Windows 64位</a></li>
-        </ul>
-        <p>安装过程直接点击 [下一步] 直到完成即可。</p>
-        <h3 id="1a2-安装-scala-及-sbt">1.A.2 安装 Scala 及 SBT</h3>
-        <p>Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。编写本文时，SBT 的最新版本为 1.2.7，可以通过以下链接下载。</p>
-        <ul>
-          <li><a href="https://piccolo.link/sbt-1.2.7.msi">下载 SBT 1.2.7 Windows</a></li>
-        </ul>
-        <p>SBT 的安装也不复杂，双击 msi 安装包，一路点击 [下一步] 即可。</p>
-        <p>虽然不是必要的，但是建议在安装完 SBT 之后重启一下电脑。</p>
-        <h3 id="1a3-准备-chisel-依赖">1.A.3 准备 Chisel 依赖</h3>
-        <p>安装好 SBT 之后，我们所有的准备工作都将借助 SBT 完成。</p>
-        <p>首先解压附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 并打开文件夹 <code class="highlighter-rouge">chisel-101</code>，然后在该文件夹中打开命令提示符。Windows 7 下可以按住 Shift 键并在文件夹空白处点右键，此时的菜单中会有 “在此处打开命令提示符” 的选项，如图：</p>
-        <p><img src="/image/chisel-intro/open-cmd.png" alt="Open Command Prompt here" /></p>
-        <p>在打开的命令提示符中输入 <code class="highlighter-rouge">sbt run</code>，确保网络通畅，等待 SBT 工具下载所需的依赖。由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码并运行。参考截图如下：</p>
-        <p><img src="/image/chisel-intro/sbt-first-run.png" alt="SBT Run" /></p>
-        <p>本来此处应该配置 Cygwin 和 Verilator 的，但是考虑到步骤非常复杂，而且后期可以规避这个依赖，这里就不再介绍了。</p>
-        <h2 id="1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</h2>
-        <p>Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。</p>
-        <div class="language-shell highlighter-rouge">
-          <div class="highlight">
-            <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <time class="dt-published" datetime="" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <section class="page-header">
+        <div class="page-header-nav">
+          <span style="float:left;height:0px;">
+            <!-- <a class="btn-inline disabled">&laquo; Previous</a> -->
+          </span>
+          <span style="float:right;height:0px;">
+            <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+          </span>
+        </div>
+        <h1 class="project-name">Chisel 配置及入门</h1>
+        <h2 class="project-tagline">从配置到生成 Verilog</h2>
+        <h3 class="project-date"><time datetime="" itemprop="datePublished"></time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <p>Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。</p>
+          <h2 id="1-系统需求">1. 系统需求</h2>
+          <ul>
+            <li>Java 运行环境</li>
+            <li>Scala
+              <ul>
+                <li>SBT (Simple Build Tool)</li>
+              </ul>
+            </li>
+            <li>(可选) Verilator
+              <ul>
+                <li>(仅 Windows) Cygwin 环境</li>
+              </ul>
+            </li>
+          </ul>
+          <h2 id="1a-windows-环境配置">1.A Windows 环境配置</h2>
+          <p>如果系统为 Windows 10 v1607 或新版本，推荐在 Windows Subsystem for Linux 环境中配置，过程参见章节 1.B。尽管 WSL 的运行效率不如原生 Linux （在某些配置中，甚至比虚拟机还差一点），但是在原生 Windows 环境下的配置较为复杂，尤其是 Cygwin 部分。当然，一些方式可以让你摆脱 Verilator 的依赖，从而跳过 Cygwin 这个难题。</p>
+          <h3 id="1a1-安装-java">1.A.1 安装 Java</h3>
+          <p>Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 191。</p>
+          <ul>
+            <li><a href="https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-i586.exe">下载 JDK 8u191 Windows 32位</a></li>
+            <li><a href="https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-x64.exe">下载 JDK 8u191 Windows 64位</a></li>
+          </ul>
+          <p>安装过程直接点击 [下一步] 直到完成即可。</p>
+          <h3 id="1a2-安装-scala-及-sbt">1.A.2 安装 Scala 及 SBT</h3>
+          <p>Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。编写本文时，SBT 的最新版本为 1.2.7，可以通过以下链接下载。</p>
+          <ul>
+            <li><a href="https://piccolo.link/sbt-1.2.7.msi">下载 SBT 1.2.7 Windows</a></li>
+          </ul>
+          <p>SBT 的安装也不复杂，双击 msi 安装包，一路点击 [下一步] 即可。</p>
+          <p>虽然不是必要的，但是建议在安装完 SBT 之后重启一下电脑。</p>
+          <h3 id="1a3-准备-chisel-依赖">1.A.3 准备 Chisel 依赖</h3>
+          <p>安装好 SBT 之后，我们所有的准备工作都将借助 SBT 完成。</p>
+          <p>首先解压附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 并打开文件夹 <code class="highlighter-rouge">chisel-101</code>，然后在该文件夹中打开命令提示符。Windows 7 下可以按住 Shift 键并在文件夹空白处点右键，此时的菜单中会有 “在此处打开命令提示符” 的选项，如图：</p>
+          <p><img src="/image/chisel-intro/open-cmd.png" alt="Open Command Prompt here" /></p>
+          <p>在打开的命令提示符中输入 <code class="highlighter-rouge">sbt run</code>，确保网络通畅，等待 SBT 工具下载所需的依赖。由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码并运行。参考截图如下：</p>
+          <p><img src="/image/chisel-intro/sbt-first-run.png" alt="SBT Run" /></p>
+          <p>本来此处应该配置 Cygwin 和 Verilator 的，但是考虑到步骤非常复杂，而且后期可以规避这个依赖，这里就不再介绍了。</p>
+          <h2 id="1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</h2>
+          <p>Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。</p>
+          <div class="language-shell highlighter-rouge">
+            <div class="highlight">
+              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 </pre>
-          </td>
-          <td class="rouge-code">
-            <pre><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/sbt/debian /"</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/apt/sources.list.d/sbt.list
+            </td>
+            <td class="rouge-code">
+              <pre><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/sbt/debian /"</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/apt/sources.list.d/sbt.list
 <span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv</span> 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 <span class="nb">sudo </span>apt-get update
 <span class="nb">sudo </span>apt-get install default-jdk build-essential perl sbt verilator
 </pre>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </code></pre>
 </div>
 </div>
 <p>参考链接：<a href="https://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html">Installing sbt on Linux</a></p>
