@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- _layout: post -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>Bootstrapping Make | iBug @ GitHub</title>
+    <meta name="generator" content="Jekyll v3.7.4" />
+    <meta property="og:title" content="Bootstrapping Make" />
+    <meta name="author" content="iBug" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Have C or C++ project to build? You may think, “Yeah this is very easy, I’ll just call the compiler to do so”, and yes, let’s take a look at an example." />
+    <meta property="og:description" content="Have C or C++ project to build? You may think, “Yeah this is very easy, I’ll just call the compiler to do so”, and yes, let’s take a look at an example." />
+    <link rel="canonical" href="https://ibug.github.io/blog/2019/02/bootstrapping-make.html" />
+    <meta property="og:url" content="https://ibug.github.io/blog/2019/02/bootstrapping-make.html" />
+    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2019-02-25T00:00:00+00:00" />
+    <script type="application/ld+json">
+      {"description":"Have C or C++ project to build? You may think, “Yeah this is very easy, I’ll just call the compiler to do so”, and yes, let’s take a look at an example.","@type":"BlogPosting","url":"https://ibug.github.io/blog/2019/02/bootstrapping-make.html","headline":"Bootstrapping Make","dateModified":"2019-02-25T00:00:00+00:00","datePublished":"2019-02-25T00:00:00+00:00","author":{"@type":"Person","name":"iBug"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ibug.github.io/blog/2019/02/bootstrapping-make.html"},"@context":"http://schema.org"}
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#159A34">
+    <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+    <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=c6837bf8c6000f95ec0c8231dfc62c09eba3d74f">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <time class="dt-published" datetime="2019-02-25T00:00:00+00:00" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <section class="page-header">
+        <div class="page-header-nav">
+          <span style="float:left;height:0px;">
+            <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html" class="btn-inline">&laquo; Previous</a>
+          </span>
+          <span style="float:right;height:0px;">
+            <!-- <a class="btn-inline disabled">Next &raquo;</a> -->
+          </span>
+        </div>
+        <h1 class="project-name">Bootstrapping Make</h1>
+        <h2 class="project-tagline">Using build automation tool</h2>
+        <h3 class="project-date"><time datetime="2019-02-25T00:00:00+00:00" itemprop="datePublished">Feb 25, 2019</time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <p>Have C or C++ project to build? You may think, “Yeah this is very easy, I’ll just call the compiler to do so”, and yes, let’s take a look at an example.</p>
+          <h1 id="1-building-a-single-c--c-source-file">1. Building a single C / C++ source file</h1>
+          <p>If you have a bare minimum knowledge of calling a compiler from the command line, you would come up with such a command:</p>
+          <div class="language-shell highlighter-rouge">
+            <div class="highlight">
+              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre>
+            </td>
+            <td class="rouge-code">
+              <pre>gcc <span class="nt">-o</span> hello hello.c
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </code></pre>
+</div>
+</div>
+<p>Yup, it’s that simple, <em>for a single-file project</em>. What if there are two sources to be compiled together?</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>gcc <span class="nt">-c</span> <span class="nt">-o</span> hello.o hello.c
+gcc <span class="nt">-c</span> <span class="nt">-o</span> main.o main.c
+gcc <span class="nt">-o</span> hello hello.o main.o
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>If you still think it’s easy, let’s look at a slightly larger project with tens of sources and multiple output binaries:</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>gcc <span class="nt">-c</span> <span class="nt">-o</span> events.o events.c
+gcc <span class="nt">-c</span> <span class="nt">-o</span> display.o display.c
+...
+...
+gcc <span class="nt">-c</span> <span class="nt">-o</span> man.o main.c
+gcc <span class="nt">-c</span> <span class="nt">-o</span> pager events.o display.o ...
+gcc <span class="nt">-c</span> <span class="nt">-o</span> pager-config config.o ...
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>And that’s when problems <em>se lèvent</em>. As you may have probably noticed, the last two commands have a wrong command argument <code class="highlighter-rouge">-c</code>, and the third-to-last command has a typo.
+  These kinds of small mostakes are very likely to happen during busily scrolling over command histories and changing the arguments, which is essentially repetitive work that’s not for human.</p>
+<p>As demonstrated above, manually typing the build commands might be feasible with projects with only one or two files, but you’ll soon get tired typing them over and over again and start making mistakes if there are more files to be compiled and linked.</p>
+<h1 id="2-basic-build-automation---shell-scripts">2. Basic build automation - shell scripts</h1>
+<p>You may feel that a script would be a better option and may come up with this:</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="c">#!/bin/sh</span>
+
+<span class="nb">set</span> <span class="nt">-ex</span>
+
+build_obj<span class="o">()</span> <span class="o">{</span>
+  gcc <span class="nt">-c</span> <span class="nt">-o</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>.o <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>.c
+<span class="o">}</span>
+
+link_bin<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">OUT</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+  <span class="nb">shift
+  </span>gcc <span class="nt">-o</span> <span class="s2">"</span><span class="nv">$OUT</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="o">}</span>
+
+build_obj events
+build_obj display
+...
+build_obj main
+link_bin pager events.o display.o ... main.o
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>The above script, despite being plain and simple, is <em>at least</em> better than manually typing all the commands. But there are still issues with it.</p>
+<p>Now you want to add a manpage and installation functionalities, and write them to the script:</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>...
+
+build_manpage
+install_manpage
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>That’s a good move to add support for building manpage, but there’s a serious caveat: there’s probably no need to build the manpage and install it every time this build script is run, as well as everything else unchanged.</p>
+<p>So, while it indeed is a better option than typing commands manually, it’s still a bit distant from optimal. Here’s when <em>Make</em> has its power.</p>
+<h1 id="3-build-automation-with-make">3. Build automation with <em>Make</em></h1>
+<p><em>Make</em> is a software designed specifically for build automation. It follows a predefined build guideline, a <code class="highlighter-rouge">Makefile</code>, and builds your project.
+  What’s more, Make offers more than simple build automation, like checking for changed files and only re-builds the changed files, eliminating redundant work spent on those unchanged files.</p>
+<p>The first thing to using Make is knowing how to write a <code class="highlighter-rouge">Makefile</code>. Here’s a basic <code class="highlighter-rouge">Makefile</code> for a single-file project:</p>
+<div class="language-makefile highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="nl">hello</span><span class="o">:</span>
+    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">hello</span> <span class="err">hello.c</span>
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>And the command you’ll run is just <code class="highlighter-rouge">make</code>. It will read your <code class="highlighter-rouge">Makefile</code> and compile <code class="highlighter-rouge">hello.c</code> into <code class="highlighter-rouge">hello</code> for you.</p>
+<p>If you run <code class="highlighter-rouge">make</code> again immediately, it won’t compile <code class="highlighter-rouge">hello.c</code> again, but tells you instead:</p>
+<div class="language-text highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>make: Nothing to be done for 'all'.
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>You can see that Make avoids redundant work by checking for up-to-date files and skipping them.</p>
+<p>An instruction to build a file is called a <em>target</em> in Makefile. In the above example, <code class="highlighter-rouge">hello</code> is a target and is the default target in the Makefile. Of course, you can have multiple targets in one Makefile:</p>
+<div class="language-makefile highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="nl">hello</span><span class="o">:</span>
+    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">hello</span> <span class="err">hello.c</span>
+
+<span class="nl">hello_debug</span><span class="o">:</span>
+    <span class="err">gcc</span> <span class="err">-g</span> <span class="err">-o</span> <span class="err">hello_debug</span> <span class="err">hello.c</span>
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>And when you run <code class="highlighter-rouge">make</code>, the first target in the Makefile is the default target. You can specify a target that you want Make to build by specifying it on the command line:</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>make hello_debug
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>Without Make or some other kind of build automation tool, resolving and carefully managing the dependency relationships among source files and intermediate files are a pain. With Make, it does this job for you.</p>
+<p>A common type of dependency is linking object files into multiple output binaries. Here’s an example that shows how Make manages dependencies:</p>
+<div class="language-makefile highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">all</span>
+
+<span class="nl">all</span><span class="o">:</span> <span class="nf">hello world</span>
+
+<span class="nl">hello</span><span class="o">:</span> <span class="nf">library.o hello.o</span>
+    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+
+<span class="nl">world</span><span class="o">:</span> <span class="nf">library.o world.o</span>
+    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+
+<span class="nl">%.o</span><span class="o">:</span> <span class="nf">%.c</span>
+    <span class="err">gcc</span> <span class="err">-O3</span> <span class="err">-Wall</span> <span class="err">-c</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>In the above example, both output programs <code class="highlighter-rouge">hello</code> and <code class="highlighter-rouge">world</code> depends on <code class="highlighter-rouge">library.o</code>. When you run <code class="highlighter-rouge">make</code>, you’ll see Make compiles <code class="highlighter-rouge">library.o</code> first, and only once, and uses it to link both binaries. The variables <code class="highlighter-rouge">$@</code> and <code class="highlighter-rouge">$^</code> are called <a href="https://www.gnu.org/s/make/manual/html_node/Automatic-Variables.html">Automatic Variables</a>. Make is also capable of resolving complex dependencies, as long as they don’t form a loop. The <code class="highlighter-rouge">.PHONY</code> target is a <a href="https://www.gnu.org/s/make/manual/html_node/Phony-Targets.html">Phony target</a>, which will be built regardless of the existence of a file with the very name. That says, if you don’t write <code class="highlighter-rouge"><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">all</span></code> and have an up-to-date file named <code class="highlighter-rouge">all</code> in your directory, Make won’t build the <code class="highlighter-rouge">all</code> target again.</p>
+<p>Make also supports variables so you don’t have to write the same commands or arguments repeatedly. For example, the above <code class="highlighter-rouge">makefile</code> can be rewritten as follows:</p>
+<div class="language-makefile highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre><span class="nv">CFLAGS</span> <span class="o">=</span> <span class="nt">-O3</span> <span class="nt">-Wall</span>
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">all</span>
+
+<span class="nl">all</span><span class="o">:</span> <span class="nf">hello world</span>
+
+<span class="nl">hello</span><span class="o">:</span> <span class="nf">library.o hello.o</span>
+    <span class="err">${CC}</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+
+<span class="nl">world</span><span class="o">:</span> <span class="nf">library.o world.o</span>
+    <span class="err">${CC}</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+
+<span class="nl">%.o</span><span class="o">:</span> <span class="nf">%.c</span>
+    <span class="err">${CC}</span> <span class="err">${CFLAGS}</span> <span class="err">-c</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p><code class="highlighter-rouge">${CC}</code> is an automatic variable provided by Make and defaults to <code class="highlighter-rouge">cc</code>. You can use another compiler by overriding this variable when invoking <code class="highlighter-rouge">make</code>:</p>
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre>
+  </td>
+  <td class="rouge-code">
+    <pre>make <span class="nv">CC</span><span class="o">=</span>clang
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+</code></pre>
+</div>
+</div>
+<p>Here, <code class="highlighter-rouge">CC</code> is overridden with value <code class="highlighter-rouge">clang</code>, and all <code class="highlighter-rouge">${CC}</code> in the Makefile is substituted with <code class="highlighter-rouge">clang</code>, effectively calling the Clang compiler to compile the project. There are various ways of assigning variables, such as <code class="highlighter-rouge">=</code>, <code class="highlighter-rouge">:=</code>, <code class="highlighter-rouge">?=</code> and <code class="highlighter-rouge">+=</code>, all of which have different effects and usages.</p>
+<p>You can find out more about Make by running <code class="highlighter-rouge">man make</code> on your system, or by referring to the <a href="https://www.gnu.org/software/make/manual/make.html">GNU <code class="highlighter-rouge">make</code> Manual</a> on GNU’s website.</p>
+</article>
+<span class="post-tags">
+  <b>Tags: </b>
+  <a href="/tags/software" class="tag">software</a>
+  <a href="/tags/development" class="tag">development</a>
+  <a href="/tags/study-notes" class="tag">study-notes</a>
+</span>
+<footer class="site-footer">
+  <span class="site-footer-credits">
+    <div>
+      <span style="float:left;padding-left:10px;height:0px;">
+        <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html">&laquo; Previous</a>
+      </span>
+      <span style="float:right;padding-right:10px;height:0px;">
+        Next &raquo;
+      </span>
+    </div>
+    <div align="center">
+      <p><a href="/blog"><b>Return to index</b></a></p>
+      <p>Link to this article: <a href="https://ibug.github.io/p/16">https://ibug.github.io/p/16</a></p>
+      <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Attribution required.</small></p>
+    </div>
+  </span>
+</footer>
+</section>
+<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-115907213-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
