@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=c6837bf8c6000f95ec0c8231dfc62c09eba3d74f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=45e0ed91123486407ee25804970ded316d14dcd0">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2019-02-25T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -204,7 +204,7 @@ install_manpage
   </td>
   <td class="rouge-code">
     <pre><span class="nl">hello</span><span class="o">:</span>
-    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">hello</span> <span class="err">hello.c</span>
+	gcc <span class="nt">-o</span> hello hello.c
 </pre>
   </td>
 </tr>
@@ -243,10 +243,10 @@ install_manpage
   </td>
   <td class="rouge-code">
     <pre><span class="nl">hello</span><span class="o">:</span>
-    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">hello</span> <span class="err">hello.c</span>
+	gcc <span class="nt">-o</span> hello hello.c
 
 <span class="nl">hello_debug</span><span class="o">:</span>
-    <span class="err">gcc</span> <span class="err">-g</span> <span class="err">-o</span> <span class="err">hello_debug</span> <span class="err">hello.c</span>
+	gcc <span class="nt">-g</span> <span class="nt">-o</span> hello_debug hello.c
 </pre>
   </td>
 </tr>
@@ -295,13 +295,13 @@ install_manpage
 <span class="nl">all</span><span class="o">:</span> <span class="nf">hello world</span>
 
 <span class="nl">hello</span><span class="o">:</span> <span class="nf">library.o hello.o</span>
-    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+	gcc <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$^</span>
 
 <span class="nl">world</span><span class="o">:</span> <span class="nf">library.o world.o</span>
-    <span class="err">gcc</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+	gcc <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$^</span>
 
 <span class="nl">%.o</span><span class="o">:</span> <span class="nf">%.c</span>
-    <span class="err">gcc</span> <span class="err">-O3</span> <span class="err">-Wall</span> <span class="err">-c</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+	gcc <span class="nt">-O3</span> <span class="nt">-Wall</span> <span class="nt">-c</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$^</span>
 </pre>
   </td>
 </tr>
@@ -338,13 +338,13 @@ install_manpage
 <span class="nl">all</span><span class="o">:</span> <span class="nf">hello world</span>
 
 <span class="nl">hello</span><span class="o">:</span> <span class="nf">library.o hello.o</span>
-    <span class="err">${CC}</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+	<span class="k">${</span><span class="nv">CC</span><span class="k">}</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$^</span>
 
 <span class="nl">world</span><span class="o">:</span> <span class="nf">library.o world.o</span>
-    <span class="err">${CC}</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+	<span class="k">${</span><span class="nv">CC</span><span class="k">}</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$^</span>
 
 <span class="nl">%.o</span><span class="o">:</span> <span class="nf">%.c</span>
-    <span class="err">${CC}</span> <span class="err">${CFLAGS}</span> <span class="err">-c</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$^</span>
+	<span class="k">${</span><span class="nv">CC</span><span class="k">}</span> <span class="k">${</span><span class="nv">CFLAGS</span><span class="k">}</span> <span class="nt">-c</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$^</span>
 </pre>
   </td>
 </tr>
