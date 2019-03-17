@@ -22,7 +22,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=597201353543a987fb29f676d259e60b463a6f3d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=81aaa876877a7534294831a9e207f7686791fdd3">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -106,7 +106,7 @@
 </div>
 <p>参考链接：<a href="https://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html">Installing sbt on Linux</a></p>
 <p>以上操作会添加 SBT 提供的 APT 源，然后刷新 APT 软件包列表，并安装 JDK, SBT 等需要的软件包。</p>
-<p>接下来解包附件 <code class="highlighter-rouge">chisel-101.tar.gz</code>，并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。</p>
+<p>接下来解包附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> （见末尾），并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
     <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -115,7 +115,7 @@
 </pre>
   </td>
   <td class="rouge-code">
-    <pre><span class="nb">tar </span>zcvf chisel-101.tar.gz
+    <pre><span class="nb">tar </span>zxvf chisel-101.tar.gz
 <span class="nb">cd </span>chisel-101/
 sbt run
 </pre>
