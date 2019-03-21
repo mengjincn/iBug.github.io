@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=81aaa876877a7534294831a9e207f7686791fdd3">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a86298a7f62648488b1673307a8a5af2c6fd44a5">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2018-05-10T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -234,6 +234,17 @@
 </footer>
 </section>
 <script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript">
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  window.onscroll = function() {
+  	if (window.pageYOffset >= sticky) {
+  		navbar.classList.add("sticky")
+  	} else {
+  		navbar.classList.remove("sticky");
+  	}
+  }
+</script>
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
