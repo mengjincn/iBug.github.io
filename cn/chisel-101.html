@@ -22,7 +22,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=a86298a7f62648488b1673307a8a5af2c6fd44a5">
+    <link rel="stylesheet" href="/assets/css/style.css?v=e7e7b56101b3f11bcf05d49ff6f62ad9d5d9283f">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -52,14 +52,8 @@
                 <li>SBT (Simple Build Tool)</li>
               </ul>
             </li>
-            <li>(可选) Verilator
-              <ul>
-                <li>(仅 Windows) Cygwin 环境</li>
-              </ul>
-            </li>
           </ul>
           <h2 id="1a-windows-环境配置">1.A Windows 环境配置</h2>
-          <p>如果系统为 Windows 10 v1607 或新版本，推荐在 Windows Subsystem for Linux 环境中配置，过程参见章节 1.B。尽管 WSL 的运行效率不如原生 Linux （在某些配置中，甚至比虚拟机还差一点），但是在原生 Windows 环境下的配置较为复杂，尤其是 Cygwin 部分。当然，一些方式可以让你摆脱 Verilator 的依赖，从而跳过 Cygwin 这个难题。</p>
           <h3 id="1a1-安装-java">1.A.1 安装 Java</h3>
           <p>Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 191。</p>
           <ul>
@@ -80,7 +74,6 @@
           <p><img src="/image/chisel-intro/open-cmd.png" alt="Open Command Prompt here" /></p>
           <p>在打开的命令提示符中输入 <code class="highlighter-rouge">sbt run</code>，确保网络通畅，等待 SBT 工具下载所需的依赖。由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码并运行。参考截图如下：</p>
           <p><img src="/image/chisel-intro/sbt-first-run.png" alt="SBT Run" /></p>
-          <p>本来此处应该配置 Cygwin 和 Verilator 的，但是考虑到步骤非常复杂，而且后期可以规避这个依赖，这里就不再介绍了。</p>
           <h2 id="1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</h2>
           <p>Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。</p>
           <div class="language-shell highlighter-rouge">
@@ -95,7 +88,7 @@
               <pre><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/sbt/debian /"</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/apt/sources.list.d/sbt.list
 <span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv</span> 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 <span class="nb">sudo </span>apt-get update
-<span class="nb">sudo </span>apt-get install default-jdk build-essential perl sbt verilator
+<span class="nb">sudo </span>apt-get install default-jdk build-essential perl sbt
 </pre>
             </td>
           </tr>
@@ -129,7 +122,7 @@ sbt run
 <p>如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码 <code class="highlighter-rouge">hello.scala</code> 并运行。具体输出可以参考上面 Windows 7 系统中的截图。</p>
 <h2 id="2-开始第一个-chisel-工程并生成-verilog-代码">2. 开始第一个 Chisel 工程并生成 Verilog 代码</h2>
 <p>保留好附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 或者解包出来的文件夹 <code class="highlighter-rouge">chisel-101</code>，后面我们会经常用到它。</p>
-<p>请注意，本文不是教你如何编辑 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用<a href="https://github.com/ucb-bar/chisel-tutorial">官方的教程仓库</a>，因此避开了 Verilator 的依赖。</p>
+<p>请注意，本文不是教你如何编辑 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用<a href="https://github.com/ucb-bar/chisel-tutorial">官方的教程仓库</a>，因此避开了 Verilator 的依赖（它相当不好配置）。</p>
 <h3 id="21-第一个组合逻辑电路">2.1 第一个组合逻辑电路</h3>
 <p>用文本编辑器或者 IDE (例如 IntelliJ IDEA) 打开 <code class="highlighter-rouge">src/main/scala/example/hello.scala</code>，观察内容：</p>
 <div class="language-scala highlighter-rouge">
