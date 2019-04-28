@@ -1091,16 +1091,16 @@ display: flex; }
 nav .nav-right {
 float: right;
 display: flex; }
+nav a {
+color: #606c71;
+transition: color 0.3s linear; }
+nav a:hover {
+color: #000;
+text-decoration: none; }
 nav .nav-item {
 display: inline-block;
 padding: 1rem 0.7rem;
 transition: background 0.3s ease-in-out; }
-nav .nav-item a {
-color: #606c71;
-transition: color 0.3s linear; }
-nav .nav-item a:hover {
-color: #000;
-text-decoration: none; }
 nav .nav-item:hover {
 background-color: rgba(64, 255, 192, 0.5); }
 @media screen and (max-width: 42em) {
