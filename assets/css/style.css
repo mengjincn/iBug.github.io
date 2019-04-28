@@ -522,13 +522,13 @@ text-align: center;
 background: transparent; }
 @media screen and (min-width: 63.9em) {
 .page-header {
-padding: 4rem 5rem 3rem; } }
+padding: 6rem 5rem 3rem; } }
 @media screen and (min-width: 42em) and (max-width: 63.9em) {
 .page-header {
-padding: 3rem 3rem 2.5rem; } }
+padding: 4.5rem 3rem 2.5rem; } }
 @media screen and (max-width: 42em) {
 .page-header {
-padding: 2rem 1rem 1.5rem;
+padding: 3rem 1rem 1.5rem;
 background-image: url("https://ibug.github.io/image/bg.jpg"), linear-gradient(120deg, #155799, #15CC57);
 background-repeat: no-repeat;
 background-size: cover;
@@ -536,25 +536,13 @@ background-attachment: fixed;
 background-position: center; } }
 @media screen and (min-width: 63.9em) {
 .page-header.home {
-padding: 6rem 5rem 3rem; } }
+padding: 8rem 5rem 3rem; } }
 @media screen and (min-width: 42em) and (max-width: 63.9em) {
 .page-header.home {
-padding: 4rem 3rem 2.5rem; } }
+padding: 5.5rem 3rem 2.5rem; } }
 @media screen and (max-width: 42em) {
 .page-header.home {
-padding: 3rem 1rem 2rem; } }
-@media screen and (min-width: 63.9em) {
-.page-header-nav {
-margin-top: -2rem;
-height: 2rem; } }
-@media screen and (min-width: 42em) and (max-width: 63.9em) {
-.page-header-nav {
-margin-top: -1.8rem;
-height: 1.8rem; } }
-@media screen and (max-width: 42em) {
-.page-header-nav {
-margin-top: -1.5rem;
-height: 1.5rem; } }
+padding: 4rem 1rem 2rem; } }
 .project-name {
 margin-top: 0;
 margin-bottom: 0.1rem; }
