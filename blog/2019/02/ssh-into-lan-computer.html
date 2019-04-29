@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Access your Raspberry Pi remotely with SSH | iBug @ GitHub</title>
+    <title>Access your Raspberry Pi remotely with SSH | @iBug</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Access your Raspberry Pi remotely with SSH" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for." />
     <link rel="canonical" href="https://ibug.github.io/blog/2019/02/ssh-into-lan-computer.html" />
     <meta property="og:url" content="https://ibug.github.io/blog/2019/02/ssh-into-lan-computer.html" />
-    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:site_name" content="@iBug" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2019-02-13T00:00:00+00:00" />
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=6f4b624d192e15173c814eba133ec22efd44889a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f1902e2064a198638683c9cc18172ed70f4fc329">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -35,13 +35,13 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>iBug @ GitHub</b>
+              <b>@iBug</b>
             </a>
             <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html" class="nav-item">
-              &laquo; Previous
+              « Previous
             </a>
             <a href="/blog/2019/02/setup-ubuntu-in-vmware.html" class="nav-item">
-              Next &raquo;
+              Next »
             </a>
           </div>
           <div class="nav-right">
@@ -53,7 +53,8 @@
       <section class="page-header">
         <h1 class="project-name">Access your Raspberry Pi remotely with SSH</h1>
         <h2 class="project-tagline">Remote control is fun</h2>
-        <h3 class="project-date"><time datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">Feb 13, 2019</time> &bull; iBug</h3>
+        <h3 class="project-date">
+<time datetime="2019-02-13T00:00:00+00:00" itemprop="datePublished">Feb 13, 2019</time> • iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
@@ -66,7 +67,11 @@
           <p>To setup the server, grab a release. I use 0.17.0 but you can always prefer the latest release.</p>
           <div class="language-shell highlighter-rouge">
             <div class="highlight">
-              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+              <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -90,7 +95,11 @@ mv frp_0.17.0_linux_amd64 frp
 <p>Now open the configuration file <code class="highlighter-rouge">frps.ini</code> with your favorite editor, Vim or Emacs, and put the following content in:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -117,14 +126,20 @@ dashboard_pwd = password
 </div>
 <p>In fact, you only need the top two configuration items, <code class="highlighter-rouge">bind_port</code> and <code class="highlighter-rouge">privilege_token</code>. There’s a <code class="highlighter-rouge">frps_full.ini</code> in the package if you want to dig deeper, but I’ll keep things simple here.</p>
 <ul>
-  <li><code class="highlighter-rouge">bind_port</code>: The port for <code class="highlighter-rouge">frps</code> (FRP Server) to listen for clients.</li>
-  <li><code class="highlighter-rouge">privilege_token</code>: A token for clients to authenticate. Think it as the password of your Wi-Fi AP.</li>
+  <li>
+<code class="highlighter-rouge">bind_port</code>: The port for <code class="highlighter-rouge">frps</code> (FRP Server) to listen for clients.</li>
+  <li>
+<code class="highlighter-rouge">privilege_token</code>: A token for clients to authenticate. Think it as the password of your Wi-Fi AP.</li>
 </ul>
 <p>The following three items together provide a web dashboard for you to monitor status. They’re completely optional and you can leave them out if you don’t need the dashboard, or set it to whatever value you find convenient for you. Their names should be self-explanatory.</p>
 <p>Now, start the server:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -142,7 +157,11 @@ dashboard_pwd = password
 <p>Create the file <code class="highlighter-rouge">/etc/systemd/system/frps.service</code> with the following content:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -190,7 +209,11 @@ WantedBy=multi-user.target
 <p>My client machine is a $35 Raspberry Pi running Raspbian, so I picked the ARM version of prebuilt binary.</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -214,7 +237,11 @@ mv frp_0.17.0_linux_arm frp
 <p>This time, open <code class="highlighter-rouge">frpc.ini</code> with your favorite editor, and put the following content in:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -251,7 +278,11 @@ remote_port = 8022
 <p>Similar to the server software, I created another systemd service for the client software. Here’s what I have in my <code class="highlighter-rouge">/etc/systemd/system/frpc.service</code>:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -297,7 +328,11 @@ WantedBy=multi-user.target
 <p>You can SSH into your Raspberry Pi as usual, just remember to change the host name to your VPS, and specify the port as set during client setup.</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -314,7 +349,11 @@ WantedBy=multi-user.target
 <p>For convenience, you can add the remote SSH configuration to your local SSH config file <code class="highlighter-rouge">~/.ssh/config</code>, so you can access with ease in the future.</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -350,10 +389,10 @@ WantedBy=multi-user.target
   <span class="site-footer-credits">
     <div>
       <span style="float:left;padding-left:10px;height:0px;">
-        <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html">&laquo; Previous</a>
+        <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html">« Previous</a>
       </span>
       <span style="float:right;padding-right:10px;height:0px;">
-        <a href="/blog/2019/02/setup-ubuntu-in-vmware.html">Next &raquo;</a>
+        <a href="/blog/2019/02/setup-ubuntu-in-vmware.html">Next »</a>
       </span>
     </div>
     <div align="center">
@@ -364,7 +403,7 @@ WantedBy=multi-user.target
   </span>
 </footer>
 </section>
-<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript" src="/assets/js/line.js"></script>
 <script type="text/javascript">
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;

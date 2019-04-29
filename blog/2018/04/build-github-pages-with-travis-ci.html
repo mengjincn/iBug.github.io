@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Build GitHub Pages with Travis CI | iBug @ GitHub</title>
+    <title>Build GitHub Pages with Travis CI | @iBug</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Build GitHub Pages with Travis CI" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="If you use a dedicated CI service, there’ll be no more plugin restrictions." />
     <link rel="canonical" href="https://ibug.github.io/blog/2018/04/build-github-pages-with-travis-ci.html" />
     <meta property="og:url" content="https://ibug.github.io/blog/2018/04/build-github-pages-with-travis-ci.html" />
-    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:site_name" content="@iBug" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2018-04-14T00:00:00+00:00" />
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=6f4b624d192e15173c814eba133ec22efd44889a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f1902e2064a198638683c9cc18172ed70f4fc329">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2018-04-14T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -35,13 +35,13 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>iBug @ GitHub</b>
+              <b>@iBug</b>
             </a>
             <a href="/blog/2018/03/joining-smokedetector.html" class="nav-item">
-              &laquo; Previous
+              « Previous
             </a>
             <a href="/blog/2018/05/python-reversi.html" class="nav-item">
-              Next &raquo;
+              Next »
             </a>
           </div>
           <div class="nav-right">
@@ -53,11 +53,12 @@
       <section class="page-header">
         <h1 class="project-name">Build GitHub Pages with Travis CI</h1>
         <h2 class="project-tagline">If you use a dedicated CI service, there'll be no more plugin restrictions.</h2>
-        <h3 class="project-date"><time datetime="2018-04-14T00:00:00+00:00" itemprop="datePublished">Apr 14, 2018</time> &bull; iBug</h3>
+        <h3 class="project-date">
+<time datetime="2018-04-14T00:00:00+00:00" itemprop="datePublished">Apr 14, 2018</time> • iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
-          <p>I just set up my GitHub Pages to be built with Travis CI. It’s amazing. → <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;" /></a></p>
+          <p>I just set up my GitHub Pages to be built with Travis CI. It’s amazing. → <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" style="display: inline-block; vertical-align: middle;"></a></p>
           <p>This site is now automatically built with Jekyll and pushed to my GitHub Pages repository whenever I push a commit to the <a href="https://github.com/iBug/iBug-source">source repository</a>. Some build information is available on an <a href="https://ibug.github.io/about">About page</a> that I specifically designed for auditing purposes.</p>
           <p><strong>Previous state</strong>: A site that’s previously hosted on GitHub Pages, with source files directly put in <strong><em>username</em>.github.io</strong>, and uses one of <a href="https://github.com/pages-themes">GitHub’s official themes</a>.</p>
           <p>If you’re using a gem-based theme, it’s also OK, with only one extra line to add in a file.</p>
@@ -74,7 +75,11 @@
           <p>To install necessary components for Jekyll to run, type this command in a terminal:</p>
           <div class="highlighter-rouge">
             <div class="highlight">
-              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+              <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
             </td>
             <td class="rouge-code">
@@ -92,7 +97,11 @@
 <p>Now we need Ruby Bundler for dependency resolution and handling. It should be installed with RubyGems:</p>
 <div class="highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -110,7 +119,11 @@
 <p>Create a file named <code class="highlighter-rouge">Gemfile</code> with the following content:</p>
 <div class="language-ruby highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -132,7 +145,11 @@
 <p>Oh yes, there’s another small change to apply. Add these lines to your <code class="highlighter-rouge">_config.yml</code> if they aren’t present. These settings are safe and won’t change your site if you push them directly to GitHub, but will correct some errors (if present) in later builds.</p>
 <div class="language-yaml highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 </pre>
   </td>
@@ -156,7 +173,11 @@
 <p>Now you’ve set up Travis CI. You need to tell Travis how to build your site. Create a file named <code class="highlighter-rouge">.travis.yml</code> with the following content. Note the file name starts with a dot.</p>
 <div class="language-yaml highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -191,7 +212,11 @@
 <p>We need a deploy script. It can be as simple as following:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -226,7 +251,11 @@ git push <span class="nt">--force</span> deploy master <span class="o">&gt;</spa
 <p>Now tell Travis to call the deploy script after building your site. Add these lines to your <code class="highlighter-rouge">.travis.yml</code>:</p>
 <div class="language-yaml highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -258,10 +287,10 @@ git push <span class="nt">--force</span> deploy master <span class="o">&gt;</spa
   <span class="site-footer-credits">
     <div>
       <span style="float:left;padding-left:10px;height:0px;">
-        <a href="/blog/2018/03/joining-smokedetector.html">&laquo; Previous</a>
+        <a href="/blog/2018/03/joining-smokedetector.html">« Previous</a>
       </span>
       <span style="float:right;padding-right:10px;height:0px;">
-        <a href="/blog/2018/05/python-reversi.html">Next &raquo;</a>
+        <a href="/blog/2018/05/python-reversi.html">Next »</a>
       </span>
     </div>
     <div align="center">
@@ -272,7 +301,7 @@ git push <span class="nt">--force</span> deploy master <span class="o">&gt;</spa
   </span>
 </footer>
 </section>
-<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript" src="/assets/js/line.js"></script>
 <script type="text/javascript">
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;

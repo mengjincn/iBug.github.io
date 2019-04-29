@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Build a minimal Linux system and run it in QEMU | iBug @ GitHub</title>
+    <title>Build a minimal Linux system and run it in QEMU | @iBug</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Build a minimal Linux system and run it in QEMU" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="My sum up of doing Lab 1 of Operating System Concepts course." />
     <link rel="canonical" href="https://ibug.github.io/blog/2019/04/os-lab-1.html" />
     <meta property="og:url" content="https://ibug.github.io/blog/2019/04/os-lab-1.html" />
-    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:site_name" content="@iBug" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2019-04-07T00:00:00+00:00" />
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=6f4b624d192e15173c814eba133ec22efd44889a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f1902e2064a198638683c9cc18172ed70f4fc329">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2019-04-07T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -35,10 +35,10 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>iBug @ GitHub</b>
+              <b>@iBug</b>
             </a>
             <a href="/blog/2019/03/first-touch-with-awk.html" class="nav-item">
-              &laquo; Previous
+              « Previous
             </a>
           </div>
           <div class="nav-right">
@@ -50,7 +50,8 @@
       <section class="page-header">
         <h1 class="project-name">Build a minimal Linux system and run it in QEMU</h1>
         <h2 class="project-tagline">All you need to know</h2>
-        <h3 class="project-date"><time datetime="2019-04-07T00:00:00+00:00" itemprop="datePublished">Apr 7, 2019</time> &bull; iBug</h3>
+        <h3 class="project-date">
+<time datetime="2019-04-07T00:00:00+00:00" itemprop="datePublished">Apr 7, 2019</time> • iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
@@ -62,7 +63,11 @@
           <p>Before we start this experiment, we need to have proper tools installed. On Ubuntu 14.04 or Debian 7, the following command will install all we need for this lab:</p>
           <div class="language-shell highlighter-rouge">
             <div class="highlight">
-              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+              <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
             </td>
             <td class="rouge-code">
@@ -86,7 +91,11 @@
 <p>Download and extract the source code:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 </pre>
   </td>
@@ -104,7 +113,11 @@
 <p>Next, generate the default configuration and build against that:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -125,7 +138,11 @@ make
 <p>The first one you’ll meet should look like this:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -146,7 +163,11 @@ make: *** [arch/x86/vdso] Error 2
 <p>The second one would be like this:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 </pre>
   </td>
@@ -164,7 +185,11 @@ undefined reference to `__mutex_unlock_slowpath'
 <p>To fix this, open <code class="highlighter-rouge">kernel/mutex.c</code> and look for the above two functions. You’ll see them written like these:</p>
 <div class="language-c highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -186,7 +211,11 @@ undefined reference to `__mutex_unlock_slowpath'
 <p>Insert <code class="highlighter-rouge">__used</code> after the keyword <code class="highlighter-rouge">static</code> in both cases, so they should end up looking like these:`</p>
 <div class="language-c highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -213,7 +242,11 @@ undefined reference to `__mutex_unlock_slowpath'
 <p>Open your favorite text editor and write the following C program:</p>
 <div class="language-c highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -245,7 +278,11 @@ undefined reference to `__mutex_unlock_slowpath'
 <p>Save it as <code class="highlighter-rouge">test.c</code>, and run the following command to compile it:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -261,7 +298,11 @@ undefined reference to `__mutex_unlock_slowpath'
 <p>Now you have the init program. You need to prepare the filesystem. The following commands will create an empty 4 MB image and mount it at <code class="highlighter-rouge">rootfs</code>.</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -283,7 +324,11 @@ mkdir rootfs
 <p>Next, copy your init program into it, and create some device files as required:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -311,7 +356,11 @@ umount rootfs
 <p>After having the linux kernel and the root filesystem ready, you can try booting it in QEMU:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -325,14 +374,18 @@ umount rootfs
 </div>
 </div>
 <p>You’ll see QEMU launching in a new window, with a lot of messages followed by the output of your init program, like this:</p>
-<p><img src="https://user-images.githubusercontent.com/7273074/55729166-341d6e80-5a48-11e9-8307-575b2c8c7cd0.png" alt="QEMU Looks" /></p>
+<p><img src="https://user-images.githubusercontent.com/7273074/55729166-341d6e80-5a48-11e9-8307-575b2c8c7cd0.png" alt="QEMU Looks"></p>
 <h2 id="preparing-the-root-filesystem---option-2-busybox">Preparing the root filesystem - Option 2: BusyBox</h2>
 <p>The first option is just a minimal example of what a root filesystem should contain. It is, however, not quite function-rich.</p>
 <p>With <a href="https://busybox.net/">BusyBox</a> that packs many common Unix &amp; Linux utilities into one single binary. With BusyBox, you’ll be able to create a mostly functional, yet still minimal Linux system.</p>
 <p>Busybox is available as source code so whoever need it can compile it themselves. Download the source code and configure it:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -352,7 +405,11 @@ umount rootfs
 <p>You need to configure some build options so it best suits this lab. Run <code class="highlighter-rouge">make defconfig</code> then <code class="highlighter-rouge">make menuconfig</code> to start. You’ll need to change at least four options as shown below. The first option is switched on and off with the space bar, and the second and the third one requires you to enter the string manually. Finally, the last one is a multiple choice. You should put the X on the desired option.</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -389,7 +446,11 @@ Settings –&gt;
 <p>To be able to use the <code class="highlighter-rouge">_install</code> directory as a bootable root filesystem, you should create the special files identical to what’s there in Option 1.</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -409,7 +470,11 @@ Settings –&gt;
 <p>Next, you need a init program. This time we want to go the easy way with BusyBox, instead of writing a dummy one in C. Open your favorite text editor and type the following content:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -440,7 +505,11 @@ mount <span class="nt">-t</span> tmpfs none /tmp
 <p>Now pack everything up as a ramdisk image. Make sure you’re inside <code class="highlighter-rouge">_install</code> directory before running the following command:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -456,7 +525,11 @@ mount <span class="nt">-t</span> tmpfs none /tmp
 <p>There should be a new file <code class="highlighter-rouge">initramfs.cpio.gz</code> in your home directory. You can now run QEMU with this new package:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -471,7 +544,7 @@ mount <span class="nt">-t</span> tmpfs none /tmp
 </div>
 <p>Make sure the path to the Linux kernel is correct. Your path will likely vary depending on your procedure. You can always run <code class="highlighter-rouge">find ~ -name bzImage</code> to see where it’s located.</p>
 <p>If everything’s going right, you’ll see the following screen in QEMU:</p>
-<p><img src="https://user-images.githubusercontent.com/7273074/55732852-464edb00-5a4f-11e9-8e2e-7208cceadf24.png" alt="QEMU Looks" /></p>
+<p><img src="https://user-images.githubusercontent.com/7273074/55732852-464edb00-5a4f-11e9-8e2e-7208cceadf24.png" alt="QEMU Looks"></p>
 <p>Congratulations! You’ve built your own Linux-from-Scratch and booted it in QEMU.</p>
 <p>There’s a second part of the original Lab 1 of <em>Operating System Concepts</em>, which I will describe in a later article (or more likely, skipped <code class="highlighter-rouge">:)</code>).</p>
 </article>
@@ -484,10 +557,10 @@ mount <span class="nt">-t</span> tmpfs none /tmp
   <span class="site-footer-credits">
     <div>
       <span style="float:left;padding-left:10px;height:0px;">
-        <a href="/blog/2019/03/first-touch-with-awk.html">&laquo; Previous</a>
+        <a href="/blog/2019/03/first-touch-with-awk.html">« Previous</a>
       </span>
       <span style="float:right;padding-right:10px;height:0px;">
-        Next &raquo;
+        Next »
       </span>
     </div>
     <div align="center">
@@ -498,7 +571,7 @@ mount <span class="nt">-t</span> tmpfs none /tmp
   </span>
 </footer>
 </section>
-<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript" src="/assets/js/line.js"></script>
 <script type="text/javascript">
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;

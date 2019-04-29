@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Bootstrapping Make | iBug @ GitHub</title>
+    <title>Bootstrapping Make | @iBug</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Bootstrapping Make" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="Have C or C++ project to build? You may think, “Yeah this is very easy, I’ll just call the compiler to do so”, and yes, let’s take a look at an example." />
     <link rel="canonical" href="https://ibug.github.io/blog/2019/02/bootstrapping-make.html" />
     <meta property="og:url" content="https://ibug.github.io/blog/2019/02/bootstrapping-make.html" />
-    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:site_name" content="@iBug" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2019-02-25T00:00:00+00:00" />
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=6f4b624d192e15173c814eba133ec22efd44889a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f1902e2064a198638683c9cc18172ed70f4fc329">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2019-02-25T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -35,13 +35,13 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>iBug @ GitHub</b>
+              <b>@iBug</b>
             </a>
             <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html" class="nav-item">
-              &laquo; Previous
+              « Previous
             </a>
             <a href="/blog/2019/03/first-touch-with-awk.html" class="nav-item">
-              Next &raquo;
+              Next »
             </a>
           </div>
           <div class="nav-right">
@@ -53,7 +53,8 @@
       <section class="page-header">
         <h1 class="project-name">Bootstrapping Make</h1>
         <h2 class="project-tagline">Using build automation tool</h2>
-        <h3 class="project-date"><time datetime="2019-02-25T00:00:00+00:00" itemprop="datePublished">Feb 25, 2019</time> &bull; iBug</h3>
+        <h3 class="project-date">
+<time datetime="2019-02-25T00:00:00+00:00" itemprop="datePublished">Feb 25, 2019</time> • iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
@@ -62,7 +63,11 @@
           <p>If you have a bare minimum knowledge of calling a compiler from the command line, you would come up with such a command:</p>
           <div class="language-shell highlighter-rouge">
             <div class="highlight">
-              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+              <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
             </td>
             <td class="rouge-code">
@@ -78,7 +83,11 @@
 <p>Yup, it’s that simple, <em>for a single-file project</em>. What if there are two sources to be compiled together?</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 </pre>
@@ -98,7 +107,11 @@ gcc <span class="nt">-o</span> hello hello.o main.o
 <p>If you still think it’s easy, let’s look at a slightly larger project with tens of sources and multiple output binaries:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -130,7 +143,11 @@ gcc <span class="nt">-c</span> <span class="nt">-o</span> pager-config config.o 
 <p>You may feel that a script would be a better option and may come up with this:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -183,7 +200,11 @@ link_bin pager events.o display.o ... main.o
 <p>Now you want to add a manpage and installation functionalities, and write them to the script:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -204,13 +225,18 @@ install_manpage
 </div>
 <p>That’s a good move to add support for building manpage, but there’s a serious caveat: there’s probably no need to build the manpage and install it every time this build script is run, as well as everything else unchanged.</p>
 <p>So, while it indeed is a better option than typing commands manually, it’s still a bit distant from optimal. Here’s when <em>Make</em> has its power.</p>
-<h1 id="3-build-automation-with-make">3. Build automation with <em>Make</em></h1>
+<h1 id="3-build-automation-with-make">3. Build automation with <em>Make</em>
+</h1>
 <p><em>Make</em> is a software designed specifically for build automation. It follows a predefined build guideline, a <code class="highlighter-rouge">Makefile</code>, and builds your project.
   What’s more, Make offers more than simple build automation, like checking for changed files and only re-builds the changed files, eliminating redundant work spent on those unchanged files.</p>
 <p>The first thing to using Make is knowing how to write a <code class="highlighter-rouge">Makefile</code>. Here’s a basic <code class="highlighter-rouge">Makefile</code> for a single-file project:</p>
 <div class="language-makefile highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 </pre>
   </td>
@@ -229,7 +255,11 @@ install_manpage
 <p>If you run <code class="highlighter-rouge">make</code> again immediately, it won’t compile <code class="highlighter-rouge">hello.c</code> again, but tells you instead:</p>
 <div class="language-text highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -246,7 +276,11 @@ install_manpage
 <p>An instruction to build a file is called a <em>target</em> in Makefile. In the above example, <code class="highlighter-rouge">hello</code> is a target and is the default target in the Makefile. Of course, you can have multiple targets in one Makefile:</p>
 <div class="language-makefile highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -270,7 +304,11 @@ install_manpage
 <p>And when you run <code class="highlighter-rouge">make</code>, the first target in the Makefile is the default target. You can specify a target that you want Make to build by specifying it on the command line:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -287,7 +325,11 @@ install_manpage
 <p>A common type of dependency is linking object files into multiple output binaries. Here’s an example that shows how Make manages dependencies:</p>
 <div class="language-makefile highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -326,7 +368,11 @@ install_manpage
 <p>Make also supports variables so you don’t have to write the same commands or arguments repeatedly. For example, the above <code class="highlighter-rouge">makefile</code> can be rewritten as follows:</p>
 <div class="language-makefile highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 2
 3
 4
@@ -368,7 +414,11 @@ install_manpage
 <p><code class="highlighter-rouge">${CC}</code> is an automatic variable provided by Make and defaults to <code class="highlighter-rouge">cc</code>. You can use another compiler by overriding this variable when invoking <code class="highlighter-rouge">make</code>:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table">
+<tbody>
+<tr>
+<td class="rouge-gutter gl">
+<pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -394,10 +444,10 @@ install_manpage
   <span class="site-footer-credits">
     <div>
       <span style="float:left;padding-left:10px;height:0px;">
-        <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html">&laquo; Previous</a>
+        <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html">« Previous</a>
       </span>
       <span style="float:right;padding-right:10px;height:0px;">
-        <a href="/blog/2019/03/first-touch-with-awk.html">Next &raquo;</a>
+        <a href="/blog/2019/03/first-touch-with-awk.html">Next »</a>
       </span>
     </div>
     <div align="center">
@@ -408,7 +458,7 @@ install_manpage
   </span>
 </footer>
 </section>
-<script type="text/javascript" src="/assets/js/line.js" ></script>
+<script type="text/javascript" src="/assets/js/line.js"></script>
 <script type="text/javascript">
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;

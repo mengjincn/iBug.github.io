@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Some ideas about multicore on Android | iBug @ GitHub</title>
+    <title>Some ideas about multicore on Android | @iBug</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Some ideas about multicore on Android" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="Why do Android phones have more cores than computers?" />
     <link rel="canonical" href="https://ibug.github.io/blog/2017/06/android-phone-cores.html" />
     <meta property="og:url" content="https://ibug.github.io/blog/2017/06/android-phone-cores.html" />
-    <meta property="og:site_name" content="iBug @ GitHub" />
+    <meta property="og:site_name" content="@iBug" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2017-06-11T10:51:16+00:00" />
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=6f4b624d192e15173c814eba133ec22efd44889a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f1902e2064a198638683c9cc18172ed70f4fc329">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2017-06-11T10:51:16+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -35,13 +35,13 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>iBug @ GitHub</b>
+              <b>@iBug</b>
             </a>
             <a href="/blog/2009/11/regex-match-open-tags-except-xhtml-self-contained-tags.html" class="nav-item">
-              &laquo; Previous
+              « Previous
             </a>
             <a href="/blog/2017/08/append-int-to-stdstring.html" class="nav-item">
-              Next &raquo;
+              Next »
             </a>
           </div>
           <div class="nav-right">
@@ -52,21 +52,22 @@
       </nav>
       <section class="page-header">
         <h1 class="project-name">Some ideas about multicore on Android</h1>
-        <h2 class="project-tagline">An Android Enthusiasts Q&A</h2>
+        <h2 class="project-tagline">An Android Enthusiasts Q&amp;A</h2>
         <a href="https://android.stackexchange.com/a/176503/205764" class="btn">View on Android Enthusiasts</a>
-        <h3 class="project-date"><time datetime="2017-06-11T10:51:16+00:00" itemprop="datePublished">Jun 11, 2017</time> &bull; iBug</h3>
+        <h3 class="project-date">
+<time datetime="2017-06-11T10:51:16+00:00" itemprop="datePublished">Jun 11, 2017</time> • iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
           <p>Laptops have usually at most four cores, and dualcores are probably more common. I have recently switched from quadcore to dualcore and I can confirm there is a limited number of use cases for quadcore, even with CPU intensive tasks.</p>
           <p>On the other hand, on mobile phones, quadcores, hexacores and octacores seem to be common. Why? What tasks can utilize them?</p>
-          <hr />
+          <hr>
           <p>First things first, <strong>the <a href="https://en.wikipedia.org/wiki/ARM_big.LITTLE">big.LITTLE</a> combination strategy</strong> (technically, <a href="https://en.m.wikipedia.org/wiki/Heterogeneous_computing"><strong>HMP</strong></a>, <strong>Heterogeneous Multi-Processing</strong> clusters) is the primary reason for so many (and sometimes overwhelmingly many) cores. A mobile device often runs into multiple scenarios, both heavy load and light load ones included.</p>
           <p>An extreme consumer-class example is MediaTek’s Helio X20, which has 2 performance-oriented A72 cores, 4 balanced A53 cores, plus 4 energy-efficient A35 cores. That’s very flexible throughout different usage cases. However, I think <s>8 cores</s> 2 clusters is usually enough.</p>
           <p>There’s also another desktop-like example, Qualcomm’s Snapdragon 800 series (S 800, S 801, and S 805). There are only 4 cores of the same microarchitecture in each SoC, with 2 clocked higher and 2 clocked lower. Qualcomm made these SoCs because they were very confident of their own microarchitecture (Krait 400 and Krait 450).</p>
           <p>For games, even if they seemingly demand GPU performance rather than CPU, they still put a heavy load on the CPU. A GPU cannot work alone without something else supplying it with data to be processed, and that’s one of the major jobs that the CPU is doing while you’re gaming. In most gaming cases, the GPU only renders graphics, while all other jobs like loading data, resources and assets, and calculating in-game mechanics like the system, environment and physics are done by the  CPU. You won’t observe a higher frame rate if you upgrade your GPU while sticking to a low-end CPU.</p>
-          <p>A secondary reason is <strong>how Android utilizes CPU resources</strong>. Android pretty much makes their own application environment. It uses nothing but codes (and APIs) from Java, but it has its own virtual machine named Dalvik, which was later replaced by ART (API Level 21). APKs have their executable codes in a “neutral” format, much like <code class="highlighter-rouge">.class</code> files in Java. Before they’re run, the codes get compiled once more into the machine’s native instructions<sup>[1]</sup>. The compilation process is multi-threaded and can utilize multi-cores for a performance boost.<br />
-            And when an app is running, there are several other processes and mechanics (like the Garbage Collector) that run alongside, or parallel to the app. More cores can let the supportive processes run more efficiently, as well as the main app.<br />
+          <p>A secondary reason is <strong>how Android utilizes CPU resources</strong>. Android pretty much makes their own application environment. It uses nothing but codes (and APIs) from Java, but it has its own virtual machine named Dalvik, which was later replaced by ART (API Level 21). APKs have their executable codes in a “neutral” format, much like <code class="highlighter-rouge">.class</code> files in Java. Before they’re run, the codes get compiled once more into the machine’s native instructions<sup>[1]</sup>. The compilation process is multi-threaded and can utilize multi-cores for a performance boost.<br>
+            And when an app is running, there are several other processes and mechanics (like the Garbage Collector) that run alongside, or parallel to the app. More cores can let the supportive processes run more efficiently, as well as the main app.<br>
             <sub>1. If you use a file type identifier, you’ll find that “optimized” dex files are in ELF format, while the “neutral” dex files are just in a format of their own.</sub></p>
           <p>Another lesser reason is that <strong>ARM cores can’t work as fast as an Intel x86 chip</strong>. The Intel x86 microarchitecture can be dated back to 1976, when the <a href="https://en.wikipedia.org/wiki/Intel_8086">Intel 8086</a> chip started to be designed, which means that the x86 has developed over a long time. A single modern high-end ARM Cortex-A73 core is only as powerful as an Intel Clarkdale core, taking <a href="http://browser.primatelabs.com/geekbench3/search?q=i5-660">Core i5-660</a> as an example (GeekBench, single-core). This is because x86 is a <a href="https://en.wikipedia.org/wiki/Complex_instruction_set_computer">CISC</a> microarchitecture while ARM is a <a href="https://en.wikipedia.org/wiki/Reduced_instruction_set_computer">RISC</a> microarchitecture. You surely don’t want a phone that becomes laggy with only two or so active apps. More cores will help relieve the pressure. That’s why dual-core SoCs are relatively popular only on smart watches. Who needs performance on a smart watch?</p>
           <p>Interestingly, <strong>more cores will result in less power than a single core at the same load</strong>. The relationship between CPU frequency and power consumption is more than linear, so twice the frequency will always result in demanding more than twice, or even 3x or 4x as much power, while delivering less than twice the performance (due to other resource limitations like cache). So 4 cores can easily beat a single core at the same load, providing better performance and simultaneously demanding less power.</p>
@@ -87,10 +88,10 @@
           <span class="site-footer-credits">
             <div>
               <span style="float:left;padding-left:10px;height:0px;">
-                <a href="/blog/2009/11/regex-match-open-tags-except-xhtml-self-contained-tags.html">&laquo; Previous</a>
+                <a href="/blog/2009/11/regex-match-open-tags-except-xhtml-self-contained-tags.html">« Previous</a>
               </span>
               <span style="float:right;padding-right:10px;height:0px;">
-                <a href="/blog/2017/08/append-int-to-stdstring.html">Next &raquo;</a>
+                <a href="/blog/2017/08/append-int-to-stdstring.html">Next »</a>
               </span>
             </div>
             <div align="center">
@@ -101,7 +102,7 @@
           </span>
         </footer>
       </section>
-      <script type="text/javascript" src="/assets/js/line.js" ></script>
+      <script type="text/javascript" src="/assets/js/line.js"></script>
       <script type="text/javascript">
         var navbar = document.getElementById("navbar");
         var sticky = navbar.offsetTop;
