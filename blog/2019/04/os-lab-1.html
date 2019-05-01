@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=1e00f22dbfd0f76bc33552981409c035e3fb22cd">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9ddabc7c39dc2464674708f3c3aa46ddb588c28c">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2019-04-07T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -326,7 +326,7 @@ umount rootfs
 <p><img src="https://user-images.githubusercontent.com/7273074/55729166-341d6e80-5a48-11e9-8307-575b2c8c7cd0.png" alt="QEMU Looks" /></p>
 <h2 id="preparing-the-root-filesystem---option-2-busybox">Preparing the root filesystem - Option 2: BusyBox</h2>
 <p>The first option is just a minimal example of what a root filesystem should contain. It is, however, not quite function-rich.</p>
-<p>With <a href="https://busybox.net/">BusyBox</a> that packs many common Unix &amp; Linux utilities into one single binary. With BusyBox, you’ll be able to create a mostly functional, yet still minimal Linux system.</p>
+<p>With <a href="https://busybox.net/">BusyBox</a> that packs many common Unix &amp; Linux utilities into one single binary, you’ll be able to create a mostly functional, yet still minimal Linux system.</p>
 <p>Busybox is available as source code so whoever need it can compile it themselves. Download the source code and configure it:</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
@@ -424,7 +424,7 @@ mkdir /proc /sys /tmp
 mount <span class="nt">-t</span> proc none /proc
 mount <span class="nt">-t</span> sysfs none /sys
 mount <span class="nt">-t</span> tmpfs none /tmp
-<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">This boot took </span><span class="k">$(</span>cur <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f1</span> /proc/uptime<span class="k">)</span><span class="s2"> seconds</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">This boot took </span><span class="k">$(</span>cut <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f1</span> /proc/uptime<span class="k">)</span><span class="s2"> seconds</span><span class="se">\n</span><span class="s2">"</span>
 <span class="nb">exec</span> /bin/sh
 </pre>
   </td>
