@@ -1107,6 +1107,8 @@ white-space: nowrap;
 transition: background 0.3s ease-in-out; }
 nav .nav-item:hover {
 background-color: rgba(64, 255, 192, 0.5); }
+nav .nav-item.home {
+font-weight: bold; }
 @media screen and (max-width: 42em) {
 nav .nav-item.verbose {
 display: none; } }
