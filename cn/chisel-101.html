@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Chisel 配置及入门 | @iBug</title>
+    <title>Chisel 配置及入门 | iBug ①</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Chisel 配置及入门" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="The small personal site for iBug" />
     <link rel="canonical" href="https://ibug.github.io/cn/chisel-101" />
     <meta property="og:url" content="https://ibug.github.io/cn/chisel-101" />
-    <meta property="og:site_name" content="@iBug" />
+    <meta property="og:site_name" content="iBug ①" />
     <script type="application/ld+json">
       {"description":"The small personal site for iBug","@type":"WebPage","url":"https://ibug.github.io/cn/chisel-101","headline":"Chisel 配置及入门","author":{"@type":"Person","name":"iBug"},"@context":"http://schema.org"}
     </script>
@@ -22,7 +22,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=aee988caa5f107d790e7a4beb4c0dd7848bfd054">
+    <link rel="stylesheet" href="/assets/css/style.css?v=cf8d8e024e34f5b2383302c2d91c7832eeea5707">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -33,7 +33,7 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>@iBug</b>
+              <b>iBug ①</b>
             </a>
           </div>
           <div class="nav-right">
@@ -45,8 +45,7 @@
       <section class="page-header">
         <h1 class="project-name">Chisel 配置及入门</h1>
         <h2 class="project-tagline">从配置到生成 Verilog</h2>
-        <h3 class="project-date">
-<time datetime="" itemprop="datePublished"></time> • iBug</h3>
+        <h3 class="project-date"><time datetime="" itemprop="datePublished"></time> &bull; iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
@@ -78,18 +77,14 @@
           <h3 id="1a3-准备-chisel-依赖">1.A.3 准备 Chisel 依赖</h3>
           <p>安装好 SBT 之后，我们所有的准备工作都将借助 SBT 完成。</p>
           <p>首先解压附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 并打开文件夹 <code class="highlighter-rouge">chisel-101</code>，然后在该文件夹中打开命令提示符。Windows 7 下可以按住 Shift 键并在文件夹空白处点右键，此时的菜单中会有 “在此处打开命令提示符” 的选项，如图：</p>
-          <p><img src="/image/chisel-intro/open-cmd.png" alt="Open Command Prompt here"></p>
+          <p><img src="/image/chisel-intro/open-cmd.png" alt="Open Command Prompt here" /></p>
           <p>在打开的命令提示符中输入 <code class="highlighter-rouge">sbt run</code>，确保网络通畅，等待 SBT 工具下载所需的依赖。由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码并运行。参考截图如下：</p>
-          <p><img src="/image/chisel-intro/sbt-first-run.png" alt="SBT Run"></p>
+          <p><img src="/image/chisel-intro/sbt-first-run.png" alt="SBT Run" /></p>
           <h2 id="1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</h2>
           <p>Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。</p>
           <div class="language-shell highlighter-rouge">
             <div class="highlight">
-              <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+              <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -113,11 +108,7 @@
 <p>接下来解包附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> （见末尾），并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre>
@@ -142,11 +133,7 @@ sbt run
 <p>用文本编辑器或者 IDE (例如 IntelliJ IDEA) 打开 <code class="highlighter-rouge">src/main/scala/example/hello.scala</code>，观察内容：</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -175,11 +162,7 @@ sbt run
 <p>下面我们用一个简单的示例（组合逻辑电路）来展示 Chisel，以及生成 Verilog 文件。</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -238,11 +221,7 @@ sbt run
 <p>还是在工程目录 (有 <code class="highlighter-rouge">build.sbt</code> 文件的那个地方) 打开命令提示符（或终端），输入 <code class="highlighter-rouge">sbt run</code> 开始编译。稍等片刻，就会发现编译失败了。最后几行的错误信息中可以看到这样的内容：</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -259,11 +238,7 @@ sbt run
 <p>打开刚才的 <code class="highlighter-rouge">Main.scala</code> 文件，在文件后面追加这几行代码：</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre>
@@ -284,11 +259,7 @@ sbt run
 <p>也许细心的你已经发现目录中出现了 <code class="highlighter-rouge">FullAdder.v</code> 这样一个文件。没错，这就是生成的 Verilog 代码！赶紧打开看看：</p>
 <div class="language-verilog highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -349,11 +320,7 @@ sbt run
 <p>我从网上的样例中选出了这个作为时序逻辑电路的示范</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -423,11 +390,7 @@ sbt run
 <p>打开上一节的 <code class="highlighter-rouge">Main.scala</code>，观察内容：</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre>
@@ -447,11 +410,7 @@ sbt run
 <p>也许你已经发现了，是这个地方决定哪些模块要被编译。所以我们添加一行，让它也编译新的模块。现在代码看起来像这样：</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -473,11 +432,7 @@ sbt run
 <p>好了，再次运行 <code class="highlighter-rouge">sbt run</code>，你就可以看到 <code class="highlighter-rouge">EnableShiftRegister.v</code> 了，它的内容应该是这样：</p>
 <div class="language-verilog highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -671,11 +626,7 @@ sbt run
 <p>这次我们使用前面编写的 1 位全加器来构建一个多位全加器</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -733,11 +684,7 @@ sbt run
 <p>把以上内容保存为 <code class="highlighter-rouge">src/main/scala/example/Nested.scala</code>。同样，我们要修改 <code class="highlighter-rouge">Main.scala</code>，使它编译新的 <code class="highlighter-rouge">Outer</code> 模块。</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre>
@@ -757,11 +704,7 @@ sbt run
 <p>运行 <code class="highlighter-rouge">sbt run</code>，然后观察生成的 <code class="highlighter-rouge">Outer.v</code>。可以发现，Chisel 自动将 <code class="highlighter-rouge">clock</code> 从模块 <code class="highlighter-rouge">Outer</code> 传递到了模块 <code class="highlighter-rouge">Inner</code>。</p>
 <div class="language-verilog highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -897,11 +840,7 @@ sbt run
 <p>方法是，编写多个 “主函数”，然后按需选择入口。例如</p>
 <div class="language-scala highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -937,11 +876,7 @@ sbt run
 <p>请注意，这时候由于我们有三个入口，因此直接运行 <code class="highlighter-rouge">sbt run</code> 的时候将无法编译。我们需要指定一个入口：</p>
 <div class="language-shell highlighter-rouge">
   <div class="highlight">
-    <pre class="highlight"><code><table class="rouge-table">
-<tbody>
-<tr>
-<td class="rouge-gutter gl">
-<pre class="lineno">1
+    <pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre>
   </td>
   <td class="rouge-code">
@@ -956,19 +891,16 @@ sbt run
 </div>
 <p>运行上面的命令后，可以看到模块 <code class="highlighter-rouge">EnableShiftRegister</code> 被编译，生成了 <code class="highlighter-rouge">EnableShiftRegister.v</code>，而其他模块并没有生成对应的 Verilog 文件。</p>
 <p>好了，关于生成 Verilog 代码就到这里了。</p>
-<hr>
+<hr />
 <p>更多样例代码可以在 GitHub 仓库 <a href="https://github.com/ucb-bar/chisel-tutorial">chisel-tutorial</a> 中找到。</p>
 <h1 id="附录">附录</h1>
 <ul>
-  <li>附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 下载： <a href="https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz">https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz</a>
-</li>
+  <li>附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 下载： <a href="https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz">https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz</a></li>
   <li>
     <p>包含三个样例代码的 <code class="highlighter-rouge">chisel-101-with-examples.tar.gz</code> 下载： <a href="https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz">https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz</a></p>
   </li>
-  <li>Chisel 官方网站： <a href="https://chisel.eecs.berkeley.edu/">https://chisel.eecs.berkeley.edu/</a>
-</li>
-  <li>GitHub 教程仓库： <a href="https://github.com/freechipsproject/chisel3/">https://github.com/freechipsproject/chisel3/</a>
-</li>
+  <li>Chisel 官方网站： <a href="https://chisel.eecs.berkeley.edu/">https://chisel.eecs.berkeley.edu/</a></li>
+  <li>GitHub 教程仓库： <a href="https://github.com/freechipsproject/chisel3/">https://github.com/freechipsproject/chisel3/</a></li>
 </ul>
 </article>
 <span class="post-tags">
@@ -979,10 +911,10 @@ sbt run
   <span class="site-footer-credits">
     <div>
       <span style="float:left;padding-left:10px;height:0px;">
-        « Previous
+        &laquo; Previous
       </span>
       <span style="float:right;padding-right:10px;height:0px;">
-        Next »
+        Next &raquo;
       </span>
     </div>
     <div align="center">
@@ -993,7 +925,7 @@ sbt run
   </span>
 </footer>
 </section>
-<script type="text/javascript" src="/assets/js/line.js"></script>
+<script type="text/javascript" src="/assets/js/line.js" ></script>
 <script type="text/javascript">
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- _layout: post -->
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-    <title>Setting up Ubuntu in VMware Workstation | @iBug</title>
+    <title>Setting up Ubuntu in VMware Workstation | iBug ①</title>
     <meta name="generator" content="Jekyll v3.8.5" />
     <meta property="og:title" content="Setting up Ubuntu in VMware Workstation" />
     <meta name="author" content="iBug" />
@@ -13,7 +13,7 @@
     <meta property="og:description" content="A quick step-by-step guide for those wanting to get in touch with Ubuntu in a virtual machine with minimal effort. For example, at the start of a semester of Operating System Concepts course." />
     <link rel="canonical" href="https://ibug.github.io/blog/2019/02/setup-ubuntu-in-vmware.html" />
     <meta property="og:url" content="https://ibug.github.io/blog/2019/02/setup-ubuntu-in-vmware.html" />
-    <meta property="og:site_name" content="@iBug" />
+    <meta property="og:site_name" content="iBug ①" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=aee988caa5f107d790e7a4beb4c0dd7848bfd054">
+    <link rel="stylesheet" href="/assets/css/style.css?v=cf8d8e024e34f5b2383302c2d91c7832eeea5707">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <time class="dt-published" datetime="2019-02-21T00:00:00+00:00" itemprop="datePublished">
       <script type="text/javascript" src="/assets/js/love.js" ></script>
@@ -35,13 +35,13 @@
         <div class="nav-content">
           <div class="nav-left">
             <a href="/" class="nav-item">
-              <b>@iBug</b>
+              <b>iBug ①</b>
             </a>
             <a href="/blog/2019/02/ssh-into-lan-computer.html" class="nav-item">
-              « Previous
+              &laquo; Previous
             </a>
             <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html" class="nav-item">
-              Next »
+              Next &raquo;
             </a>
           </div>
           <div class="nav-right">
@@ -53,54 +53,53 @@
       <section class="page-header">
         <h1 class="project-name">Setting up Ubuntu in VMware Workstation</h1>
         <h2 class="project-tagline">Step-by-step guide</h2>
-        <h3 class="project-date">
-<time datetime="2019-02-21T00:00:00+00:00" itemprop="datePublished">Feb 21, 2019</time> • iBug</h3>
+        <h3 class="project-date"><time datetime="2019-02-21T00:00:00+00:00" itemprop="datePublished">Feb 21, 2019</time> &bull; iBug</h3>
       </section>
       <section class="main-content blog-post">
         <article>
           <p>A quick step-by-step guide for those wanting to get in touch with Ubuntu in a virtual machine with minimal effort. For example, at the start of a semester of <em>Operating System Concepts</em> course.</p>
           <p>There’s a <a href="/p/15-cn">Chinese</a> version of this article!</p>
-          <p><img src="/image/setup-vmware/vmware-splash.png" alt=""></p>
+          <p><img src="/image/setup-vmware/vmware-splash.png" alt="" /></p>
           <h1 id="0-preparation">0. Preparation</h1>
           <p>Since we’re going to install a Linux distro with a desktop environment, 2 GB of guest memory is recommended, and as a consequence, you would want to ensure that your host machine has 6 GB or more RAM. If your machine doesn’t have that much RAM, you can try setting up a Ubuntu Server VM, which can require as little as 512 MB of guest memory to run.</p>
           <p>Download VMware Workstation for <a href="https://www.vmware.com/go/getworkstation-win">Windows</a> or <a href="https://www.vmware.com/go/getworkstation-linux">Linux</a>, or download VMware Fusion for <a href="https://www.vmware.com/go/getfusion">macOS</a>. You’ll need a key to license your VMware software (hint: try Google for it and you’ll find a lot).</p>
           <p>Get the latest Ubuntu LTS image from <a href="https://www.ubuntu.com/download/desktop">ubuntu.com</a>, or from a <a href="https://launchpad.net/ubuntu/+cdmirrors">mirror site</a> at your option. If you go to a mirror site, make sure you’re downloading the file <code class="highlighter-rouge">ubuntu-{version}-desktop-amd64.iso</code>, where <code class="highlighter-rouge">{version}</code> is the version number, e.g. <code class="highlighter-rouge">18.04</code>.</p>
           <h1 id="1-setting-up-vmware-workstation-windows">1. Setting up VMware Workstation (Windows)</h1>
           <p>Open your downloaded VMware Workstation installer (in <code class="highlighter-rouge">.exe</code> format). You need Administrator privileges to continue</p>
-          <p><img src="/image/setup-vmware/vm-1.png" alt=""></p>
+          <p><img src="/image/setup-vmware/vm-1.png" alt="" /></p>
           <p>Continue with <strong>Next</strong> and select an option to continue. For most people, you can safely proceed with <strong>Typical</strong>. Follow the guide to finish installation of VMware Workstation.</p>
           <p>Reboot your Windows machine after installing VMware Workstation – some components need a reboot before working properly.</p>
           <p>You should now see a shortcut on your desktop like this:</p>
-          <p><img src="/image/setup-vmware/Win10-tile.png" alt=""></p>
+          <p><img src="/image/setup-vmware/Win10-tile.png" alt="" /></p>
           <p>Double-click on it, accept the End User License Agreement (EULA) and enter your license key when it’s asked for.</p>
           <p>If you see this screen, it means you’ve successfully installed VMware Workstation on your machine.</p>
-          <p><img src="/image/setup-vmware/home-page.png" alt=""></p>
+          <p><img src="/image/setup-vmware/home-page.png" alt="" /></p>
           <h1 id="2-creating-a-virtual-machine-for-ubuntu">2. Creating a Virtual Machine for Ubuntu</h1>
           <p>As shown in the image above, there are three big buttons on the home page. Isn’t the first one tempting to click? Yes, just go for it, and you’ll be presented with this «New Virtual Machine Wizard»:</p>
-          <p><img src="/image/setup-vmware/nvmw-1.png" alt=""></p>
+          <p><img src="/image/setup-vmware/nvmw-1.png" alt="" /></p>
           <p>Again for most people, <strong>Typical (recommended)</strong> is as labelled – the recommended option.</p>
           <p>In the next screen, select <strong>Installer disc image file (iso)</strong> and locate the Ubuntu image (in <code class="highlighter-rouge">.iso</code> format) you downloaded earlier. VMware Workstation should detect that it’s Ubuntu and inform you that it will use Easy Install for the operating system.</p>
-          <p><img src="/image/setup-vmware/nvmw-2.png" alt=""></p>
+          <p><img src="/image/setup-vmware/nvmw-2.png" alt="" /></p>
           <p>After clicking <code class="highlighter-rouge">Next</code>, you can enter the name of the virtual machine in <em>Full name</em> field, and give your favorite username and an easy-to-memorize password. Here I use <code class="highlighter-rouge">vmware</code> for all fields, including passwords, as a weak password in an isolated virtual machine won’t impose a big security issue.</p>
-          <p><img src="/image/setup-vmware/nvmw-3.png" alt=""></p>
+          <p><img src="/image/setup-vmware/nvmw-3.png" alt="" /></p>
           <p>In the next screen, give your virtual machine a name, and specify a storage location. For most people, you may want to move the location out of <code class="highlighter-rouge">C:\</code> for performance concerns (or, locate it inside your home directory if you’re on Linux; for Mac users, the default location is fine). In the image shown below, I put it in drive D on my machine, and just named it <strong>Ubuntu 18.04</strong>.</p>
-          <p><img src="/image/setup-vmware/nvmw-4.png" alt=""></p>
+          <p><img src="/image/setup-vmware/nvmw-4.png" alt="" /></p>
           <p>Then, create a virtual disk for the virtual machine. Despite what VMware suggests, 16 GB should be enough for most people on their first contact with Ubuntu. I went for 8 GB – I’m confident that’s enough for me. Select <strong>Store virtual disk as a single file</strong> for better performance. Trust your disk drive and the filesystem’s ability in handling large files this time.</p>
-          <p><img src="/image/setup-vmware/nvmw-5.png" alt=""></p>
+          <p><img src="/image/setup-vmware/nvmw-5.png" alt="" /></p>
           <p>That’s all options you need to specify. Check the summary and click <strong>Finish</strong>. You can also customize the hardware specifications if you want, for example, delete the printer and the sound card if you don’t want them, or increase the RAM and # of CPU cores if your machine is beefy and has spare resources.</p>
-          <p><img src="/image/setup-vmware/nvmw-6.png" alt=""></p>
-          <p><img src="/image/setup-vmware/nvmw-7.png" alt=""></p>
+          <p><img src="/image/setup-vmware/nvmw-6.png" alt="" /></p>
+          <p><img src="/image/setup-vmware/nvmw-7.png" alt="" /></p>
           <p>After closing the prompt, the virtual machine should power up automatically, provided you didn’t uncheck the last tick in the prompt. Here’s what it looks like when it first powers up.</p>
-          <p><img src="/image/setup-vmware/u-1.png" alt=""></p>
+          <p><img src="/image/setup-vmware/u-1.png" alt="" /></p>
           <p>Then, as told before, installation of the Ubuntu OS inside the virtual machine should begin automatically with VMware’s Easy Install feature. You can see the setup screen of Ubuntu like this:</p>
-          <p><img src="/image/setup-vmware/u-2.png" alt=""></p>
+          <p><img src="/image/setup-vmware/u-2.png" alt="" /></p>
           <p>Shortly afterwards, it should reboot automatically. The first boot may be a bit slower than you may expect, as there are additional things to be set up then. Soon you’ll be presented with the login screen of Ubuntu, and enter your password to see the desktop.</p>
-          <p><img src="/image/setup-vmware/u-3.png" alt=""></p>
-          <p><img src="/image/setup-vmware/u-4.png" alt=""></p>
+          <p><img src="/image/setup-vmware/u-3.png" alt="" /></p>
+          <p><img src="/image/setup-vmware/u-4.png" alt="" /></p>
           <p>On the first start, you’ll see <em>What’s new in Ubuntu</em>. For the sake of curiosity, you can skim it through. Nothing quite important here.</p>
-          <p><img src="/image/setup-vmware/u-5.png" alt=""></p>
+          <p><img src="/image/setup-vmware/u-5.png" alt="" /></p>
           <p>If you need to open a terminal for shell commanding, just hit <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">T</code>.</p>
-          <p><img src="/image/setup-vmware/u-6.png" alt=""></p>
+          <p><img src="/image/setup-vmware/u-6.png" alt="" /></p>
         </article>
         <span class="post-tags">
           <b>Tags: </b>
@@ -111,10 +110,10 @@
           <span class="site-footer-credits">
             <div>
               <span style="float:left;padding-left:10px;height:0px;">
-                <a href="/blog/2019/02/ssh-into-lan-computer.html">« Previous</a>
+                <a href="/blog/2019/02/ssh-into-lan-computer.html">&laquo; Previous</a>
               </span>
               <span style="float:right;padding-right:10px;height:0px;">
-                <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html">Next »</a>
+                <a href="/blog/2019/02/setup-ubuntu-in-vmware-cn.html">Next &raquo;</a>
               </span>
             </div>
             <div align="center">
@@ -125,7 +124,7 @@
           </span>
         </footer>
       </section>
-      <script type="text/javascript" src="/assets/js/line.js"></script>
+      <script type="text/javascript" src="/assets/js/line.js" ></script>
       <script type="text/javascript">
         var navbar = document.getElementById("navbar");
         var sticky = navbar.offsetTop;
