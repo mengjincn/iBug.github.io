@@ -22,7 +22,7 @@
     <meta name="theme-color" content="#159A34">
     <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
     <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/css/style.css?v=791e456e3bd857a1d21b8189105b55b684e2251d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=abd3ea54ee3197e05d5e8f511117f53f81520f81">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
     <script type="text/javascript" src="/assets/js/love.js" ></script>
   </head>
@@ -49,13 +49,13 @@
     <section class="main-content">
       <dl>
         <dt>Build time</dt>
-        <dd><time datetime="2019-05-04 07:54:57">May 4, 2019 at 07:54:57Z</time></dd>
+        <dd><time datetime="2019-05-04 07:58:55">May 4, 2019 at 07:58:55Z</time></dd>
         <dt>Current time</dt>
         <dd id="current-time"></dd>
         <dt>Source Git revision</dt>
-        <dd><a href="https://github.com/iBug/iBug-source/commit/791e456e3bd857a1d21b8189105b55b684e2251d"><code>791e456</code> <strong>iBug</strong>: ...</a></dd>
+        <dd><a href="https://github.com/iBug/iBug-source/commit/abd3ea54ee3197e05d5e8f511117f53f81520f81"><code>abd3ea5</code> <strong>iBug</strong>: ......</a></dd>
         <dt>Travis CI <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Build Status" /></a></dt>
-        <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/528085782">Travis CI build 757</a></dd>
+        <dd>This site is deployed from <a href="https://travis-ci.org/iBug/iBug-source/builds/528086473">Travis CI build 758</a></dd>
       </dl>
       <script type="text/javascript">
         function zeropad(n) {
@@ -66,8 +66,7 @@
         	let t = new Date();
         	showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
         }
-        var showTimeInterval = setInterval(showTime, 200);
-        showTime();
+        var showTimeInterval = setInterval(showTime, 100);
       </script>
       <footer class="site-footer">
         <span class="site-footer-credits">
