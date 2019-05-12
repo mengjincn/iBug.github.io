@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- _layout: post -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>Wolfram Mathematica 12 Key Generator | iBug ①</title>
+    <meta name="generator" content="Jekyll v3.8.5" />
+    <meta property="og:title" content="Wolfram Mathematica 12 Key Generator" />
+    <meta name="author" content="iBug" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Another JavaScript project" />
+    <meta property="og:description" content="Another JavaScript project" />
+    <link rel="canonical" href="https://ibugone.com/blog/2019/05/mathematica-keygen.html" />
+    <meta property="og:url" content="https://ibugone.com/blog/2019/05/mathematica-keygen.html" />
+    <meta property="og:site_name" content="iBug ①" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2019-05-11T00:00:00+00:00" />
+    <script type="application/ld+json">
+      {"description":"Another JavaScript project","mainEntityOfPage":{"@type":"WebPage","@id":"https://ibugone.com/blog/2019/05/mathematica-keygen.html"},"@type":"BlogPosting","url":"https://ibugone.com/blog/2019/05/mathematica-keygen.html","headline":"Wolfram Mathematica 12 Key Generator","dateModified":"2019-05-11T00:00:00+00:00","datePublished":"2019-05-11T00:00:00+00:00","author":{"@type":"Person","name":"iBug"},"@context":"http://schema.org"}
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#159A34">
+    <!-- https://fonts.googleapis.com/css?family=Open+Sans:400,700 -->
+    <link href='/assets/css/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=e4f094925907ff5a45292f30c2fd478a407af5ba">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+    <time class="dt-published" datetime="2019-05-11T00:00:00+00:00" itemprop="datePublished">
+      <script type="text/javascript" src="/assets/js/love.js" ></script>
+    </head>
+    <body>
+      <nav>
+        <div class="nav-bg"></div>
+        <div class="nav-content">
+          <div class="nav-left">
+            <a href="/" class="nav-item home">iBug ①</a>
+            <a href="/blog/2019/04/os-lab-1.html" class="nav-item">
+              &laquo; Previous
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="/blog" class="nav-item">Articles</a>
+            <a href="/project" class="nav-item">Projects</a>
+          </div>
+        </div>
+      </nav>
+      <section class="page-header">
+        <h1 class="project-name">Wolfram Mathematica 12 Key Generator</h1>
+        <h2 class="project-tagline">Another JavaScript project</h2>
+        <h3 class="project-date"><time datetime="2019-05-11T00:00:00+00:00" itemprop="datePublished">May 11, 2019</time> &bull; iBug</h3>
+      </section>
+      <section class="main-content blog-post">
+        <article>
+          <p><strong>Supports Wolfram Mathematica 12.0</strong></p>
+          <p>Input your MathID (xxxx-xxxxx-xxxxx) and press <strong>Generate</strong>.</p>
+          <p><input type="text" id="mathId" /></p>
+          <p><button id="generate">Generate</button></p>
+          <p id="result">Press <b>Generate</b>!</p>
+          <script type="text/javascript">
+            function f1(n, byte, c) {
+                for (var bitIndex = 0; bitIndex <= 7; bitIndex++) {
+                    var bit = (byte >> bitIndex) & 1;
+                    if (bit + ((n - bit) & ~1) === n) {
+                        n = (n - bit) >> 1;
+                    } else {
+                        n = ((c - bit) ^ n) >> 1;
+                    }
+                }
+                return n;
+            }
+            function genPassword(str, hash) {
+                for (var byteIndex = str.length - 1; byteIndex >= 0; byteIndex--) {
+                    hash = f1(hash, str.charCodeAt(byteIndex), 0x105C3);
+                }
+                var n1 = 0;
+                while (f1(f1(hash, n1 & 0xFF, 0x105C3), n1 >> 8, 0x105C3) !== 0xA5B6) {
+                    if (++n1 >= 0xFFFF) {
+                        return "Error";
+                    }
+                }
+                n1 = Math.floor(((n1 + 0x72FA) & 0xFFFF) * 99999.0 / 0xFFFF);
+                var n1str = ("0000" + n1.toString(10)).slice(-5);
+                var temp = parseInt(n1str.slice(0, -3) + n1str.slice(-2) + n1str.slice(-3, -2), 10);
+                temp = Math.ceil((temp / 99999.0) * 0xFFFF);
+                temp = f1(f1(0, temp & 0xFF, 0x1064B), temp >> 8, 0x1064B);
+                for (byteIndex = str.length - 1; byteIndex >= 0; byteIndex--) {
+                    temp = f1(temp, str.charCodeAt(byteIndex), 0x1064B);
+                }
+                var n2 = 0;
+                while (f1(f1(temp, n2 & 0xFF, 0x1064B), n2 >> 8, 0x1064B) !== 0xA5B6) {
+                    if (++n2 >= 0xFFFF) {
+                        return "Error";
+                    }
+                }
+                n2 = Math.floor((n2 & 0xFFFF) * 99999.0 / 0xFFFF);
+                var n2str = ("0000" + n2.toString(10)).slice(-5);
+                return n2str.charAt(3) + n1str.charAt(3) + n1str.charAt(1) + n1str.charAt(0) + "-"
+                    + n2str.charAt(4) + n1str.charAt(2) + n2str.charAt(0) + "-"
+                    + n2str.charAt(2) + n1str.charAt(4) + n2str.charAt(1) + "::1";
+            }
+            
+            function checkMathId(s) {
+                if (s.length != 16)
+                    return false;
+                for (let i = 0; i < s.length; i++) {
+                    if (i === 4 || i === 10) {
+                        if (s[i] !== "-")
+                            return false;
+                    } else {
+                        if ("0123456789".search(s[i]) < 0)
+                            return false;
+                    }
+                }
+                return true;
+            }
+            
+            Array.prototype.getRandom = function () {
+                return this[Math.floor(Math.random() * this.length)]
+            }
+            document.getElementById("generate").addEventListener("click", function () {
+                document.getElementById("result").innerText = "";
+                var mathId = document.getElementById("mathId").value.trim();
+                if (!checkMathId(mathId)) {
+                    document.getElementById("result").innerText = "Bad MathID!";
+                } else {
+                    activationKey = "";
+                    for (let i = 0; i < 14; i++) {
+                        activationKey += Math.floor(Math.random() * 10);
+                        if (i === 3 || i === 7)
+                            activationKey += "-";
+                    }
+                    var magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
+                    var password = genPassword(mathId + "$1&" + activationKey, magicNumbers.getRandom());
+                    document.getElementById("result").innerText += "Activation Key: " + activationKey + "\nPassword: " + password;
+                }
+            });
+          </script>
+        </article>
+        <span class="post-tags">
+          <b>Tag: </b>
+          <a href="/tags/keygen" class="tag">keygen</a>
+        </span>
+        <footer class="site-footer">
+          <span class="site-footer-credits">
+            <div>
+              <span style="float:left;padding-left:10px;height:0px;">
+                <a href="/blog/2019/04/os-lab-1.html">&laquo; Previous</a>
+              </span>
+              <span style="float:right;padding-right:10px;height:0px;">
+                Next &raquo;
+              </span>
+            </div>
+            <div align="center">
+              <p><a href="/blog"><b>Return to index</b></a></p>
+              <p>Link to this article: <a href="https://ibugone.com/p/19">https://ibugone.com/p/19</a></p>
+              <p><small>Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0 license</a>. Attribution required.</small></p>
+            </div>
+          </span>
+        </footer>
+      </section>
+      <script type="text/javascript" src="/assets/js/line.js" ></script>
+      <script type="text/javascript">
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+        window.onscroll = function() {
+        	if (window.pageYOffset >= sticky) {
+        		navbar.classList.add("sticky")
+        	} else {
+        		navbar.classList.remove("sticky");
+        	}
+        }
+      </script>
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-115907213-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    </body>
+  </html>
