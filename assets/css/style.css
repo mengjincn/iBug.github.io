@@ -1074,7 +1074,6 @@ border-bottom-left-radius: 1rem;
 border-bottom-right-radius: 1rem;
 background-color: rgba(224, 255, 240, 0.95); }
 nav div.nav-bg {
-background-color: rgba(224, 255, 240, 0.95);
 height: 2rem;
 z-index: -1; }
 nav .nav-content {
@@ -1401,6 +1400,15 @@ cursor: not-allowed; }
 .pagination > li a.disabled:focus, .pagination > li a.disabled:hover, .pagination > li span.disabled:focus, .pagination > li span.disabled:hover {
 color: #AAA;
 background-color: #F3F7F3; }
+.hide-scrollbar {
+scrollbar-width: none;
+/* Firefox */
+-ms-overflow-style: none;
+/* IE 10+ */ }
+.hide-scrollbar::-webkit-scrollbar {
+/* WebKit */
+width: 0;
+height: 0; }
 * {
 box-sizing: border-box; }
 body {
