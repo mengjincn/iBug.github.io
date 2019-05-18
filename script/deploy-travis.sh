@@ -17,15 +17,13 @@ ssh-keyscan -H "git.dev.tencent.com" >> ~/.ssh/known_hosts
 
 
 # Fetch extra necessary things
+pushd "$SRC" &>/dev/null
 git clone --depth=1 --branch=master https://github.com/iBug/image.git image
-rm -rf image/.git
+rm -rf image/.git CNAME
 
 
 # Prepare Git stuff
 source_msg="$(git log -1 --pretty="[%h] %B")"
-
-pushd "$SRC" &>/dev/null
-rm CNAME
 
 e_info "Adding commit info"
 # Since we're pushing to another host, we want to torch the history
