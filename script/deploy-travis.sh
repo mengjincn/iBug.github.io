@@ -29,7 +29,7 @@ e_info "Adding commit info"
 # Since we're pushing to another host, we want to torch the history
 rm -rf .git
 git init
-git remote add origin "git@git.dev.tencent.com:iBugOne/iBugOne.coding.me.git"
+git remote add origin "${ORIGIN:-git@git.dev.tencent.com:iBugOne/iBugOne.coding.me.git}"
 git config user.name "iBug"
 git config user.email "iBug@users.noreply.github.com"
 git add --all
