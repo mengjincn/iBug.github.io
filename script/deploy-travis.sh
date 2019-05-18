@@ -27,6 +27,7 @@ if [ -z "$SSH_KEY_E" ]; then
 fi
 base64 -d <<< "$SSH_KEY_E" | gunzip -c > ~/.ssh/id_rsa
 export SSH_AUTH_SOCK=none GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa"
+ssh-keyscan -H "git.dev.tencent.com" >> ~/.ssh/known_hosts
 
 source_msg="$(git log -1 --pretty="[%h] %B")"
 
