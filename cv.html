@@ -8,14 +8,14 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
-    <!-- begin _includes/seo.html --><title>Status - iBug ①</title>
-    <meta name="description" content="The little personal site for iBug">
+    <!-- begin _includes/seo.html --><title>Curriculum Vitae - iBug ①</title>
+    <meta name="description" content="iBug’s Timeline">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
-    <meta property="og:title" content="Status">
-    <meta property="og:url" content="https://ibugone.com/status">
-    <link rel="canonical" href="https://ibugone.com/status">
+    <meta property="og:title" content="Curriculum Vitae">
+    <meta property="og:url" content="https://ibugone.com/cv">
+    <link rel="canonical" href="https://ibugone.com/cv">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -96,47 +96,78 @@
     </div>
     <div class="initial-content">
       <div id="main" role="main">
+        <div class="sidebar sticky">
+          <div itemscope itemtype="https://schema.org/Person">
+            <div class="author__avatar">
+              <img src="/image/avatar.png" alt="iBug" itemprop="image">
+            </div>
+            <div class="author__content">
+              <h3 class="author__name" itemprop="name">iBug</h3>
+              <p class="author__bio" itemprop="description">
+                CS amateur, indie developer
+              </p>
+            </div>
+            <div class="author__urls-wrapper">
+              <button class="btn btn--inverse">Follow</button>
+              <ul class="author__urls social-icons">
+                <li><a href="mailto:ibug.github@outlook.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+                <li><a href="https://stackoverflow.com/users/5958455/ibug" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-stack-overflow" aria-hidden="true"></i> Stack Overflow</a></li>
+                <li><a href="https://github.com/iBug" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+                <li><a href="https://t.me/ibugthought" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-telegram-plane" aria-hidden="true"></i> Telegram Channel</a></li>
+                <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+              </ul>
+            </div>
+          </div>
+        </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Status">
+          <meta itemprop="headline" content="Curriculum Vitae">
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">Status
+              <h1 id="page-title" class="page__title" itemprop="headline">Curriculum Vitae
               </h1>
             </header>
             <section class="page__content" itemprop="text">
               <dl>
-                <dt>Build time</dt>
-                <dd><time datetime="2019-05-23 02:55:24">2019-05-23 02:55:24</time></dd>
-                <dt>Current time</dt>
-                <dd id="current-time"></dd>
-                <dt>Source Git revision</dt>
-                <dd><a href="https://github.com/iBug/iBug-source/commit/78e843c1613d163e913b788cfd25cfc71c579945"><code>78e843c</code> <strong>iBug</strong>: Add some balivernes</a></dd>
-                <dt>
-                  Continuous Integration
-                  <a href="https://travis-ci.org/iBug/iBug-source"><img src="https://travis-ci.org/iBug/iBug-source.svg?branch=master" alt="Travis CI" /></a>
-                  <a href="https://circleci.com/gh/iBug/iBug-source"><img src="https://circleci.com/gh/iBug/iBug-source.svg?style=shield" alt="CircleCI" /></a>
-                </dt>
-                <dd>This site is deployed from <a href="https://circleci.com/gh/iBug/iBug-source/99">CircleCI build 99</a></dd>
+                <dt>Jan 22, 2019</dt>
+                <dd>
+                  <p>Reached 20k reputation on Stack Overflow</p>
+                </dd>
+                <dt>Jan 15, 2019</dt>
+                <dd>
+                  <p>Awarded <a href="https://stackoverflow.com/help/badges/52/c?userid=5958455"><code class="highlighter-rouge">c</code> silver tag badge</a> on Stack Overflow.</p>
+                </dd>
+                <dt>Sep 17, 2018</dt>
+                <dd>
+                  <p>Reached 15k reputation on Stack Overflow</p>
+                </dd>
+                <dt>Jun 13, 2018</dt>
+                <dd>
+                  <p>Gained push access to <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector</a>, a spam detection bot written in Python</p>
+                  <p>See <a href="https://chat.stackexchange.com/transcript/message/45129909">this chat message from a project owner</a></p>
+                </dd>
+                <dt>Feb 27, 2018</dt>
+                <dd>
+                  <p>Awarded <a href="https://stackoverflow.com/help/badges/48/c?userid=5958455"><code class="highlighter-rouge">c++</code> silver tag badge</a> on Stack Overflow.</p>
+                </dd>
+                <dt>Feb  6, 2018</dt>
+                <dd>
+                  <p>Reached 10k reputation on Stack Overflow.</p>
+                </dd>
               </dl>
-              <script type="text/javascript">
-                function zeropad(n) {
-                	return n > 9 ? String(n) : "0" + String(n);
-                }
-                var showTimeContainer = document.getElementById("current-time");
-                function showTime() {
-                	let t = new Date();
-                	showTimeContainer.innerText = "UTC " + String(t.getUTCFullYear()) + "-" + zeropad(t.getUTCMonth() + 1) + "-" + zeropad(t.getUTCDate()) + " " + zeropad(t.getUTCHours()) + ":" + zeropad(t.getUTCMinutes()) + ":" + zeropad(t.getUTCSeconds());
-                }
-                var showTimeInterval = setInterval(showTime, 100);
-              </script>
             </section>
             <footer class="page__meta">
             </footer>
             <section class="page__share">
               <h4 class="page__share-title">Share on</h4>
-              <a href="https://twitter.com/intent/tweet?text=Status%20https%3A%2F%2Fibugone.com%2Fstatus" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fstatus" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fstatus" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+              <a href="https://twitter.com/intent/tweet?text=Curriculum+Vitae%20https%3A%2F%2Fibugone.com%2Fcv" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fcv" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fcv" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
             </section>
           </div>
         </article>
