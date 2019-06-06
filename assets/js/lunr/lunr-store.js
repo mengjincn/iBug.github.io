@@ -108,9 +108,4 @@ var store = [{
 "excerpt":"Supports Wolfram Mathematica 12.0   Input your MathID (xxxx-xxxxx-xxxxx) and press Generate.      Generate   Press Generate!     ","categories": [],
 "tags": ["keygen"],
 "url": "https://ibugone.com/blog/2019/05/mathematica-keygen.html",
-"teaser":null},{
-"title": "Toutes les histoires",
-"excerpt":"Toutes les histoires commencent pareil, rien de nouveau sous la lune. Pour qu’une étoile s’éteigne, il faut qu’une autre s’allume.   Toutes les histoires ont leur histoire. N’écoutez pas ce qu’on vous raconte, l’amour, y’a que ça qui compte.   On s’aimera toujours, on s’aimera si fort, et puis, doucement, sans le vouloir, on passe du cœur à la mémoire.  ","categories": [],
-"tags": ["miscellaneous"],
-"url": "https://ibugone.com/blog/2019/05/toutes-les-histoires.html",
 "teaser":null}]
