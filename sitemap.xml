@@ -2,11 +2,9 @@
   <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
       <loc>https://ibugone.com/cn/chisel-101</loc>
-      <lastmod>2019-06-07T03:13:34+08:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cn/pde-thinking-question</loc>
-      <lastmod>2019-06-07T03:13:34+08:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2009/11/regex-match-open-tags-except-xhtml-self-contained-tags.html</loc>
@@ -89,6 +87,10 @@
       <lastmod>2019-05-11T00:00:00+08:00</lastmod>
     </url>
     <url>
+      <loc>https://ibugone.com/blog/2019/06/save-commit-from-github.html</loc>
+      <lastmod>2019-06-07T00:00:00+08:00</lastmod>
+    </url>
+    <url>
       <loc>https://ibugone.com/cn/2018-s</loc>
     </url>
     <url>
@@ -167,17 +169,32 @@
       <loc>https://ibugone.com/tags/keygen/</loc>
     </url>
     <url>
+      <loc>https://ibugone.com/tags/git/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tags/github/</loc>
+    </url>
+    <url>
       <loc>https://ibugone.com/doc/stackoverflow/referencesheet</loc>
     </url>
     <url>
       <loc>https://ibugone.com/blog/</loc>
     </url>
     <url>
+      <loc>https://ibugone.com/blog/page2/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/blog/page3/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/blog/page4/</loc>
+    </url>
+    <url>
       <loc>https://ibugone.com/doc/stackoverflow/mcve.html</loc>
-      <lastmod>2019-06-07T03:13:24+08:00</lastmod>
+      <lastmod>2019-02-21T16:46:02+08:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/doc/stackoverflow/referencesheet.html</loc>
-      <lastmod>2019-06-07T03:13:24+08:00</lastmod>
+      <lastmod>2019-02-21T16:46:02+08:00</lastmod>
     </url>
   </urlset>

@@ -8,16 +8,16 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
-    <!-- begin _includes/seo.html --><title>Filter Manually Installed Packages from APT with AWK - iBug ①</title>
-    <meta name="description" content="It’s again when I want to find out what packages I have manually installed (or by a script) from the output of apt list, with all output on one line.">
+    <!-- begin _includes/seo.html --><title>How I saved a lost commit from GitHub - iBug ①</title>
+    <meta name="description" content="Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub.My friend pushed his work (1 commit) to it, and now it’s lost.">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
-    <meta property="og:title" content="Filter Manually Installed Packages from APT with AWK">
-    <meta property="og:url" content="https://ibugone.com/blog/2019/03/first-touch-with-awk.html">
-    <meta property="og:description" content="It’s again when I want to find out what packages I have manually installed (or by a script) from the output of apt list, with all output on one line.">
-    <meta property="article:published_time" content="2019-03-04T00:00:00+08:00">
-    <link rel="canonical" href="https://ibugone.com/blog/2019/03/first-touch-with-awk.html">
+    <meta property="og:title" content="How I saved a lost commit from GitHub">
+    <meta property="og:url" content="https://ibugone.com/blog/2019/06/save-commit-from-github.html">
+    <meta property="og:description" content="Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub.My friend pushed his work (1 commit) to it, and now it’s lost.">
+    <meta property="article:published_time" content="2019-06-07T00:00:00+08:00">
+    <link rel="canonical" href="https://ibugone.com/blog/2019/06/save-commit-from-github.html">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -128,12 +128,12 @@
           </div>
         </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Filter Manually Installed Packages from APT with AWK">
-          <meta itemprop="description" content="It’s again when I want to find out what packages I have manually installed (or by a script) from the output of apt list, with all output on one line.">
-          <meta itemprop="datePublished" content="March 04, 2019">
+          <meta itemprop="headline" content="How I saved a lost commit from GitHub">
+          <meta itemprop="description" content="Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub.My friend pushed his work (1 commit) to it, and now it’s lost.">
+          <meta itemprop="datePublished" content="June 07, 2019">
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">Filter Manually Installed Packages from APT with AWK
+              <h1 id="page-title" class="page__title" itemprop="headline">How I saved a lost commit from GitHub
               </h1>
               <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
                 2 minute read
@@ -145,91 +145,90 @@
                   <header>
                     <h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4>
                   </header>
-                  <ul class="toc__menu">
-                    <li><a href="#hows-it-done">How’s it done?</a></li>
-                  </ul>
                 </nav>
               </aside>
-              <p>It’s again when I want to find out what packages I have manually installed (or by a script) from the output of <code class="highlighter-rouge">apt list</code>, with all output on one line.</p>
-              <p>It’s a pretty easy task if you’re familiar with Unix command utilities for text manipulation, and you may probably have come up with this solution:</p>
+              <p>Earlier today I force-pushed to my repository <a href="https://github.com/iBug/USTC-RV-Chisel">USTC-RV-Chisel</a> for testing purposes,
+                without noticing that my local ref <code class="highlighter-rouge">origin/master</code> is 1 commit behind the actual <code class="highlighter-rouge">master</code> on GitHub.
+                My friend pushed his work (1 commit) to it, and now it’s lost.</p>
+              <p>Fortunately, I haven’t closed my terminal yet, so there’s at least some place to look at:</p>
+              <p><img src="/image/git-restore/1.png" alt="image" /></p>
+              <p>From the terminal log, I knew that the SHA of the lost commit begins with <code class="highlighter-rouge">b3c3b36</code>, so it appeared very intuitive for me to just try fetching the commit, but no lock:</p>
+              <p><img src="/image/git-restore/2.png" alt="image" /></p>
+              <p>I recall that GitHub can show commits with only first 7 digits of its SHA, so I constructed the URL <a href="https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36</a> and followed it:</p>
+              <p><img src="/image/git-restore/3.png" alt="image" /></p>
+              <p>Now try it again with the full SHA that’s easily retrieved from the web page:</p>
+              <p><img src="/image/git-restore/4.png" alt="image" /></p>
+              <p>Hello? Does GitHub allow this? Oh-no!</p>
+              <p>I Googled around for a few minutes, and concluded that GitHub doesn’t allow fetching this commit, because it’s <em>unadvertised</em>.</p>
+              <p>Thinking around for ideas, I decided to give it a try to rebuild the commit.</p>
+              <p>First, I prepare my working directory with</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>apt list |
-<span class="nb">grep</span> <span class="nt">-F</span> <span class="s1">'[installed]'</span> |
-cut <span class="nt">-d</span>/ <span class="nt">-f1</span> |
-tr <span class="s1">'\n'</span> <span class="s1">' '</span>
-<span class="nb">echo</span>
+                  <pre class="highlight"><code>git add <span class="nt">-A</span>
+git stash
+git reset <span class="nt">--hard</span> ee216e3  <span class="c"># This is the parent commit of the lost commit</span>
 </code></pre>
                 </div>
               </div>
-              <p>The last <code class="highlighter-rouge">echo</code> is there because the output from <code class="highlighter-rouge">tr</code> doesn’t contain a newline at end, which would make your terminal look ugly. It’s also not well-Unix-styled because all output should end with a newline.</p>
-              <p>I was in the middle of the desire to learn AWK when I faced this task, so I did some search and wrote this AWK script:</p>
-              <div class="language-awk highlighter-rouge">
+              <p>Then, I need the full content of the tree of the commit.</p>
+              <p>While GitHub offers ZIP archive download at the tree page <a href="https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36</a>, ZIP isn’t good for this job - it doesn’t preserve POSIX file modes, so I looked around for the TAR archive (tarball). It wasn’t on the page.</p>
+              <p>Thinking around again, I recall working with the GitHub API, and there’s an endpoint to get a tarball.
+                It wasn’t hard to construct the desired GitHub API call URL:</p>
+              <div class="highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code><span class="c1">#!/usr/bin/awk -f</span>
-<span class="kr">BEGIN</span> <span class="p">{</span>
-  <span class="kc">FS</span> <span class="o">=</span> <span class="s2">"/"</span>
-  <span class="kc">ORS</span> <span class="o">=</span> <span class="s2">" "</span>
-<span class="p">}</span>
-<span class="sr">/</span><span class="se">[</span><span class="sr">installed</span><span class="se">]</span><span class="sr">/</span> <span class="p">{</span>
-  <span class="k">print</span> <span class="nv">$1</span>
-<span class="p">}</span>
-<span class="kr">END</span> <span class="p">{</span>
-  <span class="kc">ORS</span> <span class="o">=</span> <span class="s2">"\n"</span>
-  <span class="k">print</span> <span class="s2">""</span>
-<span class="p">}</span>
+                  <pre class="highlight"><code>curl -v https://api.github.com/repos/iBug/USTC-RV-Chisel/tarball/b3c3b3683a6f5961dcde2d6c5312c31d9f382865
 </code></pre>
                 </div>
               </div>
-              <p>Save this file as whatever name you like, apply <code class="highlighter-rouge">755</code> permissions and run <code class="highlighter-rouge">apt list | some.awk</code>, and watch the magic go.</p>
-              <h1 id="hows-it-done">How’s it done?</h1>
-              <p>For those absolutely new to AWK, this is a good example to start with.</p>
-              <p>The first thing is blocks. Each block begins with a “match condition” that means the block will be executed when the condition matches. A condition can be a statement (like <code class="highlighter-rouge">$1 == "abcd"</code> or <code class="highlighter-rouge">NR % 2 == 0</code>), a regular expression (like the example abov) or a special pattern (<code class="highlighter-rouge">BEGIN</code> and <code class="highlighter-rouge">END</code>).</p>
-              <p>If the condition is a statement, it is evaluated and tested for truthness. If it’s a regular expression, it’s matched against the whole record. Special patterns are intuitive: before processing the first record (<code class="highlighter-rouge">BEGIN</code>) or after processing every record (<code class="highlighter-rouge">END</code>).</p>
-              <p>The second thing is statements. In the example, there are only two kinds of statements: <code class="highlighter-rouge">print</code> and variable assignments. <code class="highlighter-rouge">print</code> is plain (so far) and it prints whatever’s after it. Here <code class="highlighter-rouge">$1</code> means the first field of the record.</p>
-              <p>The two assigned variables are <a href="https://www.gnu.org/software/gawk/manual/gawk.html#Built_002din-Variables">special</a>. <code class="highlighter-rouge">FS</code> stands for <strong>F</strong>ield <strong>S</strong>eparator and it’s set to a slash, so the first field is everything before the first slash. <code class="highlighter-rouge">ORS</code> stands for <strong>O</strong>utput <strong>R</strong>ecord <strong>S</strong>eparator, and it’s what <code class="highlighter-rouge">print</code> adds at the end of each <code class="highlighter-rouge">print</code> statement, much like the keyword variable <code class="highlighter-rouge">end</code> in Python 3’s <code class="highlighter-rouge">print()</code> function.</p>
-              <p>More complex statements like conditions, loops and arithmetics are also possible, but I’m avoiding them here because they don’t appear in this script.</p>
-              <p>Finally, it comes to the execution of the script. By default, <code class="highlighter-rouge">awk</code> takes the first non-option command-line argument as the AWK program to execute. To specify that the program is written in a file, you need the <code class="highlighter-rouge">-f</code> option, whence the <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang line</a>.</p>
+              <p>Looking at the cURL output, the <code class="highlighter-rouge">Location</code> header is what I wanted, so I followed it and <code class="highlighter-rouge">wget</code> the target:</p>
+              <div class="highlighter-rouge">
+                <div class="highlight">
+                  <pre class="highlight"><code>wget https://codeload.github.com/iBug/USTC-RV-Chisel/legacy.tar.gz/b3c3b3683a6f5961dcde2d6c5312c31d9f382865
+</code></pre>
+                </div>
+              </div>
+              <p>The next thing was to examine the tarball to determine the top-level folder name:</p>
+              <p><img src="/image/git-restore/5.png" alt="image" /></p>
+              <p>To make it easier to merge my working directory with the tarball, I renamed my local folder to match the one in the tarball:</p>
+              <p><img src="/image/git-restore/6.png" alt="image" /></p>
+              <p>Now it’s time to rebuild the commit!</p>
+              <p>Now that the working directory is restored, all that’s left to do is to figure out the committer information and commit time.</p>
+              <p>I must say here that retrieving those information from the GitHub API is an easier way to do it programmatically, but since I had the browser page open as well as my local repository, fetching the exact time from the web page was the method easier to reach, and committer information can be seen from <code class="highlighter-rouge">git log</code>.</p>
+              <p><img src="/image/git-restore/7.png" alt="image" /></p>
+              <p><sup>The exact time in ISO 8601 format is available through F12<sup></sup></sup></p>
+              <p>With all the required information collected, I rebuilt the commit myself:</p>
+              <p><img src="/image/git-restore/8.png" alt="image" /></p>
+              <p>Look! The new commit has the same SHA as the lost commit! So they’re the same commit now.</p>
+              <p>Pushing the restored commit back happily:</p>
+              <p><img src="/image/git-restore/9.png" alt="image" /></p>
             </section>
             <footer class="page__meta">
               <p class="page__taxonomy">
                 <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
                 <span itemprop="keywords">
+                  <a href="/tags/git" class="page__taxonomy-item" rel="tag">git</a><span class="sep">, </span>
+                  <a href="/tags/github" class="page__taxonomy-item" rel="tag">github</a><span class="sep">, </span>
                   <a href="/tags/study-notes" class="page__taxonomy-item" rel="tag">study-notes</a>
                 </span>
               </p>
-              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-03-04T00:00:00+08:00">March 04, 2019</time></p>
+              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-06-07T00:00:00+08:00">June 07, 2019</time></p>
             </footer>
             <section class="page__share">
               <h4 class="page__share-title">Share on</h4>
-              <a href="https://twitter.com/intent/tweet?text=Filter+Manually+Installed+Packages+from+APT+with+AWK%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F03%2Ffirst-touch-with-awk.html" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F03%2Ffirst-touch-with-awk.html" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F03%2Ffirst-touch-with-awk.html" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+              <a href="https://twitter.com/intent/tweet?text=How+I+saved+a+lost+commit+from+GitHub%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F06%2Fsave-commit-from-github.html" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F06%2Fsave-commit-from-github.html" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F06%2Fsave-commit-from-github.html" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
             </section>
             <nav class="pagination">
-              <a href="/blog/2019/02/bootstrapping-make.html" class="pagination--pager" title="Bootstrapping Make
+              <a href="/blog/2019/05/mathematica-keygen.html" class="pagination--pager" title="Wolfram Mathematica 12 Key Generator
 ">Previous</a>
-              <a href="/blog/2019/04/os-lab-1.html" class="pagination--pager" title="Build a minimal Linux system and run it in QEMU
-">Next</a>
+              <a href="#" class="pagination--pager disabled">Next</a>
             </nav>
           </div>
         </article>
         <div class="page__related">
           <h4 class="page__related-title">You may also enjoy</h4>
           <div class="grid__wrapper">
-            <div class="grid__item">
-              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-                <h2 class="archive__item-title" itemprop="headline">
-                  <a href="/blog/2019/06/save-commit-from-github.html" rel="permalink">How I saved a lost commit from GitHub
-                  </a>
-                </h2>
-                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
-                  2 minute read
-                </p>
-                <p class="archive__item-excerpt" itemprop="description">Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,
-                  without noticing that my local ref origin/master is 1 commit behind the ac...</p>
-              </article>
-            </div>
             <div class="grid__item">
               <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
                 <h2 class="archive__item-title" itemprop="headline">
@@ -253,6 +252,19 @@ tr <span class="s1">'\n'</span> <span class="s1">' '</span>
                   6 minute read
                 </p>
                 <p class="archive__item-excerpt" itemprop="description">Linux is the #1 open-source operating system nowadays, and many people are running a Linux distro, such as Ubuntu or Arch. Linux is also the most popular cho...</p>
+              </article>
+            </div>
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/03/first-touch-with-awk.html" rel="permalink">Filter Manually Installed Packages from APT with AWK
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  2 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">It’s again when I want to find out what packages I have manually installed (or by a script) from the output of apt list, with all output on one line.
+                </p>
               </article>
             </div>
             <div class="grid__item">
@@ -349,8 +361,8 @@ tr <span class="s1">'\n'</span> <span class="s1">' '</span>
     </script>
     <script>
       var disqus_config = function () {
-        this.page.url = "https://ibugone.com/blog/2019/03/first-touch-with-awk.html";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/blog/2019/03/first-touch-with-awk"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://ibugone.com/blog/2019/06/save-commit-from-github.html";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/blog/2019/06/save-commit-from-github"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
