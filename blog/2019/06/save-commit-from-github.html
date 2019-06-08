@@ -152,27 +152,27 @@
                 My friend pushed his work (1 commit) to it, and now it’s lost.</p>
               <p>Fortunately, I haven’t closed my terminal yet, so there’s at least some place to look at:</p>
               <p><img src="/image/git-restore/1.png" alt="image" /></p>
-              <p>From the terminal log, I knew that the SHA of the lost commit begins with <code class="highlighter-rouge">b3c3b36</code>, so it appeared very intuitive for me to just try fetching the commit, but no lock:</p>
+              <p>From the terminal log, I knew that the SHA of the lost commit begins with <code class="highlighter-rouge">b3c3b36</code>, so it appeared very intuitive for me to just try fetching the commit, but no luck:</p>
               <p><img src="/image/git-restore/2.png" alt="image" /></p>
-              <p>I recall that GitHub can show commits with only first 7 digits of its SHA, so I constructed the URL <a href="https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36</a> and followed it:</p>
+              <p>I recalled that GitHub can show commits with only first 7 digits of its SHA, so I constructed the URL <a href="https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36</a> and followed it:</p>
               <p><img src="/image/git-restore/3.png" alt="image" /></p>
-              <p>Now try it again with the full SHA that’s easily retrieved from the web page:</p>
+              <p>Now trying it again with the full SHA that’s easily retrieved from the web page:</p>
               <p><img src="/image/git-restore/4.png" alt="image" /></p>
               <p>Hello? Does GitHub allow this? Oh-no!</p>
               <p>I Googled around for a few minutes, and concluded that GitHub doesn’t allow fetching this commit, because it’s <em>unadvertised</em>.</p>
               <p>Thinking around for ideas, I decided to give it a try to rebuild the commit.</p>
               <p>First, I prepare my working directory with</p>
-              <div class="language-shell highlighter-rouge">
+              <div class="highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>git add <span class="nt">-A</span>
+                  <pre class="highlight"><code>git add -A
 git stash
-git reset <span class="nt">--hard</span> ee216e3  <span class="c"># This is the parent commit of the lost commit</span>
+git reset --hard ee216e3  # This is the parent commit of the lost commit
 </code></pre>
                 </div>
               </div>
               <p>Then, I need the full content of the tree of the commit.</p>
               <p>While GitHub offers ZIP archive download at the tree page <a href="https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36</a>, ZIP isn’t good for this job - it doesn’t preserve POSIX file modes, so I looked around for the TAR archive (tarball). It wasn’t on the page.</p>
-              <p>Thinking around again, I recall working with the GitHub API, and there’s an endpoint to get a tarball.
+              <p>Thinking around again, I recalled working with the GitHub API, and there’s an endpoint to get a tarball.
                 It wasn’t hard to construct the desired GitHub API call URL:</p>
               <div class="highlighter-rouge">
                 <div class="highlight">
