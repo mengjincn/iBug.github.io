@@ -8,16 +8,16 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
-    <!-- begin _includes/seo.html --><title>Access your Raspberry Pi remotely with SSH - iBug ①</title>
-    <meta name="description" content="Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.">
+    <!-- begin _includes/seo.html --><title>How I saved a lost commit from GitHub - iBug ①</title>
+    <meta name="description" content="Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub.My friend pushed his work (1 commit) to it, and now it’s lost.">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
-    <meta property="og:title" content="Access your Raspberry Pi remotely with SSH">
-    <meta property="og:url" content="https://ibugone.com/blog/2019/02/ssh-into-lan-computer.html">
-    <meta property="og:description" content="Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.">
-    <meta property="article:published_time" content="2019-02-13T00:00:00+08:00">
-    <link rel="canonical" href="https://ibugone.com/blog/2019/02/ssh-into-lan-computer.html">
+    <meta property="og:title" content="How I saved a lost commit from GitHub">
+    <meta property="og:url" content="https://ibugone.com/blog/2019/06/save-commit-from-github.html">
+    <meta property="og:description" content="Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub.My friend pushed his work (1 commit) to it, and now it’s lost.">
+    <meta property="article:published_time" content="2019-06-07T00:00:00+08:00">
+    <link rel="canonical" href="https://ibugone.com/blog/2019/06/save-commit-from-github.html">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -128,15 +128,15 @@
           </div>
         </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Access your Raspberry Pi remotely with SSH">
-          <meta itemprop="description" content="Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.">
-          <meta itemprop="datePublished" content="February 13, 2019">
+          <meta itemprop="headline" content="How I saved a lost commit from GitHub">
+          <meta itemprop="description" content="Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub.My friend pushed his work (1 commit) to it, and now it’s lost.">
+          <meta itemprop="datePublished" content="June 07, 2019">
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">Access your Raspberry Pi remotely with SSH
+              <h1 id="page-title" class="page__title" itemprop="headline">How I saved a lost commit from GitHub
               </h1>
               <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
-                3 minute read
+                2 minute read
               </p>
             </header>
             <section class="page__content" itemprop="text">
@@ -145,182 +145,84 @@
                   <header>
                     <h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4>
                   </header>
-                  <ul class="toc__menu">
-                    <li><a href="#prerequisites">Prerequisites</a></li>
-                    <li><a href="#server-setup">Server setup</a></li>
-                    <li><a href="#client-setup">Client setup</a></li>
-                    <li><a href="#running-ssh-remotely">Running SSH remotely</a></li>
-                  </ul>
                 </nav>
               </aside>
-              <p>Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.</p>
-              <p>In my case, I have a Raspberry Pi at my home, and I need some remote SSH from outside. And here’s how I made it work.</p>
-              <h1 id="prerequisites">Prerequisites</h1>
-              <p>The server hardware, and a VPS with a public IP (for forwarding)</p>
-              <h1 id="server-setup">Server setup</h1>
-              <p>The software I use is <a href="https://github.com/fatedier/frp">frp</a> (<strong>f</strong>ast <strong>r</strong>everse <strong>p</strong>roxy). It’s written in Go and is designed specifically for port forwarding.</p>
-              <p>To setup the server, grab a release. I use 0.17.0 but you can always prefer the latest release.</p>
+              <p>Earlier today I force-pushed to my repository <a href="https://github.com/iBug/USTC-RV-Chisel">USTC-RV-Chisel</a> for testing purposes,
+                without noticing that my local ref <code class="highlighter-rouge">origin/master</code> is 1 commit behind the actual <code class="highlighter-rouge">master</code> on GitHub.
+                My friend pushed his work (1 commit) to it, and now it’s lost.</p>
+              <p>Fortunately, I haven’t closed my terminal yet, so there’s at least some place to look at:</p>
+              <p><img src="/image/git-restore/1.png" alt="image" /></p>
+              <p>From the terminal log, I knew that the SHA of the lost commit begins with <code class="highlighter-rouge">b3c3b36</code>, so it appeared very intuitive for me to just try fetching the commit, but no lock:</p>
+              <p><img src="/image/git-restore/2.png" alt="image" /></p>
+              <p>I recall that GitHub can show commits with only first 7 digits of its SHA, so I constructed the URL <a href="https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/commit/b3c3b36</a> and followed it:</p>
+              <p><img src="/image/git-restore/3.png" alt="image" /></p>
+              <p>Now try it again with the full SHA that’s easily retrieved from the web page:</p>
+              <p><img src="/image/git-restore/4.png" alt="image" /></p>
+              <p>Hello? Does GitHub allow this? Oh-no!</p>
+              <p>I Googled around for a few minutes, and concluded that GitHub doesn’t allow fetching this commit, because it’s <em>unadvertised</em>.</p>
+              <p>Thinking around for ideas, I decided to give it a try to rebuild the commit.</p>
+              <p>First, I prepare my working directory with</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code><span class="nb">cd
-</span>wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_amd64.tar.gz
-<span class="nb">tar </span>zxvf frp_0.17.0_linux_amd64.tar.gz
-mv frp_0.17.0_linux_amd64 frp
-<span class="nb">cd </span>frp
+                  <pre class="highlight"><code>git add <span class="nt">-A</span>
+git stash
+git reset <span class="nt">--hard</span> ee216e3  <span class="c"># This is the parent commit of the lost commit</span>
 </code></pre>
                 </div>
               </div>
-              <p>Now open the configuration file <code class="highlighter-rouge">frps.ini</code> with your favorite editor, Vim or Emacs, and put the following content in:</p>
-              <div class="language-text highlighter-rouge">
+              <p>Then, I need the full content of the tree of the commit.</p>
+              <p>While GitHub offers ZIP archive download at the tree page <a href="https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36">https://github.com/iBug/USTC-RV-Chisel/tree/b3c3b36</a>, ZIP isn’t good for this job - it doesn’t preserve POSIX file modes, so I looked around for the TAR archive (tarball). It wasn’t on the page.</p>
+              <p>Thinking around again, I recall working with the GitHub API, and there’s an endpoint to get a tarball.
+                It wasn’t hard to construct the desired GitHub API call URL:</p>
+              <div class="highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>[common]
-bind_port = 7000
-privilege_token = your_token
-
-dashboard_port = 8080
-dashboard_user = admin
-dashboard_pwd = password
+                  <pre class="highlight"><code>curl -v https://api.github.com/repos/iBug/USTC-RV-Chisel/tarball/b3c3b3683a6f5961dcde2d6c5312c31d9f382865
 </code></pre>
                 </div>
               </div>
-              <p>In fact, you only need the top two configuration items, <code class="highlighter-rouge">bind_port</code> and <code class="highlighter-rouge">privilege_token</code>. There’s a <code class="highlighter-rouge">frps_full.ini</code> in the package if you want to dig deeper, but I’ll keep things simple here.</p>
-              <ul>
-                <li><code class="highlighter-rouge">bind_port</code>: The port for <code class="highlighter-rouge">frps</code> (FRP Server) to listen for clients.</li>
-                <li><code class="highlighter-rouge">privilege_token</code>: A token for clients to authenticate. Think it as the password of your Wi-Fi AP.</li>
-              </ul>
-              <p>The following three items together provide a web dashboard for you to monitor status. They’re completely optional and you can leave them out if you don’t need the dashboard, or set it to whatever value you find convenient for you. Their names should be self-explanatory.</p>
-              <p>Now, start the server:</p>
-              <div class="language-shell highlighter-rouge">
+              <p>Looking at the cURL output, the <code class="highlighter-rouge">Location</code> header is what I wanted, so I followed it and <code class="highlighter-rouge">wget</code> the target:</p>
+              <div class="highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>./frps <span class="nt">-c</span> ./frps.ini
+                  <pre class="highlight"><code>wget https://codeload.github.com/iBug/USTC-RV-Chisel/legacy.tar.gz/b3c3b3683a6f5961dcde2d6c5312c31d9f382865
 </code></pre>
                 </div>
               </div>
-              <p>If you see logs in your terminal output, then you’re good to go!</p>
-              <p>In most cases, it’d be convenient for the server software to start as a daemon, and automatically start at boot. The way I chose is creating a systemd system service, so it’s possible to use commands like <code class="highlighter-rouge">service frps start</code> to manage it.</p>
-              <p>Create the file <code class="highlighter-rouge">/etc/systemd/system/frps.service</code> with the following content:</p>
-              <div class="language-text highlighter-rouge">
-                <div class="highlight">
-                  <pre class="highlight"><code>[Unit]
-Description=FRP Server
-After=network.target
-StartLimitIntervalSec=0
-
-[Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=ubuntu
-ExecStart=/home/ubuntu/frp/frps -c /home/ubuntu/frp/frps.ini
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-                </div>
-              </div>
-              <p>Take note of Line 10 and Line 11. You need to set the user to your username and change the paths as your setup goes.</p>
-              <p>After creating the service registry file, you can start the FRP server with <code class="highlighter-rouge">service frps start</code> and check its status with <code class="highlighter-rouge">service frps status</code>.</p>
-              <p>For insurance, I added <code class="highlighter-rouge">service frps start</code> to <code class="highlighter-rouge">/etc/rc.local</code> so it will start at boot.</p>
-              <p>Now the server side is fully set up and ready to use.</p>
-              <h1 id="client-setup">Client setup</h1>
-              <p>Setting up the client machine is pretty much symmetric to setting up the server and the procedure isn’t much different.</p>
-              <p>My client machine is a $35 Raspberry Pi running Raspbian, so I picked the ARM version of prebuilt binary.</p>
-              <div class="language-shell highlighter-rouge">
-                <div class="highlight">
-                  <pre class="highlight"><code><span class="nb">cd
-</span>wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_arm.tar.gz
-<span class="nb">tar </span>zxvf frp_0.17.0_linux_arm.tar.gz
-mv frp_0.17.0_linux_arm frp
-<span class="nb">cd </span>frp
-</code></pre>
-                </div>
-              </div>
-              <p>This time, open <code class="highlighter-rouge">frpc.ini</code> with your favorite editor, and put the following content in:</p>
-              <div class="language-text highlighter-rouge">
-                <div class="highlight">
-                  <pre class="highlight"><code>[common]
-server_addr = &lt;your server ip&gt;
-server_port = 7000
-privilege_token = your_token
-login_fail_exit = true
-
-[ssh]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 22
-remote_port = 8022
-</code></pre>
-                </div>
-              </div>
-              <p>Put the IP address of your server in <code class="highlighter-rouge">server_addr</code>, and your privilege token in the configuration file, then it’s set. You may need to change <code class="highlighter-rouge">remote_port</code> to another value if 8022 is occupied by another program on your server.</p>
-              <p>Similar to the server software, I created another systemd service for the client software. Here’s what I have in my <code class="highlighter-rouge">/etc/systemd/system/frpc.service</code>:</p>
-              <div class="language-text highlighter-rouge">
-                <div class="highlight">
-                  <pre class="highlight"><code>[Unit]
-Description=FRP Client
-After=network.target
-StartLimitIntervalSec=0
-
-[Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=pi
-ExecStart=/home/pi/frp/frpc -c /home/pi/frp/frpc.ini
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-                </div>
-              </div>
-              <p>That’s pretty much identical to the server service, no?</p>
-              <p>The last thing is to put <code class="highlighter-rouge">service frpc start</code> in an appropriate place in <code class="highlighter-rouge">/etc/rc.local</code> so the FRP client starts at boot.</p>
-              <p>Now that both sides are set, let’s try it out.</p>
-              <h1 id="running-ssh-remotely">Running SSH remotely</h1>
-              <p>You can SSH into your Raspberry Pi as usual, just remember to change the host name to your VPS, and specify the port as set during client setup.</p>
-              <div class="language-shell highlighter-rouge">
-                <div class="highlight">
-                  <pre class="highlight"><code>ssh pi@&lt;your server ip&gt; <span class="nt">-p</span> 8022
-</code></pre>
-                </div>
-              </div>
-              <p>See the shell popping up from your RPi? Congratulations! You’re good to go.</p>
-              <p>For convenience, you can add the remote SSH configuration to your local SSH config file <code class="highlighter-rouge">~/.ssh/config</code>, so you can access with ease in the future.</p>
-              <div class="language-text highlighter-rouge">
-                <div class="highlight">
-                  <pre class="highlight"><code>Host pi-remote
-  HostName &lt;your server ip&gt;
-  Port 8022
-  User pi
-  PubKeyAuthentication yes
-  PasswordAuthentication yes
-  IdentityFile ~/.ssh/id_rsa
-</code></pre>
-                </div>
-              </div>
-              <p>And then, you can SSH into your Raspberry Pi remotely with <code class="highlighter-rouge">ssh pi-remote</code>, and let SSH handle the rest.</p>
+              <p>The next thing was to examine the tarball to determine the top-level folder name:</p>
+              <p><img src="/image/git-restore/5.png" alt="image" /></p>
+              <p>To make it easier to merge my working directory with the tarball, I renamed my local folder to match the one in the tarball:</p>
+              <p><img src="/image/git-restore/6.png" alt="image" /></p>
+              <p>Now it’s time to rebuild the commit!</p>
+              <p>Now that the working directory is restored, all that’s left to do is to figure out the committer information and commit time.</p>
+              <p>I must say here that retrieving those information from the GitHub API is an easier way to do it programmatically, but since I had the browser page open as well as my local repository, fetching the exact time from the web page was the method easier to reach, and committer information can be seen from <code class="highlighter-rouge">git log</code>.</p>
+              <p><img src="/image/git-restore/7.png" alt="image" /></p>
+              <p><sup>The exact time in ISO 8601 format is available through F12<sup></sup></sup></p>
+              <p>With all the required information collected, I rebuilt the commit myself:</p>
+              <p><img src="/image/git-restore/8.png" alt="image" /></p>
+              <p>Look! The new commit has the same SHA as the lost commit! So they’re the same commit now.</p>
+              <p>Pushing the restored commit back happily:</p>
+              <p><img src="/image/git-restore/9.png" alt="image" /></p>
             </section>
             <footer class="page__meta">
               <p class="page__taxonomy">
                 <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
                 <span itemprop="keywords">
-                  <a href="/tags/linux" class="page__taxonomy-item" rel="tag">linux</a><span class="sep">, </span>
-                  <a href="/tags/networking" class="page__taxonomy-item" rel="tag">networking</a>
+                  <a href="/tags/git" class="page__taxonomy-item" rel="tag">git</a><span class="sep">, </span>
+                  <a href="/tags/github" class="page__taxonomy-item" rel="tag">github</a><span class="sep">, </span>
+                  <a href="/tags/study-notes" class="page__taxonomy-item" rel="tag">study-notes</a>
                 </span>
               </p>
-              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-02-13T00:00:00+08:00">February 13, 2019</time></p>
+              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-06-07T00:00:00+08:00">June 07, 2019</time></p>
             </footer>
             <section class="page__share">
               <h4 class="page__share-title">Share on</h4>
-              <a href="https://twitter.com/intent/tweet?text=Access+your+Raspberry+Pi+remotely+with+SSH%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F02%2Fssh-into-lan-computer.html" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F02%2Fssh-into-lan-computer.html" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F02%2Fssh-into-lan-computer.html" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+              <a href="https://twitter.com/intent/tweet?text=How+I+saved+a+lost+commit+from+GitHub%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F06%2Fsave-commit-from-github.html" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F06%2Fsave-commit-from-github.html" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F06%2Fsave-commit-from-github.html" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
             </section>
             <nav class="pagination">
-              <a href="/blog/2018/11/program-nexys4-ddr-with-storage.html" class="pagination--pager" title="Programming the On-Board SPI Flash of Digilent Nexys4 DDR
+              <a href="/blog/2019/05/mathematica-keygen.html" class="pagination--pager" title="Wolfram Mathematica 12 Key Generator
 ">Previous</a>
-              <a href="/blog/2019/02/setup-ubuntu-in-vmware.html" class="pagination--pager" title="Setting up Ubuntu in VMware Workstation
-">Next</a>
+              <a href="#" class="pagination--pager disabled">Next</a>
             </nav>
           </div>
           <div class="page__comments">
@@ -331,19 +233,6 @@ WantedBy=multi-user.target
         <div class="page__related">
           <h4 class="page__related-title">You may also enjoy</h4>
           <div class="grid__wrapper">
-            <div class="grid__item">
-              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-                <h2 class="archive__item-title" itemprop="headline">
-                  <a href="/blog/2019/06/save-commit-from-github.html" rel="permalink">How I saved a lost commit from GitHub
-                  </a>
-                </h2>
-                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
-                  2 minute read
-                </p>
-                <p class="archive__item-excerpt" itemprop="description">Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes,
-                  without noticing that my local ref origin/master is 1 commit behind the ac...</p>
-              </article>
-            </div>
             <div class="grid__item">
               <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
                 <h2 class="archive__item-title" itemprop="headline">
@@ -379,6 +268,19 @@ WantedBy=multi-user.target
                   2 minute read
                 </p>
                 <p class="archive__item-excerpt" itemprop="description">It’s again when I want to find out what packages I have manually installed (or by a script) from the output of apt list, with all output on one line.
+                </p>
+              </article>
+            </div>
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/02/bootstrapping-make.html" rel="permalink">Bootstrapping Make
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  4 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">Have C or C++ project to build? You may think, “Yeah this is very easy, I’ll just call the compiler to do so”, and yes, let’s take a look at an example.
                 </p>
               </article>
             </div>
@@ -475,8 +377,8 @@ WantedBy=multi-user.target
     </script>
     <script>
       var disqus_config = function () {
-        this.page.url = "https://ibugone.com/blog/2019/02/ssh-into-lan-computer.html";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/blog/2019/02/ssh-into-lan-computer"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://ibugone.com/blog/2019/06/save-commit-from-github.html";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/blog/2019/06/save-commit-from-github"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
