@@ -181,6 +181,9 @@
       <loc>https://ibugone.com/doc/stackoverflow/referencesheet/</loc>
     </url>
     <url>
+      <loc>https://ibugone.com/cn/</loc>
+    </url>
+    <url>
       <loc>https://ibugone.com/blog/</loc>
     </url>
     <url>
@@ -193,14 +196,11 @@
       <loc>https://ibugone.com/blog/4/</loc>
     </url>
     <url>
-      <loc>https://ibugone.com/cn/</loc>
-    </url>
-    <url>
       <loc>https://ibugone.com/doc/stackoverflow/mcve.html</loc>
-      <lastmod>2019-07-03T18:38:07+08:00</lastmod>
+      <lastmod>2019-07-03T18:45:07+08:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/doc/stackoverflow/referencesheet.html</loc>
-      <lastmod>2019-07-03T18:38:07+08:00</lastmod>
+      <lastmod>2019-07-03T18:45:07+08:00</lastmod>
     </url>
   </urlset>
