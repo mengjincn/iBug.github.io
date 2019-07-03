@@ -20,7 +20,7 @@ var store = [{
 "url": "https://ibugone.com/about/",
 "teaser":null},{
 "title": "Curriculum Vitae",
-"excerpt":"   2019-01-22  Reached 20k reputation on Stack Overflow      2019-01-15  Awarded c silver tag badge on Stack Overflow.      2018-09-17  Reached 15k reputation on Stack Overflow      2018-06-13  Gained push access to SmokeDetector, a spam detection bot written in Python   See this chat message from a project owner      2018-02-27  Awarded c++ silver tag badge on Stack Overflow.      2018-02-06  Reached 10k reputation on Stack Overflow.       ","categories": [],
+"excerpt":"   Jan 22, 2019  Reached 20k reputation on Stack Overflow      Jan 15, 2019  Awarded c silver tag badge on Stack Overflow.      Sep 17, 2018  Reached 15k reputation on Stack Overflow      Jun 13, 2018  Gained push access to SmokeDetector, a spam detection bot written in Python   See this chat message from a project owner      Feb 27, 2018  Awarded c++ silver tag badge on Stack Overflow.      Feb 6, 2018  Reached 10k reputation on Stack Overflow.       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/cv/",
 "teaser":null},{
