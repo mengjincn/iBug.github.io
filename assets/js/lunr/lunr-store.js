@@ -19,6 +19,11 @@ var store = [{
 "tags": [],
 "url": "https://ibugone.com/about/",
 "teaser":null},{
+"title": "Curriculum Vitae",
+"excerpt":"   2019-01-22  Reached 20k reputation on Stack Overflow     2019-01-15  Awarded c silver tag badge on Stack Overflow.      2018-09-17  Reached 15k reputation on Stack Overflow     2018-06-13  Gained push access to SmokeDetector, a spam detection bot written in Python   See this chat message from a project owner      2018-02-27  Awarded c++ silver tag badge on Stack Overflow.      2018-02-06  Reached 10k reputation on Stack Overflow.      ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/cv/",
+"teaser":null},{
 "title": "Projects",
 "excerpt":"OJSandbox  An experimental sandbox for online judgers (OJ). I am a co-author.   (Charcoal) Smoke Detector  A community-driven chatbot that detects spam across the Stack Exchange Network and reports them, so they can be quickly removed.   I joined the team in December 2017, and was recognized as a developer in March 2018.   This is the largest project in this page and also the first existing project that I’ve joined (all other projects are started from scratch).   Tetris with AI  A good game automation that you must try and watch!   SpaceRider  An old Flash plane-shooting game that I made when I was 13. ActionScript 2.0 (so expect that it won’t run very fluently on a low-end computer)   Python Reversi  An implementation of the classic Reversi / Othello game using Python and PyQt5. It has an intensive AI that’s hard to beat.   Aurora Theme  Aurora is a clean, responsive Jekyll theme for GitHub Pages.   And it’s the theme for my Project Pages. I have published this theme on RubyGems.   College Physics Experiments Toolbox (incomplete)  A set of tools made to make College Physics Experiments easy!  ","categories": [],
 "tags": [],
