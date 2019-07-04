@@ -203,10 +203,10 @@
               <p>Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/sbt/debian /"</span> | <span class="nb">sudo </span>tee <span class="nt">-a</span> /etc/apt/sources.list.d/sbt.list
+                  <pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/sbt/debian /"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/sbt.list
 <span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv</span> 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 <span class="nb">sudo </span>apt-get update
-<span class="nb">sudo </span>apt-get install default-jdk build-essential perl sbt
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>default-jdk build-essential perl sbt
 </code></pre>
                 </div>
               </div>
@@ -232,8 +232,8 @@ sbt run
                   <pre class="highlight"><code><span class="k">package</span> <span class="nn">example</span>
 
 <span class="k">object</span> <span class="nc">Hello</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
-    <span class="n">println</span><span class="o">(</span><span class="s">"Hello, Chisel!"</span><span class="o">)</span>
+  <span class="k">def</span> <span class="nf">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="nf">println</span><span class="o">(</span><span class="s">"Hello, Chisel!"</span><span class="o">)</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
@@ -248,22 +248,22 @@ sbt run
 <span class="k">import</span> <span class="nn">chisel3._</span>
 
 <span class="k">class</span> <span class="nc">FullAdder</span> <span class="k">extends</span> <span class="nc">Module</span> <span class="o">{</span>
-  <span class="k">val</span> <span class="n">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">a</span>    <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">b</span>    <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">cin</span>  <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">sum</span>  <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">cout</span> <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+  <span class="k">val</span> <span class="nv">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">a</span>    <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">b</span>    <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">cin</span>  <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">sum</span>  <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">cout</span> <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
   <span class="o">})</span>
 
   <span class="c1">// Generate the sum
-</span>  <span class="k">val</span> <span class="n">a_xor_b</span> <span class="k">=</span> <span class="n">io</span><span class="o">.</span><span class="n">a</span> <span class="o">^</span> <span class="n">io</span><span class="o">.</span><span class="n">b</span>
-  <span class="n">io</span><span class="o">.</span><span class="n">sum</span> <span class="o">:=</span> <span class="n">a_xor_b</span> <span class="o">^</span> <span class="n">io</span><span class="o">.</span><span class="n">cin</span>
+</span>  <span class="k">val</span> <span class="nv">a_xor_b</span> <span class="k">=</span> <span class="nv">io</span><span class="o">.</span><span class="py">a</span> <span class="o">^</span> <span class="nv">io</span><span class="o">.</span><span class="py">b</span>
+  <span class="nv">io</span><span class="o">.</span><span class="py">sum</span> <span class="o">:=</span> <span class="n">a_xor_b</span> <span class="o">^</span> <span class="nv">io</span><span class="o">.</span><span class="py">cin</span>
   <span class="c1">// Generate the carry
-</span>  <span class="k">val</span> <span class="n">a_and_b</span> <span class="k">=</span> <span class="n">io</span><span class="o">.</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">io</span><span class="o">.</span><span class="n">b</span>
-  <span class="k">val</span> <span class="n">b_and_cin</span> <span class="k">=</span> <span class="n">io</span><span class="o">.</span><span class="n">b</span> <span class="o">&amp;</span> <span class="n">io</span><span class="o">.</span><span class="n">cin</span>
-  <span class="k">val</span> <span class="n">a_and_cin</span> <span class="k">=</span> <span class="n">io</span><span class="o">.</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">io</span><span class="o">.</span><span class="n">cin</span>
-  <span class="n">io</span><span class="o">.</span><span class="n">cout</span> <span class="o">:=</span> <span class="n">a_and_b</span> <span class="o">|</span> <span class="n">b_and_cin</span> <span class="o">|</span> <span class="n">a_and_cin</span>
+</span>  <span class="k">val</span> <span class="nv">a_and_b</span> <span class="k">=</span> <span class="nv">io</span><span class="o">.</span><span class="py">a</span> <span class="o">&amp;</span> <span class="nv">io</span><span class="o">.</span><span class="py">b</span>
+  <span class="k">val</span> <span class="nv">b_and_cin</span> <span class="k">=</span> <span class="nv">io</span><span class="o">.</span><span class="py">b</span> <span class="o">&amp;</span> <span class="nv">io</span><span class="o">.</span><span class="py">cin</span>
+  <span class="k">val</span> <span class="nv">a_and_cin</span> <span class="k">=</span> <span class="nv">io</span><span class="o">.</span><span class="py">a</span> <span class="o">&amp;</span> <span class="nv">io</span><span class="o">.</span><span class="py">cin</span>
+  <span class="nv">io</span><span class="o">.</span><span class="py">cout</span> <span class="o">:=</span> <span class="n">a_and_b</span> <span class="o">|</span> <span class="n">b_and_cin</span> <span class="o">|</span> <span class="n">a_and_cin</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -281,7 +281,7 @@ sbt run
               <div class="language-scala highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">object</span> <span class="nc">ChiselExample</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -291,26 +291,26 @@ sbt run
               <div class="language-verilog highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">module</span> <span class="n">FullAdder</span><span class="p">(</span> <span class="c1">// @[:@3.2]
-</span>  <span class="kt">input</span>   <span class="n">clock</span><span class="o">,</span> <span class="c1">// @[:@4.4]
-</span>  <span class="kt">input</span>   <span class="n">reset</span><span class="o">,</span> <span class="c1">// @[:@5.4]
-</span>  <span class="kt">input</span>   <span class="n">io_a</span><span class="o">,</span> <span class="c1">// @[:@6.4]
-</span>  <span class="kt">input</span>   <span class="n">io_b</span><span class="o">,</span> <span class="c1">// @[:@6.4]
-</span>  <span class="kt">input</span>   <span class="n">io_cin</span><span class="o">,</span> <span class="c1">// @[:@6.4]
-</span>  <span class="kt">output</span>  <span class="n">io_sum</span><span class="o">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">input</span>   <span class="n">clock</span><span class="p">,</span> <span class="c1">// @[:@4.4]
+</span>  <span class="kt">input</span>   <span class="n">reset</span><span class="p">,</span> <span class="c1">// @[:@5.4]
+</span>  <span class="kt">input</span>   <span class="n">io_a</span><span class="p">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">input</span>   <span class="n">io_b</span><span class="p">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">input</span>   <span class="n">io_cin</span><span class="p">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">output</span>  <span class="n">io_sum</span><span class="p">,</span> <span class="c1">// @[:@6.4]
 </span>  <span class="kt">output</span>  <span class="n">io_cout</span> <span class="c1">// @[:@6.4]
-</span><span class="p">)</span><span class="o">;</span>
-  <span class="kt">wire</span>  <span class="n">a_xor_b</span><span class="o">;</span> <span class="c1">// @[Main.scala 15:22:@8.4]
-</span>  <span class="kt">wire</span>  <span class="n">a_and_b</span><span class="o">;</span> <span class="c1">// @[Main.scala 18:22:@11.4]
-</span>  <span class="kt">wire</span>  <span class="n">b_and_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 19:24:@12.4]
-</span>  <span class="kt">wire</span>  <span class="n">a_and_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 20:24:@13.4]
-</span>  <span class="kt">wire</span>  <span class="mi">_</span><span class="n">T_16</span><span class="o">;</span> <span class="c1">// @[Main.scala 21:22:@14.4]
-</span>  <span class="k">assign</span> <span class="n">a_xor_b</span> <span class="o">=</span> <span class="n">io_a</span> <span class="o">^</span> <span class="n">io_b</span><span class="o">;</span> <span class="c1">// @[Main.scala 15:22:@8.4]
-</span>  <span class="k">assign</span> <span class="n">a_and_b</span> <span class="o">=</span> <span class="n">io_a</span> <span class="o">&amp;</span> <span class="n">io_b</span><span class="o">;</span> <span class="c1">// @[Main.scala 18:22:@11.4]
-</span>  <span class="k">assign</span> <span class="n">b_and_cin</span> <span class="o">=</span> <span class="n">io_b</span> <span class="o">&amp;</span> <span class="n">io_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 19:24:@12.4]
-</span>  <span class="k">assign</span> <span class="n">a_and_cin</span> <span class="o">=</span> <span class="n">io_a</span> <span class="o">&amp;</span> <span class="n">io_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 20:24:@13.4]
-</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">T_16</span> <span class="o">=</span> <span class="n">a_and_b</span> <span class="o">|</span> <span class="n">b_and_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 21:22:@14.4]
-</span>  <span class="k">assign</span> <span class="n">io_sum</span> <span class="o">=</span> <span class="n">a_xor_b</span> <span class="o">^</span> <span class="n">io_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 16:10:@10.4]
-</span>  <span class="k">assign</span> <span class="n">io_cout</span> <span class="o">=</span> <span class="mi">_</span><span class="n">T_16</span> <span class="o">|</span> <span class="n">a_and_cin</span><span class="o">;</span> <span class="c1">// @[Main.scala 21:11:@16.4]
+</span><span class="p">);</span>
+  <span class="kt">wire</span>  <span class="n">a_xor_b</span><span class="p">;</span> <span class="c1">// @[Main.scala 15:22:@8.4]
+</span>  <span class="kt">wire</span>  <span class="n">a_and_b</span><span class="p">;</span> <span class="c1">// @[Main.scala 18:22:@11.4]
+</span>  <span class="kt">wire</span>  <span class="n">b_and_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 19:24:@12.4]
+</span>  <span class="kt">wire</span>  <span class="n">a_and_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 20:24:@13.4]
+</span>  <span class="kt">wire</span>  <span class="mi">_</span><span class="n">T_16</span><span class="p">;</span> <span class="c1">// @[Main.scala 21:22:@14.4]
+</span>  <span class="k">assign</span> <span class="n">a_xor_b</span> <span class="o">=</span> <span class="n">io_a</span> <span class="o">^</span> <span class="n">io_b</span><span class="p">;</span> <span class="c1">// @[Main.scala 15:22:@8.4]
+</span>  <span class="k">assign</span> <span class="n">a_and_b</span> <span class="o">=</span> <span class="n">io_a</span> <span class="o">&amp;</span> <span class="n">io_b</span><span class="p">;</span> <span class="c1">// @[Main.scala 18:22:@11.4]
+</span>  <span class="k">assign</span> <span class="n">b_and_cin</span> <span class="o">=</span> <span class="n">io_b</span> <span class="o">&amp;</span> <span class="n">io_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 19:24:@12.4]
+</span>  <span class="k">assign</span> <span class="n">a_and_cin</span> <span class="o">=</span> <span class="n">io_a</span> <span class="o">&amp;</span> <span class="n">io_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 20:24:@13.4]
+</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">T_16</span> <span class="o">=</span> <span class="n">a_and_b</span> <span class="o">|</span> <span class="n">b_and_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 21:22:@14.4]
+</span>  <span class="k">assign</span> <span class="n">io_sum</span> <span class="o">=</span> <span class="n">a_xor_b</span> <span class="o">^</span> <span class="n">io_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 16:10:@10.4]
+</span>  <span class="k">assign</span> <span class="n">io_cout</span> <span class="o">=</span> <span class="mi">_</span><span class="n">T_16</span> <span class="o">|</span> <span class="n">a_and_cin</span><span class="p">;</span> <span class="c1">// @[Main.scala 21:11:@16.4]
 </span><span class="k">endmodule</span>
 </code></pre>
                 </div>
@@ -326,27 +326,27 @@ sbt run
 <span class="k">import</span> <span class="nn">chisel3._</span>
 
 <span class="k">class</span> <span class="nc">EnableShiftRegister</span> <span class="k">extends</span> <span class="nc">Module</span> <span class="o">{</span>
-  <span class="k">val</span> <span class="n">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">in</span>    <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">shift</span> <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">Bool</span><span class="o">())</span>
-    <span class="k">val</span> <span class="n">out</span>   <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">))</span>
+  <span class="k">val</span> <span class="nv">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">in</span>    <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">shift</span> <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">Bool</span><span class="o">())</span>
+    <span class="k">val</span> <span class="nv">out</span>   <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">))</span>
   <span class="o">})</span>
-  <span class="k">val</span> <span class="n">r0</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
-  <span class="k">val</span> <span class="n">r1</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
-  <span class="k">val</span> <span class="n">r2</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
-  <span class="k">val</span> <span class="n">r3</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
-  <span class="n">when</span><span class="o">(</span><span class="n">reset</span><span class="o">.</span><span class="n">toBool</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">r0</span> <span class="o">:=</span> <span class="mf">0.</span><span class="n">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
-    <span class="n">r1</span> <span class="o">:=</span> <span class="mf">0.</span><span class="n">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
-    <span class="n">r2</span> <span class="o">:=</span> <span class="mf">0.</span><span class="n">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
-    <span class="n">r3</span> <span class="o">:=</span> <span class="mf">0.</span><span class="n">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
-  <span class="o">}</span> <span class="o">.</span><span class="n">elsewhen</span><span class="o">(</span><span class="n">io</span><span class="o">.</span><span class="n">shift</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">r0</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">in</span>
+  <span class="k">val</span> <span class="nv">r0</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
+  <span class="k">val</span> <span class="nv">r1</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
+  <span class="k">val</span> <span class="nv">r2</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
+  <span class="k">val</span> <span class="nv">r3</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
+  <span class="nf">when</span><span class="o">(</span><span class="nv">reset</span><span class="o">.</span><span class="py">toBool</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">r0</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
+    <span class="n">r1</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
+    <span class="n">r2</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
+    <span class="n">r3</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
+  <span class="o">}</span> <span class="o">.</span><span class="py">elsewhen</span><span class="o">(</span><span class="nv">io</span><span class="o">.</span><span class="py">shift</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">r0</span> <span class="o">:=</span> <span class="nv">io</span><span class="o">.</span><span class="py">in</span>
     <span class="n">r1</span> <span class="o">:=</span> <span class="n">r0</span>
     <span class="n">r2</span> <span class="o">:=</span> <span class="n">r1</span>
     <span class="n">r3</span> <span class="o">:=</span> <span class="n">r2</span>
   <span class="o">}</span>
-  <span class="n">io</span><span class="o">.</span><span class="n">out</span> <span class="o">:=</span> <span class="n">r3</span>
+  <span class="nv">io</span><span class="o">.</span><span class="py">out</span> <span class="o">:=</span> <span class="n">r3</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -357,7 +357,7 @@ sbt run
               <div class="language-scala highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">object</span> <span class="nc">ChiselExample</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -366,8 +366,8 @@ sbt run
               <div class="language-scala highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">object</span> <span class="nc">ChiselExample</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">EnableShiftRegister</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">EnableShiftRegister</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -376,29 +376,29 @@ sbt run
               <div class="language-verilog highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">module</span> <span class="n">EnableShiftRegister</span><span class="p">(</span> <span class="c1">// @[:@3.2]
-</span>  <span class="kt">input</span>        <span class="n">clock</span><span class="o">,</span> <span class="c1">// @[:@4.4]
-</span>  <span class="kt">input</span>        <span class="n">reset</span><span class="o">,</span> <span class="c1">// @[:@5.4]
-</span>  <span class="kt">input</span>  <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">io_in</span><span class="o">,</span> <span class="c1">// @[:@6.4]
-</span>  <span class="kt">input</span>        <span class="n">io_shift</span><span class="o">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">input</span>        <span class="n">clock</span><span class="p">,</span> <span class="c1">// @[:@4.4]
+</span>  <span class="kt">input</span>        <span class="n">reset</span><span class="p">,</span> <span class="c1">// @[:@5.4]
+</span>  <span class="kt">input</span>  <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">io_in</span><span class="p">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">input</span>        <span class="n">io_shift</span><span class="p">,</span> <span class="c1">// @[:@6.4]
 </span>  <span class="kt">output</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">io_out</span> <span class="c1">// @[:@6.4]
-</span><span class="p">)</span><span class="o">;</span>
-  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r0</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 11:15:@8.4]
-</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="o">;</span>
-  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r1</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 12:15:@9.4]
-</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_1</span><span class="o">;</span>
-  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r2</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 13:15:@10.4]
-</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_2</span><span class="o">;</span>
-  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r3</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 14:15:@11.4]
-</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_3</span><span class="o">;</span>
-  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_0</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_1</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_2</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_3</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_0</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">io_in</span> <span class="o">:</span> <span class="n">r0</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_1</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">r0</span> <span class="o">:</span> <span class="n">r1</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_2</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">r1</span> <span class="o">:</span> <span class="n">r2</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_3</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">r2</span> <span class="o">:</span> <span class="n">r3</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
-</span>  <span class="k">assign</span> <span class="n">io_out</span> <span class="o">=</span> <span class="n">r3</span><span class="o">;</span> <span class="c1">// @[Sequential.scala 26:10:@26.4]
+</span><span class="p">);</span>
+  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r0</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 11:15:@8.4]
+</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="p">;</span>
+  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r1</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 12:15:@9.4]
+</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_1</span><span class="p">;</span>
+  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r2</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 13:15:@10.4]
+</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_2</span><span class="p">;</span>
+  <span class="kt">reg</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">r3</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 14:15:@11.4]
+</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_3</span><span class="p">;</span>
+  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_0</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_1</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_2</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="kt">wire</span> <span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">GEN_3</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_0</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">io_in</span> <span class="o">:</span> <span class="n">r0</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_1</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">r0</span> <span class="o">:</span> <span class="n">r1</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_2</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">r1</span> <span class="o">:</span> <span class="n">r2</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="k">assign</span> <span class="mi">_</span><span class="n">GEN_3</span> <span class="o">=</span> <span class="n">io_shift</span> <span class="o">?</span> <span class="n">r2</span> <span class="o">:</span> <span class="n">r3</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 20:25:@20.6]
+</span>  <span class="k">assign</span> <span class="n">io_out</span> <span class="o">=</span> <span class="n">r3</span><span class="p">;</span> <span class="c1">// @[Sequential.scala 26:10:@26.4]
 </span><span class="cp">`ifdef</span> <span class="n">RANDOMIZE_GARBAGE_ASSIGN</span>
 <span class="cp">`define</span> RANDOMIZE<span class="cp">
 `endif</span>
@@ -415,7 +415,7 @@ sbt run
 <span class="cp">`define</span> RANDOM <span class="err">$</span>random<span class="cp">
 `endif</span>
 <span class="cp">`ifdef</span> <span class="n">RANDOMIZE</span>
-  <span class="kt">integer</span> <span class="n">initvar</span><span class="o">;</span>
+  <span class="kt">integer</span> <span class="n">initvar</span><span class="p">;</span>
   <span class="k">initial</span> <span class="k">begin</span>
     <span class="cp">`ifdef</span> <span class="n">INIT_RANDOM</span>
       <span class="cp">`INIT_RANDOM</span>
@@ -424,43 +424,43 @@ sbt run
       <span class="p">#</span><span class="mf">0.002</span> <span class="k">begin</span> <span class="k">end</span>
     <span class="cp">`endif</span>
   <span class="cp">`ifdef</span> <span class="n">RANDOMIZE_REG_INIT</span>
-  <span class="mi">_</span><span class="n">RAND_0</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}};</span>
-  <span class="n">r0</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="o">;</span>
+  <span class="mi">_</span><span class="n">RAND_0</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}}</span><span class="p">;</span>
+  <span class="n">r0</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
   <span class="cp">`endif</span> <span class="c1">// RANDOMIZE_REG_INIT
 </span>  <span class="cp">`ifdef</span> <span class="n">RANDOMIZE_REG_INIT</span>
-  <span class="mi">_</span><span class="n">RAND_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}};</span>
-  <span class="n">r1</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_1</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="o">;</span>
+  <span class="mi">_</span><span class="n">RAND_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}}</span><span class="p">;</span>
+  <span class="n">r1</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_1</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
   <span class="cp">`endif</span> <span class="c1">// RANDOMIZE_REG_INIT
 </span>  <span class="cp">`ifdef</span> <span class="n">RANDOMIZE_REG_INIT</span>
-  <span class="mi">_</span><span class="n">RAND_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}};</span>
-  <span class="n">r2</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_2</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="o">;</span>
+  <span class="mi">_</span><span class="n">RAND_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}}</span><span class="p">;</span>
+  <span class="n">r2</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_2</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
   <span class="cp">`endif</span> <span class="c1">// RANDOMIZE_REG_INIT
 </span>  <span class="cp">`ifdef</span> <span class="n">RANDOMIZE_REG_INIT</span>
-  <span class="mi">_</span><span class="n">RAND_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}};</span>
-  <span class="n">r3</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_3</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="o">;</span>
+  <span class="mi">_</span><span class="n">RAND_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}}</span><span class="p">;</span>
+  <span class="n">r3</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_3</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
   <span class="cp">`endif</span> <span class="c1">// RANDOMIZE_REG_INIT
 </span>  <span class="k">end</span>
 <span class="cp">`endif</span> <span class="c1">// RANDOMIZE
 </span>  <span class="k">always</span> <span class="o">@</span><span class="p">(</span><span class="kt">posedge</span> <span class="n">clock</span><span class="p">)</span> <span class="k">begin</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span> <span class="k">begin</span>
-      <span class="n">r0</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="o">;</span>
+      <span class="n">r0</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="p">;</span>
     <span class="k">end</span> <span class="k">else</span> <span class="k">begin</span>
-      <span class="n">r0</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_0</span><span class="o">;</span>
+      <span class="n">r0</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_0</span><span class="p">;</span>
     <span class="k">end</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span> <span class="k">begin</span>
-      <span class="n">r1</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="o">;</span>
+      <span class="n">r1</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="p">;</span>
     <span class="k">end</span> <span class="k">else</span> <span class="k">begin</span>
-      <span class="n">r1</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_1</span><span class="o">;</span>
+      <span class="n">r1</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_1</span><span class="p">;</span>
     <span class="k">end</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span> <span class="k">begin</span>
-      <span class="n">r2</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="o">;</span>
+      <span class="n">r2</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="p">;</span>
     <span class="k">end</span> <span class="k">else</span> <span class="k">begin</span>
-      <span class="n">r2</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_2</span><span class="o">;</span>
+      <span class="n">r2</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_2</span><span class="p">;</span>
     <span class="k">end</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span> <span class="k">begin</span>
-      <span class="n">r3</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="o">;</span>
+      <span class="n">r3</span> <span class="o">&lt;=</span> <span class="mh">4'h0</span><span class="p">;</span>
     <span class="k">end</span> <span class="k">else</span> <span class="k">begin</span>
-      <span class="n">r3</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_3</span><span class="o">;</span>
+      <span class="n">r3</span> <span class="o">&lt;=</span> <span class="mi">_</span><span class="n">GEN_3</span><span class="p">;</span>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">endmodule</span>
@@ -477,22 +477,22 @@ sbt run
 <span class="k">import</span> <span class="nn">chisel3._</span>
 
 <span class="k">class</span> <span class="nc">Inner</span> <span class="k">extends</span> <span class="nc">Module</span> <span class="o">{</span>
-  <span class="k">val</span> <span class="n">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">dataIn</span>  <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">dataOut</span> <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+  <span class="k">val</span> <span class="nv">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">dataIn</span>  <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">dataOut</span> <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
   <span class="o">})</span>
-  <span class="k">val</span> <span class="n">data</span> <span class="k">=</span> <span class="nc">RegNext</span><span class="o">(</span><span class="n">io</span><span class="o">.</span><span class="n">dataIn</span><span class="o">)</span>
-  <span class="n">io</span><span class="o">.</span><span class="n">dataOut</span> <span class="o">:=</span> <span class="n">data</span>
+  <span class="k">val</span> <span class="nv">data</span> <span class="k">=</span> <span class="nc">RegNext</span><span class="o">(</span><span class="nv">io</span><span class="o">.</span><span class="py">dataIn</span><span class="o">)</span>
+  <span class="nv">io</span><span class="o">.</span><span class="py">dataOut</span> <span class="o">:=</span> <span class="n">data</span>
 <span class="o">}</span>
 
 <span class="k">class</span> <span class="nc">Outer</span> <span class="k">extends</span> <span class="nc">Module</span> <span class="o">{</span>
-  <span class="k">val</span> <span class="n">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">dataIn</span>  <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
-    <span class="k">val</span> <span class="n">dataOut</span> <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+  <span class="k">val</span> <span class="nv">io</span> <span class="k">=</span> <span class="nc">IO</span><span class="o">(</span><span class="k">new</span> <span class="nc">Bundle</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">dataIn</span>  <span class="k">=</span> <span class="nc">Input</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
+    <span class="k">val</span> <span class="nv">dataOut</span> <span class="k">=</span> <span class="nc">Output</span><span class="o">(</span><span class="nc">UInt</span><span class="o">(</span><span class="mf">1.</span><span class="n">W</span><span class="o">))</span>
   <span class="o">})</span>
-  <span class="k">val</span> <span class="n">core</span> <span class="k">=</span> <span class="nc">Module</span><span class="o">(</span><span class="k">new</span> <span class="nc">Inner</span><span class="o">()).</span><span class="n">io</span>
-  <span class="n">core</span><span class="o">.</span><span class="n">dataIn</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">dataIn</span>
-  <span class="n">io</span><span class="o">.</span><span class="n">dataOut</span> <span class="o">:=</span> <span class="n">core</span><span class="o">.</span><span class="n">dataOut</span>
+  <span class="k">val</span> <span class="nv">core</span> <span class="k">=</span> <span class="nc">Module</span><span class="o">(</span><span class="k">new</span> <span class="nc">Inner</span><span class="o">()).</span><span class="py">io</span>
+  <span class="nv">core</span><span class="o">.</span><span class="py">dataIn</span> <span class="o">:=</span> <span class="nv">io</span><span class="o">.</span><span class="py">dataIn</span>
+  <span class="nv">io</span><span class="o">.</span><span class="py">dataOut</span> <span class="o">:=</span> <span class="nv">core</span><span class="o">.</span><span class="py">dataOut</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -501,7 +501,7 @@ sbt run
               <div class="language-scala highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">object</span> <span class="nc">ChiselExample</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -510,13 +510,13 @@ sbt run
               <div class="language-verilog highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">module</span> <span class="n">Inner</span><span class="p">(</span> <span class="c1">// @[:@3.2]
-</span>  <span class="kt">input</span>   <span class="n">clock</span><span class="o">,</span> <span class="c1">// @[:@4.4]
-</span>  <span class="kt">input</span>   <span class="n">io_dataIn</span><span class="o">,</span> <span class="c1">// @[:@6.4]
+</span>  <span class="kt">input</span>   <span class="n">clock</span><span class="p">,</span> <span class="c1">// @[:@4.4]
+</span>  <span class="kt">input</span>   <span class="n">io_dataIn</span><span class="p">,</span> <span class="c1">// @[:@6.4]
 </span>  <span class="kt">output</span>  <span class="n">io_dataOut</span> <span class="c1">// @[:@6.4]
-</span><span class="p">)</span><span class="o">;</span>
-  <span class="kt">reg</span>  <span class="n">data</span><span class="o">;</span> <span class="c1">// @[Nested.scala 10:21:@8.4]
-</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="o">;</span>
-  <span class="k">assign</span> <span class="n">io_dataOut</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span> <span class="c1">// @[Nested.scala 11:14:@10.4]
+</span><span class="p">);</span>
+  <span class="kt">reg</span>  <span class="n">data</span><span class="p">;</span> <span class="c1">// @[Nested.scala 10:21:@8.4]
+</span>  <span class="kt">reg</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="p">;</span>
+  <span class="k">assign</span> <span class="n">io_dataOut</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span> <span class="c1">// @[Nested.scala 11:14:@10.4]
 </span><span class="cp">`ifdef</span> <span class="n">RANDOMIZE_GARBAGE_ASSIGN</span>
 <span class="cp">`define</span> RANDOMIZE<span class="cp">
 `endif</span>
@@ -533,7 +533,7 @@ sbt run
 <span class="cp">`define</span> RANDOM <span class="err">$</span>random<span class="cp">
 `endif</span>
 <span class="cp">`ifdef</span> <span class="n">RANDOMIZE</span>
-  <span class="kt">integer</span> <span class="n">initvar</span><span class="o">;</span>
+  <span class="kt">integer</span> <span class="n">initvar</span><span class="p">;</span>
   <span class="k">initial</span> <span class="k">begin</span>
     <span class="cp">`ifdef</span> <span class="n">INIT_RANDOM</span>
       <span class="cp">`INIT_RANDOM</span>
@@ -542,32 +542,32 @@ sbt run
       <span class="p">#</span><span class="mf">0.002</span> <span class="k">begin</span> <span class="k">end</span>
     <span class="cp">`endif</span>
   <span class="cp">`ifdef</span> <span class="n">RANDOMIZE_REG_INIT</span>
-  <span class="mi">_</span><span class="n">RAND_0</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}};</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="o">;</span>
+  <span class="mi">_</span><span class="n">RAND_0</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">{</span><span class="cp">`RANDOM</span><span class="o">}}</span><span class="p">;</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="mi">_</span><span class="n">RAND_0</span><span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
   <span class="cp">`endif</span> <span class="c1">// RANDOMIZE_REG_INIT
 </span>  <span class="k">end</span>
 <span class="cp">`endif</span> <span class="c1">// RANDOMIZE
 </span>  <span class="k">always</span> <span class="o">@</span><span class="p">(</span><span class="kt">posedge</span> <span class="n">clock</span><span class="p">)</span> <span class="k">begin</span>
-    <span class="n">data</span> <span class="o">&lt;=</span> <span class="n">io_dataIn</span><span class="o">;</span>
+    <span class="n">data</span> <span class="o">&lt;=</span> <span class="n">io_dataIn</span><span class="p">;</span>
   <span class="k">end</span>
 <span class="k">endmodule</span>
 <span class="k">module</span> <span class="n">Outer</span><span class="p">(</span> <span class="c1">// @[:@12.2]
-</span>  <span class="kt">input</span>   <span class="n">clock</span><span class="o">,</span> <span class="c1">// @[:@13.4]
-</span>  <span class="kt">input</span>   <span class="n">reset</span><span class="o">,</span> <span class="c1">// @[:@14.4]
-</span>  <span class="kt">input</span>   <span class="n">io_dataIn</span><span class="o">,</span> <span class="c1">// @[:@15.4]
+</span>  <span class="kt">input</span>   <span class="n">clock</span><span class="p">,</span> <span class="c1">// @[:@13.4]
+</span>  <span class="kt">input</span>   <span class="n">reset</span><span class="p">,</span> <span class="c1">// @[:@14.4]
+</span>  <span class="kt">input</span>   <span class="n">io_dataIn</span><span class="p">,</span> <span class="c1">// @[:@15.4]
 </span>  <span class="kt">output</span>  <span class="n">io_dataOut</span> <span class="c1">// @[:@15.4]
-</span><span class="p">)</span><span class="o">;</span>
-  <span class="kt">wire</span>  <span class="n">Inner_clock</span><span class="o">;</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
-</span>  <span class="kt">wire</span>  <span class="n">Inner_io_dataIn</span><span class="o">;</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
-</span>  <span class="kt">wire</span>  <span class="n">Inner_io_dataOut</span><span class="o">;</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
+</span><span class="p">);</span>
+  <span class="kt">wire</span>  <span class="n">Inner_clock</span><span class="p">;</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
+</span>  <span class="kt">wire</span>  <span class="n">Inner_io_dataIn</span><span class="p">;</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
+</span>  <span class="kt">wire</span>  <span class="n">Inner_io_dataOut</span><span class="p">;</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
 </span>  <span class="n">Inner</span> <span class="n">Inner</span> <span class="p">(</span> <span class="c1">// @[Nested.scala 19:20:@17.4]
-</span>    <span class="o">.</span><span class="n">clock</span><span class="p">(</span><span class="n">Inner_clock</span><span class="p">)</span><span class="o">,</span>
-    <span class="o">.</span><span class="n">io_dataIn</span><span class="p">(</span><span class="n">Inner_io_dataIn</span><span class="p">)</span><span class="o">,</span>
-    <span class="o">.</span><span class="n">io_dataOut</span><span class="p">(</span><span class="n">Inner_io_dataOut</span><span class="p">)</span>
-  <span class="p">)</span><span class="o">;</span>
-  <span class="k">assign</span> <span class="n">io_dataOut</span> <span class="o">=</span> <span class="n">Inner_io_dataOut</span><span class="o">;</span> <span class="c1">// @[Nested.scala 21:14:@21.4]
-</span>  <span class="k">assign</span> <span class="n">Inner_clock</span> <span class="o">=</span> <span class="n">clock</span><span class="o">;</span> <span class="c1">// @[:@18.4]
-</span>  <span class="k">assign</span> <span class="n">Inner_io_dataIn</span> <span class="o">=</span> <span class="n">io_dataIn</span><span class="o">;</span> <span class="c1">// @[Nested.scala 20:15:@20.4]
+</span>    <span class="p">.</span><span class="n">clock</span><span class="p">(</span><span class="n">Inner_clock</span><span class="p">),</span>
+    <span class="p">.</span><span class="n">io_dataIn</span><span class="p">(</span><span class="n">Inner_io_dataIn</span><span class="p">),</span>
+    <span class="p">.</span><span class="n">io_dataOut</span><span class="p">(</span><span class="n">Inner_io_dataOut</span><span class="p">)</span>
+  <span class="p">);</span>
+  <span class="k">assign</span> <span class="n">io_dataOut</span> <span class="o">=</span> <span class="n">Inner_io_dataOut</span><span class="p">;</span> <span class="c1">// @[Nested.scala 21:14:@21.4]
+</span>  <span class="k">assign</span> <span class="n">Inner_clock</span> <span class="o">=</span> <span class="n">clock</span><span class="p">;</span> <span class="c1">// @[:@18.4]
+</span>  <span class="k">assign</span> <span class="n">Inner_io_dataIn</span> <span class="o">=</span> <span class="n">io_dataIn</span><span class="p">;</span> <span class="c1">// @[Nested.scala 20:15:@20.4]
 </span><span class="k">endmodule</span>
 </code></pre>
                 </div>
@@ -578,15 +578,15 @@ sbt run
               <div class="language-scala highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">object</span> <span class="nc">Main</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">FullAdder</span><span class="o">)</span>
 <span class="o">}</span>
 
 <span class="k">object</span> <span class="nc">Sequential</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">EnableShiftRegister</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">EnableShiftRegister</span><span class="o">)</span>
 <span class="o">}</span>
 
 <span class="k">object</span> <span class="nc">Nested</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="n">chisel3</span><span class="o">.</span><span class="nc">Driver</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">)</span>
+  <span class="nv">chisel3</span><span class="o">.</span><span class="py">Driver</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="n">args</span><span class="o">,</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="k">new</span> <span class="nc">Outer</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre>
                 </div>
@@ -656,7 +656,7 @@ sbt run
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">273</a>
+          Site version <a href="/status">274</a>
         </div>
       </footer>
     </div>

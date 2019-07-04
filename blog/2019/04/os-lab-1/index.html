@@ -166,7 +166,7 @@
               <p>Before we start this experiment, we need to have proper tools installed. On Ubuntu 14.04 or Debian 7, the following command will install all we need for this lab:</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code><span class="nb">sudo </span>apt-get install build-essential libncurses5-dev qemu
+                  <pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential libncurses5-dev qemu
 </code></pre>
                 </div>
               </div>
@@ -218,9 +218,9 @@ undefined reference to `__mutex_unlock_slowpath'
               <div class="language-c highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">static</span> <span class="kt">void</span> <span class="n">noinline</span> <span class="n">__sched</span>
-<span class="n">__mutex_lock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
+<span class="nf">__mutex_lock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
 
-<span class="k">static</span> <span class="n">noinline</span> <span class="kt">void</span> <span class="n">__sched</span> <span class="n">__mutex_unlock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">noinline</span> <span class="kt">void</span> <span class="n">__sched</span> <span class="nf">__mutex_unlock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
 </code></pre>
                 </div>
               </div>
@@ -228,9 +228,9 @@ undefined reference to `__mutex_unlock_slowpath'
               <div class="language-c highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">static</span> <span class="n">__used</span> <span class="kt">void</span> <span class="n">noinline</span> <span class="n">__sched</span>
-<span class="n">__mutex_lock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
+<span class="nf">__mutex_lock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
 
-<span class="k">static</span> <span class="n">__used</span> <span class="n">noinline</span> <span class="kt">void</span> <span class="n">__sched</span> <span class="n">__mutex_unlock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">__used</span> <span class="n">noinline</span> <span class="kt">void</span> <span class="n">__sched</span> <span class="nf">__mutex_unlock_slowpath</span><span class="p">(</span><span class="n">atomic_t</span> <span class="o">*</span><span class="n">lock_count</span><span class="p">);</span>
 </code></pre>
                 </div>
               </div>
@@ -264,9 +264,9 @@ undefined reference to `__mutex_unlock_slowpath'
               <p>Now you have the init program. You need to prepare the filesystem. The following commands will create an empty 4 MB image and mount it at <code class="highlighter-rouge">rootfs</code>.</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>myinitrd.img <span class="nv">bs</span><span class="o">=</span>4M <span class="nv">count</span><span class="o">=</span>1
+                  <pre class="highlight"><code><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>myinitrd.img <span class="nv">bs</span><span class="o">=</span>4M <span class="nv">count</span><span class="o">=</span>1
 mkfs.ext3 myinitrd.img
-mkdir rootfs
+<span class="nb">mkdir </span>rootfs
 <span class="nb">sudo </span>mount <span class="nt">-o</span> loop myinitrd.img rootfs
 </code></pre>
                 </div>
@@ -274,11 +274,11 @@ mkdir rootfs
               <p>Next, copy your init program into it, and create some device files as required:</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>cp init rootfs/
+                  <pre class="highlight"><code><span class="nb">cp </span>init rootfs/
 <span class="nb">cd </span>rootfs
-mkdir dev
-<span class="nb">sudo </span>mknod dev/ram b 1 0
-<span class="nb">sudo </span>mknod dev/console c 5 1
+<span class="nb">mkdir </span>dev
+<span class="nb">sudo mknod </span>dev/ram b 1 0
+<span class="nb">sudo mknod </span>dev/console c 5 1
 <span class="nb">cd</span> ..
 umount rootfs
 </code></pre>
@@ -326,9 +326,9 @@ Settings –&gt;
               <p>To be able to use the <code class="highlighter-rouge">_install</code> directory as a bootable root filesystem, you should create the special files identical to what’s there in Option 1.</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>mkdir <span class="nt">-p</span> dev
-<span class="nb">sudo </span>mknod dev/console c 5 1
-<span class="nb">sudo </span>mknod dev/ram b 1 0
+                  <pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> dev
+<span class="nb">sudo mknod </span>dev/console c 5 1
+<span class="nb">sudo mknod </span>dev/ram b 1 0
 </code></pre>
                 </div>
               </div>
@@ -337,11 +337,11 @@ Settings –&gt;
                 <div class="highlight">
                   <pre class="highlight"><code><span class="c">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">"### INIT SCRIPT ###"</span>
-mkdir /proc /sys /tmp
+<span class="nb">mkdir</span> /proc /sys /tmp
 mount <span class="nt">-t</span> proc none /proc
 mount <span class="nt">-t</span> sysfs none /sys
 mount <span class="nt">-t</span> tmpfs none /tmp
-<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">This boot took </span><span class="k">$(</span>cut <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f1</span> /proc/uptime<span class="k">)</span><span class="s2"> seconds</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">This boot took </span><span class="si">$(</span><span class="nb">cut</span> <span class="nt">-d</span><span class="s1">' '</span> <span class="nt">-f1</span> /proc/uptime<span class="si">)</span><span class="s2"> seconds</span><span class="se">\n</span><span class="s2">"</span>
 <span class="nb">exec</span> /bin/sh
 </code></pre>
                 </div>
@@ -350,7 +350,7 @@ mount <span class="nt">-t</span> tmpfs none /tmp
               <p>Now pack everything up as a ramdisk image. Make sure you’re inside <code class="highlighter-rouge">_install</code> directory before running the following command:</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>find <span class="nt">-print0</span> | cpio <span class="nt">-0oH</span> newc | gzip <span class="nt">-9</span> <span class="o">&gt;</span> ~/initramfs.cpio.gz
+                  <pre class="highlight"><code>find <span class="nt">-print0</span> | cpio <span class="nt">-0oH</span> newc | <span class="nb">gzip</span> <span class="nt">-9</span> <span class="o">&gt;</span> ~/initramfs.cpio.gz
 </code></pre>
                 </div>
               </div>
@@ -476,7 +476,7 @@ mount <span class="nt">-t</span> tmpfs none /tmp
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">273</a>
+          Site version <a href="/status">274</a>
         </div>
       </footer>
     </div>

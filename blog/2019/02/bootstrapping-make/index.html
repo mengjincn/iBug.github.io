@@ -283,7 +283,7 @@ install_manpage
 </code></pre>
                 </div>
               </div>
-              <p>In the above example, both output programs <code class="highlighter-rouge">hello</code> and <code class="highlighter-rouge">world</code> depends on <code class="highlighter-rouge">library.o</code>. When you run <code class="highlighter-rouge">make</code>, you’ll see Make compiles <code class="highlighter-rouge">library.o</code> first, and only once, and uses it to link both binaries. The variables <code class="highlighter-rouge">$@</code> and <code class="highlighter-rouge">$^</code> are called <a href="https://www.gnu.org/s/make/manual/html_node/Automatic-Variables.html">Automatic Variables</a>. Make is also capable of resolving complex dependencies, as long as they don’t form a loop. The <code class="highlighter-rouge">.PHONY</code> target is a <a href="https://www.gnu.org/s/make/manual/html_node/Phony-Targets.html">Phony target</a>, which will be built regardless of the existence of a file with the very name. That says, if you don’t write <code class="highlighter-rouge"><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">all</span></code> and have an up-to-date file named <code class="highlighter-rouge">all</code> in your directory, Make won’t build the <code class="highlighter-rouge">all</code> target again.</p>
+              <p>In the above example, both output programs <code class="highlighter-rouge">hello</code> and <code class="highlighter-rouge">world</code> depends on <code class="highlighter-rouge">library.o</code>. When you run <code class="highlighter-rouge">make</code>, you’ll see Make compiles <code class="highlighter-rouge">library.o</code> first, and only once, and uses it to link both binaries. The variables <code class="highlighter-rouge">$@</code> and <code class="highlighter-rouge">$^</code> are called <a href="https://www.gnu.org/s/make/manual/html_node/Automatic-Variables.html">Automatic Variables</a>. Make is also capable of resolving complex dependencies, as long as they don’t form a loop. The <code class="highlighter-rouge">.PHONY</code> target is a <a href="https://www.gnu.org/s/make/manual/html_node/Phony-Targets.html">Phony target</a>, which will be built regardless of the existence of a file with the very name. That says, if you don’t write <code class="highlighter-rouge">.PHONY: all</code> and have an up-to-date file named <code class="highlighter-rouge">all</code> in your directory, Make won’t build the <code class="highlighter-rouge">all</code> target again.</p>
               <p>Make also supports variables so you don’t have to write the same commands or arguments repeatedly. For example, the above <code class="highlighter-rouge">makefile</code> can be rewritten as follows:</p>
               <div class="language-makefile highlighter-rouge">
                 <div class="highlight">
@@ -423,7 +423,7 @@ install_manpage
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">273</a>
+          Site version <a href="/status">274</a>
         </div>
       </footer>
     </div>
