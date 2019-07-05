@@ -261,9 +261,9 @@
                   <p>Long since I was 12 I began to learn various configurations and tweaks (primarily the Registry) of Windows XP and Windows 7, which helped build my solid knowledge on Windows setup, maintenance and recovery.</p>
                   <p>Still using a Windows laptop (by MSI) for day-to-day working, yet heavily relies on WSL.</p>
                 </dd>
-                <dt>Docker #1#</dt>
+                <dt>Docker #2#</dt>
                 <dd>
-                  <p>My favorite application deployment solution, but haven’t got much experience with it.</p>
+                  <p>My favorite application deployment solution, but haven’t got much experience with it. I also have private CIs running in Docker containers.</p>
                 </dd>
                 <dt>Make #1#</dt>
                 <dd>
@@ -282,7 +282,7 @@
               <script type="text/javascript">
                 function replaceStars() {
                     $('dl.rating-table dt').each(function (item) {
-                        let text = $(this).text(), stars = parseInt(text.match(/#(\d+)/)[1]), i, s = "";
+                        let text = $(this).text(), stars = parseInt(text.match(/#(\d+)#/)[1]), i, s = "";
                         for (i = 0; i < stars; i++)
                             s += "\u2605";
                         for (; i < 5; i++)
@@ -345,7 +345,7 @@
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">287</a>
+          Site version <a href="/status">288</a>
         </div>
       </footer>
     </div>
