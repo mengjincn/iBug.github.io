@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-06 13:04:34  \tCurrent time \t    Source Git revision   8ffcc44 iBug: Force CSS on /friends/  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 298       ","categories": [],
+"excerpt":"   Build time   2019-07-06 13:34:07  \tCurrent time \t    Source Git revision   58a16d3 iBug: Increase paginator per_page to 8  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 299       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
