@@ -30,7 +30,7 @@ var store = [{
 "url": "https://ibugone.com/education/",
 "teaser":null},{
 "title": "Friends",
-"excerpt":"Ordered randomly   taoky:  https://blog.taoky.moe/   Volltin:  https://volltin.com/   Zihan Zheng:  https://zhengzihan.com/   Sirius:  https://sirius1242.github.io/   Hypercube:  https://0x01.me/   Mingliang Zeng:  https://mlzeng.com/   cvhc:  https://i-yu.me/   ksqsf:  https://ksqsf.moe/   ","categories": [],
+"excerpt":"Ordered randomly   taoky:  https://blog.taoky.moe/   Volltin:  https://volltin.com/   Zihan Zheng:  https://zhengzihan.com/   Sirius:  https://sirius1242.github.io/   Hypercube:  https://0x01.me/   Mingliang Zeng:  https://mlzeng.com/   cvhc:  https://i-yu.me/   ksqsf:  https://ksqsf.moe/   Other good folks online:   ArtOfCode:  https://artofcode.co.uk/   ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-06 12:53:28  \tCurrent time \t    Source Git revision   491695e iBug: Add friends  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 295       ","categories": [],
+"excerpt":"   Build time   2019-07-06 12:59:12  \tCurrent time \t    Source Git revision   bb560af iBug: Add internet acq  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 296       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
