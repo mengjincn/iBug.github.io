@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-07 02:52:16  \tCurrent time \t    Source Git revision   9a9399b iBug: but only on JEKYLL_ENV=production  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 305       ","categories": [],
+"excerpt":"   Build time   2019-07-07 02:54:24  \tCurrent time \t    Source Git revision   ca8fa3c iBug: No extra P tag  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 306       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
