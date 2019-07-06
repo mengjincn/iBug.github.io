@@ -30,7 +30,7 @@ var store = [{
 "url": "https://ibugone.com/education/",
 "teaser":null},{
 "title": "Friends",
-"excerpt":"Ordered randomly   taoky:  https://blog.taoky.moe/   Volltin:  https://volltin.com/   Zihan Zheng:  https://zhengzihan.com/   Sirius:  https://sirius1242.github.io/   Hypercube:  https://0x01.me/   Mingliang Zeng:  https://mlzeng.com/   ","categories": [],
+"excerpt":"Ordered randomly   taoky:  https://blog.taoky.moe/   Volltin:  https://volltin.com/   Zihan Zheng:  https://zhengzihan.com/   Sirius:  https://sirius1242.github.io/   Hypercube:  https://0x01.me/   Mingliang Zeng:  https://mlzeng.com/   cvhc:  https://i-yu.me/   ksqsf:  https://ksqsf.moe/   ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-06 12:41:51  \tCurrent time \t    Source Git revision   b09a38d iBug: Ready to push  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 294       ","categories": [],
+"excerpt":"   Build time   2019-07-06 12:53:28  \tCurrent time \t    Source Git revision   491695e iBug: Add friends  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 295       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
