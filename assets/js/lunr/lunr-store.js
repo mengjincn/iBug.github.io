@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-06 16:00:19  \tCurrent time \t    Source Git revision   58a16d3 iBug: Increase paginator per_page to 8  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 300 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-07-07 02:13:47  \tCurrent time \t    Source Git revision   578c9f9 iBug: Restart Travis CI deployment  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 301       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
