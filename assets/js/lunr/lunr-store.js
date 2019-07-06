@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-07 02:13:47  \tCurrent time \t    Source Git revision   578c9f9 iBug: Restart Travis CI deployment  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 301       ","categories": [],
+"excerpt":"   Build time   2019-07-07 02:20:49  \tCurrent time \t    Source Git revision   0fcd72a iBug: Remove unnecessary site url  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 302       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
