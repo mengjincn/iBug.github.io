@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-07 02:36:01  \tCurrent time \t    Source Git revision   fdf972b iBug: Show Coding Pages link on index  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 303       ","categories": [],
+"excerpt":"   Build time   2019-07-07 02:52:16  \tCurrent time \t    Source Git revision   9a9399b iBug: but only on JEKYLL_ENV=production  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 305       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
