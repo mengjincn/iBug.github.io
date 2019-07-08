@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-08 12:32:18  \tCurrent time \t    Source Git revision   aa9731b iBug: Switch back to UTC time on international site  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 319       ","categories": [],
+"excerpt":"   Build time   2019-07-08 12:57:45  \tCurrent time \t    Source Git revision   2052932 iBug: No more need to duplicate images  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 320       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
