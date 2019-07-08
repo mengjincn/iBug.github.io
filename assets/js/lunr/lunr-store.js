@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-08 20:18:14  \tCurrent time \t    Source Git revision   a60f737 iBug: Reduce list margin globally  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 318       ","categories": [],
+"excerpt":"   Build time   2019-07-08 12:32:18  \tCurrent time \t    Source Git revision   aa9731b iBug: Switch back to UTC time on international site  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 319       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
