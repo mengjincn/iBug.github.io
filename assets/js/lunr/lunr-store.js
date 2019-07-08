@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-08 16:39:21  \tCurrent time \t    Source Git revision   39b1520 iBug: Oops, 404  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 327       ","categories": [],
+"excerpt":"   Build time   2019-07-08 20:00:21  \tCurrent time \t    Source Git revision   39b1520 iBug: Oops, 404  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 328 &#9200;       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
