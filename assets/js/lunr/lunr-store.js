@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-08 12:57:45  \tCurrent time \t    Source Git revision   2052932 iBug: No more need to duplicate images  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 320       ","categories": [],
+"excerpt":"   Build time   2019-07-08 13:58:27  \tCurrent time \t    Source Git revision   28d611f iBug: Make landing page more impressive  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 321       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
