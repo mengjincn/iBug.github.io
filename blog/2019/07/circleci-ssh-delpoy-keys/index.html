@@ -8,16 +8,16 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
-    <!-- begin _includes/seo.html --><title>Minimal, Complete, Verifiable Example - iBug ①</title>
-    <meta name="description" content="A Stack Overflow help center article">
+    <!-- begin _includes/seo.html --><title>Using SSH deploy keys on CircleCI - iBug ①</title>
+    <meta name="description" content="A year ago back I wrote an article on automating build &amp; deployment of GitHub Pages website with Travis CI. It’s a great CI service at first, but since Travis CI has completely moved away from containers, speed is a real issue to whoever is concerned. On the other side, CircleCI is continuing their builds with Docker-based containers, whose rapid response is a great advantage against VMs with slow boot time.">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
-    <meta property="og:title" content="Minimal, Complete, Verifiable Example">
-    <meta property="og:url" content="https://ibugone.com/blog/2018/06/minimal-complete-verifiable-example/">
-    <meta property="og:description" content="A Stack Overflow help center article">
-    <meta property="article:published_time" content="2018-06-07T00:00:00+00:00">
-    <link rel="canonical" href="https://ibugone.com/blog/2018/06/minimal-complete-verifiable-example/">
+    <meta property="og:title" content="Using SSH deploy keys on CircleCI">
+    <meta property="og:url" content="https://ibugone.com/blog/2019/07/circleci-ssh-delpoy-keys/">
+    <meta property="og:description" content="A year ago back I wrote an article on automating build &amp; deployment of GitHub Pages website with Travis CI. It’s a great CI service at first, but since Travis CI has completely moved away from containers, speed is a real issue to whoever is concerned. On the other side, CircleCI is continuing their builds with Docker-based containers, whose rapid response is a great advantage against VMs with slow boot time.">
+    <meta property="article:published_time" content="2019-07-08T00:00:00+00:00">
+    <link rel="canonical" href="https://ibugone.com/blog/2019/07/circleci-ssh-delpoy-keys/">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,12 +130,12 @@
           </div>
         </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Minimal, Complete, Verifiable Example">
-          <meta itemprop="description" content="How to create a Minimal, Complete, and Verifiable example">
-          <meta itemprop="datePublished" content="June 07, 2018">
+          <meta itemprop="headline" content="Using SSH deploy keys on CircleCI">
+          <meta itemprop="description" content="A year ago back I wrote an article on automating build &amp; deployment of GitHub Pages website with Travis CI. It’s a great CI service at first, but since Travis CI has completely moved away from containers, speed is a real issue to whoever is concerned. On the other side, CircleCI is continuing their builds with Docker-based containers, whose rapid response is a great advantage against VMs with slow boot time.">
+          <meta itemprop="datePublished" content="July 08, 2019">
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">Minimal, Complete, Verifiable Example
+              <h1 id="page-title" class="page__title" itemprop="headline">Using SSH deploy keys on CircleCI
               </h1>
               <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
                 2 minute read
@@ -148,73 +148,78 @@
                     <h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4>
                   </header>
                   <ul class="toc__menu">
-                    <li><a href="#how-to-create-a-minimal-complete-and-verifiable-example">How to create a Minimal, Complete, and Verifiable example</a>
-                      <ul>
-                        <li><a href="#minimal">Minimal</a>
-                          <ul>
-                            <li><a href="#minimal-and-readable">Minimal and readable</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#complete">Complete</a></li>
-                        <li><a href="#verifiable">Verifiable</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="#solution">Solution</a></li>
                   </ul>
                 </nav>
               </aside>
-              <h1 id="how-to-create-a-minimal-complete-and-verifiable-example">How to create a Minimal, Complete, and Verifiable example</h1>
-              <p>When asking a question about a problem caused by your code, you will get much better answers if you provide code people can use to reproduce the problem. That code should be…</p>
+              <p>A year ago back I <a href="/p/4">wrote an article</a> on automating build &amp; deployment of GitHub Pages website with Travis CI. It’s a great CI service at first, but since <a href="https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures">Travis CI has completely moved away from containers</a>, speed is a real issue to whoever is concerned. On the other side, CircleCI is continuing their builds with Docker-based containers, whose rapid response is a <em>great</em> advantage against VMs with slow boot time.</p>
+              <p>Migrating the build script from Travis CI was an intuitive and easy step, but I immediately got disappointed by CircleCI’s logging: Secret environment variables get exposed in the log as long as any command or program prints them.</p>
+              <p><img src="/image/circleci/token-leak.png" alt="image" /></p>
+              <p>That’s particularly annoying because I used Personal Access Tokens to push built content back to GitHub, and this kind of straightforward leaks is a huge security issue, so I looked around for alternatives, and came up with the idea of using a deploy key with write access.</p>
+              <p>Setting up the basics wasn’t any difficult on its own for anyone with a bit experience in Linux:</p>
               <ul>
-                <li>…Minimal – Use as little code as possible that still produces the same problem</li>
-                <li>…Complete – Provide all parts needed to reproduce the problem</li>
-                <li>…Verifiable – Test the code you’re about to provide to make sure it reproduces the problem</li>
+                <li>Generate an SSH key pair with <code class="highlighter-rouge">ssh-keygen</code></li>
+                <li>Encode (or compress + encode) the private key and put it into the CI environment</li>
+                <li>Create a build script to grab key from environment and utilize it</li>
               </ul>
-              <h2 id="minimal">Minimal</h2>
-              <p>The more code there is to go through, the less likely people can find your problem. Streamline your example in one of two ways:</p>
-              <ol>
-                <li><strong>Restart from scratch.</strong> Create a new program, adding in only what is needed to see the problem.  This can be faster for vast systems where you think you already know the source of the problem. Also useful if you can’t post the original code publicly for legal or ethical reasons.</li>
-                <li><strong>Divide and conquer.</strong> When you have a small amount of code, but the source of the problem is entirely unclear, start removing code a bit at a time until the problem disappears – then add the last part back.</li>
-              </ol>
-              <h3 id="minimal-and-readable">Minimal <em>and</em> readable</h3>
-              <p>Minimal does not mean <em>terse</em> – don’t sacrifice communication to brevity. Use consistent naming and indentation, and include comments if needed to explain portions of the code.  Most code editors have a shortcut for formatting code – find it, and <em>use it!</em> ~<del>Also, <strong>don’t use tabs</strong> – they may look good in your editor, but they’ll just make a mess on Stack Overflow.</del>~</p>
-              <h2 id="complete">Complete</h2>
-              <p>Make sure all information necessary to reproduce the problem is included:</p>
-              <ul>
-                <li>Some people might be prepared to load the parts up, and actually try them to test the answer they’re about to post.</li>
-                <li>The problem might not be in the part you suspect it is, but another part entirely.</li>
-              </ul>
-              <p>If the problem requires some server-side code as well as an XML-based configuration file, include them both. If a web page problem requires HTML, some JavaScript and a stylesheet, include all three.</p>
-              <h2 id="verifiable">Verifiable</h2>
-              <p>To help you solve your problem, others will need to verify that it <em>exists:</em></p>
-              <ul>
-                <li><strong>Describe the problem.</strong> “It doesn’t work” is not a problem statement.  Tell us what the expected behavior should be.  Tell us what the exact wording of the error message is, and which line of code is producing it.  Put a brief summary of the problem in the title of your question.</li>
-                <li><strong>Eliminate any issues that aren’t relevant to the problem.</strong> If your question isn’t <em>about</em> a compiler error, ensure that there are no compile-time errors. Use a program such as <a href="https://www.jslint.com/">JSLint</a> to validate interpreted languages. <a href="https://validator.w3.org/">Validate</a> any HTML or XML.</li>
-                <li><strong>Ensure that the example actually reproduces the problem!</strong> If you inadvertently fixed the problem while composing the example but didn’t test it again, you’d want to know that before asking someone else to help.</li>
-              </ul>
-              <p>It might help to shut the system down and restart it, or transport the example to a fresh machine to confirm it really does provide an example of the problem.</p>
-              <p>For more information on how to debug your program so you can create a minimal example, <a href="https://stackoverflow.com/users/88656/eric-lippert">Eric Lippert</a> has a fantastic blog post on the subject: <em><a href="https://ericlippert.com/2014/03/05/how-to-debug-small-programs/">How to debug small programs</a></em>.</p>
-              <p><sub>You may have been told to include an MCVE by some helpful commentary, or perhaps even an MVCE if they were rushed; sorry for the initialisms, this is what they were referring to.</sub></p>
+              <p>Once you’ve figured out the build script, everything appears straightforward:</p>
+              <div class="language-shell highlighter-rouge">
+                <div class="highlight">
+                  <pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$SSH_KEY_E</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span>e_error <span class="s2">"No SSH key found in environment."</span>
+  <span class="nb">exit </span>1
+<span class="k">fi
+
+</span><span class="nb">base64</span> <span class="nt">-d</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$SSH_KEY_E</span><span class="s2">"</span> | <span class="nb">gunzip</span> <span class="nt">-c</span> <span class="o">&gt;</span> ~/.ssh/id_rsa
+<span class="nb">chmod </span>600 ~/.ssh/id_rsa
+git clone <span class="nt">--depth</span><span class="o">=</span>3 <span class="nt">--branch</span><span class="o">=</span><span class="nv">$BRANCH</span> <span class="s2">"git@github.com:</span><span class="nv">$GH_REPO</span><span class="s2">.git"</span> _site
+</code></pre>
+                </div>
+              </div>
+              <p>At first glance, it <em>should</em> work without any problem. But that’s apparently only an <em>assumption</em>, no? And if you follow the build log, you’ll immediately know when it runs into <em>the problem</em>:</p>
+              <div class="language-text highlighter-rouge">
+                <div class="highlight">
+                  <pre class="highlight"><code>ERROR: The key you are authenticating with has been marked as read only.
+</code></pre>
+                </div>
+              </div>
+              <p>It’s particularly confusing when you’ve written your SSH private key to the correct path, set the correct permission and expecting SSH to respect your key, only to find it’s actually offering another key to GitHub and fails.</p>
+              <p><img src="/image/circleci/ssh-fail.png" alt="image" /></p>
+              <p>Digging around with debug information (set <code class="highlighter-rouge">GIT_SSH_COMMAND='ssh -vv'</code>), I noticed this absurd thing:</p>
+              <p><img src="/image/circleci/key-not-found.png" alt="image" /></p>
+              <p>Clearly, the aptly placed key wasn’t even found by SSH, rendering it completely unusable in status quo. I’ve even tried crafting <code class="highlighter-rouge">~/.ssh/config</code>, but unfortunately it’s ignored as well.</p>
+              <h3 id="solution">Solution</h3>
+              <p>Just like most other CLI utilities, SSH respects command-line arguments loyally. So you would just specify the identity file there:</p>
+              <div class="language-shell highlighter-rouge">
+                <div class="highlight">
+                  <pre class="highlight"><code><span class="nb">export </span><span class="nv">GIT_SSH_COMMAND</span><span class="o">=</span><span class="s1">'ssh -i ~/.ssh/id_rsa'</span>
+</code></pre>
+                </div>
+              </div>
+              <p><img src="/image/circleci/working.png" alt="image" /></p>
+              <p>And I don’t even know what’s going on behind the scenes, but it just works.</p>
+              <p>Reference: <a href="https://stackoverflow.com/q/55177042/5958455">Stack Overflow</a></p>
             </section>
             <footer class="page__meta">
               <p class="page__taxonomy">
                 <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
                 <span itemprop="keywords">
-                  <a href="/tags/stack-overflow" class="page__taxonomy-item" rel="tag">stack-overflow</a>
+                  <a href="/tags/development" class="page__taxonomy-item" rel="tag">development</a><span class="sep">, </span>
+                  <a href="/tags/github-pages" class="page__taxonomy-item" rel="tag">github-pages</a>
                 </span>
               </p>
-              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-06-07T00:00:00+00:00">June 07, 2018</time></p>
+              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-07-08T00:00:00+00:00">July 08, 2019</time></p>
             </footer>
             <section class="page__share">
               <h4 class="page__share-title">Share on</h4>
-              <a href="https://twitter.com/intent/tweet?text=Minimal%2C+Complete%2C+Verifiable+Example%20https%3A%2F%2Fibugone.com%2Fblog%2F2018%2F06%2Fminimal-complete-verifiable-example%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2018%2F06%2Fminimal-complete-verifiable-example%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2018%2F06%2Fminimal-complete-verifiable-example%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+              <a href="https://twitter.com/intent/tweet?text=Using+SSH+deploy+keys+on+CircleCI%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F07%2Fcircleci-ssh-delpoy-keys%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F07%2Fcircleci-ssh-delpoy-keys%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F07%2Fcircleci-ssh-delpoy-keys%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
             </section>
             <nav class="pagination">
-              <a href="/blog/2018/05/alpha-beta-pruning/" class="pagination--pager" title="Alpha-Beta Pruning
+              <a href="/blog/2019/06/save-commit-from-github/" class="pagination--pager" title="How I saved a lost commit from GitHub
 ">Previous</a>
-              <a href="/blog/2018/06/new-xbox-one-s-controller/" class="pagination--pager" title="Pairing the new Xbox One S controller (2018) with Android
-">Next</a>
+              <a href="#" class="pagination--pager disabled">Next</a>
             </nav>
           </div>
           <div class="page__comments">
@@ -225,18 +230,6 @@
         <div class="page__related">
           <h4 class="page__related-title">You may also enjoy</h4>
           <div class="grid__wrapper">
-            <div class="grid__item">
-              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-                <h2 class="archive__item-title" itemprop="headline">
-                  <a href="/blog/2019/07/circleci-ssh-delpoy-keys/" rel="permalink">Using SSH deploy keys on CircleCI
-                  </a>
-                </h2>
-                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
-                  2 minute read
-                </p>
-                <p class="archive__item-excerpt" itemprop="description">A year ago back I wrote an article on automating build &amp; deployment of GitHub Pages website with Travis CI. It’s a great CI service at first, but since T...</p>
-              </article>
-            </div>
             <div class="grid__item">
               <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
                 <h2 class="archive__item-title" itemprop="headline">
@@ -273,6 +266,19 @@
                   6 minute read
                 </p>
                 <p class="archive__item-excerpt" itemprop="description">Linux is the #1 open-source operating system nowadays, and many people are running a Linux distro, such as Ubuntu or Arch. Linux is also the most popular cho...</p>
+              </article>
+            </div>
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/03/first-touch-with-awk/" rel="permalink">Filter Manually Installed Packages from APT with AWK
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  2 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">It’s again when I want to find out what packages I have manually installed (or by a script) from the output of apt list, with all output on one line.
+                </p>
               </article>
             </div>
           </div>
@@ -376,8 +382,8 @@
     </script>
     <script>
       var disqus_config = function () {
-        this.page.url = "https://ibugone.com/blog/2018/06/minimal-complete-verifiable-example/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/blog/2018/06/minimal-complete-verifiable-example"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://ibugone.com/blog/2019/07/circleci-ssh-delpoy-keys/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/blog/2019/07/circleci-ssh-delpoy-keys"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
