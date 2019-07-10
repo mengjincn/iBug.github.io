@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-10 08:00:52  \tCurrent time \t    Source Git revision   73a4a72 iBug: .  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 332 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-07-10 13:21:12  \tCurrent time \t    Source Git revision   2dd1ffb iBug: Big avatar on landing page!  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 333       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
