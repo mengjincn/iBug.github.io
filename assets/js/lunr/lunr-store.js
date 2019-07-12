@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-12 08:00:24  \tCurrent time \t    Source Git revision   528bef3 iBug: Remove useless items in index.md  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 344 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-07-12 09:59:53  \tCurrent time \t    Source Git revision   4335f19 iBug: Initialize /sharing/ collection  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 345       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
