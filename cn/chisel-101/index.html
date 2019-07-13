@@ -595,7 +595,7 @@ sbt run
               <p>请注意，这时候由于我们有三个入口，因此直接运行 <code class="highlighter-rouge">sbt run</code> 的时候将无法编译。我们需要指定一个入口：</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
-                  <pre class="highlight"><code>sbt run Sequential
+                  <pre class="highlight"><code>sbt <span class="s1">'runMain example.Sequential'</span>
 </code></pre>
                 </div>
               </div>
@@ -663,7 +663,7 @@ sbt run
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">349</a>
+          Site version <a href="/status">350</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
         </div>
