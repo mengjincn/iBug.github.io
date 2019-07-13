@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-13 18:00:00  \tCurrent time \t    Source Git revision   8cf4334 iBug: Enable archives by year  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 351       ","categories": [],
+"excerpt":"   Build time   2019-07-13 18:02:56  \tCurrent time \t    Source Git revision   67becc8 iBug: Change archive path  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 352       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
