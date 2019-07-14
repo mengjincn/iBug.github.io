@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-14 08:00:36  \tCurrent time \t    Source Git revision   67becc8 iBug: Change archive path  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 354 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-07-14 08:37:00  \tCurrent time \t    Source Git revision   bd8608f iBug: Populate first /share/ page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 355       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -160,7 +160,7 @@ var store = [{
 "url": "https://ibugone.com/blog/2019/07/circleci-ssh-delpoy-keys/",
 "teaser":null},{
 "title": "Jekyll Themes",
-"excerpt":" ","categories": [],
+"excerpt":"Minimal Mistakes by Michael Rose (, ) is the theme this site is using.   Other good themes I found beautiful:      Creative          Stylish Portfolio         ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/share/jekyll-themes/",
 "teaser":null}]
