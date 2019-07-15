@@ -9,13 +9,13 @@
   <head>
     <meta charset="utf-8">
     <!-- begin _includes/seo.html --><title>Chisel 配置及入门 - iBug ①</title>
-    <meta name="description" content="Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。">
+    <meta name="description" content="Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序，通过 Chisel 提供的库进行硬件构建。">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
     <meta property="og:title" content="Chisel 配置及入门">
     <meta property="og:url" content="https://ibugone.com/cn/chisel-101/">
-    <meta property="og:description" content="Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。">
+    <meta property="og:description" content="Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序，通过 Chisel 提供的库进行硬件构建。">
     <meta property="article:published_time" content="2018-12-19T00:00:00+00:00">
     <link rel="canonical" href="https://ibugone.com/cn/chisel-101/">
     <script type="application/ld+json">
@@ -131,7 +131,7 @@
         </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
           <meta itemprop="headline" content="Chisel 配置及入门">
-          <meta itemprop="description" content="Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。">
+          <meta itemprop="description" content="Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序，通过 Chisel 提供的库进行硬件构建。">
           <meta itemprop="datePublished" content="December 19, 2018">
           <div class="page__inner-wrap">
             <header>
@@ -156,7 +156,12 @@
                         <li><a href="#1a3-准备-chisel-依赖">1.A.3 准备 Chisel 依赖</a></li>
                       </ul>
                     </li>
-                    <li><a href="#1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</a></li>
+                    <li><a href="#1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</a>
+                      <ul>
+                        <li><a href="#1b1-安装-java-及-sbt">1.B.1 安装 Java 及 SBT</a></li>
+                        <li><a href="#1b2-准备-chisel-依赖">1.B.2 准备 Chisel 依赖</a></li>
+                      </ul>
+                    </li>
                     <li><a href="#2-开始第一个-chisel-工程并生成-verilog-代码">2. 开始第一个 Chisel 工程并生成 Verilog 代码</a>
                       <ul>
                         <li><a href="#21-第一个组合逻辑电路">2.1 第一个组合逻辑电路</a></li>
@@ -169,50 +174,54 @@
                   </ul>
                 </nav>
               </aside>
-              <p>Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序。</p>
+              <p>Chisel (Constructing Hardware In a Scala Embedded Language) 是一种嵌入在高级编程语言 Scala 的硬件构建语言。Chisel 实际上只是一些特殊的类定义，预定义对象的集合，使用 Scala 的用法，所以在写 Chisel 程序时实际上是在写 Scala 程序，通过 Chisel 提供的库进行硬件构建。</p>
               <h2 id="1-系统需求">1. 系统需求</h2>
               <ul>
-                <li>Java 运行环境</li>
-                <li>Scala
+                <li>Windows 7 / Windows 10, macOS 或 Linux 操作系统 (本文不保证 CentOS 兼容性，推荐 Ubuntu 18.04 或 Debian 10)</li>
+                <li>Java 运行环境 (JDK 8)</li>
+                <li>Scala (由 SBT 提供)
                   <ul>
                     <li>SBT (Simple Build Tool)</li>
                   </ul>
                 </li>
               </ul>
+              <p>考虑到 Java 平台对内存的高需求，我们建议主机至少配备 8 GB 内存 (Windows) 或 4 GB 内存 (Linux)。</p>
               <h2 id="1a-windows-环境配置">1.A Windows 环境配置</h2>
               <h3 id="1a1-安装-java">1.A.1 安装 Java</h3>
-              <p>Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 191。</p>
+              <p>Java 的安装并不困难，也不需要额外的操作。直接从 Oracle 官网下载一个合适的 JDK 安装包，运行安装即可。这里我选择的版本是 JDK 8 Update 211。</p>
               <ul>
-                <li><a href="https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-i586.exe">下载 JDK 8u191 Windows 32位</a></li>
-                <li><a href="https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-x64.exe">下载 JDK 8u191 Windows 64位</a></li>
+                <li><a href="https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-windows-i586.exe">下载 JDK 8 Windows 32位</a></li>
+                <li><a href="https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-windows-x64.exe">下载 JDK 8 Windows 64位</a></li>
               </ul>
               <p>安装过程直接点击 [下一步] 直到完成即可。</p>
               <h3 id="1a2-安装-scala-及-sbt">1.A.2 安装 Scala 及 SBT</h3>
-              <p>Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。编写本文时，SBT 的最新版本为 1.2.7，可以通过以下链接下载。</p>
+              <p>Scala 是一门运行在 Java 上的语言，其编译器和工具链等都以 JAR 形式提供，因此不区分系统版本。SBT (Simple Build Tool) 是一个简单的 Scala 项目构建工具。Chisel 使用 SBT 来构建工程。对于 Windows 系统来说，只需要一个统一的安装包即可。本文最近更新时，SBT 的最新版本为 1.2.8，可以通过以下链接下载。</p>
               <ul>
-                <li><a href="https://piccolo.link/sbt-1.2.7.msi">下载 SBT 1.2.7 Windows</a></li>
+                <li><a href="https://piccolo.link/sbt-1.2.8.msi">下载 SBT 1.2.8 Windows</a></li>
               </ul>
               <p>SBT 的安装也不复杂，双击 msi 安装包，一路点击 [下一步] 即可。</p>
               <p>虽然不是必要的，但是建议在安装完 SBT 之后重启一下电脑。</p>
               <h3 id="1a3-准备-chisel-依赖">1.A.3 准备 Chisel 依赖</h3>
-              <p>安装好 SBT 之后，我们所有的准备工作都将借助 SBT 完成。</p>
+              <p>安装好 SBT 之后，我们接下来所有的准备工作都将借助 SBT 完成。</p>
               <p>首先解压附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 并打开文件夹 <code class="highlighter-rouge">chisel-101</code>，然后在该文件夹中打开命令提示符。Windows 7 下可以按住 Shift 键并在文件夹空白处点右键，此时的菜单中会有 “在此处打开命令提示符” 的选项，如图：</p>
               <p><img src="/image/chisel-intro/open-cmd.png" alt="Open Command Prompt here" /></p>
               <p>在打开的命令提示符中输入 <code class="highlighter-rouge">sbt run</code>，确保网络通畅，等待 SBT 工具下载所需的依赖。由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码并运行。参考截图如下：</p>
               <p><img src="/image/chisel-intro/sbt-first-run.png" alt="SBT Run" /></p>
               <h2 id="1b-linux-环境配置-ubuntu">1.B Linux 环境配置 (Ubuntu)</h2>
+              <h3 id="1b1-安装-java-及-sbt">1.B.1 安装 Java 及 SBT</h3>
               <p>Ubuntu 资源丰富，配置起来十分简单。这里以 18.04 版本为例，配置过程全程使用终端命令。</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/sbt/debian /"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/sbt.list
 <span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv</span> 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 <span class="nb">sudo </span>apt-get update
-<span class="nb">sudo </span>apt-get <span class="nb">install </span>default-jdk build-essential perl sbt
+<span class="nb">sudo </span>apt-get <span class="nt">-y</span> <span class="nb">install </span>default-jdk build-essential perl sbt
 </code></pre>
                 </div>
               </div>
               <p>参考链接：<a href="https://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html">Installing sbt on Linux</a></p>
               <p>以上操作会添加 SBT 提供的 APT 源，然后刷新 APT 软件包列表，并安装 JDK, SBT 等需要的软件包。</p>
+              <h3 id="1b2-准备-chisel-依赖">1.B.2 准备 Chisel 依赖</h3>
               <p>接下来解包附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> （见末尾），并利用 sbt 配置所需的依赖。这些依赖全部是 Java 软件包，因此过程十分简单。请确保网络畅通，由于众所周知的原因，在国内下载很慢，并且有可能中断，需要耐心重试。</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
@@ -225,9 +234,9 @@ sbt run
               <p>如果一切顺利，SBT 会完成所需的全部依赖，然后编译样例代码 <code class="highlighter-rouge">hello.scala</code> 并运行。具体输出可以参考上面 Windows 7 系统中的截图。</p>
               <h2 id="2-开始第一个-chisel-工程并生成-verilog-代码">2. 开始第一个 Chisel 工程并生成 Verilog 代码</h2>
               <p>保留好附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 或者解包出来的文件夹 <code class="highlighter-rouge">chisel-101</code>，后面我们会经常用到它。</p>
-              <p>请注意，本文不是教你如何编辑 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用<a href="https://github.com/ucb-bar/chisel-tutorial">官方的教程仓库</a>，因此避开了 Verilator 的依赖（它相当不好配置）。</p>
+              <p>请注意，本文不是教你如何编写 Scala 或 Chisel 代码，而是关注 Verilog 的生成。由于未直接使用<a href="https://github.com/ucb-bar/chisel-tutorial">官方的教程仓库</a>，因此避开了 Verilator 的依赖（它在 Windows 上极难配置）。</p>
               <h3 id="21-第一个组合逻辑电路">2.1 第一个组合逻辑电路</h3>
-              <p>用文本编辑器或者 IDE (例如 IntelliJ IDEA) 打开 <code class="highlighter-rouge">src/main/scala/example/hello.scala</code>，观察内容：</p>
+              <p>用文本编辑器或者 IDE (例如 <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>) 打开 <code class="highlighter-rouge">src/main/scala/example/hello.scala</code>，观察内容：</p>
               <div class="language-scala highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code><span class="k">package</span> <span class="nn">example</span>
@@ -336,12 +345,12 @@ sbt run
   <span class="k">val</span> <span class="nv">r1</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
   <span class="k">val</span> <span class="nv">r2</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
   <span class="k">val</span> <span class="nv">r3</span> <span class="k">=</span> <span class="nc">Reg</span><span class="o">(</span><span class="nc">UInt</span><span class="o">())</span>
-  <span class="nf">when</span><span class="o">(</span><span class="nv">reset</span><span class="o">.</span><span class="py">toBool</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nf">when</span> <span class="o">(</span><span class="nv">reset</span><span class="o">.</span><span class="py">toBool</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">r0</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
     <span class="n">r1</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
     <span class="n">r2</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
     <span class="n">r3</span> <span class="o">:=</span> <span class="mf">0.</span><span class="nf">U</span><span class="o">(</span><span class="mf">4.</span><span class="n">W</span><span class="o">)</span>
-  <span class="o">}</span> <span class="o">.</span><span class="py">elsewhen</span><span class="o">(</span><span class="nv">io</span><span class="o">.</span><span class="py">shift</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">}</span> <span class="o">.</span><span class="py">elsewhen</span> <span class="o">(</span><span class="nv">io</span><span class="o">.</span><span class="py">shift</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">r0</span> <span class="o">:=</span> <span class="nv">io</span><span class="o">.</span><span class="py">in</span>
     <span class="n">r1</span> <span class="o">:=</span> <span class="n">r0</span>
     <span class="n">r2</span> <span class="o">:=</span> <span class="n">r1</span>
@@ -602,7 +611,7 @@ sbt run
               <p>运行上面的命令后，可以看到模块 <code class="highlighter-rouge">EnableShiftRegister</code> 被编译，生成了 <code class="highlighter-rouge">EnableShiftRegister.v</code>，而其他模块并没有生成对应的 Verilog 文件。</p>
               <p>好了，关于生成 Verilog 代码就到这里了。</p>
               <hr />
-              <p>更多样例代码可以在 GitHub 仓库 <a href="https://github.com/ucb-bar/chisel-tutorial">chisel-tutorial</a> 中找到。</p>
+              <p>更多样例代码可以在 Chisel 的官方教程仓库 <a href="https://github.com/ucb-bar/chisel-tutorial">chisel-tutorial</a> 中找到。</p>
               <h2 id="附录">附录</h2>
               <ul>
                 <li>附件 <code class="highlighter-rouge">chisel-101.tar.gz</code> 下载： <a href="https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz">https://github.com/iBug/Archive/releases/download/Release/chisel-101.tar.gz</a></li>
@@ -610,7 +619,7 @@ sbt run
                   <p>包含三个样例代码的 <code class="highlighter-rouge">chisel-101-with-examples.tar.gz</code> 下载： <a href="https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz">https://github.com/iBug/Archive/releases/download/Release/chisel-101-with-examples.tar.gz</a></p>
                 </li>
                 <li>Chisel 官方网站： <a href="https://chisel.eecs.berkeley.edu/">https://chisel.eecs.berkeley.edu/</a></li>
-                <li>GitHub 教程仓库： <a href="https://github.com/freechipsproject/chisel3/">https://github.com/freechipsproject/chisel3/</a></li>
+                <li>GitHub 仓库参考： <a href="https://github.com/freechipsproject/chisel3/">https://github.com/freechipsproject/chisel3/</a></li>
               </ul>
             </section>
             <footer class="page__meta">
@@ -663,7 +672,7 @@ sbt run
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">358</a>
+          Site version <a href="/status">359</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
         </div>
