@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-15 15:38:30  \tCurrent time \t    Source Git revision   7d58459 iBug: Fix _config.yml on local build  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 364       ","categories": [],
+"excerpt":"   Build time   2019-07-15 15:42:46  \tCurrent time \t    Source Git revision   b1f9930 iBug: Update author bio  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 365       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
