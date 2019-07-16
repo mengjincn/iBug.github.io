@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-16 05:04:55  \tCurrent time \t    Source Git revision   6f14411 iBug: Drop &quot;wide&quot; class since it's now max-width: 1440px  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 369       ","categories": [],
+"excerpt":"   Build time   2019-07-16 05:07:10  \tCurrent time \t    Source Git revision   c3e1e9d iBug: Set x-large breakpoint to 1440px for better browsing experiences  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 370       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
