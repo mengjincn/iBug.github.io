@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-16 03:38:37  \tCurrent time \t    Source Git revision   73ba74d iBug: Prepare [chisel] tag  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 368       ","categories": [],
+"excerpt":"   Build time   2019-07-16 05:04:55  \tCurrent time \t    Source Git revision   6f14411 iBug: Drop &quot;wide&quot; class since it's now max-width: 1440px  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 369       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
