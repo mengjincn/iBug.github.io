@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-07-16 05:07:10  \tCurrent time \t    Source Git revision   c3e1e9d iBug: Set x-large breakpoint to 1440px for better browsing experiences  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 370       ","categories": [],
+"excerpt":"   Build time   2019-07-16 05:31:11  \tCurrent time \t    Source Git revision   af714e1 iBug: Also drop wide on menu pages  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 371       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
