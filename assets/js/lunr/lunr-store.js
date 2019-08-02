@@ -30,7 +30,7 @@ var store = [{
 "url": "https://ibugone.com/education/",
 "teaser":null},{
 "title": "Friends",
-"excerpt":"Ordered randomly           taoky:  https://blog.taoky.moe/            Volltin:  https://volltin.com/            Zihan Zheng:  https://zhengzihan.com/            Sirius:  https://sirius1242.github.io/            Hypercube:  https://0x01.me/            Mingliang Zeng:  https://mlzeng.com/            cvhc:  https://i-yu.me/            ksqsf:  https://ksqsf.moe/       Other good folks online:      ArtOfCode:  https://artofcode.co.uk/     ","categories": [],
+"excerpt":"Ordered randomly           taoky:  https://blog.taoky.moe/            Volltin:  https://volltin.com/            maglee:  https://breakingdevil.github.io/            Zihan Zheng:  https://zhengzihan.com/            Sirius:  https://sirius1242.github.io/            Hypercube:  https://0x01.me/            Mingliang Zeng:  https://mlzeng.com/            cvhc:  https://i-yu.me/            ksqsf:  https://ksqsf.moe/       Other good folks online:      ArtOfCode:  https://artofcode.co.uk/     ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-08-01 20:00:36  \tCurrent time \t    Source Git revision   589f2be iBug: Consistent title casing  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 409 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-08-02 05:07:46  \tCurrent time \t    Source Git revision   1a9fed4 iBug: Add maglee to /friends  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 410       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
