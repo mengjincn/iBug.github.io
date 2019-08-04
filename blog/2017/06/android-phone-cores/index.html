@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -57,6 +57,14 @@
     <!-- Minimal Mistakes layout: single -->
   </head>
   <body class="layout--single">
+    <nav class="skip-links">
+      <h2 class="screen-reader-text">Skip links</h2>
+      <ul>
+        <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+        <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+        <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+      </ul>
+    </nav>
     <!--[if lt IE 9]>
       <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
     <![endif]-->
@@ -65,7 +73,9 @@
         <div class="masthead__menu">
           <nav id="site-nav" class="greedy-nav">
             <a class="site-logo" href="/"><img src="/assets/favicon.png" alt=""></a>
-            <a class="site-title" href="/">iBug</a>
+            <a class="site-title" href="/">
+              iBug
+            </a>
             <ul class="visible-links">
               <li class="masthead__menu-item">
                 <a href="/about/" >About</a>
@@ -253,7 +263,7 @@
         <div class="search-hits"></div>
       </div>
     </div>
-    <div class="page__footer">
+    <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
         <!-- end custom footer snippets -->
@@ -269,14 +279,14 @@
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">415</a>
+          Site version <a href="/status">416</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
         </div>
       </footer>
     </div>
     <script src="/assets/js/main.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
     <!-- Including InstantSearch.js library and styling -->
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
@@ -330,7 +340,7 @@
       // Starting the search
       search.start();
     </script>
-    <script type="text/javascript">
+    <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-115907213-1']);
       
