@@ -159,19 +159,19 @@
                   </header>
                   <ul class="toc__menu">
                     <li><a href="#starting-off">Starting off</a></li>
-                    <li><a href="#continuing-more">Continuing more</a></li>
+                    <li><a href="#going-ahead">Going ahead</a></li>
                     <li><a href="#conclusion">Conclusion</a></li>
                   </ul>
                 </nav>
               </aside>
               <p>After a plain request, an administrator of the SmokeDetector project added me under the <em>Developers</em> section of <a href="https://charcoal-se.org/people">their team member list</a>, which indicates that I am a known personnel for contributing a non-trivial amount of code to the project.</p>
               <h1 id="starting-off">Starting off</h1>
-              <p>The whole <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector</a> project is written in Python 3, and is currently the #2 starred repository <a href="https://github.com/topics/spam">tagged <code class="highlighter-rouge">spam</code> on GitHub</a>. They use flake8 for coding convention enforcement, which makes the code pretty readable to anyone new to the project.</p>
-              <p>I started from reading the part of the code that I can understand, and making trivial changes like changing the content of string literals, as I usually do with unfamiliar code or learning a new programming language. <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1441">My first pull request</a> that actually changed some functionality was a not-so-hard bug fix: In the reason <em>mostly dots in {}</em>, it used to attempt to strip <code class="highlighter-rouge">&lt;code&gt;</code> blocks after stripping all HTML tags, when there was no code blocks to strip anymore. This way a lot of dots inside code blocks that should have been stripped were wrongly left intact, and counted towards “total number of dots”. A lot of false positives were generated because in some code blocks, the density of dots was particularly high.</p>
-              <p>It wasn’t hard to copy that function down and try running it locally. I only added a few print statements before I noticed the logical error and made some patch. Then I submitted it as a pull request and luckily, it did not take long for a maintainer to evaluate my patch and merge it.</p>
-              <h1 id="continuing-more">Continuing more</h1>
-              <p>Sure. I kept submitting a steady stream of <a href="https://github.com/Charcoal-SE/SmokeDetector/pulls?q=is%3Apr+author%3AiBug">pull requests</a> since then, and most were small fixes/changes. They were mostly a few lines’ changes or even only a few characters, yet they made sense. They vary from catching a missing keyword to <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1634">adding a handy new chat command</a>.</p>
-              <p>Some changes that I’m specifically proud of:</p>
+              <p>The whole <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector</a> project is written in Python 3, and is currently the #2 starred repository <a href="https://github.com/topics/spam">tagged <code class="highlighter-rouge">spam</code> on GitHub</a>. They use Flake8 for coding convention enforcement, which makes the code pretty readable to anyone new to the project.</p>
+              <p>I started from reading the part of the code that I can understand, and making trivial changes like changing the content of string literals, as I usually do with unfamiliar code or learning a new programming language. <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1441">My first pull request</a> that actually changed some functionality was a straightforward bug fix: In the reason <em>mostly dots in {}</em>, it used to attempt to strip <code class="highlighter-rouge">&lt;code&gt;</code> blocks after stripping all HTML tags, when there was no code blocks to strip anymore. This way, a lot of dots inside code blocks that should had been stripped were wrongly left intact, and ended up counting towards “total number of dots”. A lot of false positives were generated because of that, since in some code blocks, the density of dots was particularly high.</p>
+              <p>It wasn’t hard to copy that function down and tweaking around with it in a local environment. I only added a few print statements before I noticed the logical error and made patches acccordingly. Then I submitted it as a pull request and luckily, it didn’t take long before a maintainer reviewed my patch and merged it.</p>
+              <h1 id="going-ahead">Going ahead</h1>
+              <p>In the next few months, I kept submitting a steady stream of <a href="https://github.com/Charcoal-SE/SmokeDetector/pulls?q=is%3Apr+author%3AiBug">pull requests</a>, and most were small fixes/changes. They were often a few lines’ changes or even only a few characters, yet they made sense. They varied from catching a missing keyword to <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1634">adding a handy new chat command</a>.</p>
+              <p>Some changes that I’m particularly proud of:</p>
               <ul>
                 <li><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1544">#1544</a>: Whitelist a few common file extensions that are often linked to external code sources like GitHub or Pastebin. They used to be caught for <em>misleading link</em> a lot.</li>
                 <li><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1634">#1634</a>: Add a new command <code class="highlighter-rouge">!!/scan</code> (though it’s originally named <code class="highlighter-rouge">!!/checkpost</code>). This command instructs SmokeDetector to scan a post if it was missed earlier, or if the user isn’t sure if it’s spam and is hesitant to directly <code class="highlighter-rouge">!!/report</code> it. It has become more popular than the original <code class="highlighter-rouge">!!/report</code> command since it was introduced.</li>
@@ -188,7 +188,7 @@
                 <li><a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1723">#1723</a>: A bug fix for another long-standing bug in message parsing due to Stack Exchange inserting invisible characters every 80 characters, for the purpose of line breaking (strange why can’t they use CSS). There was <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/1554">a previous attempt</a> that failed to fix this bug, and I reverted it by the way. The patch was verified to be working by later tests.</li>
               </ul>
               <h1 id="conclusion">Conclusion</h1>
-              <p>There’s no denying that it’s an important skill to continue from others’ code, as it’s a case that every programmer has to face sooner or later. Try starting at some easier tasks like inspecting a small single-file program and understanding it, then advance to trying modifying a multi-file project and make your own comprehension. Every project is a new start and you’ll soon learn your own way of joining another team of coders.</p>
+              <p>There’s no denying that it’s an important skill to continue from others’ code, as it’s a case that every programmer has to face sooner or later. Try starting at some easier tasks like inspecting a small single-file program and understanding it, then advance to trying modifying a multi-file project and make your own comprehension. Every project is a new start and you’ll soon pave your own way to joining another crew of developers.</p>
             </section>
             <footer class="page__meta">
               <p class="page__taxonomy">
@@ -296,7 +296,7 @@
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">417</a>
+          Site version <a href="/status">418</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
         </div>
