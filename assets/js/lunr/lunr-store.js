@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-08-04 20:02:21  \tCurrent time \t    Source Git revision   1a9fed4 iBug: Add maglee to /friends  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 416 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-08-05 08:00:42  \tCurrent time \t    Source Git revision   1a9fed4 iBug: Add maglee to /friends  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 417 &#9200;       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
