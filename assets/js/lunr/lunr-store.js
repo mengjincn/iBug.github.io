@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-08-09 09:03:12  \tCurrent time \t    Source Git revision   3de816c iBug: Temporarily remove Telegram Channel from author profile  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 427       ","categories": [],
+"excerpt":"   Build time   2019-08-09 10:41:27  \tCurrent time \t    Source Git revision   996fb32 iBug: Also remove TG Channel from index page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 428       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
