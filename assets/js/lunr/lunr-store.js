@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-08-12 20:00:34  \tCurrent time \t    Source Git revision   996fb32 iBug: Also remove TG Channel from index page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 435 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-08-13 08:00:39  \tCurrent time \t    Source Git revision   996fb32 iBug: Also remove TG Channel from index page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 436 &#9200;       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
