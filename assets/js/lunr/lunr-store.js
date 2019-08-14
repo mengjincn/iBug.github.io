@@ -50,7 +50,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-08-14 06:02:16  \tCurrent time \t    Source Git revision   22ee721 iBug: Fix missing text in article, add slideshow download  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 441       ","categories": [],
+"excerpt":"   Build time   2019-08-14 06:05:26  \tCurrent time \t    Source Git revision   48c8348 iBug: Upgrade &quot;Epilogue&quot; and &quot;Read More&quot; to H2  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 442       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
