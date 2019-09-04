@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <!-- begin _includes/seo.html --><title>Some ideas about multicore on Android - iBug ①</title>
     <meta name="description" content="Why do Android phones have more cores than computers?">
+    <meta name="author" content="iBug">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
@@ -21,10 +22,11 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "iBug",
-        "url": "https://ibugone.com",
-        "sameAs": null
+      
+          "@type": "Person",
+          "name": "iBug",
+          "url": "https://ibugone.com/"
+      
       }
     </script>
     <meta name="google-site-verification" content="5_jn7a-vZslUtLJO-BkY-cPDGgah5JP49RGgeOBmYSk" />
@@ -117,9 +119,9 @@
             </div>
             <div class="author__content">
               <h3 class="author__name" itemprop="name">iBug</h3>
-              <p class="author__bio" itemprop="description">
-                Developer, System Administrator, Geek
-              </p>
+              <div class="author__bio" itemprop="description">
+                <p>Developer, System Administrator, Geek</p>
+              </div>
             </div>
             <div class="author__urls-wrapper">
               <button class="btn btn--inverse">Follow</button>
@@ -182,7 +184,6 @@
               <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-06-11T10:51:16+00:00">June 11, 2017</time></p>
             </footer>
             <section class="page__share">
-              <h4 class="page__share-title">Share on</h4>
               <a href="https://twitter.com/intent/tweet?text=Some+ideas+about+multicore+on+Android%20https%3A%2F%2Fibugone.com%2Fblog%2F2017%2F06%2Fandroid-phone-cores%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
               <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2017%2F06%2Fandroid-phone-cores%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
               <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2017%2F06%2Fandroid-phone-cores%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
@@ -195,12 +196,12 @@
             </nav>
           </div>
           <div class="page__comments">
-            <h4 class="page__comments-title">Leave a comment</h4>
+            <h4 class="page__comments-title">Comments</h4>
             <section id="disqus_thread"></section>
           </div>
         </article>
         <div class="page__related">
-          <h4 class="page__related-title">You may also enjoy</h4>
+          <h4 class="page__related-title">You May Also Enjoy</h4>
           <div class="grid__wrapper">
             <div class="grid__item">
               <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
@@ -268,7 +269,6 @@
         <!-- end custom footer snippets -->
         <div class="page__footer-follow">
           <ul class="social-icons">
-            <li><strong>Follow:</strong></li>
             <li><a href="https://github.com/iBug" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
             <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
           </ul>
@@ -278,7 +278,7 @@
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">496</a>
+          Site version <a href="/status">497</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
         </div>
