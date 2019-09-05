@@ -50,7 +50,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-05 10:02:57  \tCurrent time \t    Source Git revision   35b49fc iBug: Add Open Graph default image  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 499       ","categories": [],
+"excerpt":"   Build time   2019-09-05 10:09:01  \tCurrent time \t    Source Git revision   cd9ec72 iBug: Add link to sitemap in footer  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 500       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
