@@ -50,7 +50,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-05 10:33:24  \tCurrent time \t    Source Git revision   3fcb40a iBug: Use a plugin to override number_of_words  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 501       ","categories": [],
+"excerpt":"   Build time   2019-09-05 10:37:00  \tCurrent time \t    Source Git revision   6417c38 iBug: Chinese reads faster :)  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 502       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
