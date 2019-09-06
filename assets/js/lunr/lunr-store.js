@@ -50,7 +50,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-06 07:29:48  \tCurrent time \t    Source Git revision   1cadd9b iBug: Update &quot;auto heading link&quot; script  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 509       ","categories": [],
+"excerpt":"   Build time   2019-09-06 07:30:49  \tCurrent time \t    Source Git revision   8ab0b91 iBug: I think I use &lt;h1&gt; intensively in my posts  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 510       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
