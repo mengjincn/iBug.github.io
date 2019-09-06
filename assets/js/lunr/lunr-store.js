@@ -50,7 +50,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-06 03:21:46  \tCurrent time \t    Source Git revision   36b25fb iBug: /projects/: Add vlab  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 507       ","categories": [],
+"excerpt":"   Build time   2019-09-06 07:24:52  \tCurrent time \t    Source Git revision   6d87a6d iBug: Add hover links for headings  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 508       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
