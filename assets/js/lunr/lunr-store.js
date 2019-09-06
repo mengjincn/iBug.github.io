@@ -50,7 +50,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-06 09:53:33  \tCurrent time \t    Source Git revision   a9b4143 iBug: /about/: Add GitHub PRs  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 513       ","categories": [],
+"excerpt":"   Build time   2019-09-06 14:57:26  \tCurrent time \t    Source Git revision   f11475d iBug: Add placeholder for LXC-ZFS article  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 514       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
