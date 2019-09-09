@@ -40,7 +40,7 @@ var store = [{
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
 "title": "Links",
-"excerpt":"课程主页（2019 年秋季学期）：      《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/  ","categories": [],
+"excerpt":"课程主页（2019 年秋季学期）：      《编译原理》公告板：http://210.45.114.30/gbxu/notice_board   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/links/",
 "teaser":null},{
@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-09 08:00:16  \tCurrent time \t    Source Git revision   1ef6d7e iBug: Add a links page (no entry)  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 521 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-09-09 09:01:49  \tCurrent time \t    Source Git revision   4a3df23 iBug: links: add compiler  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 522       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
