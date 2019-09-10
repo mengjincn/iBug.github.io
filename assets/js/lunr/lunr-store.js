@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-10 08:57:54  \tCurrent time \t    Source Git revision   791c35c iBug: Enable Jekyll profiling on CI  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 525       ","categories": [],
+"excerpt":"   Build time   2019-09-10 09:14:14  \tCurrent time \t    Source Git revision   bcb21d4 iBug: Use gem &quot;liquid-c&quot; to boost build speed  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 526       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
