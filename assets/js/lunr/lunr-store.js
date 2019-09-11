@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-11 03:28:23  \tCurrent time \t    Source Git revision   4bcf8ff iBug: Enable Paginate V2 AutoPages  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 532       ","categories": [],
+"excerpt":"   Build time   2019-09-11 08:00:19  \tCurrent time \t    Source Git revision   4bcf8ff iBug: Enable Paginate V2 AutoPages  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 533 &#9200;       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
