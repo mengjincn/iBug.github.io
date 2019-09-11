@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-09-10T20:00:36+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug ①</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">Creating templated Systemd services</title><link href="https://ibugone.com/blog/2019/07/systemd-service-template/" rel="alternate" type="text/html" title="Creating templated Systemd services" /><published>2019-07-16T00:00:00+00:00</published><updated>2019-07-16T00:00:00+00:00</updated><id>https://ibugone.com/blog/2019/07/systemd-service-template</id><content type="html" xml:base="https://ibugone.com/blog/2019/07/systemd-service-template/">&lt;p&gt;Last time I wrote an article about &lt;a href=&quot;/p/14&quot;&gt;NAT traversal using FRP&lt;/a&gt;, which has been my personal solution for exposing SSH access of machines behind NAT to the internet for a long time.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-09-11T03:10:00+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug ①</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">My speech at Microsoft Summer Camp 2019</title><link href="https://ibugone.com/blog/2019/08/speech-at-msc-2019/" rel="alternate" type="text/html" title="My speech at Microsoft Summer Camp 2019" /><published>2019-08-14T00:00:00+00:00</published><updated>2019-08-14T00:00:00+00:00</updated><id>https://ibugone.com/blog/2019/08/speech-at-msc-2019</id><content type="html" xml:base="https://ibugone.com/blog/2019/08/speech-at-msc-2019/">&lt;p&gt;&lt;em&gt;This is a translated version from &lt;a href=&quot;/p/24-cn&quot;&gt;the Chinese (original) script&lt;/a&gt;. The slideshow can be acquired &lt;a href=&quot;https://github.com/iBug/Archive/releases/download/Release/iBug-Handout.pdf&quot;&gt;here&lt;/a&gt;. For comments, please head to &lt;a href=&quot;/p/24&quot;&gt;the Chinese version&lt;/a&gt; of this post.&lt;/em&gt;&lt;/p&gt;
+        &lt;p&gt;Hello everyone, I’m iBug from the University of Science and Technology of China. Today I’ll show you my experiences and tips in participating in open-source projects.&lt;/p&gt;
+        &lt;h2 id=&quot;1-what-is-open-source-software&quot;&gt;1. What is Open-Source Software?&lt;/h2&gt;
+        &lt;p&gt;Open-Source Software (OSS) is a classification of computer software whose source code is freely available. Open-source software always has a license attached to it, which defines the usage of its source code. A few common OSS licenses are GNU General Public License, MIT License, Apache 2.0 License and the BSD License. Different licenses pose different requirements to users of the source code. For example, GNU GPL requires that any derived work be licensed under the same terms, while MIT License is more permissive on that. Meanwhile, the public availability of the source code enables everyone to participate and commit their contribution.&lt;/p&gt;
+        &lt;p&gt;The original incentive of open-source software was to share knowledge. Software design and programming skills are both knowledge, so the ancestors share them by sharing source code. In an open-source model, every user is part of the community. Everyone can join the development and maintenance work, or help test and audit the code, or chime in to the discussions. That’s how open-source software forms its distinctive collaboration model, and its adequate documentations, tutorials as well as discussions provides abundant information to whoever wants to take a part.&lt;/p&gt;
+        &lt;p&gt;Then, why do people choose open-source software?&lt;/p&gt;
+        &lt;p&gt;On one hand, open-source software is well-audited. Contrary to proprietary software, open-source ones are not audited by a closed group, but rather anyone interested. Anyone can audit the code of any single open-source software, which grants open-source software with its unique transparency. Meanwhile, help from people with experiences in security also adds to the overall security of the software.&lt;/p&gt;
+        &lt;p&gt;On the other hand, every open-source software has a surrounding community. The persistence of the community around open-source software makes it perpetual and less likely abandoned. In addition, the variety of people in the community makes every part of the software well-maintained. Besides, the open availability of the source code enables the obtaining of a running software by compiling from source, which brings down the total cost of using it. (It isn’t unconditionally true, though, for example NGINX sells a “premium version” of the software, NGINX Plus, for a fee.)&lt;/p&gt;
+        &lt;p&gt;Here’s a collection of open-source software that many people recognizes, including TensorFlow ML framework, Windows Calculator, LibreOffice office suite, as well as Debian GNU/Linux operating system. It’s apparent that open-source software exists throughout our daily life and work.&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&quot;/image/msc2019/s7.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+        &lt;h2 id=&quot;2-my-experiences-in-participating-in-open-source-projects&quot;&gt;2. My experiences in participating in open-source projects&lt;/h2&gt;
+        &lt;p&gt;&lt;a href=&quot;https://github.com/iBug&quot;&gt;This is my GitHub profile page&lt;/a&gt;. The 6 pinned repositories are:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;TetrisAI: A console tetris game written in C, with a built-in AI playing mode&lt;/li&gt;
+        &lt;li&gt;SmokeDetector: This one will be discussed later&lt;/li&gt;
+        &lt;li&gt;PyReversi: A GUI reversi game developed with Python and PyQt5. Also has built-in AI to provide a “human vs computer” mode&lt;/li&gt;
+        &lt;li&gt;CGadgets and vbsGadgets: As suggested by their names, they’re “gadgets” written in C and VBScript&lt;/li&gt;
+        &lt;li&gt;OJSangbox: My work from the course &lt;em&gt;Research for newbies&lt;/em&gt;, a sandbox implementation for online judgers using Linux technologies like chroot and rlimits.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/users/5958455/ibug&quot;&gt;This is my Stack Overflow profile&lt;/a&gt;. I occasionally participate in the regular Q &amp;amp; A activities on Stack Overflow. So far I have asked 100+ questions and answered 800+, and accrued an aggregate reputation of more then 22.6k. My top few tags include &lt;code class=&quot;highlighter-rouge&quot;&gt;c++&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;python&lt;/code&gt;.&lt;/p&gt;
+        &lt;h3 id=&quot;my-first-participation-in-an-open-source-project&quot;&gt;My first participation in an open-source project&lt;/h3&gt;
+        &lt;p&gt;My first experience took place at &lt;a href=&quot;https://github.com/markondej/fm_transmitter&quot;&gt;markondej/fm_transmitter&lt;/a&gt;. I was trying to set up my own FM radio station and loop music, when I noticed that the “repeat” command-line option wasn’t working. I confirmed that there was nothing wrong with my Pi and the Raspbian OS on it, so I took a look at the code. It wasn’t hard for me to spot a missing negation in a condition check, so I patched it myself, compiled the code again and verified that my patch was working correctly.&lt;/p&gt;
+        &lt;p&gt;My roommate was right beside me then, and came to help me when he saw me. Under his guidance, I forked the upstream repository, pushed my local changes up, and opened &lt;a href=&quot;https://github.com/markondej/fm_transmitter/pull/61&quot;&gt;my first pull request&lt;/a&gt;. Two days later, the author replied “Thanks for your help” and merged my PR.&lt;/p&gt;
+        &lt;h3 id=&quot;my-primary-participation-in-another-open-source-project&quot;&gt;My primary participation in another open-source project&lt;/h3&gt;
+        &lt;p&gt;&lt;img src=&quot;/image/msc2019/s7.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+        &lt;p&gt;Look at the above image again, I anticipate that the icon at bottom-right is the least known one. It’s the logo of the organization &lt;a href=&quot;https://charcoal-se.org&quot;&gt;Charcoal-SE&lt;/a&gt;, whose primary project is &lt;a href=&quot;https://github.com/Charcoal-SE/SmokeDetector&quot;&gt;SmokeDetector&lt;/a&gt;, a headless chat bot that helps the Stack Exchange Network fight off spam.&lt;/p&gt;
+        &lt;p&gt;The bot came into my attention in December 2017, and I was directed to Charcoal HQ after asking about it.&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&quot;/image/msc2019/s14.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+        &lt;p&gt;And I dropped into that chat room. Every day I chat with them and watched the output from SmokeDetector, flagging spam that was reported. The routine continued to early January 2018, when someone noticed a bug with Smokey. I volunteered to take a look at it and fixed it, and fired up my first PR that changed some code (&lt;a href=&quot;https://github.com/Charcoal-SE/SmokeDetector/pull/1441&quot;&gt;#1441&lt;/a&gt;). Since then, I worked hard to study the code of SmokeDetector and continued to submit a steady stream of fixes and improvements. In March 2018, they added me to their &lt;a href=&quot;https://charcoal-se.org/people#devs&quot;&gt;list of developers&lt;/a&gt;, and in June, I was granted direct push access to the repository, indicating that I had been trusted for my proficiency in handling the project.&lt;/p&gt;
+        &lt;p&gt;From SmokeDetector, I started the expansion of my contribution, and sought out for other interesting projects that I could give a hand to. One of them was &lt;a href=&quot;https://github.com/Charcoal-SE/metasmoke&quot;&gt;metasmoke&lt;/a&gt;, a web dashboard for SmokeDetector, which is a Rails-based web application itself. Another one was &lt;a href=&quot;https://charcoal-se.org&quot;&gt;Charcoal website&lt;/a&gt;, hosted on GitHub Pages and built with Jekyll. With what I learned from working on Charcoal website, I built my own website with Jekyll too, and submitted a PR to &lt;a href=&quot;https://github.com/pages-themes/cayman-theme&quot;&gt;the theme&lt;/a&gt; that I started off with.&lt;/p&gt;
+        &lt;h3 id=&quot;other-contributions-ive-made&quot;&gt;Other contributions I’ve made&lt;/h3&gt;
+        &lt;p&gt;In addition to code patches, I also opened a series of decent issues, name a few:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;Magisk, a popular root framework for Android. I submitted &lt;a href=&quot;https://github.com/topjohnwu/Magisk/issue/512&quot;&gt;a suggestion&lt;/a&gt; to improve its install script, which was accepted later. (#512)&lt;/li&gt;
+        &lt;li&gt;wtfpython, a collection of interesting Python constructs. I pointed out a mistake in the document (#81)&lt;/li&gt;
+        &lt;li&gt;BaiduPCS-Go, a command-line client for Baidu Net Disk. I reported a bug. (#402)&lt;/li&gt;
+        &lt;li&gt;I also opened a few trivial issues in repositories I’m familiar with, so that more people could learn them by participating in &lt;a href=&quot;https://hacktoberfest.digitalocean.com&quot;&gt;Hacktoberfest&lt;/a&gt;.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;In addition, I’m also an active participant in various discussions, as well as Stack Overflow. I enjoy helping others with my knowledge.&lt;/p&gt;
+        &lt;p&gt;My personal top ★ repo is &lt;a href=&quot;https://github.com/iBug/pac&quot;&gt;pac&lt;/a&gt;, which originated from &lt;a href=&quot;https://github.com/shadowsocks/shadowsocks-windows/issues/1873#issuecomment-416293495&quot;&gt;a discussion&lt;/a&gt; on another repository. People had a strong need for a functionality, which was implementable just with a PAC script, so I wrote one and shared it with the &lt;em&gt;pac&lt;/em&gt; repo, which has accumulated a total of 24 stars by the time of writing this article. There’s one thing we can know for sure, that its star amount wasn’t for its complexity or use of high-tech, but rather its usefulness to passers-by. The issues section has also received a few questions, all of which has been answered by me.&lt;/p&gt;
+        &lt;h3 id=&quot;what-ive-learned&quot;&gt;What I’ve learned&lt;/h3&gt;
+        &lt;p&gt;I’d say pretty much the primary thing I’ve learned from those experiences is teamwork. Teamwork is very inclusive and involves the use of Git Version Control System (VCS), a consistent coding style and documentation style, as well as the meaning and usage of a Continuous Integration system, and most importantly, the skills of communication.&lt;/p&gt;
+        &lt;h2 id=&quot;3-getting-involved-by-yourself&quot;&gt;3. Getting involved by yourself&lt;/h2&gt;
+        &lt;p&gt;Before chiming in, you should understand one point that an open-source project is a &lt;em&gt;project&lt;/em&gt; and thus, you have flexible ways of contribution.&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;
+        &lt;p&gt;For software, the most intuitive contribution is to submit code patches, for example bug fixes, enhancements and test suites.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;Besides, it’s also a valuable kind of contribution to help improve documentations and tutorials&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;Meanwhile, translating documents into other languages enables more people to participate.&lt;/p&gt;
+        &lt;p&gt;For example, &lt;a href=&quot;https://www.transifex.com/&quot;&gt;Transifex&lt;/a&gt; is a commonly used translation collaboration platform, and it powers many well-known projects like Disqus and SoundCloud.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;Finally, if you’re not interested in all of above, you still have the option of contributing supplementary information, like Q &amp;amp; A and bug reports.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;So then, what are we going to reap for ourselves?&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;
+        &lt;p&gt;The most direct consequence is that you gained hand-on experiences working on a real-life project.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;You also practiced your existing skills and learned new ones.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;You acquired important knowledge and wisdom.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;You can easily show off your hard work on open-source projects.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;You can stand out from the crowd when applying for opportunities. Apparently, your HR / curator / mentor will more likely give you the offer when they can actually see your work.&lt;/p&gt;
+        &lt;p&gt;An immediate example is my chance of speaking here, which owes a lot to the fact that my open-source achievements can be easily seen and verified by the event host.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Looks rather attractive, right? Then it’s time to set yourself up.&lt;/p&gt;
+        &lt;h3 id=&quot;discover-your-abilities&quot;&gt;Discover your abilities&lt;/h3&gt;
+        &lt;p&gt;The first thing to decide is what you excel at. Say for example, if you’re good at turning ideas into code, or if you’re competent in discovering leak holes, or if you’re innovative at designing, and so on. Specific abilities help you excel at specific tasks.&lt;/p&gt;
+        &lt;h3 id=&quot;find-your-interest&quot;&gt;Find your interest&lt;/h3&gt;
+        &lt;p&gt;Then you should find a project of your interest. There are a few ways to search for them, listing a few for example:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;A piece of software that you use on a daily basis&lt;/li&gt;
+        &lt;li&gt;An interesting project that you come across, like the trio on the right side of GitHub dashboard&lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;Random events that advocate open-source projects like &lt;a href=&quot;https://hacktoberfest.digitalocean.com&quot;&gt;Hacktoberfest&lt;/a&gt;, or another long-running one &lt;a href=&quot;https://up-for-grabs.net/&quot;&gt;Up For Grabs&lt;/a&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;Finally, an innovative idea that could start a new project on its own&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;If you decide to join an existing project, there are some preliminary checks that I advise you to perform.&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;First and foremost, it’s mandatory that an open-source project contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;LICENSE&lt;/code&gt;. And it adds up if it has a Code of Conduct as well.&lt;/li&gt;
+        &lt;li&gt;You should also judge the activity of the project, like the time of the last commit, as well as how often project maintainers commit.&lt;/li&gt;
+        &lt;li&gt;It’s a big bonus if the project has an active community, who can generate a lot of Issues and Pull Requests, both of which are good indicators of project activity.&lt;/li&gt;
+        &lt;li&gt;Finally, a friendly atmosphere makes discussion more comfortable and constructive.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h3 id=&quot;effective-communication&quot;&gt;Effective communication&lt;/h3&gt;
+        &lt;p&gt;The most common thing that happens throughout your activity in a project is communicating with others. It’s often worth noting for the sake of the effectiveness of your communication that:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;You’re expected to do researches beforehand by yourself. You should probably avoid asking “how to write code for this”, and at the very least, “I wrote this code and it’s wrong” is a better question.&lt;/li&gt;
+        &lt;li&gt;Should you really need to ask a question like “I wrote this code and it’s wrong”, you must provide enough context and (probably) code for others to identify the problem. Similarly, whatever discussion you’re starting, ensure you’ve enabled others to replicate what you’re describing.&lt;/li&gt;
+        &lt;li&gt;Keep the discussion straight and on-topic. It’s very likely that no one is interested in that you wrote the code in Starbucks after an afternoon’s work at the port carrying bricks.&lt;/li&gt;
+        &lt;li&gt;For public projects, keep the discussion public as well, unless there are other reasons not to, for example reporting security issues or misbehavior of other community members.&lt;/li&gt;
+        &lt;li&gt;Respect others should their opinions differ.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h3 id=&quot;after-submitting-your-contribution&quot;&gt;After submitting your contribution&lt;/h3&gt;
+        &lt;p&gt;It’s time for you to wait for project maintainers to review your contribution and take further actions. There are a few outcomes here.&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;No one pays any attention to it and your Issue or PR just hangs. Maybe you should simply wait for longer, or perhaps you should have checked the project for recent activity.&lt;/li&gt;
+        &lt;li&gt;If anyone suggests improvement, it means that others have taken time to review your contribution. You should respect them and respond in time.&lt;/li&gt;
+        &lt;li&gt;Sometimes the maintainers or the community doesn’t accept your contribution. Don’t panic, see what others think and say, collect them as your own experiences.&lt;/li&gt;
+        &lt;li&gt;If your contribution gets accepted, then &lt;strong&gt;Congratulations&lt;/strong&gt;!&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h2 id=&quot;epilogue&quot;&gt;Epilogue&lt;/h2&gt;
+        &lt;p&gt;Whether you’re new to open-source projects, or experienced in the field, I hope you can go ahead and carry forward the idea of open-source.&lt;/p&gt;
+        &lt;h2 id=&quot;more-reading&quot;&gt;More reading&lt;/h2&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;https://dev.to/kerryja/getting-started-with-open-source-3o23&quot;&gt;https://dev.to/kerryja/getting-started-with-open-source-3o23&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;https://opensource.guide/&quot;&gt;https://opensource.guide/&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;For comments, please head to &lt;a href=&quot;/p/24&quot;&gt;the Chinese version&lt;/a&gt; of this post.&lt;/p&gt;</content><author><name>iBug</name></author><category term="speech" /><summary type="html">This is a translated version from the Chinese (original) script. The slideshow can be acquired here. For comments, please head to the Chinese version of this post.</summary></entry><entry><title type="html">Creating templated Systemd services</title><link href="https://ibugone.com/blog/2019/07/systemd-service-template/" rel="alternate" type="text/html" title="Creating templated Systemd services" /><published>2019-07-16T00:00:00+00:00</published><updated>2019-07-16T00:00:00+00:00</updated><id>https://ibugone.com/blog/2019/07/systemd-service-template</id><content type="html" xml:base="https://ibugone.com/blog/2019/07/systemd-service-template/">&lt;p&gt;Last time I wrote an article about &lt;a href=&quot;/p/14&quot;&gt;NAT traversal using FRP&lt;/a&gt;, which has been my personal solution for exposing SSH access of machines behind NAT to the internet for a long time.&lt;/p&gt;
         &lt;p&gt;As time goes by, I get more devices behind NAT and more VPS hosts providing FRP access, and the need for connecting one device with multiple FRP hosts arises. Surely, one solution would be writing multiple config files and Systemd service files for each instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;frpc&lt;/code&gt;, which would just run perfectly.&lt;/p&gt;
         &lt;h2 id=&quot;writing-multiple-systemd-service-files&quot;&gt;Writing multiple Systemd service files&lt;/h2&gt;
         &lt;p&gt;Let’s start this with one &lt;code class=&quot;highlighter-rouge&quot;&gt;frpc.service&lt;/code&gt; file that I wrote and am using:&lt;/p&gt;
@@ -554,107 +676,4 @@
         &lt;p&gt;On the first start, you’ll see &lt;em&gt;What’s new in Ubuntu&lt;/em&gt;. For the sake of curiosity, you can skim it through. Nothing quite important here.&lt;/p&gt;
         &lt;p&gt;&lt;img src=&quot;/image/setup-vmware/u-5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
         &lt;p&gt;If you need to open a terminal for shell commanding, just hit &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;Alt&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;T&lt;/code&gt;.&lt;/p&gt;
-        &lt;p&gt;&lt;img src=&quot;/image/setup-vmware/u-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>iBug</name></author><category term="software" /><category term="linux" /><summary type="html">A quick step-by-step guide for those wanting to get in touch with Ubuntu in a virtual machine with minimal effort. For example, at the start of a semester of Operating System Concepts course.</summary></entry><entry><title type="html">Access your Raspberry Pi remotely with SSH</title><link href="https://ibugone.com/blog/2019/02/ssh-into-lan-computer/" rel="alternate" type="text/html" title="Access your Raspberry Pi remotely with SSH" /><published>2019-02-13T00:00:00+00:00</published><updated>2019-02-13T00:00:00+00:00</updated><id>https://ibugone.com/blog/2019/02/ssh-into-lan-computer</id><content type="html" xml:base="https://ibugone.com/blog/2019/02/ssh-into-lan-computer/">&lt;p&gt;Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.&lt;/p&gt;
-        &lt;p&gt;In my case, I have a Raspberry Pi at my home, and I need some remote SSH from outside. And here’s how I made it work.&lt;/p&gt;
-        &lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
-        &lt;p&gt;The server hardware, and a VPS with a public IP (for forwarding)&lt;/p&gt;
-        &lt;h1 id=&quot;server-setup&quot;&gt;Server setup&lt;/h1&gt;
-        &lt;p&gt;The software I use is &lt;a href=&quot;https://github.com/fatedier/frp&quot;&gt;frp&lt;/a&gt; (&lt;strong&gt;f&lt;/strong&gt;ast &lt;strong&gt;r&lt;/strong&gt;everse &lt;strong&gt;p&lt;/strong&gt;roxy). It’s written in Go and is designed specifically for port forwarding.&lt;/p&gt;
-        &lt;p&gt;To setup the server, grab a release. I use 0.17.0 but you can always prefer the latest release.&lt;/p&gt;
-        &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd
-        &lt;/span&gt;wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_amd64.tar.gz
-        &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf frp_0.17.0_linux_amd64.tar.gz
-        &lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;frp_0.17.0_linux_amd64 frp
-        &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;frp
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;Now open the configuration file &lt;code class=&quot;highlighter-rouge&quot;&gt;frps.ini&lt;/code&gt; with your favorite editor, Vim or Emacs, and put the following content in:&lt;/p&gt;
-        &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[common]
-        bind_port = 7000
-        privilege_token = your_token
-        dashboard_port = 8080
-        dashboard_user = admin
-        dashboard_pwd = password
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;In fact, you only need the top two configuration items, &lt;code class=&quot;highlighter-rouge&quot;&gt;bind_port&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;privilege_token&lt;/code&gt;. There’s a &lt;code class=&quot;highlighter-rouge&quot;&gt;frps_full.ini&lt;/code&gt; in the package if you want to dig deeper, but I’ll keep things simple here.&lt;/p&gt;
-        &lt;ul&gt;
-        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bind_port&lt;/code&gt;: The port for &lt;code class=&quot;highlighter-rouge&quot;&gt;frps&lt;/code&gt; (FRP Server) to listen for clients.&lt;/li&gt;
-        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;privilege_token&lt;/code&gt;: A token for clients to authenticate. Think it as the password of your Wi-Fi AP.&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;p&gt;The following three items together provide a web dashboard for you to monitor status. They’re completely optional and you can leave them out if you don’t need the dashboard, or set it to whatever value you find convenient for you. Their names should be self-explanatory.&lt;/p&gt;
-        &lt;p&gt;Now, start the server:&lt;/p&gt;
-        &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./frps &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; ./frps.ini
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;If you see logs in your terminal output, then you’re good to go!&lt;/p&gt;
-        &lt;p&gt;In most cases, it’d be convenient for the server software to start as a daemon, and automatically start at boot. The way I chose is creating a systemd system service, so it’s possible to use commands like &lt;code class=&quot;highlighter-rouge&quot;&gt;service frps start&lt;/code&gt; to manage it.&lt;/p&gt;
-        &lt;p&gt;Create the file &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/systemd/system/frps.service&lt;/code&gt; with the following content:&lt;/p&gt;
-        &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
-        Description=FRP Server
-        After=network.target
-        StartLimitIntervalSec=0
-        [Service]
-        Type=simple
-        Restart=always
-        RestartSec=1
-        User=ubuntu
-        ExecStart=/home/ubuntu/frp/frps -c /home/ubuntu/frp/frps.ini
-        [Install]
-        WantedBy=multi-user.target
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;Take note of Line 10 and Line 11. You need to set the user to your username and change the paths as your setup goes.&lt;/p&gt;
-        &lt;p&gt;After creating the service registry file, you can start the FRP server with &lt;code class=&quot;highlighter-rouge&quot;&gt;service frps start&lt;/code&gt; and check its status with &lt;code class=&quot;highlighter-rouge&quot;&gt;service frps status&lt;/code&gt;.&lt;/p&gt;
-        &lt;p&gt;For insurance, I added &lt;code class=&quot;highlighter-rouge&quot;&gt;service frps start&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/rc.local&lt;/code&gt; so it will start at boot.&lt;/p&gt;
-        &lt;p&gt;Now the server side is fully set up and ready to use.&lt;/p&gt;
-        &lt;h1 id=&quot;client-setup&quot;&gt;Client setup&lt;/h1&gt;
-        &lt;p&gt;Setting up the client machine is pretty much symmetric to setting up the server and the procedure isn’t much different.&lt;/p&gt;
-        &lt;p&gt;My client machine is a $35 Raspberry Pi running Raspbian, so I picked the ARM version of prebuilt binary.&lt;/p&gt;
-        &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd
-        &lt;/span&gt;wget https://github.com/fatedier/frp/releases/download/v0.17.0/frp_0.17.0_linux_arm.tar.gz
-        &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf frp_0.17.0_linux_arm.tar.gz
-        &lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;frp_0.17.0_linux_arm frp
-        &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;frp
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;This time, open &lt;code class=&quot;highlighter-rouge&quot;&gt;frpc.ini&lt;/code&gt; with your favorite editor, and put the following content in:&lt;/p&gt;
-        &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[common]
-        server_addr = &amp;lt;your server ip&amp;gt;
-        server_port = 7000
-        privilege_token = your_token
-        login_fail_exit = true
-        [ssh]
-        type = tcp
-        local_ip = 127.0.0.1
-        local_port = 22
-        remote_port = 8022
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;Put the IP address of your server in &lt;code class=&quot;highlighter-rouge&quot;&gt;server_addr&lt;/code&gt;, and your privilege token in the configuration file, then it’s set. You may need to change &lt;code class=&quot;highlighter-rouge&quot;&gt;remote_port&lt;/code&gt; to another value if 8022 is occupied by another program on your server.&lt;/p&gt;
-        &lt;p&gt;Similar to the server software, I created another systemd service for the client software. Here’s what I have in my &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/systemd/system/frpc.service&lt;/code&gt;:&lt;/p&gt;
-        &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
-        Description=FRP Client
-        After=network.target
-        StartLimitIntervalSec=0
-        [Service]
-        Type=simple
-        Restart=always
-        RestartSec=1
-        User=pi
-        ExecStart=/home/pi/frp/frpc -c /home/pi/frp/frpc.ini
-        [Install]
-        WantedBy=multi-user.target
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;That’s pretty much identical to the server service, no?&lt;/p&gt;
-        &lt;p&gt;The last thing is to put &lt;code class=&quot;highlighter-rouge&quot;&gt;service frpc start&lt;/code&gt; in an appropriate place in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/rc.local&lt;/code&gt; so the FRP client starts at boot.&lt;/p&gt;
-        &lt;p&gt;Now that both sides are set, let’s try it out.&lt;/p&gt;
-        &lt;h1 id=&quot;running-ssh-remotely&quot;&gt;Running SSH remotely&lt;/h1&gt;
-        &lt;p&gt;You can SSH into your Raspberry Pi as usual, just remember to change the host name to your VPS, and specify the port as set during client setup.&lt;/p&gt;
-        &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@&amp;lt;your server ip&amp;gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8022
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;See the shell popping up from your RPi? Congratulations! You’re good to go.&lt;/p&gt;
-        &lt;p&gt;For convenience, you can add the remote SSH configuration to your local SSH config file &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/config&lt;/code&gt;, so you can access with ease in the future.&lt;/p&gt;
-        &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host pi-remote
-        HostName &amp;lt;your server ip&amp;gt;
-        Port 8022
-        User pi
-        PubKeyAuthentication yes
-        PasswordAuthentication yes
-        IdentityFile ~/.ssh/id_rsa
-        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;p&gt;And then, you can SSH into your Raspberry Pi remotely with &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh pi-remote&lt;/code&gt;, and let SSH handle the rest.&lt;/p&gt;</content><author><name>iBug</name></author><category term="linux" /><category term="networking" /><summary type="html">Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.</summary></entry></feed>
+        &lt;p&gt;&lt;img src=&quot;/image/setup-vmware/u-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>iBug</name></author><category term="software" /><category term="linux" /><summary type="html">A quick step-by-step guide for those wanting to get in touch with Ubuntu in a virtual machine with minimal effort. For example, at the start of a semester of Operating System Concepts course.</summary></entry></feed>
