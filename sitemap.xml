@@ -18,35 +18,35 @@
     </url>
     <url>
       <loc>https://ibugone.com/about/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cv/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/education/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/friends/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/links/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/projects/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/skills/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/status/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2009/11/regex-match-open-tags-except-xhtml-self-contained-tags/</loc>
@@ -146,7 +146,7 @@
     </url>
     <url>
       <loc>https://ibugone.com/share/jekyll-themes/</loc>
-      <lastmod>2019-09-11T03:14:53+00:00</lastmod>
+      <lastmod>2019-09-11T03:21:28+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cn/2018-s/</loc>
@@ -240,5 +240,80 @@
     </url>
     <url>
       <loc>https://ibugone.com/blog/3/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/stack-overflow/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/stack-exchange/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/android/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/development/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/github-pages/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/study-notes/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/study-notes/2/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/algorithm/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/gaming/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/miscellaneous/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/software/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/microsoft-office/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/linux/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/networking/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/keygen/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/git/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/github/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/speech/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/chisel/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/collection/posts/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/collection/posts/2/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/collection/posts/3/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/collection/home/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/collection/cn/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/collection/share/</loc>
     </url>
   </urlset>
