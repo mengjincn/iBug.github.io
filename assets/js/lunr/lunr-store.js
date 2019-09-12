@@ -40,7 +40,7 @@ var store = [{
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
 "title": "Links",
-"excerpt":"课程主页（2019 年秋季学期）：      《编译原理》公告板：http://210.45.114.30/gbxu/notice_board   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/  ","categories": [],
+"excerpt":"课程主页（2019 年秋季学期）：      《编译原理》公告板：http://210.45.114.30/gbxu/notice_board/issues/1   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/links/",
 "teaser":null},{
@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-12 05:21:24  \tCurrent time \t    Source Git revision   46c8382 iBug: Disable AutoPages, gem 'jekyll-github-metadata' only in CI  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 536       ","categories": [],
+"excerpt":"   Build time   2019-09-12 06:14:22  \tCurrent time \t    Source Git revision   7e66984 iBug: Update links  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 537       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
