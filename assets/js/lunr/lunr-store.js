@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-12 05:02:02  \tCurrent time \t    Source Git revision   dee35f3 iBug: Disable AutoPages, gem 'jekyll-github-metadata' only in CI  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 535       ","categories": [],
+"excerpt":"   Build time   2019-09-12 05:21:24  \tCurrent time \t    Source Git revision   46c8382 iBug: Disable AutoPages, gem 'jekyll-github-metadata' only in CI  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 536       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
