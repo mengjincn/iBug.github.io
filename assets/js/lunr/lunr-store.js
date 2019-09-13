@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-13 06:29:57  \tCurrent time \t    Source Git revision   c43b829 iBug: CircleCI: Reduce cron frequency  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 544       ","categories": [],
+"excerpt":"   Build time   2019-09-13 08:10:17  \tCurrent time \t    Source Git revision   c43b829 iBug: CircleCI: Reduce cron frequency  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 545 &#9200;       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
