@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-13 11:05:59  \tCurrent time \t    Source Git revision   b2c699b iBug: Add cURL speed chart  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 546       ","categories": [],
+"excerpt":"   Build time   2019-09-13 14:08:49  \tCurrent time \t    Source Git revision   ca85aed iBug: Work around a display issue  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 547       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
