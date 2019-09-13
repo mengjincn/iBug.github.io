@@ -411,6 +411,8 @@ openssl speed <span class="nt">-evp</span> sha256
               <p>The Pi 4 upgraded the 300 Mbps Ethernet port to a true 1 Gbps port, which is a great benefit if you want to use it as an offline downloader or an NAS. Here I ran two tests about the network connectivity.</p>
               <h4 id="61-curl-file-download-test">6.1 cURL file download test</h4>
               <p>This one is simple: Use cURL to download a file from a LAN machine and see the speed.</p>
+              <p><img src="/image/rpi4/chart/cURL.png" alt="cURL download speed chart" /></p>
+              <p>The result isn’t as expected: The Pi 4 failed to run at its true Gbps speed, while my x86 Linux box right beside it made it.</p>
               <h4 id="62-nginx-performance-test">6.2 NGINX performance test</h4>
               <p>Another common use case is to serve web content with NGINX (sorry, no Apache). I installed NGINX on both Pis, set <code class="highlighter-rouge">access_log off</code> and use Siege 4.0.4 on my x86 box to benchmark the servers.</p>
               <div class="language-shell highlighter-rouge">
@@ -553,7 +555,7 @@ siege <span class="nt">-c</span> 25 <span class="nt">-r</span> 400 <span class="
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">545</a>
+          Site version <a href="/status">546</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
           <a href="/sitemap.xml">Sitemap (XML)</a>
