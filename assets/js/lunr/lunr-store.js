@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-14 03:32:51  \tCurrent time \t    Source Git revision   7b46be8 iBug: Add buggy page for inspection  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 548       ","categories": [],
+"excerpt":"   Build time   2019-09-14 08:10:17  \tCurrent time \t    Source Git revision   7b46be8 iBug: Add buggy page for inspection  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 549 &#9200;       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
