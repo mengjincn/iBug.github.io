@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-14 17:12:29  \tCurrent time \t    Source Git revision   1fa0092 iBug: Work around mmistakes/minimal-mistakes#2263  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 555       ","categories": [],
+"excerpt":"   Build time   2019-09-14 17:14:52  \tCurrent time \t    Source Git revision   0f33232 iBug: Looks like the new workaround is working  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 556       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
