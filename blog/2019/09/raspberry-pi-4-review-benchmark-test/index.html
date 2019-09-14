@@ -151,7 +151,7 @@
               <h1 id="page-title" class="page__title" itemprop="headline">Raspberry Pi 4 B Review and Benchmark - What’s improved over Pi 3 B+
               </h1>
               <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
-                8 minute read
+                9 minute read
               </p>
             </header>
             <section class="page__content" itemprop="text">
@@ -366,7 +366,7 @@ sysbench <span class="nt">--test</span><span class="o">=</span>memory <span clas
               <p>There’s one interesting thing, though, that why I didn’t include a “1 MiB Read MT” column. SysBench reported a read speed of over 200 GB/s on both boards, and the results can sometimes go up to 500 GB/s, which is ridiculous to be taken seriously, so I just dropped that result.</p>
               <h3 id="3-fio-microsd-card-speed-test">3. FIO microSD card speed test</h3>
               <p>This test may depend on the microSD card, so I took out my (known) fastest cards for the Pis, the Lexar 667x 128 GB microSD card, which looks like below:</p>
-              <p><img src="/image/rpi4/microsd-card.png" alt="The microSD card" /></p>
+              <p><img src="/image/rpi4/microsd-card.jpg" alt="The microSD card" /></p>
               <p>I use <code class="highlighter-rouge">fio</code> for the disk (microSD card) I/O performance testing tool. Because I’m familiar with Crystal DiskMark, I tuned the command-line options of <code class="highlighter-rouge">fio</code> to match the specs of CDM.</p>
               <div class="language-shell highlighter-rouge">
                 <div class="highlight">
@@ -446,8 +446,16 @@ siege <span class="nt">-c</span> 25 <span class="nt">-r</span> 400 <span class="
               <p>The Ruby test is more balanced than the Python test, which is pure computational performance. As a result, the performance gap is smaller in the Ruby test.</p>
               <p>Wait, that doesn’t mean the Pi 4 would be a good platform for your bigger Python or Ruby project. The same tests run <strong>10x faster</strong> on my x86 Linux box (i7-8850H, 32 GB DDR4, NVMe SSD), running the Python script in 5 seconds and building my Jekyll site in 4 seconds. Well, you can’t expect a beefy computer from only a board costing $55, n’est-ce pas?</p>
               <h3 id="8-usb-io-performance">8. USB I/O performance</h3>
-              <p>TL;DR first, this test failed due to power issues.</p>
-              <p>I took out my USB 3.1 SSD (assembled with a LiteOn L9M 512 GB and an enclosure case with VL716 SATA-to-USB adapter chip). However, as soon as I plug the SSD into either Pi, it powers down immediately. I set up an additional power supply but still failed to get it working, so I had to give up the USB performance test.</p>
+              <p>I took out my USB 3.1 SSD (assembled with a LiteOn L9M 512 GB and an enclosure case with VL716 SATA-to-USB adapter chip). However, as soon as I plug the SSD into either Pi, it powers down immediately. This later turns out to be the issue with power supply (GPIO pins can’t pass enough power), so I came back the day after and started the Pis with power supply from the Micro USB / Type-C port. This time the Pi 3 B+ works correctly and ran through the <code class="highlighter-rouge">fio</code> test. The Pi 4, however, drops the SSD during the test due to power supply, <em>again</em>. I ended up powering the Pi through <strong>both</strong> Type-C and GPIO only to allow it to run the test on the SSD without power failure.</p>
+              <p>The power is a real issue this time, but putting it aside, let’s look at the results:</p>
+              <div class="language-shell highlighter-rouge">
+                <div class="highlight">
+                  <pre class="highlight"><code>fio <span class="nt">--loops</span><span class="o">=</span>5 <span class="nt">--size</span><span class="o">=</span>1g <span class="nt">--filename</span><span class="o">=</span>fiotest.tmp <span class="nt">--stonewall</span> <span class="nt">--ioengine</span><span class="o">=</span>libaio <span class="nt">--direct</span><span class="o">=</span>1 <span class="nt">--name</span><span class="o">=</span>SeqRead <span class="nt">--bs</span><span class="o">=</span>1m <span class="nt">--rw</span><span class="o">=</span><span class="nb">read</span> <span class="nt">--name</span><span class="o">=</span>SeqWrite <span class="nt">--bs</span><span class="o">=</span>1m <span class="nt">--rw</span><span class="o">=</span>write
+</code></pre>
+                </div>
+              </div>
+              <p><img src="/image/rpi4/chart/fio-usb.png" alt="FIO USB test result chart" /></p>
+              <p>That’s impressive! The ever-upgraded USB 3.0 ports, even if not running at its top speed, is an exceptional lead over previous generations of Raspberry Pi. But before enjoying the turbo speed of the new USB ports, let’s emphasize again that you need to take special care for your USB peripherals, especially those requiring just a little bit more power than others, like hard drives and SSDs. Rest assured, if the power issue is properly taken care of, utilizing these two ultra-speed USB ports would be a great benefit to your Pi-based NAS setup or whatever storage extension.</p>
               <h2 id="bottom-line">Bottom line</h2>
               <p>Seen the marginal improvement from Raspberry Pi 3 B to 3 B+, the new Pi 4 is probably a banquet to most Pi enthusiasts. With the price remaining the same, the Pi 4 is a must-buy for everyone, even if you already have a Pi 3 B+. While there are downsides in power supply and cooling, they aren’t much of a deal if you don’t attach too many peripherals or put the Pi at constant high load.</p>
             </section>
@@ -555,7 +563,7 @@ siege <span class="nt">-c</span> 25 <span class="nt">-r</span> 400 <span class="
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">551</a>
+          Site version <a href="/status">552</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
           <a href="/sitemap.xml">Sitemap (XML)</a>
