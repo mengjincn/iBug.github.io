@@ -55,7 +55,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-16 12:52:24  \tCurrent time \t    Source Git revision   4d436a1 iBug: Add SSH CA PubKey  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 561       ","categories": [],
+"excerpt":"   Build time   2019-09-16 13:51:21  \tCurrent time \t    Source Git revision   c3cdabb iBug: Add SSH CA PubKey  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 562       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
