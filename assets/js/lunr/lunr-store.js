@@ -34,6 +34,11 @@ var store = [{
 "tags": [],
 "url": "https://ibugone.com/education/",
 "teaser":null},{
+"title": "Entertainment",
+"excerpt":"Games      Grand Theft Auto V - My first legal copy of game   Minecraft - Needs no explanation!   Movies &amp; TV      Mr. Bean series from the 1990s   Johnny English, also by Rowan Atkinson   The Lion King (1994), not the 2019-refurbished version   The Big Bang Theory  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/entertainment/",
+"teaser":null},{
 "title": "Friends",
 "excerpt":"Ordered randomly           taoky:  https://blog.taoky.moe/            Volltin:  https://volltin.com/            maglee:  https://breakingdevil.github.io/            Zihan Zheng:  https://zhengzihan.com/            Sirius:  https://sirius1242.github.io/            Hypercube:  https://0x01.me/            Mingliang Zeng:  https://mlzeng.com/            cvhc:  https://i-yu.me/            ksqsf:  https://ksqsf.moe/       Other good folks online:      ArtOfCode:  https://artofcode.co.uk/     ","categories": [],
 "tags": [],
@@ -55,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-17 08:10:16  \tCurrent time \t    Source Git revision   db60b62 iBug: Obfuscate email  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 564 &#9200;       ","categories": [],
+"excerpt":"   Build time   2019-09-18 01:23:53  \tCurrent time \t    Source Git revision   df4fb23 iBug: Add entertainment list  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 565       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
