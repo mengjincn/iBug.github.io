@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-26 05:21:51  \tCurrent time \t    Source Git revision   2f5cc1b iBug: Image broken  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 574       ","categories": [],
+"excerpt":"   Build time   2019-09-26 05:24:33  \tCurrent time \t    Source Git revision   852260c iBug: Forgot to enable MathJax  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 575       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
