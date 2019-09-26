@@ -179,39 +179,61 @@
               <figure class="">
                 <img src="/image/dfa-comment.png" alt="DFA for the multiline comment" />
               </figure>
-              <p>We’re first going to turn it into “state transformation equations”, so it looks like this:
-                <script type="math/tex">
-                  A = \texttt{/*}\ |\ A\texttt{[^*]}\ |\ B\texttt{[^*/]}
-                  \\
-                  B = A\texttt{*}\ |\ B\texttt{*}
-                  \\
-                  C = B\texttt{/}
-                </script>
-                The first step we’re taking is to realize that $A=S\ |\ Aa$ is easily found to be equivalent to $A = Sa^*$, where the superscript asterisk means “repeat 0 or more times”. So $B$ can be turned into
-                <script type="math/tex">
-                  B = A\texttt{**}^* = A\texttt{*}^+
-                </script>
-                Again, the superscript plus means “repeat 1 or more times” as the same in PCRE.</p>
-              <p>Now it’s time to substitute $B$ with its simplified expression:
-                <script type="math/tex">
-                  A =  \texttt{/*}\ |\ A\texttt{[^*]}\ |\ A\texttt{*}^+\texttt{[^*/]}
-                  \\
-                  C = A\texttt{*}^+\texttt{/}
-                </script>
-                Note that there’s a <em>distributive property</em> here, which described using symbols, is that $Aa\ |\ Ab = A(a|b)$, so now we have
-                <script type="math/tex">
-                  A = \texttt{/*}\ |\ A\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})
-                </script>
-                Applying the first transformation $A = S\ |\ Aa = Sa^*$, we have
-                <script type="math/tex">
-                  A = \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*
-                </script>
-                Now there’s no recursion in the new “state transformation equation”, so we can substitute $A$ with this final expression and get the regular expression for $C$, the result we want:
-                <script type="math/tex">
-                  C = A\texttt{*}^+\texttt{/} =
-                  \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*\ \texttt{*}^+\texttt{/}
-                </script>
-                Converting the above regular expression to code, we now have</p>
+              <p>We’re first going to turn it into “state transformation equations”, so it looks like this:</p>
+              <script type="math/tex; mode=display">
+                A = \texttt{/*}\ |\ A\texttt{[^*]}\ |\ B\texttt{[^*/]}
+                \\
+                B = A\texttt{*}\ |\ B\texttt{*}
+                \\
+                C = B\texttt{/}
+              </script>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>The first step we’re taking is to realize that $A=S\</td>
+                    <td>\ Aa$ is easily found to be equivalent to $A = Sa^*$, where the superscript asterisk means “repeat 0 or more times”. So $B$ can be turned into</td>
+                  </tr>
+                </tbody>
+              </table>
+              <script type="math/tex; mode=display">
+                B = A\texttt{**}^* = A\texttt{*}^+
+              </script>
+              <p>Again, the superscript plus means “repeat 1 or more times” as the same in PCRE.</p>
+              <p>Now it’s time to substitute $B$ with its simplified expression:</p>
+              <script type="math/tex; mode=display">
+                A =  \texttt{/*}\ |\ A\texttt{[^*]}\ |\ A\texttt{*}^+\texttt{[^*/]}
+                \\
+                C = A\texttt{*}^+\texttt{/}
+              </script>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Note that there’s a <em>distributive property</em> here, which described using symbols, is that $Aa\</td>
+                    <td>\ Ab = A(a</td>
+                    <td>b)$, so now we have</td>
+                  </tr>
+                </tbody>
+              </table>
+              <script type="math/tex; mode=display">
+                A = \texttt{/*}\ |\ A\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})
+              </script>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Applying the first transformation $A = S\</td>
+                    <td>\ Aa = Sa^*$, we have</td>
+                  </tr>
+                </tbody>
+              </table>
+              <script type="math/tex; mode=display">
+                A = \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*
+              </script>
+              <p>Now there’s no recursion in the new “state transformation equation”, so we can substitute $A$ with this final expression and get the regular expression for $C$, the result we want:</p>
+              <script type="math/tex; mode=display">
+                C = A\texttt{*}^+\texttt{/} =
+                \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*\ \texttt{*}^+\texttt{/}
+              </script>
+              <p>Converting the above regular expression to code, we now have</p>
               <div class="highlighter-rouge">
                 <div class="highlight">
                   <pre class="highlight"><code>C = \/\*([^*]|\*+[^*/])*\*+\/
@@ -324,7 +346,7 @@
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">575</a>
+          Site version <a href="/status">576</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
           <a href="/sitemap.xml">Sitemap (XML)</a>
