@@ -8,18 +8,18 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
-    <!-- begin _includes/seo.html --><title>Education - iBug ①</title>
-    <meta name="description" content="">
+    <!-- begin _includes/seo.html --><title>Converting DFA to Regular Expression - iBug ①</title>
+    <meta name="description" content="This post originated from Lab 1 of course Compilers: Principles that I’m currently taking, in which we were required to write a flex program to parse a subset of the C language. The multiline comment /* */ was the most troublesome to handle for most of us (excluding me, for sure).">
     <meta name="author" content="iBug">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
-    <meta property="og:title" content="Education">
-    <meta property="og:url" content="https://ibugone.com/education/">
-    <meta property="og:description" content="">
+    <meta property="og:title" content="Converting DFA to Regular Expression">
+    <meta property="og:url" content="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/">
+    <meta property="og:description" content="This post originated from Lab 1 of course Compilers: Principles that I’m currently taking, in which we were required to write a flex program to parse a subset of the C language. The multiline comment /* */ was the most troublesome to handle for most of us (excluding me, for sure).">
     <meta property="og:image" content="https://ibugone.com/image/og.jpg">
-    <meta property="article:published_time" content="2019-09-26T05:19:33+00:00">
-    <link rel="canonical" href="https://ibugone.com/education/">
+    <meta property="article:published_time" content="2019-09-25T00:00:00+00:00">
+    <link rel="canonical" href="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -141,51 +141,153 @@
               </ul>
             </div>
           </div>
-          <nav class="nav__list">
-            <input id="ac-toc" name="accordion-toc" type="checkbox" />
-            <label for="ac-toc">Toggle Menu</label>
-            <ul class="nav__items">
-              <li>
-                <span class="nav__sub-title">iBug on the Web</span>
-                <ul>
-                  <li><a href="/" class=""><i class="fas fa-fw fa-home"></i> Home</a></li>
-                  <li><a href="/about/" class=""><i class="fas fa-fw fa-smile"></i> About iBug</a></li>
-                  <li><a href="/blog/index.html" class=""><i class="fas fa-fw fa-book"></i> Blog</a></li>
-                  <li><a href="/skills/" class=""><i class="fas fa-fw fa-wrench"></i> Skills</a></li>
-                  <li><a href="/projects/" class=""><i class="fas fa-fw fa-puzzle-piece"></i> Projects</a></li>
-                  <li><a href="/entertainment/" class=""><i class="fas fa-fw fa-gamepad"></i> Entertainment</a></li>
-                  <li><a href="/friends/" class=""><i class="fas fa-fw fa-user-friends"></i> Friends</a></li>
-                  <li><a href="/cn/index.html" class=""><i class="fas fa-fw fa-yin-yang"></i> Chinese Content</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
         </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Education">
-          <meta itemprop="description" content="">
-          <meta itemprop="datePublished" content="September 26, 2019">
+          <meta itemprop="headline" content="Converting DFA to Regular Expression">
+          <meta itemprop="description" content="This post originated from Lab 1 of course Compilers: Principles that I’m currently taking, in which we were required to write a flex program to parse a subset of the C language. The multiline comment /* */ was the most troublesome to handle for most of us (excluding me, for sure).">
+          <meta itemprop="datePublished" content="September 25, 2019">
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">Education
+              <h1 id="page-title" class="page__title" itemprop="headline">Converting DFA to Regular Expression
               </h1>
+              <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                1 minute read
+              </p>
             </header>
             <section class="page__content" itemprop="text">
+              <aside class="sidebar__right sticky">
+                <nav class="toc">
+                  <header>
+                    <h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4>
+                  </header>
+                </nav>
+              </aside>
+              <p>This post originated from Lab 1 of course <em>Compilers: Principles</em> that I’m currently taking, in which we were required to write a <code class="highlighter-rouge">flex</code> program to parse a subset of the C language. The multiline comment <code class="highlighter-rouge">/* */</code> was the most troublesome to handle for most of us (excluding me, for sure).</p>
+              <hr />
+              <p>I’ll assume you’ve already drawn a DFA for the multiline-comment structure, so here it is:</p>
+              <figure class="">
+                <img src="/image/dfa_comment.png" alt="DFA for the multiline comment" />
+              </figure>
+              <p>We’re first going to turn it into “state transformation equations”, so it looks like this:
+                <script type="math/tex">
+                  A = \texttt{/*}\ |\ A\texttt{[^*]}\ |\ B\texttt{[^*/]}
+                  \\
+                  B = A\texttt{*}\ |\ B\texttt{*}
+                  \\
+                  C = B\texttt{/}
+                </script>
+                The first step we’re taking is to realize that $A=S\ |\ Aa$ is easily found to be equivalent to $A = Sa^*$, where the superscript asterisk means “repeat 0 or more times”. So $B$ can be turned into
+                <script type="math/tex">
+                  B = A\texttt{**}^* = A\texttt{*}^+
+                </script>
+                Again, the superscript plus means “repeat 1 or more times” as the same in PCRE.</p>
+              <p>Now it’s time to substitute $B$ with its simplified expression:
+                <script type="math/tex">
+                  A =  \texttt{/*}\ |\ A\texttt{[^*]}\ |\ A\texttt{*}^+\texttt{[^*/]}
+                  \\
+                  C = A\texttt{*}^+\texttt{/}
+                </script>
+                Note that there’s a <em>distributive property</em> here, which described using symbols, is that $Aa\ |\ Ab = A(a|b)$, so now we have
+                <script type="math/tex">
+                  A = \texttt{/*}\ |\ A\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})
+                </script>
+                Applying the first transformation $A = S\ |\ Aa = Sa^*$, we have
+                <script type="math/tex">
+                  A = \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*
+                </script>
+                Now there’s no recursion in the new “state transformation equation”, so we can substitute $A$ with this final expression and get the regular expression for $C$, the result we want:
+                <script type="math/tex">
+                  C = A\texttt{*}^+\texttt{/} =
+                  \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*\ \texttt{*}^+\texttt{/}
+                </script>
+                Converting the above regular expression to code, we now have</p>
+              <div class="highlighter-rouge">
+                <div class="highlight">
+                  <pre class="highlight"><code>C = \/\*([^*]|\*+[^*/])*\*+\/
+</code></pre>
+                </div>
+              </div>
+              <p><a href="https://regex101.com/r/qAog6Z/1">Try it online with RegEx101!</a></p>
             </section>
             <footer class="page__meta">
-              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-09-26T05:19:33+00:00">September 26, 2019</time></p>
+              <p class="page__taxonomy">
+                <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+                <span itemprop="keywords">
+                  <a href="/tag/regular-expression" class="page__taxonomy-item" rel="tag">regular-expression</a><span class="sep">, </span>
+                  <a href="/tag/study-notes" class="page__taxonomy-item" rel="tag">study-notes</a>
+                </span>
+              </p>
+              <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-09-25T00:00:00+00:00">September 25, 2019</time></p>
             </footer>
             <section class="page__share">
-              <a href="https://twitter.com/intent/tweet?text=Education%20https%3A%2F%2Fibugone.com%2Feducation%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Feducation%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Feducation%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+              <a href="https://twitter.com/intent/tweet?text=Converting+DFA+to+Regular+Expression%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F09%2Fconvert-dfa-to-regex%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F09%2Fconvert-dfa-to-regex%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F09%2Fconvert-dfa-to-regex%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
             </section>
+            <nav class="pagination">
+              <a href="/blog/2019/09/raspberry-pi-4-review-benchmark/" class="pagination--pager" title="Raspberry Pi 4 B Review and Benchmark - What’s improved over Pi 3 B+
+">Previous</a>
+              <a href="#" class="pagination--pager disabled">Next</a>
+            </nav>
           </div>
           <div class="page__comments">
             <h4 class="page__comments-title">Comments</h4>
             <section id="disqus_thread"></section>
           </div>
         </article>
+        <div class="page__related">
+          <h4 class="page__related-title">You May Also Enjoy</h4>
+          <div class="grid__wrapper">
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/09/raspberry-pi-4-review-benchmark/" rel="permalink">Raspberry Pi 4 B Review and Benchmark - What’s improved over Pi 3 B+
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  9 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">Lately I’ve finally received my Raspberry Pi 4 (4 GB model), and I couldn’t resist the temptation to give it a try and see all the improvements that’s been r...</p>
+              </article>
+            </div>
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/08/speech-at-msc-2019/" rel="permalink">My speech at Microsoft Summer Camp 2019
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  10 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">This is a translated version from the Chinese (original) script. The slideshow can be acquired here. For comments, please head to the Chinese version of this...</p>
+              </article>
+            </div>
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/07/systemd-service-template/" rel="permalink">Creating templated Systemd services
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  2 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">Last time I wrote an article about NAT traversal using FRP, which has been my personal solution for exposing SSH access of machines behind NAT to the interne...</p>
+              </article>
+            </div>
+            <div class="grid__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title" itemprop="headline">
+                  <a href="/blog/2019/07/circleci-ssh-delpoy-keys/" rel="permalink">Using SSH deploy keys on CircleCI
+                  </a>
+                </h2>
+                <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>
+                  2 minute read
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">A year ago back I wrote an article on automating build &amp; deployment of GitHub Pages website with Travis CI. It’s a great CI service at first, but since T...</p>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="search-content">
@@ -285,8 +387,8 @@
     </script>
     <script>
       var disqus_config = function () {
-        this.page.url = "https://ibugone.com/education/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/education"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://ibugone.com/blog/2019/09/convert-dfa-to-regex/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/blog/2019/09/convert-dfa-to-regex"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
