@@ -9,14 +9,14 @@
   <head>
     <meta charset="utf-8">
     <!-- begin _includes/seo.html --><title>Converting DFA to Regular Expression - iBug ①</title>
-    <meta name="description" content="This post originated from Lab 1 of course Compilers: Principles that I’m currently taking, in which we were required to write a flex program to parse a subset of the C language. The multiline comment /* */ was the most troublesome to handle for most of us (excluding me, for sure).">
+    <meta name="description" content="Forewords">
     <meta name="author" content="iBug">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="iBug ①">
     <meta property="og:title" content="Converting DFA to Regular Expression">
     <meta property="og:url" content="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/">
-    <meta property="og:description" content="This post originated from Lab 1 of course Compilers: Principles that I’m currently taking, in which we were required to write a flex program to parse a subset of the C language. The multiline comment /* */ was the most troublesome to handle for most of us (excluding me, for sure).">
+    <meta property="og:description" content="Forewords">
     <meta property="og:image" content="https://ibugone.com/image/og.jpg">
     <meta property="article:published_time" content="2019-09-25T00:00:00+00:00">
     <link rel="canonical" href="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/">
@@ -155,7 +155,7 @@
         </div>
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
           <meta itemprop="headline" content="Converting DFA to Regular Expression">
-          <meta itemprop="description" content="This post originated from Lab 1 of course Compilers: Principles that I’m currently taking, in which we were required to write a flex program to parse a subset of the C language. The multiline comment /* */ was the most troublesome to handle for most of us (excluding me, for sure).">
+          <meta itemprop="description" content="Forewords">
           <meta itemprop="datePublished" content="September 25, 2019">
           <div class="page__inner-wrap">
             <header>
@@ -171,10 +171,19 @@
                   <header>
                     <h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4>
                   </header>
+                  <ul class="toc__menu">
+                    <li><a href="#forewords">Forewords</a></li>
+                    <li><a href="#the-process">The process</a>
+                      <ul>
+                        <li><a href="#try-it-online-with-regex101">Try it online with RegEx101!</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </nav>
               </aside>
+              <h2 id="forewords">Forewords</h2>
               <p>This post originated from Lab 1 of course <em>Compilers: Principles</em> that I’m currently taking, in which we were required to write a <code class="highlighter-rouge">flex</code> program to parse a subset of the C language. The multiline comment <code class="highlighter-rouge">/* */</code> was the most troublesome to handle for most of us (excluding me, for sure).</p>
-              <hr />
+              <h2 id="the-process">The process</h2>
               <p>I’ll assume you’ve already drawn a DFA for the multiline-comment structure, so here it is:</p>
               <figure class="">
                 <img src="/image/dfa-comment.png" alt="DFA for the multiline comment" />
@@ -218,7 +227,7 @@
 </code></pre>
                 </div>
               </div>
-              <p><a href="https://regex101.com/r/qAog6Z/1">Try it online with RegEx101!</a></p>
+              <h3 id="try-it-online-with-regex101"><a href="https://regex101.com/r/qAog6Z/1">Try it online with RegEx101!</a></h3>
               <hr />
               <p>Now can you imagine how to use regular expressions to match multiples of 3 (base 10)? Yes, it’s entirely possible. See <a href="https://www.quaxio.com/triple/">this fantastic article</a> for details, which uses essentially the same techniques to convert a DFA (or a finite-state machine) to a regular expression that does the job.</p>
             </section>
@@ -324,7 +333,7 @@
           <br>
           Except otherwise noted, content on this site is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           <br>
-          Site version <a href="/status">579</a>
+          Site version <a href="/status">580</a>
           <br>
           Proudly hosted by <a href="https://pages.github.com">GitHub Pages</a>
           <a href="/sitemap.xml">Sitemap (XML)</a>
