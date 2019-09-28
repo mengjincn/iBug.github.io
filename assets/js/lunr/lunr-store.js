@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
 "title": "Links",
-"excerpt":"课程主页（2019 年秋季学期）：      《微机原理》罗文坚：http://staff.ustc.edu.cn/~wjluo/mcps/   《编译原理》李诚（公告板）：http://210.45.114.30/gbxu/notice_board/issues/1   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/  ","categories": [],
+"excerpt":"课程主页（2019 年秋季学期）：      《微机原理》罗文坚：http://staff.ustc.edu.cn/~wjluo/mcps/   《编译原理》李诚（公告板）：http://210.45.114.30/gbxu/notice_board/issues/1   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/   《Web 信息处理与应用》徐童：http://staff.ustc.edu.cn/~tongxu/webinfo  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/links/",
 "teaser":null},{
@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-26 09:32:58  \tCurrent time \t    Source Git revision   2aca48f iBug: .  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 586       ","categories": [],
+"excerpt":"   Build time   2019-09-28 15:18:08  \tCurrent time \t    Source Git revision   ba9bfb6 iBug: Add links  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 587       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
