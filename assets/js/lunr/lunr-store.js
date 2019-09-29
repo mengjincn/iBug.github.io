@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-09-29 04:14:34  \tCurrent time \t    Source Git revision   4b48866 iBug: Wrong &lt;br&gt; position  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 588       ","categories": [],
+"excerpt":"   Build time   2019-09-29 05:00:49  \tCurrent time \t    Source Git revision   3488f21 iBug: China mirror: disable indexing  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 589       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
