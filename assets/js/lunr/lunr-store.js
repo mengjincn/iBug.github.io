@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-02 07:07:48  \tCurrent time \t    Source Git revision   70d0099 iBug: Add SSH public keys  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 599       ","categories": [],
+"excerpt":"   Build time   2019-10-05 07:15:05  \tCurrent time \t    Source Git revision   09cd8ad iBug: Update Minimal Mistakes to 4.17  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 600       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
