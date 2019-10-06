@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-05 07:31:43  \tCurrent time \t    Source Git revision   a2075aa iBug: Also override words_per_minute on cn-index  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 601       ","categories": [],
+"excerpt":"   Build time   2019-10-06 05:55:44  \tCurrent time \t    Source Git revision   59b4d01 iBug: Cloudflare is satisfactory, remove China mirror link  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 602       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
