@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-08 12:12:11  \tCurrent time \t    Source Git revision   315532c dependabot-preview[bot]: Update jekyll-archives requirement from = 2.1.1 to 2.2.1  Updates the requirements on [jekyll-archives](https://github.com/jekyll/jekyll-archives) to permit the latest version. - [Release notes](https://github.com/jekyll/jekyll-archives/releases) - [Changelog](https://github.com/jekyll/jekyll-archives/blob/master/History.markdown) - [Commits](https://github.com/jekyll/jekyll-archives/compare/v2.1.1...v2.2.1)  Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 604       ","categories": [],
+"excerpt":"   Build time   2019-10-08 12:12:43  \tCurrent time \t    Source Git revision   ecb6912 dependabot-preview[bot]: Update faraday requirement from ~&gt; 0.15.4 to ~&gt; 0.17.0  Updates the requirements on [faraday](https://github.com/lostisland/faraday) to permit the latest version. - [Release notes](https://github.com/lostisland/faraday/releases) - [Changelog](https://github.com/lostisland/faraday/blob/master/CHANGELOG.md) - [Commits](https://github.com/lostisland/faraday/compare/v0.15.4...v0.17.0)  Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 605       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
