@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-07 11:57:28  \tCurrent time \t    Source Git revision   e049dff iBug: Add Lenovo laptop SSH public key  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 603       ","categories": [],
+"excerpt":"   Build time   2019-10-08 12:12:11  \tCurrent time \t    Source Git revision   315532c dependabot-preview[bot]: Update jekyll-archives requirement from = 2.1.1 to 2.2.1  Updates the requirements on [jekyll-archives](https://github.com/jekyll/jekyll-archives) to permit the latest version. - [Release notes](https://github.com/jekyll/jekyll-archives/releases) - [Changelog](https://github.com/jekyll/jekyll-archives/blob/master/History.markdown) - [Commits](https://github.com/jekyll/jekyll-archives/compare/v2.1.1...v2.2.1)  Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 604       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
