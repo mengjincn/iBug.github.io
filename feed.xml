@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-10-08T12:12:43+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug ①</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">Converting DFA to Regular Expression</title><link href="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/" rel="alternate" type="text/html" title="Converting DFA to Regular Expression" /><published>2019-09-25T00:00:00+00:00</published><updated>2019-09-25T00:00:00+00:00</updated><id>https://ibugone.com/blog/2019/09/convert-dfa-to-regex</id><content type="html" xml:base="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/">&lt;p&gt;This post originated from Lab 1 of course &lt;em&gt;Compilers: Principles&lt;/em&gt; that I’m currently taking, in which we were required to write a &lt;code class=&quot;highlighter-rouge&quot;&gt;flex&lt;/code&gt; program to parse a subset of the C language. The multiline comment &lt;code class=&quot;highlighter-rouge&quot;&gt;/* */&lt;/code&gt; was the most troublesome to handle for most of us (excluding me, for sure).&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-10-12T09:04:35+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug ①</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">Converting DFA to Regular Expression</title><link href="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/" rel="alternate" type="text/html" title="Converting DFA to Regular Expression" /><published>2019-09-25T00:00:00+00:00</published><updated>2019-09-25T00:00:00+00:00</updated><id>https://ibugone.com/blog/2019/09/convert-dfa-to-regex</id><content type="html" xml:base="https://ibugone.com/blog/2019/09/convert-dfa-to-regex/">&lt;p&gt;This post originated from Lab 1 of course &lt;em&gt;Compilers: Principles&lt;/em&gt; that I’m currently taking, in which we were required to write a &lt;code class=&quot;highlighter-rouge&quot;&gt;flex&lt;/code&gt; program to parse a subset of the C language. The multiline comment &lt;code class=&quot;highlighter-rouge&quot;&gt;/* */&lt;/code&gt; was the most troublesome to handle for most of us (excluding me, for sure).&lt;/p&gt;
         &lt;h2 id=&quot;the-process&quot;&gt;The process&lt;/h2&gt;
         &lt;p&gt;I’ll assume you’ve already drawn a DFA for the multiline-comment structure, so here it is:&lt;/p&gt;
         &lt;p&gt;&lt;img src=&quot;/image/dfa-comment.png&quot; alt=&quot;DFA for the multiline comment&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;
         &lt;p&gt;We’re first going to turn it into “state transformation equations”, so it looks like this:&lt;/p&gt;
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \texttt{/*}\ |\ A\texttt{[^*]}\ |\ B\texttt{[^*/]}
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \texttt{/*} \mid A\texttt{[^*]} \mid B\texttt{[^*/]}
         \\
-        B = A\texttt{*}\ |\ B\texttt{*}
+        B = A\texttt{*} \mid B\texttt{*}
         \\
         C = B\texttt{/}&lt;/script&gt;
-        &lt;p&gt;The first step we’re taking is to realize that $A=S\ |\ Aa$ is easily found to be equivalent to $A = Sa^*$, where the superscript asterisk means “repeat 0 or more times”. So $B$ can be turned into&lt;/p&gt;
+        &lt;p&gt;The first step we’re taking is to realize that $A=S \mid Aa$ is easily found to be equivalent to $A = Sa^*$, where the superscript asterisk means “repeat 0 or more times”. So $B$ can be turned into&lt;/p&gt;
         &lt;script type=&quot;math/tex; mode=display&quot;&gt;B = A\texttt{**}^* = A\texttt{*}^+&lt;/script&gt;
         &lt;p&gt;Again, the superscript plus means “repeat 1 or more times” as the same in PCRE.&lt;/p&gt;
         &lt;p&gt;Now it’s time to substitute $B$ with its simplified expression:&lt;/p&gt;
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A =  \texttt{/*}\ |\ A\texttt{[^*]}\ |\ A\texttt{*}^+\texttt{[^*/]}
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A =  \texttt{/*} \mid A\texttt{[^*]} \mid A\texttt{*}^+\texttt{[^*/]}
         \\
         C = A\texttt{*}^+\texttt{/}&lt;/script&gt;
-        &lt;p&gt;Note that there’s a &lt;em&gt;distributive property&lt;/em&gt; here, which described using symbols, is that $Aa\ |\ Ab = A(a|b)$, so now we have&lt;/p&gt;
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \texttt{/*}\ |\ A\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})&lt;/script&gt;
-        &lt;p&gt;Applying the first transformation $A = S\ |\ Aa = Sa^*$, we have&lt;/p&gt;
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*&lt;/script&gt;
+        &lt;p&gt;Note that there’s a &lt;em&gt;distributive property&lt;/em&gt; here, which described using symbols, is that $Aa \mid Ab = A(a\mid b)$, so now we have&lt;/p&gt;
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \texttt{/*} \mid A\ (\texttt{[^*]} \mid \texttt{*}^+\texttt{[^*/]})&lt;/script&gt;
+        &lt;p&gt;Applying the first transformation $A = S \mid Aa = Sa^*$, we have&lt;/p&gt;
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \texttt{/*}\ (\texttt{[^*]} \mid \texttt{*}^+\texttt{[^*/]})^*&lt;/script&gt;
         &lt;p&gt;Now there’s no recursion in the new “state transformation equation”, so we can substitute $A$ with this final expression and get the regular expression for $C$, the result we want:&lt;/p&gt;
         &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = A\texttt{*}^+\texttt{/} =
-        \texttt{/*}\ (\texttt{[^*]}\ |\ \texttt{*}^+\texttt{[^*/]})^*\ \texttt{*}^+\texttt{/}&lt;/script&gt;
+        \texttt{/*}\ (\texttt{[^*]} \mid \texttt{*}^+\texttt{[^*/]})^*\ \texttt{*}^+\texttt{/}&lt;/script&gt;
         &lt;p&gt;Converting the above regular expression to code, we now have&lt;/p&gt;
         &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C = \/\*([^*]|\*+[^*/])*\*+\/
         &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
