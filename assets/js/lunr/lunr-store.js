@@ -45,7 +45,7 @@ var store = [{
 "url": "https://ibugone.com/friends/",
 "teaser":null},{
 "title": "Links",
-"excerpt":"课程主页（2019 年秋季学期）：      《微机原理》罗文坚：http://staff.ustc.edu.cn/~wjluo/mcps/   《编译原理》李诚（公告板）：http://210.45.114.30/gbxu/notice_board/issues/1   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/   《Web 信息处理与应用》徐童：http://staff.ustc.edu.cn/~tongxu/webinfo  ","categories": [],
+"excerpt":"课程主页（2019 年秋季学期）：      《微机原理》罗文坚：http://staff.ustc.edu.cn/~wjluo/mcps/   《编译原理》李诚（公告板）：http://210.45.114.30/gbxu/notice_board/issues/1 (课程主页)   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/   《Web 信息处理与应用》徐童：http://staff.ustc.edu.cn/~tongxu/webinfo  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/links/",
 "teaser":null},{
@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-12 09:04:35  \tCurrent time \t    Source Git revision   45b4a02 iBug: Use \\mid for better look  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 606       ","categories": [],
+"excerpt":"   Build time   2019-10-12 09:57:18  \tCurrent time \t    Source Git revision   109ed9f iBug: Update links  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 607       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
