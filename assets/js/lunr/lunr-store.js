@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-12 09:57:18  \tCurrent time \t    Source Git revision   109ed9f iBug: Update links  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 607       ","categories": [],
+"excerpt":"   Build time   2019-10-13 06:58:49  \tCurrent time \t    Source Git revision   bc46d5d iBug: Add external link icon to GitHub link  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 608       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
