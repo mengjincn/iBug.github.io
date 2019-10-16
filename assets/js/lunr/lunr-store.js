@@ -60,7 +60,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-13 06:58:49  \tCurrent time \t    Source Git revision   bc46d5d iBug: Add external link icon to GitHub link  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 608       ","categories": [],
+"excerpt":"   Build time   2019-10-16 14:15:54  \tCurrent time \t    Source Git revision   3be41e2 iBug: Remove hosting information  Coding Pages isn't needed anymore, Now there's Cloudflare CDN  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 609       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
