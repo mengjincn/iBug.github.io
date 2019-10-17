@@ -49,6 +49,11 @@ var store = [{
 "tags": [],
 "url": "https://ibugone.com/links/",
 "teaser":null},{
+"title": "Privacy Policy",
+"excerpt":"This website is completely static, and does not collect any information on its own. However, external services that this website depends on may collect additional information.   GitHub Pages   This website is hosted on GitHub Pages, and GitHub Pages may collect additional information. Please refer to GitHub Privacy Statement for more information.   Cloudflare   This website uses Cloudflare as CDN for delivery and optimization, and Cloudflare may collect additional information. Please refer to Cloudflare’s Privacy Policy for more information.   Google Analytics   This website uses Google Analytics to collect information to help improve this website. Please refer to Google’s Privacy Policy for more information.   Disqus   This website uses Disqus to provide certain functionalities, including the ability to comment on articles and pages. Disqus may collect additional information. Please refer to Disqus’s Privacy Policy for more information.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/privacy-policy/",
+"teaser":null},{
 "title": "Projects",
 "excerpt":"OJSandbox  An experimental sandbox for online judgers (OJ) utilizing multiple Linux features, including rlimit, cgroup and chroot. I am a co-author.   (Charcoal) Smoke Detector ( Website)  A community-driven chatbot that detects spam across the Stack Exchange Network and reports them, so they can be quickly removed.   I joined the team in December 2017, and was recognized as a developer in March 2018.   This is the largest project in this page and also the first existing project that I’ve joined (all other projects are started from scratch).   USTC Virtualization Laboratory  A unified course experiment platform involving code storage (GitLab CE) and experiment environment (virtual machines). Students log in to their accounts and manage or connect to their virtual machines, and can do course experiments anywhere without having to spin up messy environments on their own.   The VM manager itself is a Django app, and the front end utilizes Twitter Bootstrap. The VM backend currently consists of LXD and QEMU / libvirt / KVM, with storage part involving LVM and ZFS.   Chisel RISC-V  A Chisel implementation of the RISC-V CPU aiming to pave the way for its application in school teaching, across several courses, including Introduction to Computer Systems (ICS), Computer Organization and Design (COD) and more. It consists of a RISC-V-based SoC design (hardware) and a full set of toolchain to compile C programs for the SoC.   It is currently under development.   Tetris with AI  A good game automation that you must try and watch!   SpaceRider  An old Flash plane-shooting game that I made when I was 13. ActionScript 2.0 (so expect that it won’t run very fluently on a low-end computer)   Python Reversi  An implementation of the classic Reversi / Othello game using Python and PyQt5. It has an intensive AI that’s hard to beat.   Aurora Theme  Aurora is a clean, responsive Jekyll theme for GitHub Pages.   And it’s the theme for my Project Pages. I have published this theme on RubyGems.   College Physics Experiments Toolbox (incomplete)  A set of tools made to make College Physics Experiments easy!  ","categories": [],
 "tags": [],
@@ -60,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-16 14:15:54  \tCurrent time \t    Source Git revision   3be41e2 iBug: Remove hosting information  Coding Pages isn't needed anymore, Now there's Cloudflare CDN  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 609       ","categories": [],
+"excerpt":"   Build time   2019-10-17 06:47:17  \tCurrent time \t    Source Git revision   89907fa iBug: Add privacy policy page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 610       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
