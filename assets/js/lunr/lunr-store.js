@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-17 06:48:55  \tCurrent time \t    Source Git revision   b0827d4 iBug: Add link to Privacy Policy in footer  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 611       ","categories": [],
+"excerpt":"   Build time   2019-10-17 06:51:26  \tCurrent time \t    Source Git revision   30bd5a0 iBug: wrong style  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 612       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
