@@ -35,7 +35,7 @@ var store = [{
 "url": "https://ibugone.com/education/",
 "teaser":null},{
 "title": "Entertainment",
-"excerpt":"Games      Grand Theft Auto V - My first legal copy of game   Minecraft - Needs no explanation!   Movies &amp; TV      Mr. Bean series from the 1990s   Johnny English, also by Rowan Atkinson   The Lion King (1994), not the 2019-refurbished version   The Big Bang Theory  ","categories": [],
+"excerpt":"Games      Grand Theft Auto V - My first legal copy of game bought from Steam   Minecraft - Needs no explanation! (User ID: iBugOne)   Movies &amp; TV      Mr. Bean series from the 1990s            I particularly like the scene where Mr. Bean drives off sitting on the roof of his Mini. (YouTube)           Johnny English, also by Rowan Atkinson   The Lion King (1994), not the 2019-refurbished version   The Big Bang Theory  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/entertainment/",
 "teaser":null},{
@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-18 02:05:55  \tCurrent time \t    Source Git revision   b12492b iBug: Add links to /about/  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 615       ","categories": [],
+"excerpt":"   Build time   2019-10-20 17:23:40  \tCurrent time \t    Source Git revision   39f285f iBug: Add YouTube link to Mr. Bean  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 616       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
