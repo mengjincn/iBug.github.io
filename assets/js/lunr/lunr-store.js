@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-20 17:43:58  \tCurrent time \t    Source Git revision   0b43eb8 iBug: Add home sidebar to Chinese content  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 619       ","categories": [],
+"excerpt":"   Build time   2019-10-20 18:01:03  \tCurrent time \t    Source Git revision   80b83cc iBug: Add support for KaTeX (broken)  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 620       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
