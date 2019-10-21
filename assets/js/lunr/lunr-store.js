@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-21 06:43:01  \tCurrent time \t    Source Git revision   e31a6a0 dependabot-preview[bot]: Update faraday requirement from ~&gt; 0.15.4 to ~&gt; 0.17.0  Updates the requirements on [faraday](https://github.com/lostisland/faraday) to permit the latest version. - [Release notes](https://github.com/lostisland/faraday/releases) - [Changelog](https://github.com/lostisland/faraday/blob/master/CHANGELOG.md) - [Commits](https://github.com/lostisland/faraday/compare/v0.15.4...v0.17.0)  Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 630       ","categories": [],
+"excerpt":"   Build time   2019-10-21 06:47:03  \tCurrent time \t    Source Git revision   e5d778f iBug: Faraday 0.17 is working  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 631       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
