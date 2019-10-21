@@ -2,189 +2,195 @@
   <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
       <loc>https://ibugone.com/cn/chisel-101/</loc>
-      <lastmod>2018-12-19T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-16T11:37:56+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cn/pde-thinking-question/</loc>
-      <lastmod>2019-05-20T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-07T02:20:08+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cn/about-internet-security/</loc>
-      <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-18T20:12:43+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cn/speech-at-msc-2019/</loc>
-      <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-11T11:14:27+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/about/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-10-21T15:07:12+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cv/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-07-06T12:41:24+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/education/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-07-06T12:41:24+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/entertainment/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-10-21T01:23:15+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/friends/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-08-02T13:06:39+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/links/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-10-12T17:56:57+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/privacy-policy/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-10-17T14:50:53+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/projects/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-10-21T15:46:37+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/skills/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-09-06T00:15:31+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/status/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-07-06T12:41:24+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2009/11/regex-match-open-tags-except-xhtml-self-contained-tags/</loc>
-      <lastmod>2009-11-13T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-17T16:46:42+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2017/06/android-phone-cores/</loc>
-      <lastmod>2017-06-11T10:51:16+00:00</lastmod>
+      <lastmod>2019-06-17T16:46:42+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2017/08/append-int-to-stdstring/</loc>
-      <lastmod>2017-08-04T11:35:05+00:00</lastmod>
+      <lastmod>2019-06-17T16:46:42+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/03/joining-smokedetector/</loc>
-      <lastmod>2018-03-14T10:29:30+00:00</lastmod>
+      <lastmod>2019-08-05T23:52:07+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/04/build-github-pages-with-travis-ci/</loc>
-      <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-01T11:36:50+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/05/python-reversi/</loc>
-      <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+      <lastmod>2019-03-10T20:16:08+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/05/alpha-beta-pruning/</loc>
-      <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+      <lastmod>2019-03-10T20:16:08+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/06/minimal-complete-verifiable-example/</loc>
-      <lastmod>2018-06-07T00:00:00+00:00</lastmod>
+      <lastmod>2018-06-07T13:52:11+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/06/new-xbox-one-s-controller/</loc>
-      <lastmod>2018-06-17T00:00:00+00:00</lastmod>
+      <lastmod>2018-06-24T00:20:36+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/06/transcript-for-last-week-tonight-s05-e15/</loc>
-      <lastmod>2018-06-23T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-11T11:09:25+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/08/crack-advanced-systemcare-11-5/</loc>
-      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-17T16:46:42+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/09/batch-convert-with-vbs/</loc>
-      <lastmod>2018-09-12T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-17T16:46:42+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2018/11/program-nexys4-ddr-with-storage/</loc>
-      <lastmod>2018-11-16T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-10T23:42:45+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/02/ssh-into-lan-computer/</loc>
-      <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-10T23:42:45+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/02/setup-ubuntu-in-vmware/</loc>
-      <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-24T00:16:12+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/02/setup-ubuntu-in-vmware-cn/</loc>
-      <lastmod>2019-02-23T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-24T20:42:05+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/02/bootstrapping-make/</loc>
-      <lastmod>2019-02-25T00:00:00+00:00</lastmod>
+      <lastmod>2019-03-02T00:58:26+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/03/first-touch-with-awk/</loc>
-      <lastmod>2019-03-04T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-19T01:14:16+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/04/os-lab-1/</loc>
-      <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-01T14:23:39+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/05/mathematica-keygen/</loc>
-      <lastmod>2019-05-11T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-17T16:46:42+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/06/save-commit-from-github/</loc>
-      <lastmod>2019-06-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-16T13:45:35+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/07/circleci-ssh-delpoy-keys/</loc>
-      <lastmod>2019-07-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-10T23:46:18+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/07/systemd-service-template/</loc>
-      <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-19T01:14:16+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/08/speech-at-msc-2019/</loc>
-      <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-11T11:13:03+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/09/raspberry-pi-4-review-benchmark/</loc>
-      <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-22T17:37:11+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2019/09/convert-dfa-to-regex/</loc>
-      <lastmod>2019-09-25T00:00:00+00:00</lastmod>
+      <lastmod>2019-10-21T02:03:55+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/project/TetrisAI/</loc>
-      <lastmod>2019-10-21T08:12:51+00:00</lastmod>
+      <lastmod>2019-10-21T16:16:50+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/share/jekyll-themes/</loc>
-      <lastmod>2019-10-21T08:17:21+00:00</lastmod>
+      <lastmod>2019-07-14T16:36:29+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/cn/2018-s/</loc>
+      <lastmod>2019-07-03T18:37:40+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/categories/</loc>
+      <lastmod>2019-05-18T01:58:31+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/</loc>
+      <lastmod>2019-10-21T14:04:57+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/so/selected-answers/</loc>
+      <lastmod>2019-07-06T01:34:02+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/so/selected-questions/</loc>
+      <lastmod>2019-07-06T01:34:02+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/tags/</loc>
+      <lastmod>2019-05-18T01:58:31+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/tag/stack-overflow/</loc>
@@ -263,14 +269,18 @@
     </url>
     <url>
       <loc>https://ibugone.com/cn/</loc>
+      <lastmod>2019-10-21T01:42:37+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/</loc>
+      <lastmod>2019-08-19T21:22:06+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/2/</loc>
+      <lastmod>2019-08-19T21:22:06+00:00</lastmod>
     </url>
     <url>
       <loc>https://ibugone.com/blog/3/</loc>
+      <lastmod>2019-08-19T21:22:06+00:00</lastmod>
     </url>
   </urlset>
