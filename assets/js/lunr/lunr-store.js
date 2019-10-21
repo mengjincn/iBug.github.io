@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-21 08:13:25  \tCurrent time \t    Source Git revision   c544652 iBug: Add last_modified_at  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 638       ","categories": [],
+"excerpt":"   Build time   2019-10-21 08:17:21  \tCurrent time \t    Source Git revision   eb09303 iBug: Heading level  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 639       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -200,7 +200,7 @@ var store = [{
 "url": "https://ibugone.com/blog/2019/09/convert-dfa-to-regex/",
 "teaser":null},{
 "title": "Tetris with AI",
-"excerpt":"A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)   It uses Windows API so only runs on Windows.   Screenshot         Get the latest release  ","categories": [],
+"excerpt":"A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)   It uses Windows API so only runs on Windows.   Screenshots         Get the latest release  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/TetrisAI/",
 "teaser":null},{
