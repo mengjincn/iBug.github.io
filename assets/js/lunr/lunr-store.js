@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-20 18:04:25  \tCurrent time \t    Source Git revision   0d6b397 iBug: Add external link icon  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 621       ","categories": [],
+"excerpt":"   Build time   2019-10-21 06:41:53  \tCurrent time \t    Source Git revision   0db8a12 iBug: Downgrade gem &quot;sprockets&quot; to 3.7 (incompatible newer version)  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 629       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
