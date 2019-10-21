@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-21 07:47:21  \tCurrent time \t    Source Git revision   9449df7 iBug: Migrate TetrisAI project pages  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 636       ","categories": [],
+"excerpt":"   Build time   2019-10-21 07:56:03  \tCurrent time \t    Source Git revision   c29d360 iBug: Defintiely forgot to change image URLs  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 637       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
