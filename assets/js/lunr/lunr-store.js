@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-21 07:07:46  \tCurrent time \t    Source Git revision   45aa28a iBug: HTML comment not working  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 634       ","categories": [],
+"excerpt":"   Build time   2019-10-21 07:27:05  \tCurrent time \t    Source Git revision   4e28dcf iBug: Add Steam and SO link  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 635       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
