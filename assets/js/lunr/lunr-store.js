@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-21 06:47:03  \tCurrent time \t    Source Git revision   e5d778f iBug: Faraday 0.17 is working  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 631       ","categories": [],
+"excerpt":"   Build time   2019-10-21 06:49:29  \tCurrent time \t    Source Git revision   3906e20 iBug: CircleCI: only deploy on master  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 632       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
