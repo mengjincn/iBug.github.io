@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-21 09:51:43  \tCurrent time \t    Source Git revision   96a03b8 iBug: Switch jekyll-git_metadata to own fork  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 643       ","categories": [],
+"excerpt":"   Build time   2019-10-22 06:50:59  \tCurrent time \t    Source Git revision   4ff9e78 iBug: Update website name  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 645       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
