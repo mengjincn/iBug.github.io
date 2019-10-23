@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-22 06:50:59  \tCurrent time \t    Source Git revision   4ff9e78 iBug: Update website name  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 645       ","categories": [],
+"excerpt":"   Build time   2019-10-23 06:15:47  \tCurrent time \t    Source Git revision   fc46f09 iBug: Override Minimak Mistakes image box-shadow for .card  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 646       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
