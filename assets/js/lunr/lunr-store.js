@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-28 08:35:03  \tCurrent time \t    Source Git revision   c92fb58 iBug: Immersive masthead on home page  Yeah!  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 651       ","categories": [],
+"excerpt":"   Build time   2019-10-28 08:40:19  \tCurrent time \t    Source Git revision   f5ade69 iBug: Enable immersive mode only on larger screens  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 652       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
