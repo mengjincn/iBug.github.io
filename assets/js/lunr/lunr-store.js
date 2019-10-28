@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-10-28 06:47:35  \tCurrent time \t    Source Git revision   2ea63a1 iBug: Revert &quot;My ugly 3-column footer&quot;  This reverts commit 544a345d994e0b5505ee2ab959d26197fac63508.  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 650       ","categories": [],
+"excerpt":"   Build time   2019-10-28 08:35:03  \tCurrent time \t    Source Git revision   c92fb58 iBug: Immersive masthead on home page  Yeah!  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 651       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
