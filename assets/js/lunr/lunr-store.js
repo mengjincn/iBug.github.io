@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-02 18:48:42  \tCurrent time \t    Source Git revision   f3f9438 iBug: Add header to all pages  Looks deadly beautiful  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 657       ","categories": [],
+"excerpt":"   Build time   2019-11-02 18:54:38  \tCurrent time \t    Source Git revision   ced63c3 iBug: Override header image for /about/  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 658       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
