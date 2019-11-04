@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-04 06:26:46  \tCurrent time \t    Source Git revision   f466645 iBug: backdrop-filter looks beautiful here  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 670       ","categories": [],
+"excerpt":"   Build time   2019-11-04 06:42:28  \tCurrent time \t    Source Git revision   cba152b iBug: Replace backdrop-filter with workaround  From https://stackoverflow.com/a/38543010/5958455  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 671       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
