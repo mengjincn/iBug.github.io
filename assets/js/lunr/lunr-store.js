@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-03 11:46:41  \tCurrent time \t    Source Git revision   9837ea2 iBug: still need some darkness  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 668       ","categories": [],
+"excerpt":"   Build time   2019-11-04 06:26:46  \tCurrent time \t    Source Git revision   f466645 iBug: backdrop-filter looks beautiful here  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 670       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
