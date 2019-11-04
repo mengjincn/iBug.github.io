@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-04 07:40:10  \tCurrent time \t    Source Git revision   0883dec iBug: Retain blur via backdrop-filter on mobile  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 674       ","categories": [],
+"excerpt":"   Build time   2019-11-04 08:26:55  \tCurrent time \t    Source Git revision   91a992c iBug: Broke the button hover effect  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 675       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
