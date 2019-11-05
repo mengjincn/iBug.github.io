@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-04 08:26:55  \tCurrent time \t    Source Git revision   91a992c iBug: Broke the button hover effect  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 675       ","categories": [],
+"excerpt":"   Build time   2019-11-05 04:27:01  \tCurrent time \t    Source Git revision   24cc131 iBug: One invalid CSS  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 676       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
