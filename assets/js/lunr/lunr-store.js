@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-05 04:30:50  \tCurrent time \t    Source Git revision   97ad81f iBug: Split landing page customization to a separate file  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 677       ","categories": [],
+"excerpt":"   Build time   2019-11-05 04:32:41  \tCurrent time \t    Source Git revision   2b2195e iBug: Slightly increase loading animation delay  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 678       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
