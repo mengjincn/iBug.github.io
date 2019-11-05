@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-05 04:27:01  \tCurrent time \t    Source Git revision   24cc131 iBug: One invalid CSS  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 676       ","categories": [],
+"excerpt":"   Build time   2019-11-05 04:30:50  \tCurrent time \t    Source Git revision   97ad81f iBug: Split landing page customization to a separate file  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 677       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
