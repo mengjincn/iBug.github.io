@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-05 04:32:41  \tCurrent time \t    Source Git revision   2b2195e iBug: Slightly increase loading animation delay  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 678       ","categories": [],
+"excerpt":"   Build time   2019-11-05 06:13:34  \tCurrent time \t    Source Git revision   4045f48 iBug: Slow down the loading animation a bit  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 679       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
