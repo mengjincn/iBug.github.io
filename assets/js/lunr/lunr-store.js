@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-05 06:13:34  \tCurrent time \t    Source Git revision   4045f48 iBug: Slow down the loading animation a bit  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 679       ","categories": [],
+"excerpt":"   Build time   2019-11-10 13:16:29  \tCurrent time \t    Source Git revision   496f35f iBug: Attempt to fix Algolia index too big error  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 680       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
