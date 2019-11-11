@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-10 13:16:29  \tCurrent time \t    Source Git revision   496f35f iBug: Attempt to fix Algolia index too big error  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 680       ","categories": [],
+"excerpt":"   Build time   2019-11-11 08:45:52  \tCurrent time \t    Source Git revision   cd33c49 iBug: Exclude big Algolia nodes  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 681       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
