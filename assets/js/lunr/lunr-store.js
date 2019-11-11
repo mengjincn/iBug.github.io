@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-11 08:45:52  \tCurrent time \t    Source Git revision   cd33c49 iBug: Exclude big Algolia nodes  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 681       ","categories": [],
+"excerpt":"   Build time   2019-11-11 10:08:27  \tCurrent time \t    Source Git revision   52b5e87 iBug: Start new article  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 682       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
