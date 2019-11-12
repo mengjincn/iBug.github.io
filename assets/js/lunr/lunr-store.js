@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-12 07:02:24  \tCurrent time \t    Source Git revision   3be6c09 iBug: Bump Minimal Mistakes to 4.17.2  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 691       ","categories": [],
+"excerpt":"   Build time   2019-11-12 07:53:53  \tCurrent time \t    Source Git revision   34be4ba iBug: Support hero header in archive pages  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 692       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
