@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-12 06:53:22  \tCurrent time \t    Source Git revision   35d7976 iBug: Add year archive page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 690       ","categories": [],
+"excerpt":"   Build time   2019-11-12 07:02:24  \tCurrent time \t    Source Git revision   3be6c09 iBug: Bump Minimal Mistakes to 4.17.2  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 691       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
