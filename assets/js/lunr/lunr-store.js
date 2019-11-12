@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-12 06:22:16  \tCurrent time \t    Source Git revision   792b0b3 iBug: Add GitHub link to landing page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 688       ","categories": [],
+"excerpt":"   Build time   2019-11-12 06:42:45  \tCurrent time \t    Source Git revision   acb1dbd iBug: Home page avatar: New look!  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 689       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
