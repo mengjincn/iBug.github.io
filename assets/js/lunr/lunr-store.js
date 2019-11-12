@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-12 09:21:45  \tCurrent time \t    Source Git revision   0279ce4 iBug: Split custom CSS into another file  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 696       ","categories": [],
+"excerpt":"   Build time   2019-11-12 09:24:58  \tCurrent time \t    Source Git revision   1ba51e4 iBug: Fix failed look  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 697       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
