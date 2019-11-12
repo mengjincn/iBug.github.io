@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-12 12:38:23  \tCurrent time \t    Source Git revision   99ab7f0 iBug: FRP service is better set to Type=idle  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 699       ","categories": [],
+"excerpt":"   Build time   2019-11-12 23:37:06  \tCurrent time \t    Source Git revision   6846bce iBug: Bad clipboard  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 700       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
