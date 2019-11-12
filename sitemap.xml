@@ -161,6 +161,10 @@
       <lastmod>2019-10-21T02:03:55+00:00</lastmod>
     </url>
     <url>
+      <loc>https://ibugone.com/blog/2019/11/optimize-github-pages-with-cloudflare/</loc>
+      <lastmod>2019-11-12T14:17:23+00:00</lastmod>
+    </url>
+    <url>
       <loc>https://ibugone.com/project/TetrisAI/</loc>
       <lastmod>2019-10-21T16:16:50+00:00</lastmod>
     </url>
@@ -254,6 +258,9 @@
     </url>
     <url>
       <loc>https://ibugone.com/tag/regular-expression/</loc>
+    </url>
+    <url>
+      <loc>https://ibugone.com/tag/cloudflare/</loc>
     </url>
     <url>
       <loc>https://ibugone.com/year/2009/</loc>
