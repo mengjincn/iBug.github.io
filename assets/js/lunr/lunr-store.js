@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-16 09:21:02  \tCurrent time \t    Source Git revision   76fb5c9 iBug: Enable TOC on projects page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 703       ","categories": [],
+"excerpt":"   Build time   2019-11-16 12:13:45  \tCurrent time \t    Source Git revision   2f0107f iBug: Use tagline override  mmistakes/minimal_mistakes#2307  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 704       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
