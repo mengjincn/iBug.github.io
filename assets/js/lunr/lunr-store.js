@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-16 12:19:27  \tCurrent time \t    Source Git revision   a91a0be iBug: Add jekyll-environment-variables to projects  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 705       ","categories": [],
+"excerpt":"   Build time   2019-11-16 12:24:20  \tCurrent time \t    Source Git revision   b39c462 iBug: TetrisAI: Move download to header  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 706       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -205,7 +205,7 @@ var store = [{
 "url": "https://ibugone.com/blog/2019/11/optimize-github-pages-with-cloudflare/",
 "teaser":null},{
 "title": "Tetris with AI",
-"excerpt":"A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)   It uses Windows API so only runs on Windows.   Screenshots         Get the latest release  ","categories": [],
+"excerpt":"A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)   It uses Windows API so only runs on Windows.   Screenshots        ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/TetrisAI/",
 "teaser":null},{
