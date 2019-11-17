@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-17 15:41:46  \tCurrent time \t    Source Git revision   aadcb8b iBug: Add fucked TA's lab docs  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 714       ","categories": [],
+"excerpt":"   Build time   2019-11-17 15:49:38  \tCurrent time \t    Source Git revision   3274563 iBug: Strip ugly link  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 715       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
