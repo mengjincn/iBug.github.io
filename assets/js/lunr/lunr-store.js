@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-17 16:41:01  \tCurrent time \t    Source Git revision   5ee701d iBug: Chomp 'index.html' from page urls  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 717       ","categories": [],
+"excerpt":"   Build time   2019-11-17 16:42:28  \tCurrent time \t    Source Git revision   e12e0a7 iBug: Strip more 'index.html'  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 718       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
