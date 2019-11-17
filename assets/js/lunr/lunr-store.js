@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-17 16:42:28  \tCurrent time \t    Source Git revision   e12e0a7 iBug: Strip more 'index.html'  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 718       ","categories": [],
+"excerpt":"   Build time   2019-11-17 16:55:19  \tCurrent time \t    Source Git revision   a4b92e1 iBug: Use tab indentation in final HTML  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 719       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
