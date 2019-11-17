@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-17 13:04:58  \tCurrent time \t    Source Git revision   b884c03 iBug: Add excepts to some Chinese articles  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 710       ","categories": [],
+"excerpt":"   Build time   2019-11-17 13:17:04  \tCurrent time \t    Source Git revision   d4fbeb9 iBug: Reduce title margin-top  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 711       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{

@@ -19,7 +19,7 @@
     <meta property="og:description" content="backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务">
     <meta property="og:image" content="https://ibugone.com/image/header/cloud-1.jpg">
     <meta property="article:published_time" content="2019-11-17T00:00:00+00:00">
-    <meta property="article:modified_time" content="2019-11-17T21:04:24+00:00">
+    <meta property="article:modified_time" content="2019-11-17T21:16:35+00:00">
     <link rel="canonical" href="https://ibugone.com/cn/backTCP-report/">
     <script type="application/ld+json">
       {
@@ -198,10 +198,10 @@
                     <li>
                       <a href="#%E4%B8%89%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4">三、实现步骤</a>
                       <ul>
-                        <li><a href="#31-%E9%80%9A%E7%94%A8%E9%80%BB%E8%BE%91">3.1 通用逻辑</a></li>
                         <li>
-                          <a href="#311-backtcp-%E5%A4%B4">3.1.1 backTCP 头</a>
+                          <a href="#31-%E9%80%9A%E7%94%A8%E9%80%BB%E8%BE%91">3.1 通用逻辑</a>
                           <ul>
+                            <li><a href="#311-backtcp-%E5%A4%B4">3.1.1 backTCP 头</a></li>
                             <li><a href="#312-backtcp-%E8%BF%9E%E6%8E%A5%E5%8F%A5%E6%9F%84">3.1.2 backTCP 连接句柄</a></li>
                             <li><a href="#313-backtcp-%E8%BF%9E%E6%8E%A5%E4%BF%A1%E6%81%AF">3.1.3 backTCP 连接信息</a></li>
                           </ul>
@@ -231,7 +231,7 @@
                   </ul>
                 </nav>
               </aside>
-              <h2 id="一实验内容">一、实验内容</h2>
+              <h1 id="一实验内容">一、实验内容</h1>
               <p>backTCP 的目标是实现面向无连接的可靠传输功能，能够解决数据包在传输过程中出现的乱序以及丢包问题。由于考虑的是无连接的网络，因此该作业不需要考虑传统 TCP 中的三次握手连接建立过程。此外，假设传输中数据不会出现错误，因此只需要考虑如何解决数据包的乱序和丢包问题。</p>
               <p>由于实验文档缺失细节，并且助教允许在非关键位置自由发挥，因此我的实现与实验文档中的内容有以下区别：</p>
               <ol>
@@ -239,10 +239,10 @@
                 <li>出于各种考虑，我的实现采用了修改过的 backTCP 数据包头。与实验文档中指定的包头格式的唯一区别在于我的 backTCP 包头多了一个 1 字节的域 <code class="highlighter-rouge">data_len</code>，使得包头总长度变成了 8 字节</li>
               </ol>
               <p>因为上面两处修改涉及 backTCP 的底层结构，因此测试信道不能直接使用我公开的代码模板中的版本。当然，我也给出了一个修改版的测试信道程序，其后端实现与我的 backTCP 一致（尽管它是使用 Python 语言编写的）。该修改版测试信道在我的公开仓库的 <code class="highlighter-rouge">udp-mod</code> 分支中：<a href="https://github.com/iBug/backTCP-python/tree/udp-mod">https://github.com/iBug/backTCP-python/tree/udp-mod</a></p>
-              <h2 id="二实验环境">二、实验环境</h2>
+              <h1 id="二实验环境">二、实验环境</h1>
               <p>尽管我发布了一个使用 Python 语言编写的程序框架，但是由于我自己的代码很早就开始编写了，当初为了更加契合主题，直接使用 Linux 系统调用，因此我的代码使用 C 语言在 Linux 环境下编写。我自己经测试的系统环境为 Ubuntu 19.04 “Disco Dingo”，内核版本为 5.0，但理论上在任何较新的 Linux 系统中都可以正常运行，例如 Ubuntu 16.04, Debian 8 “Jessie” 以及 CentOS 7 等。编译环境需要 C 编译器和 Make (项目提供 <code class="highlighter-rouge">Makefile</code>)</p>
-              <h2 id="三实现步骤">三、实现步骤</h2>
-              <h3 id="31-通用逻辑">3.1 通用逻辑</h3>
+              <h1 id="三实现步骤">三、实现步骤</h1>
+              <h2 id="31-通用逻辑">3.1 通用逻辑</h2>
               <h3 id="311-backtcp-头">3.1.1 backTCP 头</h3>
               <p>我采用的修改版 backTCP 头结构如下所示：</p>
               <div class="language-c highlighter-rouge">
@@ -277,7 +277,7 @@
                 <li>
                   <code class="highlighter-rouge">data_len</code> 是我自己加的，用于从被暂存的包中确定实际数据长度，避免产生错误输出</li>
               </ul>
-              <h4 id="312-backtcp-连接句柄">3.1.2 backTCP 连接句柄</h4>
+              <h3 id="312-backtcp-连接句柄">3.1.2 backTCP 连接句柄</h3>
               <p>为了方便使用与维护，我将底层的 UDP 套接字包装成为 <code class="highlighter-rouge">BTcpConnection</code> 句柄指针。使用方式与 <code class="highlighter-rouge">FILE*</code> 极为相似：</p>
               <ul>
                 <li>
@@ -311,7 +311,7 @@
 </code></pre>
                 </div>
               </div>
-              <h4 id="313-backtcp-连接信息">3.1.3 backTCP 连接信息</h4>
+              <h3 id="313-backtcp-连接信息">3.1.3 backTCP 连接信息</h3>
               <p><code class="highlighter-rouge">BTcpConnection</code> 结构如下：</p>
               <div class="language-c highlighter-rouge">
                 <div class="highlight">
@@ -335,7 +335,7 @@
                 <li>
                   <code class="highlighter-rouge">config</code> 存储了连接的一些设置信息，例如最大数据段长度、接收超时时间、ACK 超时时间等。这个字段本来是准备提供通过命令行修改 backTCP 连接属性的功能的，但是由于时间匆忙未能实现。该字段在初始化连接时会被置为默认值（最大数据长度 64 字节，ACK 超时时间为 10 ms，这两个值与实验文档中的要求一致；接收窗口 10 个包，接收超时时间为 5 ms）</li>
               </ul>
-              <h3 id="32-发送逻辑">3.2 发送逻辑</h3>
+              <h2 id="32-发送逻辑">3.2 发送逻辑</h2>
               <p>对于发送部分，<code class="highlighter-rouge">btcp_sport</code>, <code class="highlighter-rouge">btcp_dport</code> 和 <code class="highlighter-rouge">btcp_ack</code> 三个域是没有使用的（但是接收方返回的响应包中的 <code class="highlighter-rouge">btcp_ack</code> 字段会被检查）。</p>
               <p>发送函数原型为 <code class="highlighter-rouge">size_t BTSend(BTcpConnection* conn, const void* data, size_t len)</code>，各参数意义如下：</p>
               <ul>
@@ -361,7 +361,7 @@
                 <li>发送完全部数据后，清理（释放申请的内存、将状态信息存回 <code class="highlighter-rouge">conn-&gt;state</code> 中）并返回</li>
               </ul>
               <p>其中，主体循环第一次迭代时的发送窗口大小为 1，即仅发出一个包然后等待接收端的响应，方便根据接收端状态进行动态调整。</p>
-              <h3 id="33-接收逻辑">3.3 接收逻辑</h3>
+              <h2 id="33-接收逻辑">3.3 接收逻辑</h2>
               <p>对于接收部分，<code class="highlighter-rouge">btcp_sport</code>, <code class="highlighter-rouge">btcp_dport</code>, <code class="highlighter-rouge">btcp_seq</code>, <code class="highlighter-rouge">data_off</code> 和 <code class="highlighter-rouge">data_len</code> 五个域是没有使用的（但发送方传来的后三个字段会被检查）</p>
               <p>接收函数原型为 <code class="highlighter-rouge">size_t BTRecv(BTcpConnection* conn, void* data, size_t len)</code>，各参数意义与 <code class="highlighter-rouge">BTSend</code> 相同，区别是 <code class="highlighter-rouge">data</code> 需要可写（这是显然的）</p>
               <p>初始化工作与发送部分相似，但在进入主体循环之前会无限期等待第一个包（因为是面向无连接的），然后根据自身配置信息作出响应。</p>
@@ -385,18 +385,18 @@
                 <li>整理收到的数据包，将连续的数据包存入接收数据（即函数的 <code class="highlighter-rouge">data</code> 参数），然后移进窗口，并统计缺失的数据包。若有缺失的数据包，则发回的 ACK 包中会通过 <code class="highlighter-rouge">btcp_ack</code> 和 <code class="highlighter-rouge">win_size</code> 指示发送端将缺失的包发来，实现选择重传 (SR)</li>
                 <li>若收到长度为零的包或接收数据区已存入足够的数据（通过函数的 <code class="highlighter-rouge">len</code> 参数指定），退出循环并清理</li>
               </ul>
-              <h3 id="34-主程序逻辑">3.4 主程序逻辑</h3>
+              <h2 id="34-主程序逻辑">3.4 主程序逻辑</h2>
               <p>主程序负责处理命令行参数（使用 getopt 库灵活处理）并实际创建连接和发送/接收数据。命令行参数的用法可以通过 <code class="highlighter-rouge">btsend --help</code> 或 <code class="highlighter-rouge">btrecv --help</code> 命令查看，支持指定地址、端口等，其中文件名必须给出。</p>
               <p>为了减少内存使用，同时由于后端 backTCP 也支持，文件将以 64 KiB 的块大小读入，按块发送或接收。</p>
-              <h3 id="35-优点与不足">3.5 优点与不足</h3>
-              <h4 id="优点">优点</h4>
+              <h2 id="35-优点与不足">3.5 优点与不足</h2>
+              <h3 id="优点">优点</h3>
               <ul>
                 <li>能够可靠地处理丢包与乱序问题</li>
                 <li>支持选择重传（请加分）</li>
                 <li>实现方式为前后端分离，后端代码可以单独编译成库并在其他程序中调用（可以编译出 <code class="highlighter-rouge">libbtcp.so</code> 动态链接，尽管目前的 <code class="highlighter-rouge">Makefile</code> 并没有指出如何编译，但是经测试这是可以正常使用的）</li>
                 <li>支持在一个“连接”中多次调用发送/接收函数</li>
               </ul>
-              <h4 id="缺点">缺点</h4>
+              <h3 id="缺点">缺点</h3>
               <ul>
                 <li>命令行功能有限，例如不支持修改 backTCP 的属性等</li>
                 <li>窗口滑动采用 memmove(3) 而不是只修改索引，效率较低</li>
@@ -404,7 +404,7 @@
                 <li>部分异常未良好处理</li>
                 <li>指示关闭连接的 0 字节 UDP 包若丢包，会导致接收端无限等待（因此测试信道看到这个包就会原样转发，绕过“捣乱”逻辑）</li>
               </ul>
-              <h3 id="36-测试信道实现">3.6 测试信道实现</h3>
+              <h2 id="36-测试信道实现">3.6 测试信道实现</h2>
               <p>既然公开的测试信道是我写的，我就在这把它当做我提交的实验的一部分吧。</p>
               <p>测试信道为了方便，使用 Python 语言编写，通过序列化 <code class="highlighter-rouge">BTcpPacket.__bytes__</code> 和反序列化 <code class="highlighter-rouge">@staticmethod BTcpPacket.from_bytes</code> 来在二进制序列和 <code class="highlighter-rouge">BTcpPacket</code> 类之间转换，同时使用 <code class="highlighter-rouge">argparse</code> 库提供丰富的命令行选项。</p>
               <p>该程序在解析完命令行参数后，首先创建一个额外的线程将接收端返回的包原样转发给发送端，这是因为实验文档中（还是助教，我也忘了）说明了 ACK 包不会丢包。然后从一系列“动作”中随机选择一个，从发送端接收数据包并执行抽中的动作。目前测试信道支持以下 4 种动作：</p>
@@ -415,16 +415,16 @@
                 <li>一次性接收三个包，随机化它们的顺序，并随机复制或丢弃一个包。重传的包不会被复制或丢弃</li>
               </ul>
               <p>若收到 0 字节的 UDP 包，则停止动作并将所有已收到的包发给接收端，然后关闭</p>
-              <h2 id="四结果展示">四、结果展示</h2>
-              <h3 id="41-系统环境与编译">4.1 系统环境与编译</h3>
+              <h1 id="四结果展示">四、结果展示</h1>
+              <h2 id="41-系统环境与编译">4.1 系统环境与编译</h2>
               <p><img src="/image/backTCP/1.png" alt="" class="block"></p>
-              <h3 id="42-直接传输">4.2 直接传输</h3>
+              <h2 id="42-直接传输">4.2 直接传输</h2>
               <p><img src="/image/backTCP/2.png" alt="" class="block"></p>
               <p><img src="/image/backTCP/3.png" alt="" class="block"></p>
-              <h3 id="43-经过测试信道传输">4.3 经过测试信道传输</h3>
+              <h2 id="43-经过测试信道传输">4.3 经过测试信道传输</h2>
               <p><img src="/image/backTCP/4.png" alt="" class="block"></p>
               <p><img src="/image/backTCP/5.png" alt="" class="block"></p>
-              <h3 id="45-结论">4.5 结论</h3>
+              <h2 id="45-结论">4.5 结论</h2>
               <p>根据控制台输出，可以看到，不论是直接传输还是经过测试信道“捣蛋”时的传输，都可以完整传输一个 150 KB 的文件。在有测试信道时，发送端和接收端都能正确检测丢包和乱序，并采取合适的措施确保接收到的数据块是完整的。同时接收端也能够使用 ACK 包头中的信息，让发送端仅传回丢失的包，然后从缓冲区中恢复完整的书架序列，说明选择重传的功能也正确工作。</p>
             </section>
             <footer class="page__meta">
@@ -472,7 +472,7 @@
           <br>
           <a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
           <br>
-          Site version <a href="/status">710</a>
+          Site version <a href="/status">711</a>
         </div>
       </footer>
     </div>
