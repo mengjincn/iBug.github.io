@@ -65,7 +65,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-16 13:06:52  \tCurrent time \t    Source Git revision   9a362e9 iBug: Update article  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 707       ","categories": [],
+"excerpt":"   Build time   2019-11-17 06:27:24  \tCurrent time \t    Source Git revision   8a33d2c iBug: Add backdrop-filter to buttons in page hero  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 708       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
