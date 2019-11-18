@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-18 06:02:04  \tCurrent time \t    Source Git revision   b272f8b iBug: Top item should have no margin-top  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 727       ","categories": [],
+"excerpt":"   Build time   2019-11-18 11:48:34  \tCurrent time \t    Source Git revision   5ea4fda iBug: Use more intuitive website name  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 728       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
