@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-19 17:10:47  \tCurrent time \t    Source Git revision   e9ac549 iBug: Override notice text size (was too small)  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 731       ","categories": [],
+"excerpt":"   Build time   2019-11-20 18:26:53  \tCurrent time \t    Source Git revision   de736bd iBug: Show post date instead of read time  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 732       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
