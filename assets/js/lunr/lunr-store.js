@@ -24,11 +24,6 @@ var store = [{
 "tags": [],
 "url": "https://ibugone.com/cn/backTCP-report/",
 "teaser":null},{
-"title": "PAC 生成器",
-"excerpt":"    点下面的 [生成] 按钮       生成 下载        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
-"tags": ["generators"],
-"url": "https://ibugone.com/cn/pac-generator/",
-"teaser":null},{
 "title": "About iBug",
 "excerpt":"Undergraduate CS student at USTC, hobbiest programmer and passionate geek. Primarily a developer, often a DevOps engineer and Linux SysAdmin.   In action   I’m an active contributor on GitHub across various repositories. You can see a list of all my pull requests using GitHub search.   I’m also an avid user on Stack Overflow and here’s my profile:             See my questions and answers on Stack Overflow, or view a selected list of my questions and answers.   Quick facts   On the techie side (more about my skills here):      Advanced knowledge            Programming: Python, C++, C, Bash (these are also my top tags on Stack Overflow)       Software: Git, Jekyll, OpenSSH       Technology: HTTP, DNS           Intermediate knowledge            Programming: VBScript, JavaScript (also HTML/CSS), Ruby, Verilog, Scala       Framework: Flask, Electron, Twitter Bootstrap, jQuery, Chisel       Software: Vim, Nginx, Docker, Make, LXD, Systemd, Singularity (Container)       Service: Travis CI, CircleCI, Amazon EC2, Cloudflare CDN           Basic knowledge            Programming: SQL (MySQL / MariaDB), PHP, Go, AWK, Perl       Framework: Django, Sinatra, Rails       Software: ZFS, Linux LVM       Technology: RDMA, eBPF           Preferences      Linux distro: Ubuntu (desktop / workstation) and Debian (servers)   Version control: Git (and good at it)   Text editor: &lt;ESC&gt;:wq (get my config)   Automation: Shell scripts, Make, Cron / At, Systemd Services, and Docker   Working environment   Physical machine in office (headless):      Core i7-8850H, 32 GiB RAM, 1 TB SSD (Samsung PM981) plus some HDD   Ubuntu 19.04, Docker, LXD, KVM (libvirt)   MSI produces high-performance laptops with very comfortable and beautiful keyboards. Must buy!   Personally      Primary languages:            Chinese                    Native to Simplified (written) and Mandarin (oral)           Reads Traditional without problem but limited in writing                       English (Proficient as a foreign language, prefer American flavor)           Secondary languages: French (advancing), Spanish (limited vocabulary)   Minor language(s): Italian (can read with a dictionary)            Also identify a wide range of Latin-script languages, though without understanding a single word.           My blog        My entertainment       ","categories": [],
 "tags": [],
@@ -75,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-21 08:01:25  \tCurrent time \t    Source Git revision   188e8f6 iBug: Disable more stuff on PAC generator page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 742       ","categories": [],
+"excerpt":"   Build time   2019-11-21 08:05:12  \tCurrent time \t    Source Git revision   53b27b5 iBug: Change category  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 743       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -218,6 +213,11 @@ var store = [{
 "excerpt":"A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)   It uses Windows API so only runs on Windows.   Screenshots        ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/TetrisAI/",
+"teaser":null},{
+"title": "PAC 生成器",
+"excerpt":"    点下面的 [生成] 按钮       生成 下载        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/pac-generator/",
 "teaser":null},{
 "title": "Jekyll Themes",
 "excerpt":"Minimal Mistakes by Michael Rose (, ) is the theme this site is using.   Other good themes I found beautiful:      Creative          Stylish Portfolio         ","categories": [],
