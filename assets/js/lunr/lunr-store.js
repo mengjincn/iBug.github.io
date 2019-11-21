@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-21 08:06:30  \tCurrent time \t    Source Git revision   a424d7a iBug: Enable comments back on  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 744       ","categories": [],
+"excerpt":"   Build time   2019-11-21 08:11:08  \tCurrent time \t    Source Git revision   b7b0f4b iBug: Update prompt text  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 745       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -215,7 +215,7 @@ var store = [{
 "url": "https://ibugone.com/project/TetrisAI/",
 "teaser":null},{
 "title": "PAC 生成器",
-"excerpt":"    点下面的 [生成] 按钮       生成 下载        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
+"excerpt":"    点下面的 [生成] 按钮 / Press [Generate]       生成 / Generate 下载 / Download        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/pac-generator/",
 "teaser":null},{
