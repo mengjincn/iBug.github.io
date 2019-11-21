@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-21 07:57:45  \tCurrent time \t    Source Git revision   8dd1933 iBug: Add prompt indicating progress  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 741       ","categories": [],
+"excerpt":"   Build time   2019-11-21 08:01:25  \tCurrent time \t    Source Git revision   188e8f6 iBug: Disable more stuff on PAC generator page  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 742       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
