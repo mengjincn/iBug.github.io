@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-21 07:43:42  \tCurrent time \t    Source Git revision   16a0084 iBug: Disable TOC on PAC generator  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 739       ","categories": [],
+"excerpt":"   Build time   2019-11-21 07:50:43  \tCurrent time \t    Source Git revision   065ae8e iBug: Get rid of the trailing blank line  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 740       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
