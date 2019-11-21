@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-21 11:30:35  \tCurrent time \t    Source Git revision   29b8ac7 iBug: Notice blocks look good  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 746       ","categories": [],
+"excerpt":"   Build time   2019-11-21 11:33:57  \tCurrent time \t    Source Git revision   d672450 iBug: Update description  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 747       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -215,7 +215,7 @@ var store = [{
 "url": "https://ibugone.com/project/TetrisAI/",
 "teaser":null},{
 "title": "PAC 生成器",
-"excerpt":"    点下面的 [生成] 按钮 / Press [Generate]       生成 / Generate 下载 / Download        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
+"excerpt":"本 PAC 生成器从 http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见这个 Issue。   This PAC generator fetches latest IP address table from http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone and converts it into a PAC code suitable for proxies. For background, head over to this issue.       点下面的 [生成] 按钮 / Press [Generate]       生成 / Generate 下载 / Download        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/pac-generator/",
 "teaser":null},{
