@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-22 07:04:32  \tCurrent time \t    Source Git revision   8adc178 iBug: Use dedicated header image for /about/  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 750       ","categories": [],
+"excerpt":"   Build time   2019-11-22 08:38:37  \tCurrent time \t    Source Git revision   444e34c iBug: Limit landing screen height  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 751       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
