@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-22 14:18:23  \tCurrent time \t    Source Git revision   1adf5bf iBug: Fix changed variable  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 752       ","categories": [],
+"excerpt":"   Build time   2019-11-23 06:52:32  \tCurrent time \t    Source Git revision   c192826 iBug: Revert &quot;Use dedicated header image for /about/&quot;  This reverts commit 8adc178e1e5f9ad639926687401bbad2d0b26013.  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 753       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
