@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-11-30 14:47:46  \tCurrent time \t    Source Git revision   735ed94 iBug: CPE toolbox is stale  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 755       ","categories": [],
+"excerpt":"   Build time   2019-12-04 05:58:09  \tCurrent time \t    Source Git revision   2a626f2 iBug: Less radical  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 756       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
