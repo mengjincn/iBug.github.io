@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-05 06:07:13  \tCurrent time \t    Source Git revision   a92a7a1 iBug: Show post time in menu  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 757       ","categories": [],
+"excerpt":"   Build time   2019-12-06 08:05:53  \tCurrent time \t    Source Git revision   e17a8c8 iBug: Revert &quot;Crazy rotating&quot;  This reverts commit c2c640e4093f34cb0ea27186204b5959e34f5f70.  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 758       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
