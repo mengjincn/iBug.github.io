@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-06 18:44:46  \tCurrent time \t    Source Git revision   b8f7631 iBug: Create ~/.ssh if not exists  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 762       ","categories": [],
+"excerpt":"   Build time   2019-12-06 18:50:39  \tCurrent time \t    Source Git revision   b0c6db4 iBug: ssh-keyscan GitHub  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 763       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
