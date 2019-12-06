@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-06 18:40:01  \tCurrent time \t    Source Git revision   5595df0 iBug: Use same deploy script as on CircleCI  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 760       ","categories": [],
+"excerpt":"   Build time   2019-12-06 18:41:21  \tCurrent time \t    Source Git revision   3489f51 iBug: Forgot to setup Ruby environment  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from CircleCI build 761       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
