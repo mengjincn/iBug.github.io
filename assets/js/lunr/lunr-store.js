@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-06 18:58:57  \tCurrent time \t    Source Git revision   e3d7791 iBug: Wrong GitHub Actions deploy script  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-06 19:03:35  \tCurrent time \t    Source Git revision   6090e11 iBug: Show commit SHA if CI build number is unavailable  \t \t\tContinuous Integration \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
