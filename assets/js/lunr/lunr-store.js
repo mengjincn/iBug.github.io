@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-08 12:31:10  \tCurrent time \t    Source Git revision   9af43c4 iBug: Rename GitHub Actions workflows  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-08 13:29:26  \tCurrent time \t    Source Git revision   7cd88da iBug: Change GitHub Actions committer info  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
