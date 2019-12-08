@@ -70,7 +70,7 @@ var store = [{
 "url": "https://ibugone.com/skills/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-08 12:25:14  \tCurrent time \t    Source Git revision   ca9813c iBug: Move Algolia task from Travis CI to GH Actions  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-08 12:27:45  \tCurrent time \t    Source Git revision   de47214 iBug: Change Algolia update to daily job instead of per-push  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
