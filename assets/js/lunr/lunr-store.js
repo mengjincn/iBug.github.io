@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-09 09:49:13  \tCurrent time \t    Source Git revision   1230179 iBug: Add SEO keywords to posts  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-09 09:55:00  \tCurrent time \t    Source Git revision   99b1de4 iBug: Add keywords to Chinese articles  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
