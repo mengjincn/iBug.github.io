@@ -56,7 +56,11 @@
 		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 		<meta name="theme-color" content="#EDEDED">
 		<script type="text/javascript">
-			window.addEventListener("DOMContentLoaded", () => document.querySelector("body").classList.add("loaded"));
+			const funcOnPageLoad = () => document.querySelector("body").classList.add("loaded");
+			if (document.readyState !== "loading")
+				funcOnPageLoad();
+			else
+				document.addEventListener('DOMContentLoaded', funcOnPageLoad);
 		</script>
 		<script type="text/javascript" async src="/assets/js/love.js"></script>
 		<!--
@@ -344,7 +348,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">24b8841</a>
+					Site version <a href="/status" style="font-family: monospace;">5e46e6d</a>
 				</div>
 			</footer>
 		</div>
