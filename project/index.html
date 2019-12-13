@@ -8,16 +8,16 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="utf-8">
-		<!-- begin _includes/seo.html --><title>lifehack - iBug One</title>
+		<!-- begin _includes/seo.html --><title>Projects - iBug One</title>
 		<meta name="description" content="The little personal site for iBug">
 		<meta name="author" content="iBug">
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="en_US">
 		<meta property="og:site_name" content="iBug One">
-		<meta property="og:title" content="lifehack">
-		<meta property="og:url" content="https://ibugone.com/tag/lifehack/">
-		<meta property="og:image" content="https://ibugone.com/image/header/water-2.jpg">
-		<link rel="canonical" href="https://ibugone.com/tag/lifehack/">
+		<meta property="og:title" content="Projects">
+		<meta property="og:url" content="https://ibugone.com/project/">
+		<meta property="og:image" content="https://ibugone.com/image/header/mountain-2.jpg">
+		<link rel="canonical" href="https://ibugone.com/project/">
 		<script type="application/ld+json">
 			{
 			  "@context": "https://schema.org",
@@ -63,12 +63,12 @@
 		</script>
 		<script type="text/javascript" async src="/assets/js/love.js"></script>
 		<!--
-	Minimal Mistakes layout: archive-taxonomy
-	Page Path: tag/lifehack/index.html
-	Page Type: tag
+	Minimal Mistakes layout: collection
+	Page Path: _pages/project-index.md
+	Page Type: 
 -->
 	</head>
-	<body class="layout--archive-taxonomy">
+	<body class="layout--collection">
 		<nav class="skip-links">
 			<h2 class="screen-reader-text">Skip links</h2>
 			<ul>
@@ -122,11 +122,11 @@
 		</div>
 		<div class="initial-content">
 			<div class="page__hero--overlay"
-  style=" background-image: url('/image/header/water-2.jpg');"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/image/header/mountain-2.jpg');"
 >
 				<div class="wrapper">
 					<h1 id="page-title" class="page__title" itemprop="headline">
-						lifehack
+						Projects
 					</h1>
 				</div>
 			</div>
@@ -159,23 +159,72 @@
 							</ul>
 						</div>
 					</div>
+					<nav class="nav__list">
+						<input id="ac-toc" name="accordion-toc" type="checkbox" />
+						<label for="ac-toc">Toggle Menu</label>
+						<ul class="nav__items">
+							<li>
+								<span class="nav__sub-title">iBug on the Web</span>
+								<ul>
+									<li><a href="/" class=""><i class="fas fa-fw fa-home"></i> Home</a></li>
+									<li><a href="/about/" class=""><i class="fas fa-fw fa-smile"></i> About iBug</a></li>
+									<li><a href="/blog/" class=""><i class="fas fa-fw fa-book"></i> Blog</a></li>
+									<li><a href="/skills/" class=""><i class="fas fa-fw fa-wrench"></i> Skills</a></li>
+									<li><a href="/projects/" class=""><i class="fas fa-fw fa-puzzle-piece"></i> Projects</a></li>
+									<li><a href="/entertainment/" class=""><i class="fas fa-fw fa-gamepad"></i> Entertainment</a></li>
+									<li><a href="/friends/" class=""><i class="fas fa-fw fa-user-friends"></i> Friends</a></li>
+									<li><a href="/cn/" class=""><i class="fas fa-fw fa-yin-yang"></i> Chinese Content</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
 				</div>
 				<div class="archive">
-					<div class="list__item">
-						<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-							<h2 class="archive__item-title" itemprop="headline">
-								<a href="/blog/2019/11/change-nvidia-account-email/" rel="permalink">How to change email of your Nvidia account
-								</a>
-							</h2>
-							<p class="page__meta">
-								<span style="margin-right: 1em;">
-									<i class="far fa-calendar-alt" aria-hidden="true"></i> November 22, 2019
-								</span>
-								<i class="far fa-clock" aria-hidden="true"></i>
-								1 minute read
-							</p>
-							<p class="archive__item-excerpt" itemprop="description">I recently retired a few old email addresses, and am currently going in a row to change email for accounts associated with those emails. Everything else went...</p>
-						</article>
+					<div class="entries-grid">
+						<div class="grid__item">
+							<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+								<div class="archive__item-teaser">
+									<img src=
+          
+            "/image/project/teaser/tetris.jpg"
+          
+          alt="">
+								</div>
+								<h2 class="archive__item-title" itemprop="headline">
+									<a href="/project/TetrisAI/" rel="permalink">Tetris with AI
+									</a>
+								</h2>
+								<p class="page__meta">
+									<span style="margin-right: 1em;">
+										<i class="far fa-calendar-alt" aria-hidden="true"></i> October 21, 2019
+									</span>
+								</p>
+								<p class="archive__item-excerpt" itemprop="description">A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)
+								</p>
+							</article>
+						</div>
+						<div class="grid__item">
+							<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+								<div class="archive__item-teaser">
+									<img src=
+          
+            "/image/project/teaser/default.png"
+          
+          alt="">
+								</div>
+								<h2 class="archive__item-title" itemprop="headline">
+									<a href="/project/pac-generator/" rel="permalink">PAC 生成器
+									</a>
+								</h2>
+								<p class="page__meta">
+									<span style="margin-right: 1em;">
+										<i class="far fa-calendar-alt" aria-hidden="true"></i> November 21, 2019
+									</span>
+								</p>
+								<p class="archive__item-excerpt" itemprop="description">本 PAC 生成器从 http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见这个 Issue。
+								</p>
+							</article>
+						</div>
 					</div>
 				</div>
 			</div>
