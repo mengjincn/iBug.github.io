@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-10 07:39:37  \tCurrent time \t    Source Git revision   0eafef4 iBug: TOC sticky  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-13 05:42:25  \tCurrent time \t    Source Git revision   6363d90 iBug: Forgot Jekyll Env  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
