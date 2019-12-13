@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-13 11:18:25  \tCurrent time \t    Source Git revision   5e32518 iBug: Handle hidden posts  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-13 15:25:17  \tCurrent time \t    Source Git revision   a7bf380 iBug: FULL HOUSE  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -219,11 +219,51 @@ var store = [{
 "tags": ["lifehack"],
 "url": "https://ibugone.com/blog/2019/11/change-nvidia-account-email/",
 "teaser":null},{
+"title": "OJSandbox",
+"excerpt":"An experimental sandbox for online judgers (OJ) utilizing multiple Linux features, including rlimit, cgroup and chroot. I am a co-author.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/OJSandbox/",
+"teaser":"https://ibugone.com/image/project/teaser/linux-sandbox.jpg"},{
+"title": "SmokeDetector",
+"excerpt":" ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/SmokeDetector/",
+"teaser":"https://ibugone.com/image/project/teaser/charcoal-se.png"},{
+"title": "USTC Virtualization Laboratory",
+"excerpt":"USTC Virtualization Laboratory (Vlab) is a unified course experiment platform involving code storage (GitLab CE) and experiment environment (virtual machines). Students log in to their accounts and manage or connect to their virtual machines, and can do course experiments anywhere without having to spin up messy environments on their own.   The VM manager itself is a Django app, and the front end utilizes Twitter Bootstrap. The VM backend currently consists of LXD and QEMU / libvirt / KVM, with storage part involving LVM and ZFS.   The Next Generation™ Vlab runs on Proxmox VE and is more sophisticated. It’s currently under construction.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/vlab/",
+"teaser":"https://ibugone.com/image/project/teaser/cloud-computing.jpg"},{
+"title": "Chisel RISC-V",
+"excerpt":"A RISC-V-centric project aiming to pave the way for its application in school teaching, across several courses, including Introduction to Computer Systems (ICS), Computer Organization and Design (COD) and more. It consists of a RISC-V-based SoC design (hardware) and a full set of toolchain to compile C programs for the SoC, with the hope that this project will help joining many hardcore CS courses into one streamline of comprehension, greatly improve students’ understanding of CS principles and their competence in future research and careers.   It is currently under development.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/USTC-RV-Chisel/",
+"teaser":"https://ibugone.com/image/project/teaser/risc-v.jpg"},{
+"title": "Jekyll Environment Variables",
+"excerpt":"A Jekyll plugin that enables the use of environment variables in Liquid templates. I have published it on RubyGems and it has accumulated a total download of 25k, which IMO indicates its non-trivial impact to the Jekyll community. It also gathered some discussion on its issue board.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/jekyll-environment-variables/",
+"teaser":"https://ibugone.com/image/project/teaser/jekyll.png"},{
 "title": "Tetris with AI",
 "excerpt":"A simple Tetris game with AI play mode. You can watch the program play the game and have a cup of coffee :)   It uses Windows API so only runs on Windows.   Screenshots        ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/TetrisAI/",
 "teaser":"https://ibugone.com/image/project/teaser/tetris.jpg"},{
+"title": "SpaceRider",
+"excerpt":"An old Flash plane-shooting game that I made when I was 13. ActionScript 2.0 (so expect that it won’t run very fluently on a low-end computer)     ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/SpaceRider/",
+"teaser":"https://ibugone.com/image/project/teaser/SpaceRider.jpg"},{
+"title": "PyReversi",
+"excerpt":"An implementation of the classic Reversi / Othello game using Python and PyQt5. It has an intensive AI that’s hard to beat.   See this article for more details.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/PyReversi/",
+"teaser":"https://ibugone.com/image/project/teaser/reversi.jpg"},{
+"title": "Aurora Theme",
+"excerpt":" ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/aurora-theme/",
+"teaser":"https://ibugone.com/image/project/teaser/aurora.jpg"},{
 "title": "PAC 生成器",
 "excerpt":"本 PAC 生成器从 http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见这个 Issue。   This PAC generator fetches latest IP address table from http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone and converts it into a PAC code suitable for proxies. For background, head over to this issue.       点下面的 [生成] 按钮 / Press [Generate]       生成 / Generate 下载 / Download        // Author: iBug &lt;ibugone.com&gt;  function belongsToSubnet(host, list) {   var ip = host.split(\".\");   ip = 0x1000000 * Number(ip[0]) + 0x10000 * Number(ip[1]) +     0x100 * Number(ip[2]) + Number(ip[3]);    if (ip &lt; list[0][0])     return false;    // Binary search   var x = 0, y = list.length, middle;   while (y - x &gt; 1) {     middle = Math.floor((x + y) / 2);     if (list[middle][0] &lt; ip)       x = middle;     else       y = middle;   }    // Match   var masked = ip &amp; list[x][1];   return (masked ^ list[x][0]) == 0; }  function isChina(host) {   return belongsToSubnet(host, CHINA); }  function isLan(host) {   return belongsToSubnet(host, LAN); }  function FindProxyForURL(url, host) {   if (!isResolvable(host)) {       return \"__PROXY__\";   }   var remote = dnsResolve(host);   if (isLan(remote) || isChina(remote)) {       return \"DIRECT\";   }   return \"__PROXY__\"; }  var LAN = [   [0x0A000000, 0xFF000000],   [0x7F000000, 0xFFFFFF00],   [0xA9FE0000, 0xFFFF0000],   [0xAC100000, 0xFFF00000],   [0xC0A80000, 0xFFFF0000] ];   ","categories": [],
 "tags": [],
