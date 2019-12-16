@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-15 07:35:10  \tCurrent time \t    Source Git revision   1adae18 iBug: Attempt to fix bad look on mobile  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-16 06:02:54  \tCurrent time \t    Source Git revision   1fc571a iBug: Typo  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
