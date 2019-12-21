@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":"   Build time   2019-12-21 08:51:06  \tCurrent time \t    Source Git revision   0b69d43 iBug: Attempt to disable selection on page title  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
+"excerpt":"   Build time   2019-12-21 09:08:09  \tCurrent time \t    Source Git revision   6e884dd iBug: More noselect's  \t \t\tContinuous Integration \t\t \t\t \t\t \t    \tThis site is deployed from GitHub Actions       ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
