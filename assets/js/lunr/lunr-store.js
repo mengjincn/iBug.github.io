@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2019-12-22 19:16:40  \tCurrent time \t  \tSource Git revision \tbe937b5 iBug: A better timer on status page  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2019-12-23 14:28:37  \tCurrent time \t  \tSource Git revision \t7b49c0c iBug: /p/30: Complete server authentication part  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
