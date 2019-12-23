@@ -19,7 +19,7 @@
 		<meta property="og:description" content="Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using Termux), and one of those servers that I use as a workstation.">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-1.jpg">
 		<meta property="article:published_time" content="2019-12-23T00:00:00+00:00">
-		<meta property="article:modified_time" content="2019-12-23T23:26:55+00:00">
+		<meta property="article:modified_time" content="2019-12-24T00:01:44+00:00">
 		<link rel="canonical" href="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/">
 		<script type="application/ld+json">
 			{
@@ -166,7 +166,7 @@
 					<meta itemprop="headline" content="Managing servers with OpenSSH Certificate Authority">
 					<meta itemprop="description" content="Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using Termux), and one of those servers that I use as a workstation.">
 					<meta itemprop="datePublished" content="December 23, 2019">
-					<meta itemprop="dateModified" content="December 23, 2019">
+					<meta itemprop="dateModified" content="December 24, 2019">
 					<div class="page__inner-wrap">
 						<section class="page__content" itemprop="text">
 							<aside class="sidebar__right sticky">
@@ -218,7 +218,7 @@
 							<p>Not until I took over a system of many servers did I learn about SSH CA. It’s for sure to the rescue!</p>
 							<h2 id="what-is-an-ssh-ca">What is an SSH CA?</h2>
 							<p>Long story short, an SSH Certificate Authority is a <a href="https://en.wikipedia.org/wiki/Certificate_authority">certificate authority</a> for SSH hosts. A client can trust all server signed by the CA by simply trusting the CA. And more powerfully, a server can <em>also</em> trust all user keys if the user key has a signature from the CA, and the server trusts the CA for signing user keys.</p>
-							<p>By properly configuring servers and clients, a rotated or otherwise changed key, be it a host key or a user key, will no longer cause chaos of copying public keys from everywhere, to everyone. The follow-up is as simple as getting another CA signature for the new key, and everything will go smoothly as if nothing has happened.</p>
+							<p>By properly configuring servers and clients, a rotated or otherwise changed key, be it a host key or a user key, will no longer cause chaos of copying public keys from everywhere, to everywhere. The follow-up is as simple as getting another CA signature for the new key, and everything will go smoothly as if nothing has happened.</p>
 							<h2 id="creating-an-ssh-ca">Creating an SSH CA</h2>
 							<p>Creating a CA is as easy as generating a key pair for it, and publishing its public key.</p>
 							<p>To generate a key pair for a CA, you’d do it the usual way you generate a regular SSH key pair:</p>
@@ -340,7 +340,7 @@
 									<a href="/tag/ssh" class="page__taxonomy-item" rel="tag">ssh</a>
 								</span>
 							</p>
-							<p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-23">December 23, 2019</time></p>
+							<p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-24">December 24, 2019</time></p>
 						</footer>
 						<section class="page__share">
 							<a href="https://twitter.com/intent/tweet?text=Managing+servers+with+OpenSSH+Certificate+Authority%20https%3A%2F%2Fibugone.com%2Fblog%2F2019%2F12%2Fmanage-servers-with-ssh-ca%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
@@ -453,7 +453,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">1ffd8d5</a>
+					Site version <a href="/status" style="font-family: monospace;">5f2b69e</a>
 				</div>
 			</footer>
 		</div>
