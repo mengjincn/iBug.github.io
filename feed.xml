@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-12-23T14:28:37+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug One</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">How to change email of your Nvidia account</title><link href="https://ibugone.com/blog/2019/11/change-nvidia-account-email/" rel="alternate" type="text/html" title="How to change email of your Nvidia account" /><published>2019-11-22T00:00:00+00:00</published><updated>2019-12-09T17:48:34+00:00</updated><id>https://ibugone.com/blog/2019/11/change-nvidia-account-email</id><content type="html" xml:base="https://ibugone.com/blog/2019/11/change-nvidia-account-email/">&lt;p&gt;I recently retired a few old email addresses, and am currently going in a row to change email for accounts associated with those emails. Everything else went smoothly, with my Nvidia account being an exception - There wasn’t an option to change it!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-12-23T15:26:42+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug One</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">Managing my servers with OpenSSH Certificate Authority</title><link href="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/" rel="alternate" type="text/html" title="Managing my servers with OpenSSH Certificate Authority" /><published>2019-12-23T00:00:00+00:00</published><updated>2019-12-23T23:25:56+00:00</updated><id>https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca</id><content type="html" xml:base="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/">&lt;p&gt;Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using &lt;a href=&quot;https://termux.com/&quot;&gt;Termux&lt;/a&gt;), and one of those servers that I use as a workstation.&lt;/p&gt;
+				&lt;p&gt;Managing SSH keys has always been a headache for this many computers, as all of them on one side have to be updated of the new key whenever one on the other side changes or rotates its key. In case of a client key change, the new key must be uploaded to all servers. And in a worse case where the original key is lost, the uploading needs to be done with the help of another client (computer or phone), which is an additional layer of unnecessary complexity and cumber.&lt;/p&gt;
+				&lt;p&gt;Not until I took over a system of many servers did I learn about SSH CA. It’s for sure to the rescue!&lt;/p&gt;
+				&lt;h2 id=&quot;what-is-an-ssh-ca&quot;&gt;What is an SSH CA?&lt;/h2&gt;
+				&lt;p&gt;Long story short, an SSH Certificate Authority is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;certificate authority&lt;/a&gt; for SSH hosts. A client can trust all server signed by the CA by simply trusting the CA. And more powerfully, a server can &lt;em&gt;also&lt;/em&gt; trust all user keys if the user key has a signature from the CA, and the server trusts the CA for signing user keys.&lt;/p&gt;
+				&lt;p&gt;By properly configuring servers and clients, a rotated or otherwise changed key, be it a host key or a user key, will no longer cause chaos of copying public keys from everywhere, to everyone. The follow-up is as simple as getting another CA signature for the new key, and everything will go smoothly as if nothing has happened.&lt;/p&gt;
+				&lt;h2 id=&quot;creating-an-ssh-ca&quot;&gt;Creating an SSH CA&lt;/h2&gt;
+				&lt;p&gt;Creating a CA is as easy as generating a key pair for it, and publishing its public key.&lt;/p&gt;
+				&lt;p&gt;To generate a key pair for a CA, you’d do it the usual way you generate a regular SSH key pair:&lt;/p&gt;
+				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; my_ca
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;Proceed through the prompts, and you’ll find two files &lt;code class=&quot;highlighter-rouge&quot;&gt;my_ca&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;my_ca.pub&lt;/code&gt; in your current directory. Contrary to SSH keys that you use for regular purposes, I highly recommend setting a password for this key, since it’s going to be &lt;em&gt;way&lt;/em&gt; more powerful than those. Protect the private key carefully, and leave the public part somewhere easily accessible, like &lt;a href=&quot;https://ibugone.com/assets/ssh-ca.pub.txt&quot;&gt;mine&lt;/a&gt;.&lt;/p&gt;
+				&lt;h2 id=&quot;authenticating-hosts-with-ssh-ca&quot;&gt;Authenticating hosts with SSH CA&lt;/h2&gt;
+				&lt;h3 id=&quot;sign-a-host-key&quot;&gt;Sign a host key&lt;/h3&gt;
+				&lt;p&gt;To sign a host key with your CA, copy its &lt;strong&gt;public&lt;/strong&gt; part (like &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh_host_rsa_key.pub&lt;/code&gt;) to a convenient place, and run the following command.&lt;/p&gt;
+				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &amp;lt;ca private key&amp;gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt; &amp;lt;signature name&amp;gt; &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; &amp;lt;host key&amp;gt;
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;You’ll find a file named &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh_host_rsa_key-cert.pub&lt;/code&gt; in your current directory, which you should copy back to the server. Because sshd(8) doesn’t look for host certificates by default, you shold edit &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/sshd_config&lt;/code&gt; to instruct it to do so. Add this line to the file to let it work:&lt;/p&gt;
+				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HostCertificate /etc/ssh/ssh_host_rsa_key-cert.pub
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;Then run &lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl reload ssh&lt;/code&gt; (or &lt;code class=&quot;highlighter-rouge&quot;&gt;service sshd reload&lt;/code&gt; if you’re not running on systemd) to reload the configuration.&lt;/p&gt;
+				&lt;h3 id=&quot;restrict-signature-validity-range&quot;&gt;Restrict signature validity range&lt;/h3&gt;
+				&lt;p&gt;As a security measure, you probably don’t want the signature remain valid even if stolen. The &lt;code class=&quot;highlighter-rouge&quot;&gt;-n&lt;/code&gt; option is there for you to specify “valid principals”. For example, you can specify a signature valid for &lt;code class=&quot;highlighter-rouge&quot;&gt;s.ibugone.com,10.250.0.2&lt;/code&gt;, and this signature is accepted by clients only if the server is accessed from &lt;code class=&quot;highlighter-rouge&quot;&gt;s.ibugone.com&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;10.250.0.2&lt;/code&gt;. If someone steals the private key and the CA signature and installs it on another host, for example &lt;code class=&quot;highlighter-rouge&quot;&gt;q.ibugone.com&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;10.250.0.3&lt;/code&gt;, the SSH client will complain:&lt;/p&gt;
+				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Certificate invalid: name is not a listed principal
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;Unless the attacker can hijack your DNS (for authenticated domain names) or even your routers (for plain IP addresses), this signature is useless when stolen, and you can safely forget about it and sign a new one for the regenerated host key.&lt;/p&gt;
+				&lt;div class=&quot;notice--primary&quot;&gt;
+				&lt;h4 id=&quot;tip&quot;&gt;&lt;i class=&quot;far fa-lightbulb&quot;&gt;&lt;/i&gt; Tip&lt;/h4&gt;
+				&lt;p&gt;You can see the certificate information using &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen -L&lt;/code&gt; command. For example:&lt;/p&gt;
+				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-Lf&lt;/span&gt; /etc/ssh/ssh_host_rsa_key-cert.pub
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+				&lt;/div&gt;
+				&lt;h3 id=&quot;configure-clients&quot;&gt;Configure clients&lt;/h3&gt;
+				&lt;p&gt;Now let’s configure clients to trust CA signatures. You’ll need to publish the public key of the CA (as said before) so clients can easily acquire it. Put a line like this in a client’s &lt;code class=&quot;highlighter-rouge&quot;&gt;known_hosts&lt;/code&gt; file:&lt;/p&gt;
+				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@cert-authority * ssh-rsa &amp;lt;publicKeyGibberish&amp;gt;
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;You can automate the addition of the above line using shell scripts:&lt;/p&gt;
+				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;@cert-authority * &quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; - my_ca.pub &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.ssh/known_hosts
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;Now try SSHing into a host with a CA signature. You’ll notice that SSH doesn’t prompt for “unknown host” even if it’s not listed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;known_hosts&lt;/code&gt; file, which is because of the magic of the &lt;code class=&quot;highlighter-rouge&quot;&gt;@cert-authority&lt;/code&gt; line. Should you be interested in the details, you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh -vvv&lt;/code&gt; to let SSH client generate extra information.&lt;/p&gt;
+				&lt;h2 id=&quot;authenticating-users-with-ssh-ca&quot;&gt;Authenticating users with SSH CA&lt;/h2&gt;
+				&lt;h3 id=&quot;configure-servers&quot;&gt;Configure servers&lt;/h3&gt;
+				&lt;p&gt;We’ll start this part with server side configuration. We want the server to trust user certificates signed by the CA, so we’ll copy the CA’s public key onto the server, and again edit &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/sshd_config&lt;/code&gt; and add the following line.&lt;/p&gt;
+				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TrustedUserCAKeys /etc/ssh/ssh_user_ca
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;Make sure you’ve put the CA public key at &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/ssh_user_ca&lt;/code&gt;, or you should change the path in the above configuration accordingly. Again, run &lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl reload ssh&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;service sshd reload&lt;/code&gt; to reload the SSH server.&lt;/p&gt;
+				&lt;div class=&quot;notice--primary&quot;&gt;
+				&lt;h4 id=&quot;pro-tip&quot;&gt;&lt;i class=&quot;far fa-lightbulb&quot;&gt;&lt;/i&gt; Pro Tip&lt;/h4&gt;
+				&lt;p&gt;Did you notice that the configuration line is named CA&lt;strong&gt;Keys&lt;/strong&gt;, not just CA&lt;strong&gt;Key&lt;/strong&gt;? Yes, you can add multiple public keys to that file just like you’re already doing with &lt;code class=&quot;highlighter-rouge&quot;&gt;authorized_keys&lt;/code&gt; file.&lt;/p&gt;
+				&lt;/div&gt;
+				&lt;h3 id=&quot;sign-user-keys&quot;&gt;Sign user keys&lt;/h3&gt;
+				&lt;p&gt;Now, to grant access to all servers configured this way to a user, ask for their public key and create a signature. The command is similar to that when signing a host certificate, except that there’s no &lt;code class=&quot;highlighter-rouge&quot;&gt;-h&lt;/code&gt; switch (it’s for signing hosts), and the &lt;code class=&quot;highlighter-rouge&quot;&gt;-n&lt;/code&gt; (named principals) option is mandatory this time.&lt;/p&gt;
+				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; my_ca &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt; &amp;lt;user name&amp;gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; root,ubuntu id_rsa.pub
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;This will create a &lt;code class=&quot;highlighter-rouge&quot;&gt;id_rsa-cert.pub&lt;/code&gt; file under the current directory, which you want to send back to the user so they can use this signature to log in to servers.&lt;/p&gt;
+				&lt;p&gt;Contrary to host signatures, the SSH client doesn’t need extra configuration, because it automatically looks for the certificate file by appending &lt;code class=&quot;highlighter-rouge&quot;&gt;-cert.pub&lt;/code&gt; to the name of the private key. Again you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh -vvv&lt;/code&gt; to see what’s going on under the hood.&lt;/p&gt;
+				&lt;h3 id=&quot;separating-access-to-different-hosts&quot;&gt;Separating access to different hosts&lt;/h3&gt;
+				&lt;p&gt;As you’ve probably noticed, if you sign a user certificate with &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; being a listed principal, the corresponding private key can be used to log in as root on &lt;em&gt;ALL&lt;/em&gt; servers that trust the certificate authority. This is rarely a desired result, and you’re probably looking for a cure for the issue.&lt;/p&gt;
+				&lt;p&gt;Fortunately, SSH supports an “authorized principals” setting, which allows granting access to users with specific “principals”. In general, you want separate authorized principals for different users on hosts. Here’s what you can start with, by enabling this setting in &lt;code class=&quot;highlighter-rouge&quot;&gt;sshd_config&lt;/code&gt;:&lt;/p&gt;
+				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AuthorizedPrincipalsFile /etc/ssh/authorized_principals/%u
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;You can then create lists of authorized names for each user under &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/authorized_principals&lt;/code&gt;. For example, you can have the following lines in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/authorized_principals/root&lt;/code&gt;:&lt;/p&gt;
+				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;taokystrong
+				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+				&lt;p&gt;After reloading SSH server, users with a certificate containing &lt;code class=&quot;highlighter-rouge&quot;&gt;taokystrong&lt;/code&gt; as a listed principal (supplied by the &lt;code class=&quot;highlighter-rouge&quot;&gt;-n&lt;/code&gt; option when signing the certificate using &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt;) can log in as root on this host (and &lt;code class=&quot;highlighter-rouge&quot;&gt;taokystrong&lt;/code&gt; as well), but not any other user on this host, or the root user on any other server. Note that certificates signed for &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; can still log in as root on any servers that trust this CA.&lt;/p&gt;
+				&lt;div class=&quot;notice--primary&quot;&gt;
+				&lt;h4 id=&quot;good-practices&quot;&gt;Good practices&lt;/h4&gt;
+				&lt;p&gt;For personal uses, it’s perfectly fine to use one CA for both hosts and users, but in larger corporations with a complex server layout, it’s a general practice to use separate CAs for host authentication and user authentication.&lt;/p&gt;
+				&lt;/div&gt;
+				&lt;h2 id=&quot;other-tips&quot;&gt;Other tips&lt;/h2&gt;
+				&lt;p&gt;OpenSSH is a complicated and powerful SSH ecosystem. There are far more available options than those described in this article. For example, certificates can have a “validity period”, and the commands can also be limited (instead of granting a full shell).&lt;/p&gt;
+				&lt;p&gt;For more detailed and authoritative information about thses configuration, &lt;a href=&quot;https://linux.die.net/man/5/sshd_config&quot;&gt;the man page for &lt;code class=&quot;highlighter-rouge&quot;&gt;sshd_config&lt;/code&gt;&lt;/a&gt; is always a good point to look at.&lt;/p&gt;</content><author><name>iBug</name></author><category term="linux" /><category term="ssh" /><summary type="html">Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using Termux), and one of those servers that I use as a workstation.</summary></entry><entry><title type="html">How to change email of your Nvidia account</title><link href="https://ibugone.com/blog/2019/11/change-nvidia-account-email/" rel="alternate" type="text/html" title="How to change email of your Nvidia account" /><published>2019-11-22T00:00:00+00:00</published><updated>2019-12-09T17:48:34+00:00</updated><id>https://ibugone.com/blog/2019/11/change-nvidia-account-email</id><content type="html" xml:base="https://ibugone.com/blog/2019/11/change-nvidia-account-email/">&lt;p&gt;I recently retired a few old email addresses, and am currently going in a row to change email for accounts associated with those emails. Everything else went smoothly, with my Nvidia account being an exception - There wasn’t an option to change it!&lt;/p&gt;
 				&lt;p&gt;&lt;img src=&quot;/image/nv-account/main-page.png&quot; alt=&quot;no change option?!?&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;
 				&lt;p&gt;My first idea was to Google for solutions, and the first few results were on the GeForce forum saying you need to contact supprt. I did so, and ended up being told that emails can only be changed once per account, and there’s no more option to change it once more. What a terrible UX design!&lt;/p&gt;
 				&lt;p&gt;I decided to give it a try to work around this. I first created another account and checked where the [Change Email] was located. Not any hard.&lt;/p&gt;
@@ -624,135 +695,4 @@
 				&quot;Don't forget to share your feelings below if this works for you. Thanks for using!&quot;;
 				}
 				});
-				&lt;/script&gt;</content><author><name>iBug</name></author><category term="keygen" /><summary type="html">Supports Wolfram Mathematica 12.0</summary></entry><entry><title type="html">Build a minimal Linux system and run it in QEMU</title><link href="https://ibugone.com/blog/2019/04/os-lab-1/" rel="alternate" type="text/html" title="Build a minimal Linux system and run it in QEMU" /><published>2019-04-07T00:00:00+00:00</published><updated>2019-05-01T14:23:39+00:00</updated><id>https://ibugone.com/blog/2019/04/os-lab-1</id><content type="html" xml:base="https://ibugone.com/blog/2019/04/os-lab-1/">&lt;p&gt;Linux is the #1 open-source operating system nowadays, and many people are running a Linux distro, such as Ubuntu or Arch. Linux is also the most popular choice for a server OS.&lt;/p&gt;
-				&lt;p&gt;Building Linux from scratch is a good way to learn how it works, and is also a good practice for whoever wanting to learn about how operating systems work. And for me, the task of the first experiment of the course &lt;em&gt;Operating System Concepts&lt;/em&gt;.&lt;/p&gt;
-				&lt;h1 id=&quot;environment-setup&quot;&gt;Environment setup&lt;/h1&gt;
-				&lt;p&gt;The lab task is to build Linux &lt;strong&gt;2.6.26&lt;/strong&gt; and run it in &lt;a href=&quot;https://www.qemu.org/&quot;&gt;QEMU&lt;/a&gt;. For the most convenient setup, I recommend the 32-bit versions of &lt;strong&gt;Ubuntu 14.04&lt;/strong&gt; “&lt;em&gt;trusty&lt;/em&gt;” or &lt;strong&gt;Debian 7&lt;/strong&gt; “&lt;em&gt;wheezy&lt;/em&gt;”. If you prefer another Linux distro, make sure it comes with glibc of a version &lt;strong&gt;no newer than 2.19&lt;/strong&gt;. This is because glibc 2.20 requires Linux kernel 2.6.32, which supercedes our target version.&lt;/p&gt;
-				&lt;p&gt;There’s no need to install the base system physically if you don’t have one yet, as a &lt;a href=&quot;/p/15&quot;&gt;virtual machine&lt;/a&gt; will work perfectly well, and you can enjoy your Windows or Mac applications while the VM is running.&lt;/p&gt;
-				&lt;p&gt;Before we start this experiment, we need to have proper tools installed. On Ubuntu 14.04 or Debian 7, the following command will install all we need for this lab:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;build-essential libncurses5-dev qemu
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;ul&gt;
-				&lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;build-essential&lt;/code&gt; package, as suggested by its name, contains essential tools for building, such as binutils, C compiler and library, and automation tools like Make.&lt;/li&gt;
-				&lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;libncurses5-dev&lt;/code&gt; package provides header files for the &lt;a href=&quot;https://en.wikipedia.org/wiki/Ncurses&quot;&gt;New Curses&lt;/a&gt; library, which is used to display beautiful user interface in a text terminal. Many good-looking terminal programs use it, such as Vim or Emacs.&lt;/li&gt;
-				&lt;li&gt;QEMU is what we’ll be booting our Linux with - of course it’s needed&lt;/li&gt;
-				&lt;/ul&gt;
-				&lt;h1 id=&quot;building-the-linux-system&quot;&gt;Building the Linux system&lt;/h1&gt;
-				&lt;p&gt;Now we’re ready to build our own Linux. The first thing is the kernel.&lt;/p&gt;
-				&lt;h2 id=&quot;compiling-the-kernel&quot;&gt;Compiling the kernel&lt;/h2&gt;
-				&lt;p&gt;Download and extract the source code:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://mirrors.edge.kernel.org/pub/linux/kernel/v2.6/linux-2.6.26.tar.gz
-				&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf linux-2.6.26.tar.gz
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Next, generate the default configuration and build against that:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;linux-2.6.26
-				make i386_defconfig
-				make
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;You’ll likely encounter a few errors during the building process. Here are the fixes to two most common errors people encounter:&lt;/p&gt;
-				&lt;p&gt;The first one you’ll meet should look like this:&lt;/p&gt;
-				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcc: error: elf_x86_64: No such file or directory
-				make[1]: *** [arch/x86/vdso/vdso.so.dbg] Error 1
-				make: *** [arch/x86/vdso] Error 2
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;To fix this, open &lt;code class=&quot;highlighter-rouge&quot;&gt;arch/x86/vdso/Makefile&lt;/code&gt; in a text editor, such as Vim or gedit. Replace &lt;code class=&quot;highlighter-rouge&quot;&gt;-m elf_x86_64&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;-m64&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;-m elf_i386&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;-m32&lt;/code&gt;. Save the changes.&lt;/p&gt;
-				&lt;p&gt;The second one would be like this:&lt;/p&gt;
-				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;undefined reference to `__mutex_lock_slowpath'
-				undefined reference to `__mutex_unlock_slowpath'
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;To fix this, open &lt;code class=&quot;highlighter-rouge&quot;&gt;kernel/mutex.c&lt;/code&gt; and look for the above two functions. You’ll see them written like these:&lt;/p&gt;
-				&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noinline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__sched&lt;/span&gt;
-				&lt;span class=&quot;nf&quot;&gt;__mutex_lock_slowpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;atomic_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noinline&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__sched&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__mutex_unlock_slowpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;atomic_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Insert &lt;code class=&quot;highlighter-rouge&quot;&gt;__used&lt;/code&gt; after the keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;static&lt;/code&gt; in both cases, so they should end up looking like these:`&lt;/p&gt;
-				&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__used&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noinline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__sched&lt;/span&gt;
-				&lt;span class=&quot;nf&quot;&gt;__mutex_lock_slowpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;atomic_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__used&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noinline&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__sched&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__mutex_unlock_slowpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;atomic_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;For most people, fixing the above two things should enable the build process to complete without interrupts.&lt;/p&gt;
-				&lt;p&gt;That’s the kernel. Before we can boot it up, we need an initial filesystem, with some critical files for the system to be able to boot up.&lt;/p&gt;
-				&lt;p&gt;Here two options are presented. Although only one is necessary, I still recommend trying out both - for a better understanding how Linux works.&lt;/p&gt;
-				&lt;h2 id=&quot;preparing-the-root-filesystem---option-1-handcraft-init&quot;&gt;Preparing the root filesystem - Option 1: Handcraft init&lt;/h2&gt;
-				&lt;p&gt;With the first option, we will be creating a minimal program to serve as the “startup program”.&lt;/p&gt;
-				&lt;p&gt;Open your favorite text editor and write the following C program:&lt;/p&gt;
-				&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-				#include &amp;lt;unistd.h&amp;gt;
-				&lt;/span&gt;
-				&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Save it as &lt;code class=&quot;highlighter-rouge&quot;&gt;test.c&lt;/code&gt;, and run the following command to compile it:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcc &lt;span class=&quot;nt&quot;&gt;-static&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; init test.c
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Now you have the init program. You need to prepare the filesystem. The following commands will create an empty 4 MB image and mount it at &lt;code class=&quot;highlighter-rouge&quot;&gt;rootfs&lt;/code&gt;.&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;dd &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/dev/zero &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;myinitrd.img &lt;span class=&quot;nv&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4M &lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-				mkfs.ext3 myinitrd.img
-				&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;rootfs
-				&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mount &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; loop myinitrd.img rootfs
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Next, copy your init program into it, and create some device files as required:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;init rootfs/
-				&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;rootfs
-				&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;dev
-				&lt;span class=&quot;nb&quot;&gt;sudo mknod &lt;/span&gt;dev/ram b 1 0
-				&lt;span class=&quot;nb&quot;&gt;sudo mknod &lt;/span&gt;dev/console c 5 1
-				&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
-				umount rootfs
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;After having the linux kernel and the root filesystem ready, you can try booting it in QEMU:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-i386 &lt;span class=&quot;nt&quot;&gt;-kernel&lt;/span&gt; linux-2.6.26/arch/x86/boot/bzImage &lt;span class=&quot;nt&quot;&gt;-initrd&lt;/span&gt; myinitrd.img &lt;span class=&quot;nt&quot;&gt;--append&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;root=/dev/ram init=/init&quot;&lt;/span&gt;
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;You’ll see QEMU launching in a new window, with a lot of messages followed by the output of your init program, like this:&lt;/p&gt;
-				&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/7273074/55729166-341d6e80-5a48-11e9-8307-575b2c8c7cd0.png&quot; alt=&quot;QEMU Looks&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;
-				&lt;h2 id=&quot;preparing-the-root-filesystem---option-2-busybox&quot;&gt;Preparing the root filesystem - Option 2: BusyBox&lt;/h2&gt;
-				&lt;p&gt;The first option is just a minimal example of what a root filesystem should contain. It is, however, not quite function-rich.&lt;/p&gt;
-				&lt;p&gt;With &lt;a href=&quot;https://busybox.net/&quot;&gt;BusyBox&lt;/a&gt; that packs many common Unix &amp;amp; Linux utilities into one single binary, you’ll be able to create a mostly functional, yet still minimal Linux system.&lt;/p&gt;
-				&lt;p&gt;Busybox is available as source code so whoever need it can compile it themselves. Download the source code and configure it:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://busybox.net/downloads/busybox-1.30.1.tar.bz2
-				&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;jxvf busybox-1.30.1.tar.bz2
-				&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;busybox-1.30.1
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;You need to configure some build options so it best suits this lab. Run &lt;code class=&quot;highlighter-rouge&quot;&gt;make defconfig&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;make menuconfig&lt;/code&gt; to start. You’ll need to change at least four options as shown below. The first option is switched on and off with the space bar, and the second and the third one requires you to enter the string manually. Finally, the last one is a multiple choice. You should put the X on the desired option.&lt;/p&gt;
-				&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Settings –&amp;gt;
-				Build Options
-				[*] Build static binary（no share libs）
-				Settings –&amp;gt;
-				(-m32 -march=i386) Additional CFLAGS
-				(-m32) Additional LDFLAGS
-				Settings –&amp;gt;
-				What kind of applet links to install –&amp;gt;
-				(X) as soft-links
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;With the build properly configured, now you can run &lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;make install&lt;/code&gt; to build BusyBox and deploy your build. Installed files will appear under &lt;code class=&quot;highlighter-rouge&quot;&gt;_install&lt;/code&gt; directory inside &lt;code class=&quot;highlighter-rouge&quot;&gt;busybox-1.30.1&lt;/code&gt;.&lt;/p&gt;
-				&lt;p&gt;To be able to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;_install&lt;/code&gt; directory as a bootable root filesystem, you should create the special files identical to what’s there in Option 1.&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; dev
-				&lt;span class=&quot;nb&quot;&gt;sudo mknod &lt;/span&gt;dev/console c 5 1
-				&lt;span class=&quot;nb&quot;&gt;sudo mknod &lt;/span&gt;dev/ram b 1 0
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Next, you need a init program. This time we want to go the easy way with BusyBox, instead of writing a dummy one in C. Open your favorite text editor and type the following content:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
-				&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;### INIT SCRIPT ###&quot;&lt;/span&gt;
-				&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /proc /sys /tmp
-				mount &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; proc none /proc
-				mount &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; sysfs none /sys
-				mount &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; tmpfs none /tmp
-				&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;This boot took &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f1&lt;/span&gt; /proc/uptime&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; seconds&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-				&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; /bin/sh
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Save it with the name &lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt; under the directory &lt;code class=&quot;highlighter-rouge&quot;&gt;_install&lt;/code&gt;. Run &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod a+x init&lt;/code&gt; so it becomes executable.&lt;/p&gt;
-				&lt;p&gt;Now pack everything up as a ramdisk image. Make sure you’re inside &lt;code class=&quot;highlighter-rouge&quot;&gt;_install&lt;/code&gt; directory before running the following command:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | cpio &lt;span class=&quot;nt&quot;&gt;-0oH&lt;/span&gt; newc | &lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-9&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/initramfs.cpio.gz
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;There should be a new file &lt;code class=&quot;highlighter-rouge&quot;&gt;initramfs.cpio.gz&lt;/code&gt; in your home directory. You can now run QEMU with this new package:&lt;/p&gt;
-				&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-i386 &lt;span class=&quot;nt&quot;&gt;-kernel&lt;/span&gt; linux-2.6.26/arch/x86/boot/bzImage &lt;span class=&quot;nt&quot;&gt;-initrd&lt;/span&gt; ~/initramfs.cpio.gz &lt;span class=&quot;nt&quot;&gt;--append&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;root=/dev/ram init=/init&quot;&lt;/span&gt;
-				&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-				&lt;p&gt;Make sure the path to the Linux kernel is correct. Your path will likely vary depending on your procedure. You can always run &lt;code class=&quot;highlighter-rouge&quot;&gt;find ~ -name bzImage&lt;/code&gt; to see where it’s located.&lt;/p&gt;
-				&lt;p&gt;If everything’s going right, you’ll see the following screen in QEMU:&lt;/p&gt;
-				&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/7273074/55732852-464edb00-5a4f-11e9-8e2e-7208cceadf24.png&quot; alt=&quot;QEMU Looks&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;
-				&lt;p&gt;Congratulations! You’ve built your own Linux-from-Scratch and booted it in QEMU.&lt;/p&gt;
-				&lt;p&gt;There’s a second part of the original Lab 1 of &lt;em&gt;Operating System Concepts&lt;/em&gt;, which I will describe in a later article (or more likely, skipped &lt;code class=&quot;highlighter-rouge&quot;&gt;:)&lt;/code&gt;).&lt;/p&gt;</content><author><name>iBug</name></author><category term="study-notes" /><category term="linux" /><summary type="html">Linux is the #1 open-source operating system nowadays, and many people are running a Linux distro, such as Ubuntu or Arch. Linux is also the most popular choice for a server OS.</summary></entry></feed>
+				&lt;/script&gt;</content><author><name>iBug</name></author><category term="keygen" /><summary type="html">Supports Wolfram Mathematica 12.0</summary></entry></feed>

@@ -177,6 +177,10 @@
 			<lastmod>2019-12-09T17:48:34+00:00</lastmod>
 		</url>
 		<url>
+			<loc>https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/</loc>
+			<lastmod>2019-12-23T23:25:56+00:00</lastmod>
+		</url>
+		<url>
 			<loc>https://ibugone.com/project/OJSandbox/</loc>
 			<lastmod>2019-12-13T23:24:17+00:00</lastmod>
 		</url>
@@ -312,6 +316,9 @@
 		</url>
 		<url>
 			<loc>https://ibugone.com/tag/lifehack/</loc>
+		</url>
+		<url>
+			<loc>https://ibugone.com/tag/ssh/</loc>
 		</url>
 		<url>
 			<loc>https://ibugone.com/year/2009/</loc>
