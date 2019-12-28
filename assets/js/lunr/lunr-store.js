@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2019-12-26 10:26:07  \tCurrent time \t  \tSource Git revision \ta7799a1 iBug: Add no_toc to some blocks  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2019-12-28 14:05:51  \tCurrent time \t  \tSource Git revision \t9f809b0 iBug: Draft new article  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
