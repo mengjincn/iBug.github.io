@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-12-31T17:08:45+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug One</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">Managing servers with OpenSSH Certificate Authority</title><link href="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/" rel="alternate" type="text/html" title="Managing servers with OpenSSH Certificate Authority" /><published>2019-12-23T00:00:00+00:00</published><updated>2019-12-26T18:24:54+00:00</updated><id>https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca</id><content type="html" xml:base="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/">&lt;p&gt;Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using &lt;a href=&quot;https://termux.com/&quot;&gt;Termux&lt;/a&gt;), and one of those servers that I use as a workstation.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://ibugone.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ibugone.com/" rel="alternate" type="text/html" /><updated>2019-12-31T19:56:25+00:00</updated><id>https://ibugone.com/feed.xml</id><title type="html">iBug One</title><subtitle>The little personal site for iBug</subtitle><author><name>iBug</name></author><entry><title type="html">High-performance mass web crawling on AWS</title><link href="https://ibugone.com/blog/2019/12/mass-crawl-douban-with-aws/" rel="alternate" type="text/html" title="High-performance mass web crawling on AWS" /><published>2019-12-28T00:00:00+00:00</published><updated>2020-01-01T03:55:38+00:00</updated><id>https://ibugone.com/blog/2019/12/mass-crawl-douban-with-aws</id><content type="html" xml:base="https://ibugone.com/blog/2019/12/mass-crawl-douban-with-aws/">&lt;p&gt;The 3rd-and-last experiment of course &lt;em&gt;Web Information Processing&lt;/em&gt; and Application required us to create a recommendation engine, and “predict” the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.&lt;/p&gt;
+				&lt;p&gt;The interesting part is, all user and rating data are real, i.e. unmasked. This makes it possible to, instead of playing nicely by doing data analysis, crawl the target data directly, bypassing the aim of the experiment to learn about recommendation systems, which is exactly the way I chose and I’m going to describe in this article.&lt;/p&gt;
+				&lt;p&gt;To make things challenging, the target website, &lt;a href=&quot;https://www.douban.com/&quot;&gt;Douban&lt;/a&gt;, has a moderate level of anti-spider techniques in place. This makes it impossible to just submit a truckload of requests hoping to retrieve all data desired, but more advanced technologies and cleverer tactics are mandatory before pulling it off.&lt;/p&gt;
+				&lt;h2 id=&quot;part-1-scrapy-and-scrapinghub&quot;&gt;Part 1: Scrapy and ScrapingHub&lt;/h2&gt;
+				&lt;p&gt;Previously I’ve done crawlers using &lt;a href=&quot;https://2.python-requests.org/&quot;&gt;requests&lt;/a&gt; + &lt;a href=&quot;https://www.crummy.com/software/BeautifulSoup/&quot;&gt;Beautiful Soup&lt;/a&gt;, but this time under suggestions from my roommate, I decided to try it out with &lt;a href=&quot;https://scrapy.org/&quot;&gt;Scrapy&lt;/a&gt;, a said-to-be-great web crawling framework.&lt;/p&gt;
+				&lt;p&gt;Scrapy is a framework extremely easy to start with. I followed the guide on Scrapy’s website and wrote less than 30 lines of Python (&lt;a href=&quot;https://github.com/iBug/douban-spider/commit/8aead82&quot;&gt;commit&lt;/a&gt;), and the first version of my spider was ready to go.&lt;/p&gt;
+				&lt;p&gt;It didn’t take too long before I picked up on Douban’s anti-spider techniques. My server’s IP was banned (fortunately, only temporarily) and all requests to Douban were getting 403 responses.&lt;/p&gt;
+				&lt;p&gt;I fortuitously recalled that GitHub Student Pack provides an offer from &lt;a href=&quot;https://scrapinghub.com/&quot;&gt;ScrapingHub&lt;/a&gt;, the company behind Scrapy, containing one scraper unit, for free forever. Following their guide on deployment, I asked my teammate to modify my spider to adopt Scrapy’s project layout (&lt;a href=&quot;https://github.com/iBug/douban-spider/compare/cecbcfb..8eb1ff1&quot;&gt;commit&lt;/a&gt;), redeemed the Student Pack offer, and deployed my first scraper project onto ScrapingHub cloud.&lt;/p&gt;
+				&lt;figure&gt;
+				&lt;img src=&quot;/image/scrapinghub.png&quot; alt=&quot;ScrapingHub results&quot; /&gt;
+				&lt;figcaption&gt;
+				My job history on ScrapingHub, all of which are for this experiment
+				&lt;/figcaption&gt;
+				&lt;/figure&gt;
+				&lt;p&gt;ScrapingHub has forced AutoThrottle enabled for all jobs, so my first SH job survived for longer before it started receiving 403 responses. Looking at the stats, the job maintained its position for about 40 minutes, before signals of having its IP banned emerged. I updated the scraper a few times to include detections for more variations of indications of an IP ban, but never made it over an hour. And because I only attempted to avoid the IP ban by throttling and detecting, the actual “targets” contained in the code remained the same, which accounted for high duplication in crawled results in the first few runs, which in turn led to a quick drop in the increase of the submitted result (of this course experiment).&lt;/p&gt;
+				&lt;p&gt;Recalling that I had spare promotional credits from AWS Educate, I came up with the idea of utilizing the large IP pool of AWS, which has another advantage of the ease to swap out a banned one.&lt;/p&gt;
+				&lt;h2 id=&quot;part-2-expansion-onto-aws-distributed-crawling-with-centralized-management&quot;&gt;Part 2: Expansion onto AWS, distributed crawling with centralized management&lt;/h2&gt;
+				&lt;h2 id=&quot;part-3-redesigned-management-architecture-fine-grained-control-more-robust-and-faster&quot;&gt;Part 3: Redesigned management architecture, fine-grained control, more robust and faster&lt;/h2&gt;</content><author><name>iBug</name></author><category term="web-scraping" /><category term="aws" /><summary type="html">The 3rd-and-last experiment of course Web Information Processing and Application required us to create a recommendation engine, and “predict” the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.</summary></entry><entry><title type="html">Managing servers with OpenSSH Certificate Authority</title><link href="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/" rel="alternate" type="text/html" title="Managing servers with OpenSSH Certificate Authority" /><published>2019-12-23T00:00:00+00:00</published><updated>2019-12-26T18:24:54+00:00</updated><id>https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca</id><content type="html" xml:base="https://ibugone.com/blog/2019/12/manage-servers-with-ssh-ca/">&lt;p&gt;Since the addition of the website server for an external corporation, I now have 5 Linux servers to manage on my own. I also have 4 terminal devices that I use to connect to those servers: two of my laptops, my Android phone (using &lt;a href=&quot;https://termux.com/&quot;&gt;Termux&lt;/a&gt;), and one of those servers that I use as a workstation.&lt;/p&gt;
 				&lt;p&gt;Managing SSH keys has always been a headache for this many computers, as all of them on one side have to be updated of the new key whenever one on the other side changes or rotates its key. In case of a client key change, the new key must be uploaded to all servers. And in a worse case where the original key is lost, the uploading needs to be done with the help of another client (computer or phone), which is an additional layer of unnecessary complexity and cumber.&lt;/p&gt;
 				&lt;p&gt;Not until I took over a system of many servers did I learn about SSH CA. It’s for sure to the rescue!&lt;/p&gt;
 				&lt;h2 id=&quot;what-is-an-ssh-ca&quot;&gt;What is an SSH CA?&lt;/h2&gt;
@@ -612,87 +629,4 @@
 				&lt;p&gt;&lt;img src=&quot;/image/git-restore/8.png&quot; alt=&quot;image&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;
 				&lt;p&gt;Look! The new commit has the same SHA as the lost commit! So they’re the same commit now.&lt;/p&gt;
 				&lt;p&gt;Pushing the restored commit back happily:&lt;/p&gt;
-				&lt;p&gt;&lt;img src=&quot;/image/git-restore/9.png&quot; alt=&quot;image&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;</content><author><name>iBug</name></author><category term="git" /><category term="github" /><category term="study-notes" /><summary type="html">Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes, without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub. My friend pushed his work (1 commit) to it, and now it’s lost.</summary></entry><entry><title type="html">Wolfram Mathematica 12 Key Generator</title><link href="https://ibugone.com/blog/2019/05/mathematica-keygen/" rel="alternate" type="text/html" title="Wolfram Mathematica 12 Key Generator" /><published>2019-05-11T00:00:00+00:00</published><updated>2019-12-18T18:22:35+00:00</updated><id>https://ibugone.com/blog/2019/05/mathematica-keygen</id><content type="html" xml:base="https://ibugone.com/blog/2019/05/mathematica-keygen/">&lt;p&gt;&lt;strong&gt;Supports Wolfram Mathematica 12.0&lt;/strong&gt;&lt;/p&gt;
-				&lt;p&gt;Input your MathID (xxxx-xxxxx-xxxxx) and press &lt;strong&gt;Generate&lt;/strong&gt;.&lt;/p&gt;
-				&lt;p&gt;&lt;input type=&quot;text&quot; id=&quot;mathId&quot; placeholder=&quot;xxxx-xxxxx-xxxxx&quot; /&gt;&lt;/p&gt;
-				&lt;p&gt;&lt;button id=&quot;generate&quot; class=&quot;btn btn--primary&quot;&gt;Generate&lt;/button&gt;&lt;/p&gt;
-				&lt;p id=&quot;result&quot;&gt;Press &lt;b&gt;Generate&lt;/b&gt;!&lt;/p&gt;
-				&lt;script type=&quot;text/javascript&quot;&gt;
-				function f1(n, byte, c) {
-				for (var bitIndex = 0; bitIndex &lt;= 7; bitIndex++) {
-				var bit = (byte &gt;&gt; bitIndex) &amp; 1;
-				if (bit + ((n - bit) &amp; ~1) === n) {
-				n = (n - bit) &gt;&gt; 1;
-				} else {
-				n = ((c - bit) ^ n) &gt;&gt; 1;
-				}
-				}
-				return n;
-				}
-				function genPassword(str, hash) {
-				for (var byteIndex = str.length - 1; byteIndex &gt;= 0; byteIndex--) {
-				hash = f1(hash, str.charCodeAt(byteIndex), 0x105C3);
-				}
-				var n1 = 0;
-				while (f1(f1(hash, n1 &amp; 0xFF, 0x105C3), n1 &gt;&gt; 8, 0x105C3) !== 0xA5B6) {
-				if (++n1 &gt;= 0xFFFF) {
-				return &quot;Error&quot;;
-				}
-				}
-				n1 = Math.floor(((n1 + 0x72FA) &amp; 0xFFFF) * 99999.0 / 0xFFFF);
-				var n1str = (&quot;0000&quot; + n1.toString(10)).slice(-5);
-				var temp = parseInt(n1str.slice(0, -3) + n1str.slice(-2) + n1str.slice(-3, -2), 10);
-				temp = Math.ceil((temp / 99999.0) * 0xFFFF);
-				temp = f1(f1(0, temp &amp; 0xFF, 0x1064B), temp &gt;&gt; 8, 0x1064B);
-				for (byteIndex = str.length - 1; byteIndex &gt;= 0; byteIndex--) {
-				temp = f1(temp, str.charCodeAt(byteIndex), 0x1064B);
-				}
-				var n2 = 0;
-				while (f1(f1(temp, n2 &amp; 0xFF, 0x1064B), n2 &gt;&gt; 8, 0x1064B) !== 0xA5B6) {
-				if (++n2 &gt;= 0xFFFF) {
-				return &quot;Error&quot;;
-				}
-				}
-				n2 = Math.floor((n2 &amp; 0xFFFF) * 99999.0 / 0xFFFF);
-				var n2str = (&quot;0000&quot; + n2.toString(10)).slice(-5);
-				return n2str.charAt(3) + n1str.charAt(3) + n1str.charAt(1) + n1str.charAt(0) + &quot;-&quot;
-				+ n2str.charAt(4) + n1str.charAt(2) + n2str.charAt(0) + &quot;-&quot;
-				+ n2str.charAt(2) + n1str.charAt(4) + n2str.charAt(1) + &quot;::1&quot;;
-				}
-				function checkMathId(s) {
-				if (s.length != 16)
-				return false;
-				for (let i = 0; i &lt; s.length; i++) {
-				if (i === 4 || i === 10) {
-				if (s[i] !== &quot;-&quot;)
-				return false;
-				} else {
-				if (&quot;0123456789&quot;.search(s[i]) &lt; 0)
-				return false;
-				}
-				}
-				return true;
-				}
-				Array.prototype.getRandom = function () {
-				return this[Math.floor(Math.random() * this.length)]
-				}
-				document.getElementById(&quot;generate&quot;).addEventListener(&quot;click&quot;, function () {
-				var mathId = document.getElementById(&quot;mathId&quot;).value.trim();
-				if (!checkMathId(mathId)) {
-				document.getElementById(&quot;result&quot;).innerText = &quot;Bad MathID!&quot;;
-				} else {
-				activationKey = &quot;&quot;;
-				for (let i = 0; i &lt; 14; i++) {
-				activationKey += Math.floor(Math.random() * 10);
-				if (i === 3 || i === 7)
-				activationKey += &quot;-&quot;;
-				}
-				var magicNumbers = [10690, 12251, 17649, 24816, 33360, 35944, 36412, 42041, 42635, 44011, 53799, 56181, 58536, 59222, 61041];
-				var password = genPassword(mathId + &quot;$1&amp;&quot; + activationKey, magicNumbers.getRandom());
-				document.getElementById(&quot;result&quot;).innerText =
-				&quot;Activation Key: &quot; + activationKey + &quot;\n&quot; +
-				&quot;Password: &quot; + password + &quot;\n\n&quot; +
-				&quot;Don't forget to share your feelings below if this works for you. Thanks for using!&quot;;
-				}
-				});
-				&lt;/script&gt;</content><author><name>iBug</name></author><category term="keygen" /><summary type="html">Supports Wolfram Mathematica 12.0</summary></entry></feed>
+				&lt;p&gt;&lt;img src=&quot;/image/git-restore/9.png&quot; alt=&quot;image&quot; class=&quot;block&quot; /&gt;&lt;/p&gt;</content><author><name>iBug</name></author><category term="git" /><category term="github" /><category term="study-notes" /><summary type="html">Earlier today I force-pushed to my repository USTC-RV-Chisel for testing purposes, without noticing that my local ref origin/master is 1 commit behind the actual master on GitHub. My friend pushed his work (1 commit) to it, and now it’s lost.</summary></entry></feed>
