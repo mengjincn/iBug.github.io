@@ -19,7 +19,7 @@
 		<meta property="og:description" content="The 3rd-and-last experiment of course Web Information Processing and Application required us to create a recommendation engine, and “predict” the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-1.jpg">
 		<meta property="article:published_time" content="2019-12-28T00:00:00+00:00">
-		<meta property="article:modified_time" content="2020-01-02T15:33:23+00:00">
+		<meta property="article:modified_time" content="2020-01-02T15:50:31+00:00">
 		<link rel="canonical" href="https://ibugone.com/blog/2019/12/mass-crawl-douban-with-aws/">
 		<script type="application/ld+json">
 			{
@@ -192,10 +192,10 @@
 												<li><a href="#new-server-architecture">Pre-computed job pool and MySQL</a>
 													<ul>
 														<li><a href="#one-bad-bug-led-to-the-failure-of-the-previous-swarm">One bad bug led to the failure of the previous swarm</a></li>
+														<li><a href="#pre-computed-job-pool">Pre-computed job pool</a></li>
+														<li><a href="#an-rdbms-that-scales">An RDBMS that scales</a></li>
 													</ul>
 												</li>
-												<li><a href="#pre-computed-job-pool">Pre-computed job pool</a></li>
-												<li><a href="#an-rdbms-that-scales">An RDBMS that scales</a></li>
 												<li><a href="#continuous-refresh-of-banned-ips">Continuous refresh of banned IPs</a></li>
 												<li><a href="#part-3-results">Results</a></li>
 											</ul>
@@ -295,14 +295,31 @@
 							<h4 id="one-bad-bug-led-to-the-failure-of-the-previous-swarm">One bad bug led to the failure of the previous swarm</h4>
 							<p>In my first few “durability tests”, I discovered that Douban would send either a 403 or a 302 response when it detects unusual traffic. The former was easy to detect, but with Scrapy, 302 redirects are handled automatically, and I spent more than half an hour Googling just to disable this behavior. With <code class="highlighter-rouge">requests</code>, this is as simple as supplying <code class="highlighter-rouge">allow_redirect=False</code> to the request method, which then enables the simplicity of checking the status code of the response.</p>
 							<p>The true failure was, Douban actually sends 200 responses occasionally, with the HTML body containing a single line of JavaScript that redirects to another page, with the browser’s information supplied. I didn’t realize this until I noticed that this second-generation swarm gradually stopped working completely, and SSH-ed into one of the spider servers, and checked the program log. Because I treated 200 responses as success, the spiders would only find that there was no data items and “Next Page” links in the returned page, and thinking that this “page chain” had been completed.</p>
-							<h3 id="pre-computed-job-pool">Pre-computed job pool</h3>
+							<h4 id="pre-computed-job-pool">Pre-computed job pool</h4>
 							<p>Detecting this “new” kind of unwanted response was not hard, but it must be done. But the good thing is, I ditched the “pop-push” job pool design as well. This time I first ran a small bunch of spiders to crawl the Page 1 for all 20000 Douban users, extracted the total number of items from those pages, and computed the number of pages for each user, storing them into the database as the new job pool. No more jobs would be removed from the database, only marked as completed. This way I could easily discover failed jobs and re-enable them by flipping the “completed” flag manually by editing the database.</p>
-							<h3 id="an-rdbms-that-scales">An RDBMS that scales</h3>
+							<h4 id="an-rdbms-that-scales">An RDBMS that scales</h4>
 							<p>The 1st-gen control center used SQLite as its database engine. SQLite is a lightweight, easy-to-start database. The problem is, it’s a single-file DB engine, and <strong>doesn’t scale</strong>. I had millions of rows in the results table, and a large portion of responses when I try to query it using the <code class="highlighter-rouge">sqlite3</code> CLI utility (for analysis purposes) are “<em>Error: database is locked</em>”. The database also grows terribly, at more than 400 MB in size. Due to being constantly written to, I could even hardly make a copy of it without corruption. I had to do a <code class="highlighter-rouge">cp</code> command for 10 times before I could have an intact copy of the database for copying back to my computer for future analysis.</p>
 							<p>SQLite isn’t the right tool for millions of records, really.</p>
-							<p>MySQL is a better database engine that’s widely used in production, and I have some experiences with it.</p>
+							<p>MySQL is a better database engine that’s widely used in production, and I have some experiences with it, so it became an apparent option to switch to it. As Debian provides MariaDB as the replacement for MySQL, installation was straightforward. I the modified the code to adopt the new database.</p>
+							<p>A few points to note:</p>
+							<ul>
+								<li>Debian and its derivatives (including Ubuntu) uses the PyPI package <a href="https://pypi.org/project/mysqlclient/"><code class="highlighter-rouge">mysqlclient</code></a> to provide the package <code class="highlighter-rouge">python3-mysqldb</code>. It’s compatible with the now-abandoned <code class="highlighter-rouge">MySQLdb</code> package. Any code written for <code class="highlighter-rouge">MySQLdb</code> should remain unchanged, because even the import line remains as <code class="highlighter-rouge">import MySQLdb</code> instead of <code class="highlighter-rouge">import mysqlclient</code> (the latter will throw an <code class="highlighter-rouge">ImportError</code> for not finding the module).</li>
+								<li>The MySQL uses a connection-cursor architecture, so instead of calling <code class="highlighter-rouge">db.execute</code> and <code class="highlighter-rouge">db.fetch*</code> methods directly (as is the case with Python’s stock SQLite library), a cursor must be created first, and then <code class="highlighter-rouge">cursor.execute</code> and <code class="highlighter-rouge">cursor.fetch*</code> methods will be available. Similarly, cursors need separate closing than the DB connection itself.</li>
+								<li>
+									<p>The painful thing is that SQLite uses the question mark <code class="highlighter-rouge">?</code> as placeholder for query data (<a href="https://xkcd.com/327/">NEVER join database queries</a>), while MySQL uses <code class="highlighter-rouge">%s</code>. Compare the following code:</p>
+									<div class="language-sql highlighter-rouge">
+										<div class="highlight">
+											<pre class="highlight"><code><span class="n">SQLite</span><span class="p">:</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">records</span> <span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">rating</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">);</span>
+<span class="n">MySQL</span><span class="p">:</span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">records</span> <span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">rating</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">);</span>
+</code></pre>
+										</div>
+										    </div>
+									<p>It was somewhat frustrating to hunt for all those question marks and replacing them with <code class="highlighter-rouge">%s</code>’s when you can’t use text-based find-and-replace. Still, though, I managed to get this work done.</p>
+								</li>
+							</ul>
 							<h3 id="continuous-refresh-of-banned-ips">Continuous refresh of banned IPs</h3>
 							<h3 id="part-3-results">Results</h3>
+							<p>This new spider swarm achieved almost twice the speed of the old version, at a sustained rate of around 1,700 records per second, when the old version could only maintain a burst speed of 900 records per second, before quickly dropping to 500 records per second. What’s more satisfactory was that it was fault-tolerant, finally crawling 20.7M records (out of a total of 21.6M) before completely stopped working after around 12 hours.</p>
 						</section>
 						<footer class="page__meta">
 							<p class="page__taxonomy">
@@ -425,7 +442,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">b3ad8b1</a>
+					Site version <a href="/status" style="font-family: monospace;">27c83b9</a>
 				</div>
 			</footer>
 		</div>
