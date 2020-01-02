@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-01 20:11:11  \tCurrent time \t  \tSource Git revision \t2abe37e iBug: ...  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-02 05:28:45  \tCurrent time \t  \tSource Git revision \t6b1e633 iBug: ...  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -174,7 +174,7 @@ var store = [{
 "tags": ["study-notes","linux"],
 "url": "https://ibugone.com/blog/2019/04/os-lab-1/",
 "teaser":null},{
-"title": "Wolfram Mathematica 12 Key Generator",
+"title": "Wolfram Mathematica 12 Key Generator Online",
 "excerpt":"Supports Wolfram Mathematica 12.0   Input your MathID (xxxx-xxxxx-xxxxx) and press Generate.      Generate   Press Generate!     ","categories": [],
 "tags": ["keygen"],
 "url": "https://ibugone.com/blog/2019/05/mathematica-keygen/",
