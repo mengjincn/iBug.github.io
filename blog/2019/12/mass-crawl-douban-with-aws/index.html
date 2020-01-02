@@ -19,7 +19,7 @@
 		<meta property="og:description" content="The 3rd-and-last experiment of course Web Information Processing and Application required us to create a recommendation engine, and “predict” the rating (1-5 stars) for 4M user-item pairs based on the training data of 9M user-item pairs and a social network.">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-1.jpg">
 		<meta property="article:published_time" content="2019-12-28T00:00:00+00:00">
-		<meta property="article:modified_time" content="2020-01-03T01:49:15+00:00">
+		<meta property="article:modified_time" content="2020-01-03T01:52:07+00:00">
 		<link rel="canonical" href="https://ibugone.com/blog/2019/12/mass-crawl-douban-with-aws/">
 		<script type="application/ld+json">
 			{
@@ -191,12 +191,12 @@
 												<li><a href="#new-spider-architecture">Ditching Scrapy and reverting to requests + BeautifulSoup4</a></li>
 												<li><a href="#new-server-architecture">Pre-computed job pool and MySQL</a>
 													<ul>
-														<li><a href="#one-bad-bug-led-to-the-failure-of-the-previous-swarm">One bad bug led to the failure of the previous swarm</a></li>
-														<li><a href="#pre-computed-job-pool">Pre-computed job pool</a></li>
-														<li><a href="#an-rdbms-that-scales">An RDBMS that scales</a></li>
+														<li><a href="#unexpected-response">One bad bug led to the failure of the previous swarm</a></li>
+														<li><a href="#new-job-pool">Pre-computed job pool</a></li>
+														<li><a href="#switching-to-mysql">An RDBMS that scales</a></li>
 													</ul>
 												</li>
-												<li><a href="#continuous-refresh-of-banned-ips">Continuous refresh of banned IPs</a></li>
+												<li><a href="#refresh-ip">Continuous refresh of banned IPs</a></li>
 												<li><a href="#part-3-results">Results</a></li>
 											</ul>
 										</li>
@@ -293,12 +293,12 @@
 							<p>Previously when using Scrapy, I had to override its <code class="highlighter-rouge">start_requests</code> method to fetch jobs from the server, and because Scrapy handles concurrency, I could not control how frequently a client fetches jobs, which was, to be honest, messy. With requests and <code class="highlighter-rouge">threading</code>, I have full control over concurrency, and I can reliably decide or predict how many jobs should be fetched by a client before it “exhausts”.</p>
 							<h3 id="new-server-architecture">Pre-computed job pool and MySQL</h3>
 							<p>Another problem of the previous generation of my spider swarm was that rapid draining of the job pool always occurred too soon (after fetching ~500k records). This was actually a bug.</p>
-							<h4 id="one-bad-bug-led-to-the-failure-of-the-previous-swarm">One bad bug led to the failure of the previous swarm</h4>
+							<h4 id="unexpected-response">One bad bug led to the failure of the previous swarm</h4>
 							<p>In my first few “durability tests”, I discovered that Douban would send either a 403 or a 302 response when it detects unusual traffic. The former was easy to detect, but with Scrapy, 302 redirects are handled automatically, and I spent more than half an hour Googling just to disable this behavior. With <code class="highlighter-rouge">requests</code>, this is as simple as supplying <code class="highlighter-rouge">allow_redirect=False</code> to the request method, which then enables the simplicity of checking the status code of the response.</p>
 							<p>The true failure was, Douban actually sends 200 responses occasionally, with the HTML body containing a single line of JavaScript that redirects to another page, with the browser’s information supplied. I didn’t realize this until I noticed that this second-generation swarm gradually stopped working completely, and SSH-ed into one of the spider servers, and checked the program log. Because I treated 200 responses as success, the spiders would only find that there was no data items and “Next Page” links in the returned page, and thinking that this “page chain” had been completed.</p>
-							<h4 id="pre-computed-job-pool">Pre-computed job pool</h4>
+							<h4 id="new-job-pool">Pre-computed job pool</h4>
 							<p>Detecting this “new” kind of unwanted response was not hard, but it must be done. But the good thing is, I ditched the “pop-push” job pool design as well. This time I first ran a small bunch of spiders to crawl the Page 1 for all 20000 Douban users, extracted the total number of items from those pages, and computed the number of pages for each user, storing them into the database as the new job pool. No more jobs would be removed from the database, only marked as completed. This way I could easily discover failed jobs and re-enable them by flipping the “completed” flag manually by editing the database.</p>
-							<h4 id="an-rdbms-that-scales">An RDBMS that scales</h4>
+							<h4 id="switching-to-mysql">An RDBMS that scales</h4>
 							<p>The 1st-gen control center used SQLite as its database engine. SQLite is a lightweight, easy-to-start database. The problem is, it’s a single-file DB engine, and <strong>doesn’t scale</strong>. I had millions of rows in the results table, and a large portion of responses when I try to query it using the <code class="highlighter-rouge">sqlite3</code> CLI utility (for analysis purposes) are “<em>Error: database is locked</em>”. The database also grows terribly, at more than 400 MB in size. Due to being constantly written to, I could even hardly make a copy of it without corruption. I had to do a <code class="highlighter-rouge">cp</code> command for 10 times before I could have an intact copy of the database for copying back to my computer for future analysis.</p>
 							<p>SQLite isn’t the right tool for millions of records, really.</p>
 							<p>MySQL is a better database engine that’s widely used in production, and I have some experiences with it, so it became an apparent option to switch to it. As Debian provides MariaDB as the replacement for MySQL, installation was straightforward. I the modified the code to adopt the new database.</p>
@@ -318,7 +318,7 @@
 									<p>It was somewhat frustrating to hunt for all those question marks and replacing them with <code class="highlighter-rouge">%s</code>’s when you can’t use text-based find-and-replace. Still, though, I managed to get this work done.</p>
 								</li>
 							</ul>
-							<h3 id="continuous-refresh-of-banned-ips">Continuous refresh of banned IPs</h3>
+							<h3 id="refresh-ip">Continuous refresh of banned IPs</h3>
 							<p>As this time I made some changes to increase the aggregate crawl speed, it could be anticipated that IPs would be banned sooner than in the first generation, which rendered IP refreshing more important. I had already known that AWS provided an extensive REST API, as well as a powerful CLI utility <code class="highlighter-rouge">aws</code>.</p>
 							<p>I didn’t even need to install the <code class="highlighter-rouge">aws</code> CLI utility because it comes preinstalled on every AMI, so all that was needed was to create an IAM user and generate API credentials following the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">AWS official documentation</a>.</p>
 							<p>After figuring out all functionalities that I needed, I created a “runner script” that does everything automatically.</p>
@@ -505,7 +505,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">7d62583</a>
+					Site version <a href="/status" style="font-family: monospace;">19c2cb1</a>
 				</div>
 			</footer>
 		</div>
