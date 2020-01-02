@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-02 08:31:28  \tCurrent time \t  \tSource Git revision \t7f1ce22 iBug: Add images  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-02 08:59:38  \tCurrent time \t  \tSource Git revision \t57147ba iBug: Show in blog list  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
