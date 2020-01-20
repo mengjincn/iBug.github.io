@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-06 14:16:56  \tCurrent time \t  \tSource Git revision \tf0a4ab0 iBug: Restrict Font Awesome major version to 5  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-20 17:50:26  \tCurrent time \t  \tSource Git revision \t9d11908 iBug: Add links to shares  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -239,11 +239,6 @@ var store = [{
 "tags": [],
 "url": "https://ibugone.com/project/SmokeDetector/",
 "teaser":"https://ibugone.com/image/project/teaser/charcoal-se.png"},{
-"title": "USTC Virtualization Laboratory",
-"excerpt":"USTC Virtualization Laboratory (Vlab) is a unified course experiment platform involving code storage (GitLab CE) and experiment environment (virtual machines). Students log in to their accounts and manage or connect to their virtual machines, and can do course experiments anywhere without having to spin up messy environments on their own.   The VM manager itself is a Django app, and the front end utilizes Twitter Bootstrap. The VM backend currently consists of LXD and QEMU / libvirt / KVM, with storage part involving LVM and ZFS.   The Next Generation™ Vlab runs on Proxmox VE and is more sophisticated. It’s currently under construction.  ","categories": [],
-"tags": [],
-"url": "https://ibugone.com/project/vlab/",
-"teaser":"https://ibugone.com/image/project/teaser/cloud-computing.jpg"},{
 "title": "Chisel RISC-V",
 "excerpt":"A RISC-V-centric project aiming to pave the way for its application in school teaching, across several courses, including Introduction to Computer Systems (ICS), Computer Organization and Design (COD) and more. It consists of a RISC-V-based SoC design (hardware) and a full set of toolchain to compile C programs for the SoC, with the hope that this project will help joining many hardcore CS courses into one streamline of comprehension, greatly improve students’ understanding of CS principles and their competence in future research and careers.   It is currently under development.  ","categories": [],
 "tags": [],
@@ -279,6 +274,11 @@ var store = [{
 "tags": [],
 "url": "https://ibugone.com/project/pac-generator/",
 "teaser":"https://ibugone.com/image/project/teaser/default.png"},{
+"title": "USTC Virtualization Laboratory",
+"excerpt":"USTC Virtualization Laboratory (Vlab) is a unified course experiment platform involving code storage (GitLab CE) and experiment environment (virtual machines). Students log in to their accounts and manage or connect to their virtual machines, and can do course experiments anywhere without having to spin up messy environments on their own.   The VM manager itself is a Django app, and the front end utilizes Twitter Bootstrap. The VM backend currently consists of LXD and QEMU / libvirt / KVM, with storage part involving LVM and ZFS.   The Next Generation™ Vlab runs on Proxmox VE and is more sophisticated. It’s currently under construction.  ","categories": [],
+"tags": [],
+"url": "https://ibugone.com/project/vlab/",
+"teaser":"https://ibugone.com/image/project/teaser/cloud-computing.jpg"},{
 "title": "Jekyll Themes",
 "excerpt":"Minimal Mistakes by Michael Rose (, ) is the theme this site is using.   Other good themes I found beautiful:      Creative          Stylish Portfolio         ","categories": [],
 "tags": [],
