@@ -19,7 +19,7 @@
 		<meta property="og:description" content="本 PAC 生成器从 http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见这个 Issue。">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-2.jpg">
 		<meta property="article:published_time" content="2019-11-21T16:04:39+00:00">
-		<meta property="article:modified_time" content="2020-01-22T13:37:11+00:00">
+		<meta property="article:modified_time" content="2020-01-22T15:01:03+00:00">
 		<link rel="canonical" href="https://ibugone.com/project/pac-generator/">
 		<script type="application/ld+json">
 			{
@@ -215,7 +215,7 @@
 								  var codeReq = $.get(codeSource);
 								  $.when(dataReq, codeReq).then(function (dataObj, codeObj) {
 								    const timeString = new Date().toLocaleString("sv", {timeZoneName: "short"});
-								    let data = dataObj[0], output = codeObj[0].replace("@@TIME@@", timeString);
+								    let data = dataObj[0], code = codeObj[0].replace("@@TIME@@", timeString), output = code;
 								    output += "var CHINA = [\n";
 								    const lines = data.trim().split("\n");
 								    for (let i = 0; i < lines.length; i++) {
@@ -239,7 +239,7 @@
 								    if (compatMode) {
 								      output = output.replace("\"__PROXY__\"", "__PROXY__");
 								    }
-								    $("#result pre > code").text(output);
+								    $("#result pre > code").text(code + "var CHINA = [\n];");
 								    $("#download").removeClass("disabled");
 								    $("#download").attr("href", "data:application/octet-stream;charset=utf-8;base64," + btoa(output + "\n"));
 								  }, function (err) {
@@ -294,7 +294,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">18745f3</a>
+					Site version <a href="/status" style="font-family: monospace;">e76a141</a>
 				</div>
 			</footer>
 		</div>
