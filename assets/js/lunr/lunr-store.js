@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-22 07:01:50  \tCurrent time \t  \tSource Git revision \te76a141 iBug: Reduce page clutter by omitting large array content  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-22 07:11:35  \tCurrent time \t  \tSource Git revision \t179aadf iBug: PAC generator: Add star button  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
@@ -270,7 +270,7 @@ var store = [{
 "url": "https://ibugone.com/project/aurora-theme/",
 "teaser":"https://ibugone.com/image/project/teaser/aurora.jpg"},{
 "title": "PAC 生成器",
-"excerpt":"本 PAC 生成器从 http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见这个 Issue。   This PAC generator fetches latest IP address table from http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone and converts it into a PAC code suitable for proxies. For background, head over to this issue.   如果你有任何问题，欢迎在项目主仓库的 Issue 列表提出。   Any issue is welcome at the issue board of the master repository.   Update 1   Added support for an alternative source: https://github.com/17mon/china_ip_list. See this issue for details.       点下面的 [生成] 按钮 / Press [Generate]       生成 / Generate 下载 / Download     选项 / Settings     数据源 / Data source        http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone      https://github.com/17mon/china_ip_list      Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode (Beta)         ","categories": [],
+"excerpt":"本 PAC 生成器从 http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone 获取最新 IP 地址列表，并将其转换成适用于代理的 PAC 代码。详情请见这个 Issue。   This PAC generator fetches latest IP address table from http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone and converts it into a PAC code suitable for proxies. For background, head over to this issue.   如果你有任何问题，欢迎在项目主仓库的 Issue 列表提出。   Any issue is welcome at the issue board of the master repository.   Update 1   Added support for an alternative source: https://github.com/17mon/china_ip_list. See this issue for details.       点下面的 [生成] 按钮 / Press [Generate]       生成 / Generate 下载 / Download         选项 / Settings     数据源 / Data source        http://www.ipdeny.com/ipblocks/data/aggregated/cn-aggregated.zone      https://github.com/17mon/china_ip_list      Shadowsocks Windows 4.1.9 兼容模式 / compatibility mode (Beta)         ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/project/pac-generator/",
 "teaser":"https://ibugone.com/image/project/teaser/default.png"},{
