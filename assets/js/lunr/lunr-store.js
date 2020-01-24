@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-23 04:32:56  \tCurrent time \t  \tSource Git revision \te78dde3 iBug: Add update information  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-24 12:40:27  \tCurrent time \t  \tSource Git revision \te301270 iBug: Excertps are truncated too badly  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
