@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.18.0 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -9,14 +9,14 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- begin _includes/seo.html --><title>backTCP 实验报告 - iBug One</title>
-		<meta name="description" content="backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务">
+		<meta name="description" content="backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务 ">
 		<meta name="author" content="iBug">
 		<meta property="og:type" content="article">
 		<meta property="og:locale" content="en_US">
 		<meta property="og:site_name" content="iBug One">
 		<meta property="og:title" content="backTCP 实验报告">
 		<meta property="og:url" content="https://ibugone.com/cn/backTCP-report/">
-		<meta property="og:description" content="backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务">
+		<meta property="og:description" content="backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务 ">
 		<meta property="og:image" content="https://ibugone.com/image/header/cloud-1.jpg">
 		<meta property="article:published_time" content="2019-11-17T00:00:00+00:00">
 		<meta property="article:modified_time" content="2019-12-09T17:54:21+00:00">
@@ -191,8 +191,8 @@
 				<article class="page" itemscope itemtype="https://schema.org/CreativeWork">
 					<meta itemprop="headline" content="backTCP 实验报告">
 					<meta itemprop="description" content="backTCP 是中科大 2019 年秋季《计算机网络》课程的一次实验任务">
-					<meta itemprop="datePublished" content="November 17, 2019">
-					<meta itemprop="dateModified" content="December 09, 2019">
+					<meta itemprop="datePublished" content="2019-11-17T00:00:00+00:00">
+					<meta itemprop="dateModified" content="2019-12-09T17:54:21+00:00">
 					<div class="page__inner-wrap">
 						<section class="page__content" itemprop="text">
 							<aside class="sidebar__right sticky">
@@ -438,7 +438,7 @@
 							<p>根据控制台输出，可以看到，不论是直接传输还是经过测试信道“捣蛋”时的传输，都可以完整传输一个 150 KB 的文件。在有测试信道时，发送端和接收端都能正确检测丢包和乱序，并采取合适的措施确保接收到的数据块是完整的。同时接收端也能够使用 ACK 包头中的信息，让发送端仅传回丢失的包，然后从缓冲区中恢复完整的书架序列，说明选择重传的功能也正确工作。</p>
 						</section>
 						<footer class="page__meta">
-							<p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-09">December 09, 2019</time></p>
+							<p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-09">December 9, 2019</time></p>
 						</footer>
 						<section class="page__share">
 							<a href="https://twitter.com/intent/tweet?text=backTCP+%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%20https%3A%2F%2Fibugone.com%2Fcn%2FbackTCP-report%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
@@ -482,7 +482,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">0ce3616</a>
+					Site version <a href="/status" style="font-family: monospace;">10119f0</a>
 				</div>
 			</footer>
 		</div>
@@ -555,10 +555,10 @@
 		</script>
 		<script>
 			var disqus_config = function () {
-			  this.page.url = "https://ibugone.com/cn/backTCP-report/";  // Replace PAGE_URL with your page's canonical URL variable
-			  this.page.identifier = "/cn/backTCP-report"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			  this.page.url = "https://ibugone.com/cn/backTCP-report/";  /* Replace PAGE_URL with your page's canonical URL variable */
+			  this.page.identifier = "/cn/backTCP-report"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
 			};
-			(function() { // DON'T EDIT BELOW THIS LINE
+			(function() { /* DON'T EDIT BELOW THIS LINE */
 			  var d = document, s = d.createElement('script');
 			  s.src = 'https://ibugone.disqus.com/embed.js';
 			  s.setAttribute('data-timestamp', +new Date());
