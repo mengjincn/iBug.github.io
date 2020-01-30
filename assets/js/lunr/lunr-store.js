@@ -90,7 +90,7 @@ var store = [{
 "teaser":null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-30 07:50:36  \tCurrent time \t  \tSource Git revision \t781f66d iBug: Use mmistakes/jekyll-paginate-v2 as a workaround  Ref: sverrirs/jekyll-paginate-v2#170  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-30 14:03:09  \tCurrent time \t  \tSource Git revision \t0891779 iBug: Attempt to bypass GHA issue with Ruby 2.7  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null
