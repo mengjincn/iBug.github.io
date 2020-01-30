@@ -8,13 +8,14 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="utf-8">
-		<!-- begin _includes/seo.html --><title>iBug’s blog - 2 of 4 - iBug One - Page 2</title>
+		<!-- begin _includes/seo.html -->
+		<title>iBug’s blog - 2 of :max - iBug One - Page 2</title>
 		<meta name="description" content="All of iBug’s articles ">
 		<meta name="author" content="iBug">
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="en_US">
 		<meta property="og:site_name" content="iBug One">
-		<meta property="og:title" content="iBug’s blog - 2 of 4">
+		<meta property="og:title" content="iBug’s blog - 2 of :max">
 		<meta property="og:url" content="https://ibugone.com/blog/2/">
 		<meta property="og:description" content="All of iBug’s articles ">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-1.jpg">
@@ -67,7 +68,7 @@
 		<script type="text/javascript" async src="/assets/js/love.js"></script>
 		<!--
  Minimal Mistakes layout: home
- Page Path: .html
+ Page Path: blog/2/index.html
  Page Type: 
 -->
 	</head>
@@ -129,7 +130,7 @@
 >
 				<div class="wrapper">
 					<h1 id="page-title" class="page__title" itemprop="headline">
-						iBug’s blog - 2 of 4
+						iBug’s blog - 2 of :max
 					</h1>
 				</div>
 			</div>
@@ -290,6 +291,23 @@
 					<div class="list__item">
 						<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
 							<h2 class="archive__item-title" itemprop="headline">
+								<a href="/blog/2019/02/setup-ubuntu-in-vmware-cn/" rel="permalink">在 VMware Workstation 中安装 Ubuntu
+								</a>
+							</h2>
+							<p class="page__meta">
+								<span style="margin-right: 1em;">
+									<i class="far fa-calendar-alt" aria-hidden="true"></i> February 23, 2019
+								</span>
+								<i class="far fa-clock" aria-hidden="true"></i>
+								6 minute read
+							</p>
+							<p class="archive__item-excerpt" itemprop="description">There’s an English version of this article!
+							</p>
+						</article>
+					</div>
+					<div class="list__item">
+						<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+							<h2 class="archive__item-title" itemprop="headline">
 								<a href="/blog/2019/02/setup-ubuntu-in-vmware/" rel="permalink">Setting up Ubuntu in VMware Workstation
 								</a>
 							</h2>
@@ -304,27 +322,10 @@
 							</p>
 						</article>
 					</div>
-					<div class="list__item">
-						<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-							<h2 class="archive__item-title" itemprop="headline">
-								<a href="/blog/2019/02/ssh-into-lan-computer/" rel="permalink">Access your Raspberry Pi remotely with SSH
-								</a>
-							</h2>
-							<p class="page__meta">
-								<span style="margin-right: 1em;">
-									<i class="far fa-calendar-alt" aria-hidden="true"></i> February 13, 2019
-								</span>
-								<i class="far fa-clock" aria-hidden="true"></i>
-								3 minute read
-							</p>
-							<p class="archive__item-excerpt" itemprop="description">Do you have a personal server at home but can’t access it from work or travel because your home doesn’t have a public IP? If so, then, this article is what you’re looking for.
-							</p>
-						</article>
-					</div>
 					<nav class="pagination">
 						<ul>
-							<li><a href="/blog/">Previous</a></li>
-							<li><a href="/blog/">1</a></li>
+							<li><a href="/blog/:num/">Previous</a></li>
+							<li><a href="/blog/:num/">1</a></li>
 							<li><a href="/blog/2/" class="disabled current">2</a></li>
 							<li><a href="/blog/3/">3</a></li>
 							<li><a href="/blog/4/">4</a></li>
@@ -358,7 +359,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">3aa6c25</a>
+					Site version <a href="/status" style="font-family: monospace;">fd890e9</a>
 				</div>
 			</footer>
 		</div>
