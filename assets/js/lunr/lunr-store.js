@@ -75,7 +75,7 @@ var store = [{
 "url": "https://ibugone.com/small-projects/",
 "teaser":null},{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-01-30 06:48:53  \tCurrent time \t  \tSource Git revision \t295d11b iBug: Switch again to jsDelivr  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-01-30 06:52:45  \tCurrent time \t  \tSource Git revision \t3aa6c25 iBug: Revert &quot;Switch again to jsDelivr&quot;  This reverts commit 295d11b80973313cbb138b29b9d81678e7b7bd66.  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null},{
