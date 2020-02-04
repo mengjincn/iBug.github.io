@@ -90,7 +90,7 @@ var store = [{
 "teaser":null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-02-04 15:26:34  \tCurrent time \t  \tSource Git revision \tbdfd642 iBug: Bump back to 2.7  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-02-04 16:06:11  \tCurrent time \t  \tSource Git revision \t1bb7ef9 iBug: %d -&gt; %-d  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null
