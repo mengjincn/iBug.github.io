@@ -20,7 +20,7 @@
 		<meta property="og:description" content="For all of us who are learning to use or developing with MySQL or MariaDB, it’s a common task to manually log in to the database for inspection. This is usually done with the mysql command line client, and for sure it’s cumbersome to log in to the database using your application’s credentials. For convenience purposes, you would like to make your life easy by configuring the mysql CLI to NOT prompt you for a password each time. Here are three ways to do it on Linux. ">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-1.jpg">
 		<meta property="article:published_time" content="2020-02-04T00:00:00+00:00">
-		<meta property="article:modified_time" content="2020-02-04T23:11:42+00:00">
+		<meta property="article:modified_time" content="2020-02-04T23:21:02+00:00">
 		<link rel="canonical" href="https://ibugone.com/blog/2020/02/use-mysql-cli-without-password/">
 		<script type="application/ld+json">
 			{
@@ -169,7 +169,7 @@
 					<meta itemprop="headline" content="3 ways to use MySQL / MariaDB CLI without password">
 					<meta itemprop="description" content="For all of us who are learning to use or developing with MySQL or MariaDB, it’s a common task to manually log in to the database for inspection. This is usually done with the mysql command line client, and for sure it’s cumbersome to log in to the database using your application’s credentials. For convenience purposes, you would like to make your life easy by configuring the mysql CLI to NOT prompt you for a password each time. Here are three ways to do it on Linux.">
 					<meta itemprop="datePublished" content="2020-02-04T00:00:00+00:00">
-					<meta itemprop="dateModified" content="2020-02-04T23:11:42+00:00">
+					<meta itemprop="dateModified" content="2020-02-04T23:21:02+00:00">
 					<div class="page__inner-wrap">
 						<section class="page__content" itemprop="text">
 							<aside class="sidebar__right sticky">
@@ -185,7 +185,7 @@
 												<li><a href="#mariadb-makes-a-difference-here"> MariaDB makes a difference here!</a></li>
 											</ul>
 										</li>
-										<li><a href="#creating-and-granting-access-to-more-users">Creating and granting access to more users</a></li>
+										<li><a href="#-creating-and-granting-access-to-more-users"> Creating and granting access to more users</a></li>
 									</ul>
 								</nav>
 							</aside>
@@ -256,7 +256,7 @@
 							</div>
 							<p>After the user is set up properly, use the same <code class="highlighter-rouge">GRANT</code> query to grant access to yourself.</p>
 							<p>Now you can use <code class="highlighter-rouge">mysql</code> to manage your whole database without being prompted for password. You can safely delete <code class="highlighter-rouge">.my.cnf</code> if you created it following Method 2 and you don’t have other options in it. You can also try using <code class="highlighter-rouge">mysql -u&lt;your username&gt;</code> under another user and see it fail, to ensure that only <em>you</em> can access the database directly.</p>
-							<h2 id="creating-and-granting-access-to-more-users">Creating and granting access to more users</h2>
+							<h2 id="-creating-and-granting-access-to-more-users"><i class="fas fa-lightbulb"></i> Creating and granting access to more users</h2>
 							<p>If you want to create more users with your <code class="highlighter-rouge">mysql</code> command line, you’ll probably see this message:</p>
 							<div class="language-text highlighter-rouge">
 								<div class="highlight">
@@ -410,7 +410,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status" style="font-family: monospace;">738d17c</a>
+					Site version <a href="/status" style="font-family: monospace;">bdfd642</a>
 				</div>
 			</footer>
 		</div>
