@@ -90,7 +90,7 @@ var store = [{
 "teaser":null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-02-06 16:00:11  \tCurrent time \t  \tSource Git revision \ta5be3f7 iBug: Use Kramdown's &lt;dl&gt; markup  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-02-08 04:09:50  \tCurrent time \t  \tSource Git revision \t4935956 iBug: Bump Paginate V2 to 3.0.0  https://github.com/sverrirs/jekyll-paginate-v2/issues/170#issuecomment-583668234  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null
