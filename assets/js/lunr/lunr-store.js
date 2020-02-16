@@ -60,7 +60,7 @@ var store = [{
 "teaser":null
 },{
 "title": "Links",
-"excerpt":"课程主页（2019 年秋季学期）：      《微机原理》罗文坚：http://staff.ustc.edu.cn/~wjluo/mcps/   《编译原理》李诚（公告板）：http://210.45.114.30/gbxu/notice_board/issues/1 (课程主页)   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/   《Web 信息处理与应用》徐童：http://staff.ustc.edu.cn/~tongxu/webinfo  ","categories": [],
+"excerpt":"课程主页（2020 年春季学期）：           《数据库系统及应用》金培权：http://staff.ustc.edu.cn/~jpq/courses/db.html            《操作系统原理与设计 (H)》邢凯：https://osh-2020.github.io/       课程主页（2019 年秋季学期）：      《微机原理》罗文坚：http://staff.ustc.edu.cn/~wjluo/mcps/   《编译原理》李诚（公告板）：http://210.45.114.30/gbxu/notice_board/issues/1 (课程主页)   《算法基础》徐云：http://staff.ustc.edu.cn/~xuyun/algcs.htm   《计算机网络》杨盘隆：http://home.ustc.edu.cn/~chenzi/   《Web 信息处理与应用》徐童：http://staff.ustc.edu.cn/~tongxu/webinfo  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/links/",
 "teaser":null
@@ -90,7 +90,7 @@ var store = [{
 "teaser":null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-02-11 04:43:25  \tCurrent time \t  \tSource Git revision \ta205063 iBug: Revert &quot;posts: use mysql with docker&quot;  This reverts commit 95e697d3e21ec180ab63949ebab06f42496940f1.  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-02-16 10:15:18  \tCurrent time \t  \tSource Git revision \taf2097c iBug: Update links  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null
