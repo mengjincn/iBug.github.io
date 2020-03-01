@@ -90,7 +90,7 @@ var store = [{
 "teaser":null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-02-17 16:53:44  \tCurrent time \t  \tSource Git revision \ta15fd14 iBug: Ran 2019-08-14-speech-at-msc-2019.md through Grammarly  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \tThis site is deployed from GitHub Actions \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-01 16:13:02  \tCurrent time \t  \tSource Git revision \tf66c7c5 iBug: Can now get GitHub Actions run number from environment  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 115 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser":null
