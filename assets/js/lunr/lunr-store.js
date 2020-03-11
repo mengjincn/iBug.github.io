@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-11 18:50:02  \tCurrent time \t  \tSource Git revision \tc99f4d9 iBug: Update Gemfile  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 118 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-11 20:54:20  \tCurrent time \t  \tSource Git revision \tdd7b177 iBug: Add site version support for GHA / Circle / Travis  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 119 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
