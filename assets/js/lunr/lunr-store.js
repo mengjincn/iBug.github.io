@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-11 04:32:00  \tCurrent time \t  \tSource Git revision \te587618 iBug: Upgrade Minimal Mistakes to 4.19.0  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 116 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-11 17:02:50  \tCurrent time \t  \tSource Git revision \t033665c iBug: Integrate recent changes from upstream theme  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 117 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
