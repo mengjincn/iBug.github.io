@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-12 14:54:45  \tCurrent time \t  \tSource Git revision \tdb3fafa iBug: Downgrade sassc to 2.1  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 121 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-12 14:59:49  \tCurrent time \t  \tSource Git revision \ta84c3ef iBug: Build portable gem  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 122 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
