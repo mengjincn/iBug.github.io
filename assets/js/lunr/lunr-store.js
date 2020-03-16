@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-14 14:14:51  \tCurrent time \t  \tSource Git revision \t08ee43d iBug: Redirect readers to TUNA mirrors  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 123 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-16 13:27:20  \tCurrent time \t  \tSource Git revision \ta1541c0 iBug: Make too long TOC scroll  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 124 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
