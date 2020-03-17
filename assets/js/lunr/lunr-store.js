@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-16 13:27:20  \tCurrent time \t  \tSource Git revision \ta1541c0 iBug: Make too long TOC scroll  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 124 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-17 04:11:50  \tCurrent time \t  \tSource Git revision \t3feb4ae iBug: Update theme version to 4.19.1  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 125 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
