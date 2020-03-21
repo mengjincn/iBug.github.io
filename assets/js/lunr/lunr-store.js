@@ -48,7 +48,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Entertainment",
-"excerpt":"Games      Grand Theft Auto V - My first legal copy of game bought from Steam   Minecraft - Needs no explanation! (User ID: iBugOne)   Microsoft Solitaire Collection   I play MSC a lot so it is worth a dedicated section for description. (Xbox User ID: iBugOne)   Here are my stats:                                                                                        I particularly like FreeCell and I’ve finished all FC challanges in Star Club. The Expert level FC games are very enjoyable! I’m currently working on getting 100% on Pyramids challenges because it’s almost as fun.   Minesweeper   I started practicing Minesweeper when I was 15, and I can now complete a Hard board (30x16, 99 mines) within 3 minutes (personal best 162 sec). I also have the record of completing a Hard board without using flags on a touchscreen in less than 6 minutes.   To sum up, logical deduction is fun for me.   Movies &amp; TV      Mr. Bean series from the 1990s            I particularly like the scene where Mr. Bean drives off sitting on the roof of his Mini. (YouTube)           Johnny English, also by Rowan Atkinson   The Lion King (1994), not the 2019-refurbished version   The Big Bang Theory  ","categories": [],
+"excerpt":"Games      Grand Theft Auto V - My first legal copy of game bought from Steam   Minecraft - Needs no explanation! (User ID: iBugOne)   Microsoft Solitaire Collection   I play MSC a lot so it is worth a dedicated section for description. (Xbox User ID: iBugOne)   Here are my stats:                                                                                        I particularly like FreeCell and I’ve finished all FC challanges in Star Club. The Expert level FC games are very enjoyable! I’m currently working on getting 100% on Pyramids challenges because it’s almost as fun.   Minesweeper   I started practicing Minesweeper when I was 15, and I can now complete a Hard board (30x16, 99 mines) within 3 minutes (personal best 162 sec). I also have the record of completing a Hard board without using flags on a touchscreen in less than 6 minutes.   To sum up, logical deduction is fun for me.   Music      Mixtape - Barcella ()   Movies &amp; TV      Mr. Bean series from the 1990s            I particularly like the scene where Mr. Bean drives off sitting on the roof of his Mini. (YouTube)           Johnny English, also by Rowan Atkinson   The Lion King (1994), not the 2019-refurbished version   The Big Bang Theory  ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/entertainment/",
 "teaser": null
@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-17 04:11:50  \tCurrent time \t  \tSource Git revision \t3feb4ae iBug: Update theme version to 4.19.1  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 125 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-03-21 16:00:42  \tCurrent time \t  \tSource Git revision \t264e9e5 iBug: Add music  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 126 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
