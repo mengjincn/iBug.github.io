@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-03-21 16:00:42  \tCurrent time \t  \tSource Git revision \t264e9e5 iBug: Add music  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 126 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-04-04 15:25:21  \tCurrent time \t  \tSource Git revision \tf589673 iBug: Add Roboto webfont  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 127 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
