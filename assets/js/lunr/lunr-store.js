@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-04-07 13:56:06  \tCurrent time \t  \tSource Git revision \t90569fa iBug: Better spacing for TOC title area  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 128 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-04-07 18:35:52  \tCurrent time \t  \tSource Git revision \t79226b4 iBug: New article  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 129 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
