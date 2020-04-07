@@ -20,7 +20,7 @@
 		<meta property="og:description" content="OpenSSH 8.2 is coming to the latest Long-Term Service release of Ubuntu, Focal Fossa (20.04), and has some breaking changes for users using an SSH Certificate Authority. ">
 		<meta property="og:image" content="https://ibugone.com/image/header/mountain-1.jpg">
 		<meta property="article:published_time" content="2020-04-07T00:00:00+00:00">
-		<meta property="article:modified_time" content="2020-04-08T02:39:02+00:00">
+		<meta property="article:modified_time" content="2020-04-08T02:43:04+00:00">
 		<link rel="canonical" href="https://ibugone.com/blog/2020/04/ssh-8.2-rsa-ca/">
 		<script type="application/ld+json">
 			{
@@ -168,7 +168,7 @@
 					<meta itemprop="headline" content="Use RSA CA Certificates with OpenSSH 8.2">
 					<meta itemprop="description" content="OpenSSH 8.2 is coming to the latest Long-Term Service release of Ubuntu, Focal Fossa (20.04), and has some breaking changes for users using an SSH Certificate Authority.">
 					<meta itemprop="datePublished" content="2020-04-07T00:00:00+00:00">
-					<meta itemprop="dateModified" content="2020-04-08T02:39:02+00:00">
+					<meta itemprop="dateModified" content="2020-04-08T02:43:04+00:00">
 					<div class="page__inner-wrap">
 						<section class="page__content" itemprop="text">
 							<aside class="sidebar__right sticky">
@@ -179,10 +179,7 @@
 									</header>
 									<ul class="toc__menu">
 										<li><a href="#fix">Bring back the compatibility</a></li>
-										<li>
-											<a href="#new-certificate">Sign new certificates</a>
-											-  <a href="#good-news"> Good news</a>
-										</li>
+										<li><a href="#new-certificate">Sign new certificates</a></li>
 									</ul>
 								</nav>
 							</aside>
@@ -190,7 +187,8 @@
 							<p>With OpenSSH 8.1 or older, the default certificate type when signing with <code class="highlighter-rouge">ssh-keygen</code> is <code class="highlighter-rouge">ssh-rsa</code>, although ECDSA- and SHA2-based algorithms have been supported since OpenSSH 5.7. As cited in the <a href="https://www.openssh.com/txt/release-8.2">release notes</a>,</p>
 							<blockquote>
 								<p>It is now possible[1] to perform chosen-prefix attacks against the SHA-1 hash algorithm for less than USD$50K.</p>
-								<p>[1]: <em>SHA-1 is a Shambles: First Chosen-Prefix Collision on SHA-1 and Application to the PGP Web of Trust</em> Leurent, G and Peyrin, T (2020) <a href="https://eprint.iacr.org/2020/014.pdf">https://eprint.iacr.org/2020/014.pdf</a></p>
+								<p><sup>[1] <em>SHA-1 is a Shambles: First Chosen-Prefix Collision on SHA-1 and Application to the PGP Web of Trust</em><br>
+										Leurent, G and Peyrin, T (2020) <a href="https://eprint.iacr.org/2020/014.pdf">https://eprint.iacr.org/2020/014.pdf</a></sup></p>
 							</blockquote>
 							<p>So the SHA-1 based RSA certificate algorithm is no longer considered secure. As a result,</p>
 							<blockquote>
@@ -228,7 +226,7 @@
 							<p>If you want to fix this for all users on a system, you can add the same lines to <code class="highlighter-rouge">/etc/ssh/ssh_config</code> instead, which will affect all <code class="highlighter-rouge">ssh</code> commands run on that system. <strong>Remember this is still not recommended in favor of upgrating the signature algorithm.</strong></p>
 							<h2 id="new-certificate">Sign new certificates</h2>
 							<div class="notice--success">
-								<h4 id="good-news">
+								<h4 class="no_toc" id="good-news">
 									<i class="fas fa-fw fa-check"></i> Good news</h4>
 								<p>You don’t have to generate a new CA and deploy it everywhere. You can still use your RSA private key to generate new certificates for your machines, though it does require a little research first.</p>
 							</div>
@@ -403,7 +401,7 @@
 					<br>
 					<a href="/privacy-policy">Privacy Policy</a> | <a href="/sitemap.xml">Sitemap (XML)</a>
 					<br>
-					Site version <a href="/status">G-130</a>
+					Site version <a href="/status">G-131</a>
 				</div>
 			</footer>
 		</div>
