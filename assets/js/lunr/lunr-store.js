@@ -90,7 +90,7 @@ var store = [{
 "teaser": null
 },{
 "title": "Status",
-"excerpt":" \tBuild time \t2020-04-09 08:33:33  \tCurrent time \t  \tSource Git revision \t4790b0e iBug: .  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 133 \t    ","categories": [],
+"excerpt":" \tBuild time \t2020-04-13 13:20:57  \tCurrent time \t  \tSource Git revision \t0f341f4 iBug: Make left nav global  \t \t\tContinuous Integration \t\t \t\t \t\t \t \t \t\tThis site is deployed from GitHub Actions build 134 \t    ","categories": [],
 "tags": [],
 "url": "https://ibugone.com/status/",
 "teaser": null
